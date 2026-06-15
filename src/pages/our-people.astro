@@ -1,0 +1,637 @@
+---
+import Layout from '../layouts/Layout.astro';
+import QuoteBand from '../components/QuoteBand.astro';
+import CTASection from '../components/CTASection.astro';
+---
+
+<Layout
+  title="Our People"
+  description="Meet the team behind IICC Mission — the founder, mission leaders, spiritual advisors and coordinators united in bringing hope, dignity and restoration to communities worldwide."
+>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="page-hero-bg">
+      <img
+        src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&fit=crop&q=80"
+        alt="Our people united in mission"
+        loading="eager"
+      />
+      <div class="page-hero-overlay"></div>
+    </div>
+    <div class="page-hero-content">
+      <p class="section-label" style="margin-bottom:0.875rem">Our People</p>
+      <div class="gold-rule-left" style="margin-bottom:1.25rem"></div>
+      <h1 class="page-hero-title">Our People. United in Mission.</h1>
+      <div class="hero-scripture-block">
+        <p class="hero-scripture-quote">"For where two or three are gathered in my name, there am I in the midst of them."</p>
+        <span class="hero-scripture-ref">— Matthew 18:20</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDER & MISSION DIRECTOR -->
+  <section class="section-standard-offwhite">
+    <div class="container">
+      <div class="founder-featured-grid">
+        <div class="founder-featured-img-col">
+          <div class="founder-featured-img-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&fit=crop&q=80"
+              alt="Antonio G. Dattilo, Founder & Mission Director"
+              loading="lazy"
+              class="founder-featured-img"
+            />
+            <div class="founder-featured-img-badge">
+              <p class="founder-featured-img-badge-label">Founder &amp; Mission Director</p>
+            </div>
+          </div>
+          <div class="founder-pull-quote">
+            <div class="founder-pull-quote-mark">&ldquo;</div>
+            <blockquote class="founder-pull-quote-text">
+              I was in prison and you came to visit me.
+            </blockquote>
+            <cite class="founder-pull-quote-ref">— Matthew 25:36</cite>
+          </div>
+        </div>
+        <div class="founder-featured-text">
+          <p class="section-label">FOUNDER &amp; MISSION DIRECTOR</p>
+          <div class="gold-rule-left" style="margin:0.75rem 0 1.25rem"></div>
+          <h2 class="founder-featured-name">Antonio G. Dattilo</h2>
+          <p class="founder-featured-title-line">Founder &amp; Mission Director</p>
+          <p class="founder-featured-bio">
+            A personal journey through prison, faith and transformation inspired the creation of the IICC Mission. Out of a desire to bring hope, dignity and a second chance to those who feel forgotten, Antonio founded the mission to walk with prisoners, detainees, families and communities around the world.
+          </p>
+          <p class="founder-featured-bio">
+            Guided by the Gospel and the Church's teaching, he continues to serve with compassion and hope.
+          </p>
+          <a href="/our-story" class="learn-more-link" style="margin-top:1.25rem;display:inline-flex">READ THE FOUNDER STORY →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION LEADERSHIP TEAM -->
+  <section class="section-standard">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">MISSION LEADERSHIP TEAM</p>
+        <div class="gold-rule" style="margin:0.75rem auto 1.25rem"></div>
+        <h2 class="section-header-title">Dedicated Leaders. Faithful Hearts.</h2>
+        <p class="section-header-desc">Our coordinators bring their professional expertise and personal faith to every dimension of the mission.</p>
+      </div>
+      <div class="leadership-grid">
+        {[
+          {
+            name: 'Maria D\'Angelo',
+            role: 'International Mission Coordinator',
+            desc: 'Oversees the global mission strategy and partnerships across all countries.',
+            img: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&fit=crop&q=80',
+          },
+          {
+            name: 'Fr. Andrew Green',
+            role: 'Prison Ministry Coordinator',
+            desc: 'Leads prison ministry programs and the Walk With a Prisoner initiative.',
+            img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&fit=crop&q=80',
+          },
+          {
+            name: 'Dr. Grace Emmanuel',
+            role: 'Mental Health & Wellbeing Coordinator',
+            desc: 'Provides guidance and oversight for mental health programmes and counselling.',
+            img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&fit=crop&q=80',
+          },
+          {
+            name: 'Michael O\'Connor',
+            role: 'Volunteer & Community Coordinator',
+            desc: 'Supports and equips volunteers and community outreach initiatives.',
+            img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&fit=crop&q=80',
+          },
+          {
+            name: 'Catherine Berg',
+            role: 'Family Support Coordinator',
+            desc: 'Leads programs that assist families impacted by incarceration and crisis.',
+            img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&fit=crop&q=80',
+          },
+        ].map((person) => (
+          <div class="person-card card-hover">
+            <img src={person.img} alt={person.name} class="person-card-img" loading="lazy" />
+            <div class="person-card-body">
+              <h3 class="person-card-name">{person.name}</h3>
+              <p class="person-card-role">{person.role}</p>
+              <p class="person-card-desc">{person.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SPIRITUAL ADVISORS -->
+  <section class="section-standard-dark">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">SPIRITUAL ADVISORS</p>
+        <div class="gold-rule" style="margin:0.75rem auto 1.25rem"></div>
+        <h2 class="section-header-title section-header-title--white">Guided by Faith. Inspired by Wisdom.</h2>
+        <p class="section-header-desc" style="color:rgba(255,255,255,0.65)">Our spiritual advisors bring wisdom, pastoral experience and a deep love for the marginalised to the mission.</p>
+      </div>
+      <div class="advisors-grid">
+        {[
+          {
+            name: 'Cardinal George Pell',
+            role: 'Former Archbishop',
+            desc: 'A shepherd of truth and courage, whose support inspired this mission.',
+          },
+          {
+            name: 'Archbishop Peter A. Comensoli',
+            role: 'Spiritual Advisor',
+            desc: 'Archbishop of Melbourne, a chaplain close to the marginalised.',
+          },
+          {
+            name: 'Fr. James Mallon',
+            role: 'Spiritual Advisor',
+            desc: 'International speaker and author on parish renewal and evangelisation.',
+          },
+          {
+            name: 'Sr. Miriam James Heidland SOLT',
+            role: 'Spiritual Advisor',
+            desc: 'Keynote speaker and author of the Healing Together Podcast.',
+          },
+          {
+            name: 'Fr. Patrick Gonzalez',
+            role: 'Spiritual Advisor',
+            desc: 'Franciscan chaplain and advocate for restorative justice.',
+          },
+        ].map((adv) => (
+          <div class="advisor-card">
+            <div class="advisor-cross">✝</div>
+            <h3 class="advisor-name">{adv.name}</h3>
+            <p class="advisor-role">{adv.role}</p>
+            <div class="advisor-rule"></div>
+            <p class="advisor-desc">{adv.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- STATE MISSION LEADERS -->
+  <section class="section-standard">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">STATE MISSION LEADERS</p>
+        <div class="gold-rule" style="margin:0.75rem auto 1.25rem"></div>
+        <h2 class="section-header-title">One Mission. Five Nations.</h2>
+      </div>
+      <div class="state-leaders-grid">
+        {[
+          { flag: '🏛', name: 'Vatican City', title: 'Head Mission', city: '', desc: 'Guided in prayer from the heart of the Church.' },
+          { flag: '🇮🇹', name: 'Italy', title: 'State Mission', city: 'Rome', desc: 'Coordinating mission activities across Italy.' },
+          { flag: '🇦🇺', name: 'Australia', title: 'State Mission', city: 'Canberra', desc: 'Serving communities across Australia.' },
+          { flag: '🇺🇸', name: 'USA', title: 'State Mission', city: 'Washington D.C.', desc: 'Advancing mission initiatives across the United States.' },
+          { flag: '🇨🇦', name: 'Canada', title: 'State Mission', city: 'Ottawa', desc: 'Building hope and belonging across Canada.' },
+        ].map((sl) => (
+          <div class="state-leader-card">
+            <div class="state-leader-flag">{sl.flag}</div>
+            <div class="state-leader-body">
+              <p class="state-leader-country">{sl.name}</p>
+              <p class="state-leader-title">{sl.title}{sl.city ? ` — ${sl.city}` : ''}</p>
+              <p class="state-leader-desc">{sl.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- REGIONAL MISSION LEADERS -->
+  <section class="section-standard-offwhite">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">REGIONAL MISSION LEADERS</p>
+        <div class="gold-rule" style="margin:0.75rem auto 1.25rem"></div>
+        <h2 class="section-header-title">Reaching Every City. Serving Every Community.</h2>
+      </div>
+      <div class="regions-grid">
+        {[
+          {
+            flag: '🇮🇹',
+            country: 'Italy',
+            cities: ['Milan', 'Lamezia Terme', '(More regions coming soon)'],
+          },
+          {
+            flag: '🇦🇺',
+            country: 'Australia',
+            cities: ['Melbourne', 'Sydney', 'Brisbane', 'Adelaide', 'Perth', 'Hobart'],
+          },
+          {
+            flag: '🇺🇸',
+            country: 'USA',
+            cities: ['New York', 'Dallas', 'Minneapolis', '(More regions coming soon)'],
+          },
+          {
+            flag: '🇨🇦',
+            country: 'Canada',
+            cities: ['Toronto', 'Vancouver', 'Montreal', 'Alberta', '(More regions coming soon)'],
+          },
+        ].map((region) => (
+          <div class="region-card">
+            <div class="region-header">
+              <span class="region-flag">{region.flag}</span>
+              <h3 class="region-country">{region.country}</h3>
+            </div>
+            <ul class="region-cities">
+              {region.cities.map((city) => (
+                <li class={city.startsWith('(') ? 'region-city-more' : ''}>{city}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE BAND -->
+  <QuoteBand
+    quote="Together, we walk with hope. Together, we restore dignity. Together, we are one mission."
+    dark={true}
+  />
+
+  <!-- CTA BAND -->
+  <section class="join-band">
+    <div class="container">
+      <div class="join-inner">
+        <div class="join-text">
+          <p class="section-label">JOIN OUR MISSION</p>
+          <div class="gold-rule-left" style="margin:0.75rem 0 1.25rem"></div>
+          <h2 class="join-heading">We Are Always Looking for Faithful, Dedicated People</h2>
+          <p class="join-body">
+            You can be part of this mission of hope. Whether as a volunteer, ambassador, partner or supporter — there is a place for you here.
+          </p>
+        </div>
+        <div class="join-cta">
+          <a href="/get-involved" class="btn-primary" style="font-size:0.875rem;padding:1rem 2rem">GET INVOLVED →</a>
+          <a href="/contact" class="btn-outline" style="font-size:0.875rem;padding:1rem 2rem">CONTACT US →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* HERO SCRIPTURE */
+  .hero-scripture-block {
+    margin-top: 1.5rem;
+    max-width: 560px;
+    padding-left: 1rem;
+    border-left: 2px solid var(--color-gold);
+  }
+  .hero-scripture-quote {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: clamp(0.9375rem, 1.5vw, 1.0625rem);
+    color: rgba(255,255,255,0.85);
+    line-height: 1.65;
+    margin: 0 0 0.375rem;
+  }
+  .hero-scripture-ref {
+    font-family: var(--font-display);
+    font-size: 0.625rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+  }
+
+  /* FOUNDER FEATURED */
+  .founder-featured-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  @media (min-width: 768px) {
+    .founder-featured-grid {
+      grid-template-columns: 2fr 3fr;
+      align-items: center;
+    }
+  }
+
+  .founder-featured-img-wrap {
+    position: relative;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .founder-featured-img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+  }
+  @media (max-width: 767px) {
+    .founder-featured-img { height: 320px; }
+  }
+  .founder-featured-img-badge {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(18,26,56,0.9);
+    border-top: 2px solid var(--color-gold);
+    padding: 0.75rem 1rem;
+    backdrop-filter: blur(6px);
+  }
+  .founder-featured-img-badge-label {
+    font-family: var(--font-display);
+    font-size: 0.625rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin: 0;
+  }
+
+  .founder-pull-quote {
+    margin-top: 1.25rem;
+    background: var(--color-navy);
+    padding: 1.5rem 1.5rem 1.5rem 1.75rem;
+    border-left: 3px solid var(--color-gold);
+    position: relative;
+    border-radius: 2px;
+  }
+  .founder-pull-quote-mark {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    line-height: 1;
+    color: var(--color-gold);
+    opacity: 0.3;
+    position: absolute;
+    top: 0.5rem;
+    left: 0.875rem;
+    user-select: none;
+    pointer-events: none;
+  }
+  .founder-pull-quote-text {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1.0625rem;
+    color: white;
+    line-height: 1.65;
+    margin: 0 0 0.625rem;
+    position: relative;
+  }
+  .founder-pull-quote-ref {
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--color-gold);
+  }
+
+  .founder-featured-name {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    color: var(--color-navy);
+    margin: 0 0 0.375rem;
+  }
+  .founder-featured-title-line {
+    font-family: var(--font-display);
+    font-size: 0.6875rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-gold-dark);
+    margin-bottom: 1.5rem;
+  }
+  .founder-featured-bio {
+    font-size: 1.0625rem;
+    color: #4a4a4a;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  /* LEADERSHIP GRID */
+  .leadership-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  @media (min-width: 640px) {
+    .leadership-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 1024px) {
+    .leadership-grid { grid-template-columns: repeat(5, 1fr); }
+  }
+
+  /* ADVISORS */
+  .advisors-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  @media (min-width: 640px) {
+    .advisors-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 1024px) {
+    .advisors-grid { grid-template-columns: repeat(5, 1fr); }
+  }
+  .advisor-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,160,23,0.2);
+    border-top: 3px solid var(--color-gold);
+    padding: 1.75rem;
+    border-radius: 2px;
+    text-align: center;
+  }
+  .advisor-cross {
+    font-size: 1.5rem;
+    color: var(--color-gold);
+    opacity: 0.65;
+    display: block;
+    margin-bottom: 0.875rem;
+  }
+  .advisor-name {
+    font-family: var(--font-heading);
+    font-size: 1.0625rem;
+    color: white;
+    margin: 0 0 0.25rem;
+  }
+  .advisor-role {
+    font-family: var(--font-display);
+    font-size: 0.625rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin-bottom: 0.875rem;
+  }
+  .advisor-rule {
+    width: 2rem;
+    height: 1px;
+    background: rgba(201,160,23,0.35);
+    margin: 0 auto 0.875rem;
+  }
+  .advisor-desc {
+    font-size: 0.8125rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* STATE LEADERS */
+  .state-leaders-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  @media (min-width: 640px) {
+    .state-leaders-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 1024px) {
+    .state-leaders-grid { grid-template-columns: repeat(5, 1fr); }
+  }
+  .state-leader-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1.25rem;
+    border: 1px solid rgba(27,39,81,0.08);
+    border-top: 3px solid var(--color-gold);
+    background: white;
+    border-radius: 2px;
+  }
+  .state-leader-flag {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+    line-height: 1;
+  }
+  .state-leader-country {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-navy);
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+  .state-leader-title {
+    font-family: var(--font-display);
+    font-size: 0.625rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-gold-dark);
+    margin-bottom: 0.75rem;
+  }
+  .state-leader-desc {
+    font-size: 0.8125rem;
+    color: #5a5a6a;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* REGIONS */
+  .regions-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  @media (min-width: 640px) {
+    .regions-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 1024px) {
+    .regions-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+  .region-card {
+    background: white;
+    border: 1px solid rgba(27,39,81,0.08);
+    border-top: 3px solid var(--color-gold);
+    padding: 1.75rem;
+    border-radius: 2px;
+  }
+  .region-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  .region-flag { font-size: 1.5rem; line-height: 1; }
+  .region-country {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-navy);
+    font-weight: 700;
+    margin: 0;
+  }
+  .region-cities {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .region-cities li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: #4a4a4a;
+    line-height: 1.4;
+  }
+  .region-cities li::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--color-gold);
+    flex-shrink: 0;
+  }
+  .region-city-more {
+    color: #9a9aa8 !important;
+    font-style: italic;
+    font-size: 0.8125rem !important;
+  }
+  .region-city-more::before {
+    background: rgba(201,160,23,0.4) !important;
+  }
+
+  /* JOIN BAND */
+  .join-band {
+    padding: 5rem 0;
+    background: var(--color-navy);
+    border-top: 1px solid rgba(201,160,23,0.2);
+  }
+  .join-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+  @media (min-width: 768px) {
+    .join-inner { grid-template-columns: 1fr auto; gap: 4rem; }
+  }
+  .join-heading {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    color: white;
+    margin: 0 0 1rem;
+  }
+  .join-body {
+    font-size: 1.0625rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.75;
+    margin: 0;
+  }
+  .join-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex-shrink: 0;
+  }
+  @media (min-width: 480px) {
+    .join-cta { flex-direction: row; }
+  }
+  @media (min-width: 768px) {
+    .join-cta { flex-direction: column; min-width: 200px; }
+  }
+</style>

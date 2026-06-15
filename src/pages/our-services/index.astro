@@ -1,0 +1,446 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import QuoteBand from '../../components/QuoteBand.astro';
+import CTASection from '../../components/CTASection.astro';
+---
+
+<Layout
+  title="Our Services"
+  description="IICC Mission Services — Prison Ministry, Immigration Detention, Family Support, Mental Health & Wellbeing, Community Outreach."
+>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="page-hero-bg">
+      <img
+        src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1200&fit=crop&q=80"
+        alt="People helping together"
+        loading="eager"
+      />
+      <div class="page-hero-overlay"></div>
+    </div>
+    <div class="page-hero-content">
+      <p class="section-label">Our Services</p>
+      <div class="gold-rule-left" style="margin: 0.75rem 0 1.25rem;"></div>
+      <h1 class="page-hero-title">Serving People With Dignity And Hope</h1>
+      <p class="page-hero-subtitle">Every person deserves compassion, care and the chance to begin again.</p>
+      <a href="/contact" class="btn-primary">GET SUPPORT →</a>
+    </div>
+  </section>
+
+  <!-- SERVICE CARDS -->
+  <section class="section-standard">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">What We Do</p>
+        <div class="gold-rule"></div>
+        <h2 class="section-header-title" style="margin-top:1rem;">Our Programs & Services</h2>
+        <p class="section-header-desc">We serve the most vulnerable members of our communities with compassion, dignity and the transforming power of the Gospel.</p>
+      </div>
+      <div class="services-grid">
+
+        <!-- Prison Ministry -->
+        <article class="svc-card card-hover" id="prison-card">
+          <div class="svc-card-img">
+            <img src="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=600&fit=crop&q=80" alt="Prison Ministry" loading="lazy" />
+            <div class="svc-card-overlay"></div>
+          </div>
+          <div class="svc-card-body">
+            <p class="section-label">Ministry</p>
+            <h3 class="svc-card-title">Prison Ministry</h3>
+            <p class="svc-card-desc">Visiting prisoners, spiritual support, rehabilitation programs and the Walk With a Prisoner program.</p>
+            <ul class="svc-list">
+              <li>Chaplaincy visits</li>
+              <li>Spiritual care</li>
+              <li>Rehabilitation programs</li>
+              <li>Walk With a Prisoner</li>
+            </ul>
+            <a href="/our-services#prison" class="learn-more-link">LEARN MORE →</a>
+          </div>
+        </article>
+
+        <!-- Immigration Detention -->
+        <article class="svc-card card-hover">
+          <div class="svc-card-img">
+            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&fit=crop&q=80" alt="Immigration Detention Ministry" loading="lazy" />
+            <div class="svc-card-overlay"></div>
+          </div>
+          <div class="svc-card-body">
+            <p class="section-label">Ministry</p>
+            <h3 class="svc-card-title">Immigration Detention Ministry</h3>
+            <p class="svc-card-desc">Supporting detainees with pastoral care, advocacy and dignity in detention centres.</p>
+            <ul class="svc-list">
+              <li>Detention visits</li>
+              <li>Pastoral care</li>
+              <li>Advocacy &amp; legal referrals</li>
+              <li>Family assistance</li>
+            </ul>
+            <a href="/our-services/immigration-detention" class="learn-more-link">LEARN MORE →</a>
+          </div>
+        </article>
+
+        <!-- Abuse & DV Support -->
+        <article class="svc-card card-hover">
+          <div class="svc-card-img">
+            <img src="https://images.unsplash.com/photo-1511895426328-dc8714191011?w=600&fit=crop&q=80" alt="Abuse and Domestic Violence Support" loading="lazy" />
+            <div class="svc-card-overlay"></div>
+          </div>
+          <div class="svc-card-body">
+            <p class="section-label">Support</p>
+            <h3 class="svc-card-title">Abuse &amp; Domestic Violence Support</h3>
+            <p class="svc-card-desc">Safe space, counselling, advocacy and healing for individuals and families.</p>
+            <ul class="svc-list">
+              <li>Safe space</li>
+              <li>Professional counselling</li>
+              <li>Legal advocacy</li>
+              <li>Healing programs</li>
+            </ul>
+            <a href="/our-services#abuse" class="learn-more-link">LEARN MORE →</a>
+          </div>
+        </article>
+
+        <!-- Mental Health -->
+        <article class="svc-card card-hover">
+          <div class="svc-card-img">
+            <img src="https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?w=600&fit=crop&q=80" alt="Mental Health and Wellbeing" loading="lazy" />
+            <div class="svc-card-overlay"></div>
+          </div>
+          <div class="svc-card-body">
+            <p class="section-label">Wellbeing</p>
+            <h3 class="svc-card-title">Mental Health &amp; Wellbeing</h3>
+            <p class="svc-card-desc">Compassionate care, counselling and mental health support for individuals and families.</p>
+            <ul class="svc-list">
+              <li>Mental health assessments</li>
+              <li>Counselling</li>
+              <li>Support groups</li>
+              <li>Referral pathways</li>
+            </ul>
+            <a href="/our-services#mental-health" class="learn-more-link">LEARN MORE →</a>
+          </div>
+        </article>
+
+        <!-- Family Support -->
+        <article class="svc-card card-hover">
+          <div class="svc-card-img">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=600&fit=crop&q=80" alt="Family Support and Community Outreach" loading="lazy" />
+            <div class="svc-card-overlay"></div>
+          </div>
+          <div class="svc-card-body">
+            <p class="section-label">Community</p>
+            <h3 class="svc-card-title">Family Support &amp; Community Outreach</h3>
+            <p class="svc-card-desc">Strengthening families and communities with practical support and hope.</p>
+            <ul class="svc-list">
+              <li>Family counselling</li>
+              <li>Practical support</li>
+              <li>Community programs</li>
+              <li>Outreach</li>
+            </ul>
+            <a href="/our-services#family" class="learn-more-link">LEARN MORE →</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PRISON MINISTRY ANCHOR -->
+  <section class="section-standard-offwhite" id="prison">
+    <div class="container">
+      <div class="anchor-inner">
+        <div class="anchor-text">
+          <p class="section-label">Prison Ministry</p>
+          <div class="gold-rule-left" style="margin: 0.75rem 0 1.25rem;"></div>
+          <h2 class="anchor-heading">Walking Alongside Those Behind the Walls</h2>
+          <p class="anchor-desc">Our Prison Ministry brings the love and presence of Christ to men and women in correctional facilities. Through regular chaplaincy visits, spiritual care, pastoral support and rehabilitation programs, we affirm the dignity and worth of every person — regardless of their past. The Walk With a Prisoner program matches community volunteers with prisoners as companions on the journey of faith and rehabilitation, providing ongoing support during and after incarceration.</p>
+          <div class="anchor-offerings">
+            <div class="offer-item"><span class="offer-icon">✝</span><span>Chaplaincy visits to correctional facilities</span></div>
+            <div class="offer-item"><span class="offer-icon">🙏</span><span>Prayer, sacraments and spiritual direction</span></div>
+            <div class="offer-item"><span class="offer-icon">📚</span><span>Rehabilitation and formation programs</span></div>
+            <div class="offer-item"><span class="offer-icon">🤝</span><span>Walk With a Prisoner companion program</span></div>
+            <div class="offer-item"><span class="offer-icon">🏠</span><span>Post-release reintegration support</span></div>
+            <div class="offer-item"><span class="offer-icon">👨‍👩‍👧</span><span>Family support and communication assistance</span></div>
+          </div>
+          <div class="access-box">
+            <p class="access-heading">How to access this service</p>
+            <p class="access-text">To access our Prison Ministry services or refer someone in need, please <a href="/contact" class="access-link">contact our team</a>. We work with correctional facilities and families to connect people with the support they need.</p>
+          </div>
+        </div>
+        <div class="anchor-img-wrap">
+          <img src="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=600&fit=crop&q=80" alt="Prison Ministry" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABUSE & DV SUPPORT ANCHOR -->
+  <section class="section-standard" id="abuse">
+    <div class="container">
+      <div class="anchor-inner anchor-inner--reverse">
+        <div class="anchor-text">
+          <p class="section-label">Abuse &amp; Domestic Violence Support</p>
+          <div class="gold-rule-left" style="margin: 0.75rem 0 1.25rem;"></div>
+          <h2 class="anchor-heading">A Safe Space for Healing and Restoration</h2>
+          <p class="anchor-desc">We provide a compassionate, non-judgmental safe space for individuals and families affected by abuse and domestic violence. Our trained team offers professional counselling, legal advocacy, safety planning and healing programs rooted in dignity and the belief that restoration is possible. You are not alone — we will walk with you every step of the way.</p>
+          <div class="anchor-offerings">
+            <div class="offer-item"><span class="offer-icon">🏠</span><span>Safe space and emergency referrals</span></div>
+            <div class="offer-item"><span class="offer-icon">💙</span><span>Professional trauma-informed counselling</span></div>
+            <div class="offer-item"><span class="offer-icon">⚖</span><span>Legal advocacy and referrals</span></div>
+            <div class="offer-item"><span class="offer-icon">🌱</span><span>Healing and recovery programs</span></div>
+            <div class="offer-item"><span class="offer-icon">👨‍👩‍👧</span><span>Family support and safety planning</span></div>
+            <div class="offer-item"><span class="offer-icon">🤝</span><span>Peer support and community connections</span></div>
+          </div>
+          <div class="access-box">
+            <p class="access-heading">How to access this service</p>
+            <p class="access-text">If you or someone you know needs support, please <a href="/contact" class="access-link">reach out to us confidentially</a>. All disclosures are treated with the utmost care, sensitivity and respect.</p>
+          </div>
+        </div>
+        <div class="anchor-img-wrap">
+          <img src="https://images.unsplash.com/photo-1511895426328-dc8714191011?w=600&fit=crop&q=80" alt="Abuse and Domestic Violence Support" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENTAL HEALTH ANCHOR -->
+  <section class="section-standard-offwhite" id="mental-health">
+    <div class="container">
+      <div class="anchor-inner">
+        <div class="anchor-text">
+          <p class="section-label">Mental Health &amp; Wellbeing</p>
+          <div class="gold-rule-left" style="margin: 0.75rem 0 1.25rem;"></div>
+          <h2 class="anchor-heading">Compassionate Care for the Whole Person</h2>
+          <p class="anchor-desc">Mental health and wellbeing are central to human dignity. Our team provides compassionate, holistic mental health support for individuals, families and communities — including those in prison, detention, or experiencing homelessness. We combine professional clinical services with pastoral care, support groups and referral pathways to ensure every person receives the care they need.</p>
+          <div class="anchor-offerings">
+            <div class="offer-item"><span class="offer-icon">🧠</span><span>Mental health assessments and counselling</span></div>
+            <div class="offer-item"><span class="offer-icon">🤝</span><span>Peer support groups and community programs</span></div>
+            <div class="offer-item"><span class="offer-icon">💙</span><span>Trauma-informed care and therapy</span></div>
+            <div class="offer-item"><span class="offer-icon">🔗</span><span>Referral pathways to specialist services</span></div>
+            <div class="offer-item"><span class="offer-icon">✝</span><span>Pastoral and spiritual wellbeing support</span></div>
+            <div class="offer-item"><span class="offer-icon">📞</span><span>Crisis intervention and follow-up care</span></div>
+          </div>
+          <div class="access-box">
+            <p class="access-heading">How to access this service</p>
+            <p class="access-text">Mental health support is available to individuals and families. Please <a href="/contact" class="access-link">contact our team</a> to discuss how we can best support you or someone you care about.</p>
+          </div>
+        </div>
+        <div class="anchor-img-wrap">
+          <img src="https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?w=600&fit=crop&q=80" alt="Mental Health and Wellbeing" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAMILY SUPPORT ANCHOR -->
+  <section class="section-standard" id="family">
+    <div class="container">
+      <div class="anchor-inner anchor-inner--reverse">
+        <div class="anchor-text">
+          <p class="section-label">Family Support &amp; Community Outreach</p>
+          <div class="gold-rule-left" style="margin: 0.75rem 0 1.25rem;"></div>
+          <h2 class="anchor-heading">Strengthening Families, Building Communities</h2>
+          <p class="anchor-desc">Healthy families and strong communities are the foundation of a hopeful society. Our family support and community outreach programs provide practical assistance, counselling, education and connections that empower families to flourish. We partner with local churches, organisations and volunteers to extend the reach of hope and practical care to those who need it most.</p>
+          <div class="anchor-offerings">
+            <div class="offer-item"><span class="offer-icon">👨‍👩‍👧</span><span>Family counselling and mediation</span></div>
+            <div class="offer-item"><span class="offer-icon">🏠</span><span>Practical support — food, housing referrals</span></div>
+            <div class="offer-item"><span class="offer-icon">🌍</span><span>Community outreach and programs</span></div>
+            <div class="offer-item"><span class="offer-icon">📚</span><span>Education and parenting support</span></div>
+            <div class="offer-item"><span class="offer-icon">🤝</span><span>Volunteer mentoring and community connections</span></div>
+            <div class="offer-item"><span class="offer-icon">✝</span><span>Faith-based formation and support</span></div>
+          </div>
+          <div class="access-box">
+            <p class="access-heading">How to access this service</p>
+            <p class="access-text">Our community outreach programs are open to all. <a href="/contact" class="access-link">Contact us</a> to find out what support is available in your area or to refer a family in need.</p>
+          </div>
+        </div>
+        <div class="anchor-img-wrap">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=600&fit=crop&q=80" alt="Family Support and Community Outreach" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE BAND -->
+  <QuoteBand
+    quote="Every person deserves dignity, hope and a future. We are here to walk with you."
+    dark={true}
+  />
+
+  <!-- CTA -->
+  <CTASection
+    dark={true}
+    headline="Need Support? We Are Here For You."
+    subtext="Our team is ready to listen, support and walk alongside you."
+    buttons={[
+      { label: "Contact Us", href: "/contact", primary: true },
+      { label: "Get Involved", href: "/get-involved", primary: false },
+    ]}
+  />
+
+</Layout>
+
+<style>
+  /* SERVICE CARDS GRID */
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+  @media (min-width: 640px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 1024px) {
+    .services-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .svc-card {
+    background: white;
+    border: 1px solid rgba(27,39,81,0.08);
+    border-radius: 2px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .svc-card-img {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .svc-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  .svc-card:hover .svc-card-img img {
+    transform: scale(1.04);
+  }
+  .svc-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(18,26,56,0.55), transparent 60%);
+  }
+  .svc-card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 0.5rem;
+  }
+  .svc-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.125rem;
+    color: var(--color-navy);
+    margin: 0.25rem 0;
+    line-height: 1.25;
+  }
+  .svc-card-desc {
+    font-size: 0.9375rem;
+    color: #5a5a6a;
+    line-height: 1.65;
+    margin: 0;
+  }
+  .svc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    flex: 1;
+  }
+  .svc-list li {
+    font-size: 0.8125rem;
+    color: #4a4a5a;
+    padding-left: 1rem;
+    position: relative;
+  }
+  .svc-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color-gold);
+    font-size: 0.75rem;
+    top: 0.05em;
+  }
+
+  /* ANCHOR SECTIONS */
+  .anchor-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  @media (min-width: 768px) {
+    .anchor-inner { grid-template-columns: 3fr 2fr; }
+    .anchor-inner--reverse { grid-template-columns: 3fr 2fr; }
+    .anchor-inner--reverse .anchor-img-wrap { order: -1; }
+  }
+  .anchor-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 2.5vw, 2.125rem);
+    color: var(--color-navy);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  .anchor-desc {
+    font-size: 1.0625rem;
+    color: #4a4a4a;
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+  }
+  .anchor-offerings {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-bottom: 1.75rem;
+  }
+  .offer-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: #3a3a4a;
+  }
+  .offer-icon {
+    font-size: 1rem;
+    flex-shrink: 0;
+    margin-top: 0.05em;
+  }
+  .access-box {
+    background: var(--color-navy);
+    padding: 1.25rem 1.5rem;
+    border-left: 3px solid var(--color-gold);
+  }
+  .access-heading {
+    font-family: var(--font-body);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin-bottom: 0.5rem;
+  }
+  .access-text {
+    font-size: 0.9375rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.65;
+    margin: 0;
+  }
+  .access-link {
+    color: var(--color-gold);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .anchor-img-wrap {
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 16px 48px rgba(27,39,81,0.15);
+  }
+  .anchor-img-wrap img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    display: block;
+  }
+</style>

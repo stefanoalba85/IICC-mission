@@ -1,0 +1,386 @@
+---
+import Layout from '../layouts/Layout.astro';
+import QuoteBand from '../components/QuoteBand.astro';
+import CTASection from '../components/CTASection.astro';
+---
+
+<Layout
+  title="Our Story"
+  description="Discover the story behind IICC Mission — a personal journey of faith, lived experience and transformation that became a global mission of hope, healing and restoration."
+>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="page-hero-bg">
+      <img
+        src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1200&fit=crop&q=80"
+        alt="Light breaking through, a symbol of hope"
+        loading="eager"
+      />
+      <div class="page-hero-overlay"></div>
+    </div>
+    <div class="page-hero-content">
+      <p class="section-label" style="margin-bottom:0.875rem">Our Story</p>
+      <div class="gold-rule-left" style="margin-bottom:1.25rem"></div>
+      <h1 class="page-hero-title">A Journey That Became A Mission</h1>
+      <p class="page-hero-subtitle">Every mission begins with a moment of truth — a moment when you can no longer look away.</p>
+    </div>
+  </section>
+
+  <!-- THE BEGINNING -->
+  <section class="section-standard-offwhite">
+    <div class="container">
+      <div class="two-col">
+        <div class="beginning-text">
+          <p class="section-label">THE BEGINNING</p>
+          <div class="gold-rule-left" style="margin:0.75rem 0 1.25rem"></div>
+          <h2 class="beginning-heading">Born From Lived Experience</h2>
+          <p class="beginning-body">
+            The IICC Mission was created from a personal journey of challenge, faith and transformation. Through lived experience within the prison system, the Founder developed a unique understanding of the struggles faced by people behind the system and their families.
+          </p>
+          <p class="beginning-body">
+            This experience became a mission: To listen. To accompany. To restore hope.
+          </p>
+          <p class="beginning-signature">Antonio G. Dattilo</p>
+          <a href="/about" class="learn-more-link" style="margin-top:0.5rem;display:inline-flex">MEET THE FOUNDER →</a>
+        </div>
+        <div class="beginning-img-col">
+          <div class="beginning-img-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&fit=crop&q=80"
+              alt="The foundation of the mission"
+              loading="lazy"
+              class="beginning-img"
+            />
+            <div class="beginning-img-overlay">
+              <div class="beginning-img-quote">
+                <p>"To listen. To accompany.<br>To restore hope."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOURNEY TIMELINE -->
+  <section class="section-standard">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">THE JOURNEY</p>
+        <div class="gold-rule" style="margin:0.75rem auto 1.25rem"></div>
+        <h2 class="section-header-title">Four Steps That Shaped a Mission</h2>
+      </div>
+      <div class="timeline">
+        {[
+          {
+            step: '01',
+            title: 'Lived Experience',
+            desc: 'Real encounters with people in need — seeing the human face behind the system, the suffering behind the walls.',
+          },
+          {
+            step: '02',
+            title: 'Understanding',
+            desc: 'Seeing the system from the inside — grasping the depth of pain felt by individuals, families and communities.',
+          },
+          {
+            step: '03',
+            title: 'Service',
+            desc: 'Taking action with faith and compassion — walking alongside the forgotten and the marginalised.',
+          },
+          {
+            step: '04',
+            title: 'Hope',
+            desc: 'Building a movement of restoration — creating a mission that brings hope wherever it is needed most.',
+          },
+        ].map((item) => (
+          <div class="timeline-item">
+            <div class="timeline-step-num">{item.step}</div>
+            <div class="timeline-connector"></div>
+            <div class="timeline-content">
+              <h3 class="timeline-title">{item.title}</h3>
+              <p class="timeline-desc">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- THE MISSION CREATED -->
+  <section class="section-standard-offwhite">
+    <div class="container">
+      <div class="mission-created-grid">
+        <div class="mission-created-label-col">
+          <p class="section-label" style="writing-mode:vertical-rl;transform:rotate(180deg);letter-spacing:0.25em;white-space:nowrap">THE MISSION CREATED</p>
+        </div>
+        <div class="mission-created-text">
+          <div class="mission-created-border">
+            <h2 class="mission-created-heading">The Mission Was Created to Make a Meaningful Difference</h2>
+            <p class="mission-created-body">
+              The IICC Mission was born from real life experiences that revealed the need for compassion, reform and restoration. We understand the pain. We value dignity. We believe in second chances and in the power of hope.
+            </p>
+            <p class="mission-created-body">
+              The mission continues to grow, guided by the Gospel and the Church's teaching, and the passion to restore hope wherever it is needed most.
+            </p>
+            <a href="/mission" class="learn-more-link" style="margin-top:1.25rem;display:inline-flex">LEARN ABOUT OUR MISSION →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES THAT DRIVE US -->
+  <section class="section-standard-dark">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">VALUES THAT DRIVE US</p>
+        <div class="gold-rule" style="margin:0.75rem auto 1.25rem"></div>
+        <h2 class="section-header-title section-header-title--white">The Principles at the Heart of Everything</h2>
+      </div>
+      <div class="card-grid-3">
+        {[
+          {
+            word: 'COMPASSION',
+            text: 'We see Christ in every person we encounter. Every face carries a story that deserves to be heard with mercy and care.',
+          },
+          {
+            word: 'DIGNITY',
+            text: 'Every person deserves to be treated with respect, regardless of their past. Dignity is not earned — it is inherent.',
+          },
+          {
+            word: 'HOPE',
+            text: 'We believe in new beginnings for everyone. No situation is beyond the reach of God\'s love and the power of restoration.',
+          },
+        ].map((v) => (
+          <div class="info-card--dark">
+            <h3 class="values-word">{v.word}</h3>
+            <div class="values-rule"></div>
+            <p class="info-card-desc">{v.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE BAND -->
+  <QuoteBand
+    quote="A mission born from lived experience. A mission dedicated to restoring hope."
+    dark={true}
+  />
+
+  <!-- FINAL CTA -->
+  <CTASection
+    headline="Read the Founder's Story"
+    subtext="Discover how Antonio G. Dattilo's personal journey became the foundation for a global mission of hope."
+    buttons={[
+      { label: 'About Antonio G. Dattilo', href: '/about', primary: true },
+      { label: 'Join The Mission', href: '/get-involved', primary: false },
+    ]}
+    dark={false}
+  />
+
+</Layout>
+
+<style>
+  /* BEGINNING */
+  .beginning-heading {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    color: var(--color-navy);
+    margin: 0 0 1.25rem;
+  }
+  .beginning-body {
+    font-size: 1.0625rem;
+    color: #4a4a4a;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+  .beginning-signature {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 1.375rem;
+    color: var(--color-navy);
+    margin: 1.25rem 0 0.5rem;
+    opacity: 0.75;
+  }
+
+  .beginning-img-col {
+    order: -1;
+  }
+  @media (min-width: 768px) {
+    .beginning-img-col { order: unset; }
+  }
+  .beginning-img-wrap {
+    position: relative;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .beginning-img {
+    width: 100%;
+    height: 460px;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+  }
+  @media (max-width: 767px) {
+    .beginning-img { height: 280px; }
+  }
+  .beginning-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(18,26,56,0.85) 0%, transparent 50%);
+    display: flex;
+    align-items: flex-end;
+    padding: 1.5rem;
+  }
+  .beginning-img-quote p {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1rem;
+    color: white;
+    line-height: 1.6;
+    margin: 0;
+    border-left: 2px solid var(--color-gold);
+    padding-left: 0.875rem;
+  }
+
+  /* TIMELINE */
+  .timeline {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  @media (min-width: 768px) {
+    .timeline { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  .timeline-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    position: relative;
+  }
+
+  @media (max-width: 767px) {
+    .timeline-item {
+      flex-direction: row;
+      text-align: left;
+      align-items: flex-start;
+      gap: 1.25rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(201,160,23,0.15);
+    }
+    .timeline-item:last-child { border-bottom: none; }
+    .timeline-connector { display: none; }
+  }
+
+  .timeline-step-num {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-gold);
+    opacity: 0.5;
+    line-height: 1;
+    flex-shrink: 0;
+    margin-bottom: 0.75rem;
+  }
+  @media (max-width: 767px) {
+    .timeline-step-num { margin-bottom: 0; font-size: 2rem; }
+  }
+
+  .timeline-connector {
+    width: 2px;
+    height: 2rem;
+    background: var(--color-gold);
+    opacity: 0.35;
+    margin-bottom: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .timeline-connector {
+      width: calc(100% - 4rem);
+      height: 2px;
+      position: absolute;
+      top: calc(2rem + 1.25rem);
+      left: calc(50% + 2rem);
+    }
+    .timeline-item:last-child .timeline-connector { display: none; }
+  }
+
+  .timeline-title {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-navy);
+    margin-bottom: 0.625rem;
+  }
+  .timeline-desc {
+    font-size: 0.875rem;
+    color: #5a5a6a;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* MISSION CREATED */
+  .mission-created-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+  @media (min-width: 768px) {
+    .mission-created-grid {
+      grid-template-columns: 3rem 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+  }
+  .mission-created-label-col {
+    display: none;
+  }
+  @media (min-width: 768px) {
+    .mission-created-label-col {
+      display: flex;
+      justify-content: center;
+      padding: 2rem 0;
+    }
+  }
+  .mission-created-border {
+    border-left: 4px solid var(--color-gold);
+    padding-left: 2.5rem;
+  }
+  @media (max-width: 767px) {
+    .mission-created-border { padding-left: 1.5rem; }
+  }
+  .mission-created-heading {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    color: var(--color-navy);
+    margin: 0 0 1.25rem;
+  }
+  .mission-created-body {
+    font-size: 1.0625rem;
+    color: #4a4a4a;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+  .mission-created-body:last-of-type { margin-bottom: 0; }
+
+  /* VALUES */
+  .values-word {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    letter-spacing: 0.18em;
+    color: var(--color-gold);
+    margin: 0 0 0.875rem;
+    text-transform: uppercase;
+  }
+  .values-rule {
+    width: 2rem;
+    height: 1px;
+    background: rgba(201,160,23,0.4);
+    margin-bottom: 1rem;
+  }
+</style>
