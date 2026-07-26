@@ -1,0 +1,196 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const stories = [
+  { cat: 'PRISON MINISTRY', date: 'MAY 14, 2025', title: 'Hope Through a Letter: One Connection at a Time', desc: 'Our Hope Companions continue to bridge the gap between prisons and communities through the power of letters, prayers and encouragement.', img: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&h=260&fit=crop' },
+  { cat: 'DETENTION MINISTRY', date: 'MAY 12, 2025', title: 'Companionship Behind Detention Walls', desc: 'Volunteers visit immigration detention centres, offering listening ears, spiritual support and a reminder that no one is forgotten.', img: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=400&h=260&fit=crop' },
+  { cat: 'BAKERY OF HOPE', date: 'MAY 10, 2025', title: 'Bread of Hope: Changing Lives, One Loaf at a Time', desc: 'Our bakery initiative in Rome provides training and employment for former inmates, while supplying bread to those in need.', img: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=260&fit=crop' },
+  { cat: 'HOPE COMPANION PROGRAM', date: 'MAY 8, 2025', title: 'Training New Hope Companions', desc: 'Our latest training session equipped volunteers with the skills and heart needed to accompany with compassion and dignity.', img: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=260&fit=crop' },
+  { cat: 'HUMANITARIAN SUPPORT', date: 'MAY 6, 2025', title: 'Supporting Families in Need', desc: 'Thanks to our supporters, we delivered essential items to families of prisoners and detainees who are facing hardship.', img: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=400&h=260&fit=crop' },
+  { cat: 'FAITH & SPIRITUAL CARE', date: 'MAY 4, 2025', title: 'A Day of Prayer for Healing and Restoration', desc: 'Communities around the world united in prayer for those affected by incarceration, detention and separation.', img: 'https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=400&h=260&fit=crop' },
+  { cat: 'RESTORATION & REINTEGRATION', date: 'MAY 3, 2025', title: 'From Prison to Purpose', desc: 'A story of transformation and second chances. Meet Daniel, now mentoring others on their journey to rebuild.', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=260&fit=crop' },
+  { cat: 'MESSAGE OF HOPE', date: 'APR 30, 2025', title: 'Message of Hope from Pope Leo XIV', desc: 'The Holy Father reminds us to be instruments of mercy, justice and hope in the lives of the forgotten.', img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=260&fit=crop' },
+  { cat: 'COMMUNITY ENGAGEMENT', date: 'APR 28, 2025', title: 'Bringing Hope to Our Communities', desc: 'From awareness events to fundraising campaigns, we are raising our voice and making a difference together.', img: 'https://images.unsplash.com/photo-1531983412531-1f49a365ffed?w=400&h=260&fit=crop' },
+];
+
+const updates = [
+  { title: 'New Hope Companions Join the Mission', date: 'MAY 15, 2025', img: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=80&h=60&fit=crop' },
+  { title: 'Expansion of Bakery Project in Italy', date: 'MAY 13, 2025', img: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=80&h=60&fit=crop' },
+  { title: 'Visit to Youth Detention Centre', date: 'MAY 11, 2025', img: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=80&h=60&fit=crop' },
+  { title: 'Thank You to Our Generous Donors', date: 'MAY 9, 2025', img: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=80&h=60&fit=crop' },
+  { title: 'Advocacy for Justice and Dignity', date: 'MAY 7, 2025', img: 'https://images.unsplash.com/photo-1591189863345-0cc9f48e5a26?w=80&h=60&fit=crop' },
+];
+
+const events = [
+  { month: 'MAY', day: '24', title: 'Global Day of Prayer For Prisoners & Detainees', type: 'Online Event' },
+  { month: 'JUN', day: '07', title: 'Hope Companion Training Session', type: 'Rome, Italy' },
+  { month: 'JUN', day: '20', title: 'Fundraising Gala Dinner For the Mission', type: 'Melbourne, Australia' },
+];
+---
+<Layout title="News & Events — Mission News" description="Real stories. Real impact. Real hope. Stay up to date with the latest news, stories and milestones from IICC Mission.">
+
+  <!-- Hero split -->
+  <div class="hero-split" style="min-height:440px;">
+    <div class="hero-split__text" style="background:#fff;gap:1rem;">
+      <span class="eyebrow">Mission News</span>
+      <span class="rule rule--amber"></span>
+      <h1 style="font-family:var(--font-display);font-size:clamp(2.5rem,6vw,4.5rem);font-weight:900;line-height:1.05;text-transform:uppercase;">
+        <span style="color:var(--color-navy);">MISSION</span><br>
+        <span style="color:var(--color-amber);">NEWS</span>
+      </h1>
+      <p style="font-family:var(--font-heading);font-size:1.0625rem;color:var(--color-navy);font-weight:600;">Real stories. Real impact. Real hope.</p>
+      <p class="section-desc" style="max-width:none;">
+        Stay up to date with the latest news, stories and milestones from the IICC Mission and our global community of Hope Companions.
+      </p>
+      <p style="font-size:0.9375rem;color:var(--color-amber);font-weight:700;">Hope is growing. Join the movement.</p>
+    </div>
+    <div class="hero-split__photo" style="min-height:280px;">
+      <img
+        src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop"
+        alt="IICC Mission team in the community"
+      />
+      <div class="hero-split__quote">
+        <span class="hero-split__quote-mark">"</span>
+        <p class="hero-split__quote-text">I was in prison and you visited me. I was in detention and you came to me. Thank you for bringing hope.</p>
+        <span class="hero-split__quote-ref">— Matthew 25:36</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top Stories + Sidebar -->
+  <section class="section section--white">
+    <div class="wrap">
+      <div style="display:grid;grid-template-columns:1fr;gap:2.5rem;" class="news-layout">
+
+        <!-- Main content -->
+        <div>
+          <!-- Top Stories -->
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:0.5rem;">
+            <h2 style="font-family:var(--font-display);font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-navy);">TOP STORIES</h2>
+            <a href="#" style="font-size:0.75rem;font-weight:700;color:var(--color-amber);letter-spacing:0.1em;text-transform:uppercase;">VIEW ALL NEWS →</a>
+          </div>
+          <div class="grid-3" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr));margin-bottom:3rem;">
+            {stories.slice(0,3).map(s => (
+              <div class="photo-card">
+                <img class="photo-card__img" src={s.img} alt={s.title} />
+                <div class="photo-card__body">
+                  <span style="font-size:0.625rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-amber);display:inline-block;background:rgba(224,123,0,0.1);padding:0.2rem 0.5rem;border-radius:2px;margin-bottom:0.375rem;">{s.cat}</span>
+                  <p style="font-size:0.6875rem;color:var(--color-muted);margin-bottom:0.375rem;">{s.date}</p>
+                  <p class="photo-card__title">{s.title}</p>
+                  <p class="photo-card__desc">{s.desc}</p>
+                  <a href="#" class="photo-card__link">READ MORE →</a>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <!-- More News -->
+          <h2 style="font-family:var(--font-display);font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-navy);margin-bottom:1.5rem;">MORE NEWS &amp; STORIES</h2>
+          <div class="grid-3" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr));">
+            {stories.slice(3,9).map(s => (
+              <div class="photo-card">
+                <img class="photo-card__img" src={s.img} alt={s.title} />
+                <div class="photo-card__body">
+                  <span style="font-size:0.625rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-amber);display:inline-block;background:rgba(224,123,0,0.1);padding:0.2rem 0.5rem;border-radius:2px;margin-bottom:0.375rem;">{s.cat}</span>
+                  <p style="font-size:0.6875rem;color:var(--color-muted);margin-bottom:0.375rem;">{s.date}</p>
+                  <p class="photo-card__title">{s.title}</p>
+                  <p class="photo-card__desc">{s.desc}</p>
+                  <a href="#" class="photo-card__link">READ MORE →</a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside style="display:flex;flex-direction:column;gap:2rem;">
+
+          <!-- Latest Updates -->
+          <div>
+            <h3 style="font-family:var(--font-display);font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-navy);margin-bottom:0.5rem;">LATEST UPDATES</h3>
+            <span class="rule rule--amber" style="display:block;margin-bottom:1rem;"></span>
+            <div style="display:flex;flex-direction:column;gap:0.875rem;">
+              {updates.map(u => (
+                <a href="#" style="display:flex;align-items:flex-start;gap:0.75rem;text-decoration:none;">
+                  <img src={u.img} alt={u.title} style="width:60px;height:44px;object-fit:cover;border-radius:2px;flex-shrink:0;" />
+                  <div>
+                    <p style="font-size:0.8125rem;font-weight:600;color:var(--color-navy);line-height:1.4;margin-bottom:0.125rem;">{u.title}</p>
+                    <p style="font-size:0.6875rem;color:var(--color-muted);">{u.date}</p>
+                  </div>
+                </a>
+              ))}
+            </div>
+            <a href="#" style="display:block;margin-top:1rem;font-size:0.75rem;font-weight:700;color:var(--color-amber);letter-spacing:0.08em;text-transform:uppercase;">VIEW ALL UPDATES →</a>
+          </div>
+
+          <!-- Upcoming Events -->
+          <div>
+            <h3 style="font-family:var(--font-display);font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-navy);margin-bottom:0.5rem;">UPCOMING EVENTS</h3>
+            <span class="rule rule--amber" style="display:block;margin-bottom:1rem;"></span>
+            <div style="display:flex;flex-direction:column;gap:0.75rem;">
+              {events.map(e => (
+                <div style="display:flex;align-items:flex-start;gap:0.875rem;">
+                  <div style="background:var(--color-navy);border-radius:2px;padding:0.5rem 0.75rem;text-align:center;flex-shrink:0;min-width:50px;">
+                    <p style="font-size:0.5625rem;font-weight:700;letter-spacing:0.1em;color:var(--color-amber);text-transform:uppercase;">{e.month}</p>
+                    <p style="font-family:var(--font-heading);font-size:1.25rem;font-weight:700;color:#fff;line-height:1;">{e.day}</p>
+                  </div>
+                  <div>
+                    <p style="font-size:0.875rem;font-weight:600;color:var(--color-navy);line-height:1.4;margin-bottom:0.125rem;">{e.title}</p>
+                    <p style="font-size:0.75rem;color:var(--color-muted);">{e.type}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <a href="/events" style="display:block;margin-top:1rem;font-size:0.75rem;font-weight:700;color:var(--color-amber);letter-spacing:0.08em;text-transform:uppercase;">VIEW ALL EVENTS →</a>
+          </div>
+
+          <!-- Feature Story -->
+          <div>
+            <h3 style="font-family:var(--font-display);font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-navy);margin-bottom:0.5rem;">FEATURE STORY</h3>
+            <span class="rule rule--amber" style="display:block;margin-bottom:1rem;"></span>
+            <div style="border-radius:2px;overflow:hidden;border:1px solid rgba(27,39,81,0.08);">
+              <img
+                src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=400&h=200&fit=crop"
+                alt="Prison didn't break me. It built my purpose."
+                style="width:100%;height:140px;object-fit:cover;"
+              />
+              <div style="padding:1rem;">
+                <p style="font-family:var(--font-heading);font-size:0.9375rem;font-weight:700;color:var(--color-navy);margin-bottom:0.375rem;">Prison didn't break me. It built my purpose.</p>
+                <p style="font-size:0.8125rem;color:var(--color-muted);line-height:1.55;margin-bottom:0.75rem;">Antonio's journey from prison to becoming an Ambassador of Hope.</p>
+                <a href="/our-people/ambassador-founder" class="photo-card__link">READ THE FULL STORY →</a>
+              </div>
+            </div>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Stay Connected / Support band -->
+  <div style="background:var(--color-navy);padding-block:3rem;">
+    <div class="wrap" style="display:grid;grid-template-columns:1fr;gap:1.5rem;" class="news-cta-grid">
+      <div style="text-align:center;padding:1.5rem;border-right:1px solid rgba(255,255,255,0.1);">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--color-amber)" stroke-width="1.5" style="margin-bottom:1rem;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <h3 style="font-family:var(--font-display);font-size:0.875rem;letter-spacing:0.12em;text-transform:uppercase;color:#fff;margin-bottom:0.5rem;">STAY CONNECTED</h3>
+        <p style="font-size:0.875rem;color:rgba(255,255,255,0.65);margin-bottom:1.25rem;">Get the latest news, stories and updates delivered to your inbox.</p>
+        <a href="/get-involved#subscribe" class="btn btn--amber">SUBSCRIBE NOW ›</a>
+      </div>
+      <div style="text-align:center;padding:1.5rem;">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--color-amber)" stroke-width="1.5" style="margin-bottom:1rem;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <h3 style="font-family:var(--font-display);font-size:0.875rem;letter-spacing:0.12em;text-transform:uppercase;color:#fff;margin-bottom:0.5rem;">SUPPORT THE MISSION</h3>
+        <p style="font-size:0.875rem;color:rgba(255,255,255,0.65);margin-bottom:1.25rem;">Your support helps us share hope, restore dignity and change lives.</p>
+        <a href="/donate" class="btn btn--amber">DONATE NOW ›</a>
+      </div>
+    </div>
+  </div>
+
+</Layout>
+
+<style>
+  @media (min-width: 1024px) {
+    .news-layout { grid-template-columns: 1fr 300px !important; }
+    .news-cta-grid { grid-template-columns: 1fr 1fr !important; }
+  }
+</style>

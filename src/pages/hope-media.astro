@@ -1,546 +1,144 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import QuoteBand from '../components/QuoteBand.astro';
-import CTASection from '../components/CTASection.astro';
 ---
+<Layout title="Hope Media — IICC Mission" description="Stories of hope, transformation and faith — through video, podcasts, testimonials and news.">
 
-<Layout
-  title="Hope Media Channel"
-  description="Hope Media Channel — Sharing Stories of Faith, Hope And Restoration. HOPE gives strength. FAITH RESTORES."
->
-
-  <!-- HERO -->
-  <section class="page-hero">
-    <div class="page-hero-bg">
+  <!-- Hero split -->
+  <div class="hero-split" style="min-height:480px;">
+    <div class="hero-split__text" style="background:var(--color-navy-dark);gap:1.25rem;">
+      <span class="eyebrow eyebrow--white">Stories That Inspire</span>
+      <h1 style="font-family:var(--font-display);font-weight:900;text-transform:uppercase;line-height:1.05;">
+        <span style="display:block;color:#fff;font-size:clamp(2rem,5vw,3.5rem);">HOPE</span>
+        <span style="display:block;color:var(--color-amber);font-size:clamp(2rem,5vw,3.5rem);">MEDIA</span>
+      </h1>
+      <span class="rule rule--amber"></span>
+      <p style="font-family:var(--font-heading);font-size:clamp(1rem,2.5vw,1.25rem);color:rgba(255,255,255,0.85);line-height:1.6;">
+        Real stories. Real transformation. Real hope.
+      </p>
+    </div>
+    <div class="hero-split__photo" style="min-height:320px;">
       <img
-        src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=1200&fit=crop&q=80"
-        alt="Hope Media Channel"
-        loading="eager"
+        src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=800&h=600&fit=crop"
+        alt="Hope Media — microphone and camera"
       />
-      <div class="page-hero-overlay"></div>
     </div>
-    <div class="page-hero-content">
-      <p class="section-label">Hope Media Channel</p>
-      <div class="gold-rule-left" style="margin: 0.75rem 0 1.25rem;"></div>
-      <h1 class="page-hero-title">Sharing Stories Of Faith,<br>Hope And Restoration.</h1>
-      <p class="page-hero-subtitle">HOPE gives strength. FAITH RESTORES.</p>
-      <a href="#videos" class="btn-primary">WATCH. LISTEN. BE INSPIRED. →</a>
-    </div>
-  </section>
+  </div>
 
-  <!-- SECTION 1 — CONTENT CATEGORIES -->
-  <section class="section-standard">
-    <div class="container">
-      <div class="section-header">
-        <p class="section-label">OUR CONTENT — VOICES OF HOPE</p>
-        <div class="gold-rule" style="margin: 0.75rem auto 1rem;"></div>
-        <p class="section-header-desc">Real people. Real stories. Real transformation.</p>
+  <!-- Media types -->
+  <section class="section section--white">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:2.5rem;">
+        <span class="eyebrow">Our Media</span>
+        <span class="heart">♥</span>
+        <h2 class="section-title">BRINGING HOPE TO LIFE</h2>
+        <span class="rule rule--amber rule--center"></span>
+        <p class="section-desc" style="text-align:center;margin-inline:auto;margin-top:0.5rem;">
+          We tell stories that matter — from behind prison walls, from detention centres, from soup kitchens and from communities transformed by hope.
+        </p>
       </div>
-      <div class="category-grid">
-        <div class="info-card">
-          <span class="info-card-icon">🎙</span>
-          <h3 class="info-card-title">FOUNDER MESSAGES</h3>
-          <p class="info-card-desc">Messages from our Founder on faith, purpose and the mission.</p>
-        </div>
-        <div class="info-card">
-          <span class="info-card-icon">💬</span>
-          <h3 class="info-card-title">HOPE TALKS</h3>
-          <p class="info-card-desc">Inspirational talks on life, faith, compassion and restoration.</p>
-        </div>
-        <div class="info-card">
-          <span class="info-card-icon">🎤</span>
-          <h3 class="info-card-title">INTERVIEWS</h3>
-          <p class="info-card-desc">Conversations with leaders, professionals and people making a difference.</p>
-        </div>
-        <div class="info-card">
-          <span class="info-card-icon">✨</span>
-          <h3 class="info-card-title">STORIES OF TRANSFORMATION</h3>
-          <p class="info-card-desc">Powerful stories of change, healing and new beginnings.</p>
-        </div>
-        <div class="info-card">
-          <span class="info-card-icon">👨‍👩‍👧</span>
-          <h3 class="info-card-title">FAMILY MESSAGES</h3>
-          <p class="info-card-desc">Messages for families facing separation, hardship and uncertainty.</p>
-        </div>
-        <div class="info-card">
-          <span class="info-card-icon">📣</span>
-          <h3 class="info-card-title">ADVOCACY &amp; AWARENESS</h3>
-          <p class="info-card-desc">Raising awareness on important issues affecting individuals, families and communities.</p>
-        </div>
-        <div class="info-card">
-          <span class="info-card-icon">📹</span>
-          <h3 class="info-card-title">VIDEO LIBRARY</h3>
-          <p class="info-card-desc">Explore our library of videos, talks, reflections and special programs.</p>
-        </div>
+      <div class="grid-4" style="margin-bottom:2rem;">
+        {[
+          { icon: '🎬', title: 'Videos', desc: 'Watch testimonials, mission highlights and interviews with the people behind the work.' },
+          { icon: '🎙️', title: 'Podcasts', desc: 'Listen to conversations on faith, justice, restoration and hope in unexpected places.' },
+          { icon: '📖', title: 'Testimonials', desc: 'Read first-hand stories of transformation from inmates, families and volunteers.' },
+          { icon: '📰', title: 'News & Articles', desc: 'Stay informed on our latest mission updates, advocacy campaigns and community events.' },
+        ].map(c => (
+          <div class="card" style="align-items:center;text-align:center;">
+            <div class="card__icon card__icon--filled" style="font-size:1.125rem;">{c.icon}</div>
+            <p class="card__title">{c.title}</p>
+            <p class="card__body">{c.desc}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- SECTION 2 — FEATURED VIDEO -->
-  <section class="section-standard-dark" id="videos">
-    <div class="container">
-      <div class="section-header">
-        <p class="section-label">FEATURED</p>
-        <div class="gold-rule" style="margin: 0.75rem auto 0;"></div>
+  <!-- Featured Stories -->
+  <section class="section section--offwhite">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:2.5rem;">
+        <span class="eyebrow">Featured</span>
+        <h2 class="section-title">STORIES OF HOPE</h2>
+        <span class="rule rule--amber rule--center"></span>
       </div>
-      <div class="featured-video-wrap">
-        <div class="featured-video-player">
-          <img
-            src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=1200&fit=crop&q=80"
-            alt="Hope Begins With You"
-            loading="lazy"
-          />
-          <div class="featured-video-overlay"></div>
-          <button class="play-btn" aria-label="Play video">
-            <span class="play-triangle"></span>
-          </button>
-          <div class="duration-badge">08:24</div>
-        </div>
-        <div class="featured-video-meta">
-          <p class="video-category-tag">HOPE TALKS</p>
-          <h2 class="featured-video-title">Hope Begins With You</h2>
-          <p class="featured-video-desc">A message of hope, faith and the power of a new beginning.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 3 — LATEST VIDEOS -->
-  <section class="section-standard-offwhite">
-    <div class="container">
-      <div class="section-header">
-        <p class="section-label">LATEST VIDEOS</p>
-        <div class="gold-rule" style="margin: 0.75rem auto 0;"></div>
-      </div>
-      <div class="card-grid-4" style="margin-top: 2.5rem;">
-
-        <!-- Card 1 -->
-        <div class="video-card card-hover">
-          <div class="video-thumb-wrap">
-            <img
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&fit=crop&q=80"
-              alt="Faith In The Midst Of Challenges"
-              loading="lazy"
-            />
-            <div class="video-thumb-overlay"></div>
-            <div class="play-btn-sm" aria-hidden="true">
-              <span class="play-triangle-sm"></span>
+      <div class="grid-3">
+        {[
+          {
+            img: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&h=400&fit=crop',
+            cat: 'Testimonial',
+            title: '"God Found Me Behind Bars"',
+            desc: 'Marco shares how a pastoral visit changed his life and set him on a path of transformation and purpose.',
+          },
+          {
+            img: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&h=400&fit=crop',
+            cat: 'Mission Story',
+            title: 'Walking With Detainees at Christmas',
+            desc: 'Our team brought prayer, gifts and the presence of Christ to immigration detainees far from home.',
+          },
+          {
+            img: 'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600&h=400&fit=crop',
+            cat: 'Advocacy',
+            title: 'Raising Voices for Reform',
+            desc: 'Ambassador Dattilo meets with policymakers to advocate for humane treatment in Australia\'s detention system.',
+          },
+          {
+            img: 'https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=600&h=400&fit=crop',
+            cat: 'Community',
+            title: 'Bread, Soup and Dignity',
+            desc: 'Francis Bakery feeds hundreds of homeless people every week — and offers much more than bread.',
+          },
+          {
+            img: 'https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=600&h=400&fit=crop',
+            cat: 'Faith',
+            title: 'The Power of Prayer in Dark Places',
+            desc: 'Our prayer warriors share how intercession is changing lives on both sides of the prison wall.',
+          },
+          {
+            img: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop',
+            cat: 'Global Network',
+            title: 'Mission Grows Across Nations',
+            desc: 'From Rome to Washington, Ottawa to Canberra — IICC Mission is building a global movement of hope.',
+          },
+        ].map(s => (
+          <div class="photo-card">
+            <div class="photo-card__img">
+              <img src={s.img} alt={s.title} loading="lazy" />
             </div>
-            <span class="video-duration-badge">10:15</span>
-          </div>
-          <div class="video-card-body">
-            <p class="video-tag">HOPE TALKS</p>
-            <h3 class="video-card-title">Faith In The Midst Of Challenges</h3>
-          </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="video-card card-hover">
-          <div class="video-thumb-wrap">
-            <img
-              src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=400&fit=crop&q=80"
-              alt="A Second Chance Is Possible"
-              loading="lazy"
-            />
-            <div class="video-thumb-overlay"></div>
-            <div class="play-btn-sm" aria-hidden="true">
-              <span class="play-triangle-sm"></span>
+            <div class="photo-card__body">
+              <span style="font-size:0.6875rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;color:var(--color-amber);">{s.cat}</span>
+              <p style="font-family:var(--font-heading);font-size:1rem;font-weight:700;color:var(--color-navy);line-height:1.35;margin-top:0.375rem;margin-bottom:0.5rem;">{s.title}</p>
+              <p style="font-size:0.8125rem;color:var(--color-muted);line-height:1.6;">{s.desc}</p>
+              <a href="/news" style="display:inline-block;margin-top:0.875rem;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;color:var(--color-navy);text-decoration:none;">READ MORE ›</a>
             </div>
-            <span class="video-duration-badge">07:48</span>
           </div>
-          <div class="video-card-body">
-            <p class="video-tag">STORIES OF TRANSFORMATION</p>
-            <h3 class="video-card-title">A Second Chance Is Possible</h3>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="video-card card-hover">
-          <div class="video-thumb-wrap">
-            <img
-              src="https://images.unsplash.com/photo-1511895426328-dc8714191011?w=400&fit=crop&q=80"
-              alt="Holding On To Hope As A Family"
-              loading="lazy"
-            />
-            <div class="video-thumb-overlay"></div>
-            <div class="play-btn-sm" aria-hidden="true">
-              <span class="play-triangle-sm"></span>
-            </div>
-            <span class="video-duration-badge">06:32</span>
-          </div>
-          <div class="video-card-body">
-            <p class="video-tag">FAMILY MESSAGES</p>
-            <h3 class="video-card-title">Holding On To Hope As A Family</h3>
-          </div>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="video-card card-hover">
-          <div class="video-thumb-wrap">
-            <img
-              src="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=400&fit=crop&q=80"
-              alt="Dignity And Justice For All"
-              loading="lazy"
-            />
-            <div class="video-thumb-overlay"></div>
-            <div class="play-btn-sm" aria-hidden="true">
-              <span class="play-triangle-sm"></span>
-            </div>
-            <span class="video-duration-badge">09:21</span>
-          </div>
-          <div class="video-card-body">
-            <p class="video-tag">ADVOCACY &amp; AWARENESS</p>
-            <h3 class="video-card-title">Dignity And Justice For All</h3>
-          </div>
-        </div>
-
-      </div>
-      <div style="text-align: center; margin-top: 2.5rem;">
-        <a href="#" class="btn-outline">VIEW ALL VIDEOS →</a>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- SECTION 4 — HOPE MEDIA MISSION -->
-  <section class="section-standard-dark">
-    <div class="container">
-      <h2 class="mission-heading">HOPE MEDIA MISSION</h2>
-      <p class="mission-subtitle">To communicate hope through media that educates, encourages, empowers and inspires action.</p>
-      <div class="card-grid-3" style="margin-top: 2.5rem;">
-        <div class="info-card--dark">
-          <span class="info-card-icon">📡</span>
-          <p class="info-card-desc">We bring truth with compassion.</p>
+  <!-- Stay Connected -->
+  <section class="section section--navy">
+    <div class="wrap">
+      <div class="cols-2" style="gap:3rem;align-items:center;">
+        <div>
+          <span class="eyebrow eyebrow--white" style="display:block;margin-bottom:0.75rem;">Never Miss a Story</span>
+          <h2 style="font-family:var(--font-display);font-size:clamp(1.25rem,3vw,2rem);letter-spacing:0.08em;text-transform:uppercase;color:#fff;margin-bottom:0.75rem;">STAY CONNECTED</h2>
+          <span class="rule rule--amber" style="display:block;margin-bottom:1.25rem;"></span>
+          <p style="font-size:0.9375rem;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:0.5rem;">Subscribe to our newsletter and follow us on social media to receive stories of hope, mission updates and ways you can help.</p>
         </div>
-        <div class="info-card--dark">
-          <span class="info-card-icon">💙</span>
-          <p class="info-card-desc">We share faith with clarity.</p>
-        </div>
-        <div class="info-card--dark">
-          <span class="info-card-icon">🌟</span>
-          <p class="info-card-desc">We amplify voices that bring hope.</p>
+        <div style="display:flex;flex-direction:column;gap:1rem;">
+          <div style="display:flex;gap:0.625rem;flex-wrap:wrap;">
+            <input type="email" placeholder="Your email address" class="form-input" style="flex:1;min-width:180px;background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.25);color:#fff;" />
+            <button class="btn btn--amber">SUBSCRIBE</button>
+          </div>
+          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+            {['Facebook', 'Instagram', 'YouTube', 'LinkedIn'].map(s => (
+              <a href="#" style="padding:0.5rem 1rem;border:1.5px solid rgba(255,255,255,0.25);border-radius:2px;font-size:0.75rem;font-weight:700;color:rgba(255,255,255,0.85);letter-spacing:0.06em;text-decoration:none;transition:border-color 0.2s;">{s}</a>
+            ))}
+          </div>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- SECTION 5 — WAYS TO ENGAGE + SUBMIT STORY -->
-  <section class="section-standard-offwhite">
-    <div class="container">
-      <div class="two-col">
-
-        <!-- Left: Ways to Engage -->
-        <div class="engage-col">
-          <p class="section-label">WAYS TO ENGAGE</p>
-          <div class="gold-rule-left" style="margin: 0.75rem 0 1.25rem;"></div>
-          <h3 class="engage-heading">Get Involved</h3>
-          <ul class="engage-list">
-            <li>
-              <span class="engage-icon">▶</span>
-              <span>Subscribe to our channel for new videos.</span>
-            </li>
-            <li>
-              <span class="engage-icon">🔁</span>
-              <span>Share videos to spread hope.</span>
-            </li>
-            <li>
-              <span class="engage-icon">👍</span>
-              <span>Like and comment to encourage others.</span>
-            </li>
-            <li>
-              <span class="engage-icon">📤</span>
-              <span>Submit your story of hope and transformation.</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Right: Submit Your Story -->
-        <div class="story-col">
-          <p class="section-label">SUBMIT YOUR STORY</p>
-          <div class="gold-rule-left" style="margin: 0.75rem 0 1.25rem;"></div>
-          <h3 class="story-heading">Your story can inspire and bring hope to someone who needs it.</h3>
-          <a href="mailto:info@iiccmission.org?subject=My Story" class="btn-primary">SHARE YOUR STORY →</a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- QUOTE BAND -->
-  <QuoteBand
-    quote="I came that they may have life, and have it abundantly."
-    reference="John 10:10"
-    dark={true}
-  />
-
-  <!-- CTA SECTION -->
-  <CTASection
-    dark={true}
-    headline="Subscribe To Our Channel"
-    subtext="New content every week. Every story has the power to bring hope."
-    buttons={[
-      { label: "Subscribe To Our Channel", href: "#", primary: true },
-      { label: "Submit Your Story", href: "mailto:info@iiccmission.org?subject=My Story", primary: false },
-    ]}
-  />
 
 </Layout>
-
-<style>
-  /* CATEGORY GRID — 2 col mobile, 4 col desktop */
-  .category-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    margin-top: 2.5rem;
-  }
-  @media (min-width: 768px) {
-    .category-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-
-  /* FEATURED VIDEO */
-  .featured-video-wrap {
-    max-width: 900px;
-    margin: 2.5rem auto 0;
-  }
-  .featured-video-player {
-    position: relative;
-    border-radius: 4px;
-    overflow: hidden;
-    box-shadow: 0 24px 64px rgba(0,0,0,0.5);
-  }
-  .featured-video-player img {
-    width: 100%;
-    height: clamp(240px, 50vw, 500px);
-    object-fit: cover;
-    display: block;
-  }
-  .featured-video-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(18, 26, 56, 0.55);
-  }
-  .play-btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: var(--color-gold);
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s, transform 0.2s;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-  }
-  .play-btn:hover {
-    background: var(--color-gold-dark);
-    transform: translate(-50%, -50%) scale(1.08);
-  }
-  .play-triangle {
-    display: block;
-    width: 0;
-    height: 0;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-left: 18px solid white;
-    margin-left: 3px;
-  }
-  .duration-badge {
-    position: absolute;
-    top: 12px;
-    right: 14px;
-    background: rgba(0,0,0,0.65);
-    color: white;
-    font-family: var(--font-body);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    padding: 0.2rem 0.5rem;
-    border-radius: 2px;
-  }
-  .featured-video-meta {
-    padding: 1.5rem 0.25rem 0;
-  }
-  .video-category-tag {
-    font-family: var(--font-display);
-    font-size: 0.625rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--color-gold);
-    font-weight: 700;
-    margin: 0 0 0.625rem;
-  }
-  .featured-video-title {
-    font-family: var(--font-heading);
-    font-size: clamp(1.5rem, 3vw, 2.25rem);
-    color: white;
-    margin: 0 0 0.625rem;
-    line-height: 1.2;
-  }
-  .featured-video-desc {
-    font-size: 1rem;
-    color: rgba(255,255,255,0.7);
-    margin: 0;
-    line-height: 1.65;
-  }
-
-  /* LATEST VIDEO CARDS */
-  .video-card {
-    background: white;
-    border-radius: 2px;
-    overflow: hidden;
-    box-shadow: 0 2px 12px rgba(27,39,81,0.08);
-    display: flex;
-    flex-direction: column;
-  }
-  .video-thumb-wrap {
-    position: relative;
-    height: 180px;
-    overflow: hidden;
-  }
-  .video-thumb-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.3s ease;
-  }
-  .video-card:hover .video-thumb-wrap img {
-    transform: scale(1.04);
-  }
-  .video-thumb-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(18,26,56,0.3);
-  }
-  .play-btn-sm {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: rgba(201,160,23,0.9);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none;
-  }
-  .play-triangle-sm {
-    display: block;
-    width: 0;
-    height: 0;
-    border-top: 7px solid transparent;
-    border-bottom: 7px solid transparent;
-    border-left: 12px solid white;
-    margin-left: 2px;
-  }
-  .video-duration-badge {
-    position: absolute;
-    bottom: 8px;
-    right: 10px;
-    background: rgba(0,0,0,0.65);
-    color: white;
-    font-family: var(--font-body);
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    padding: 0.15rem 0.4rem;
-    border-radius: 2px;
-  }
-  .video-card-body {
-    padding: 1rem 1.125rem 1.25rem;
-    flex: 1;
-  }
-  .video-tag {
-    font-family: var(--font-display);
-    font-size: 0.5625rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--color-gold-dark);
-    font-weight: 700;
-    margin: 0 0 0.5rem;
-  }
-  .video-card-title {
-    font-family: var(--font-heading);
-    font-size: 0.9375rem;
-    font-weight: 700;
-    color: var(--color-navy);
-    line-height: 1.35;
-    margin: 0;
-  }
-
-  /* HOPE MEDIA MISSION */
-  .mission-heading {
-    font-family: var(--font-display);
-    font-size: clamp(1.25rem, 2.5vw, 1.875rem);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: white;
-    text-align: center;
-    margin: 0 0 1rem;
-  }
-  .mission-subtitle {
-    font-family: var(--font-heading);
-    font-size: clamp(1rem, 1.75vw, 1.1875rem);
-    color: rgba(255,255,255,0.65);
-    text-align: center;
-    max-width: 640px;
-    margin: 0 auto;
-    line-height: 1.65;
-    font-style: italic;
-  }
-
-  /* WAYS TO ENGAGE + SUBMIT STORY */
-  .engage-col,
-  .story-col {
-    padding: 0.5rem 0;
-  }
-  .engage-heading {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    color: var(--color-navy);
-    margin: 0 0 1.5rem;
-  }
-  .engage-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  .engage-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-    font-size: 1rem;
-    color: #4a4a5a;
-    line-height: 1.55;
-  }
-  .engage-icon {
-    font-size: 1.125rem;
-    flex-shrink: 0;
-    margin-top: 0.05em;
-  }
-  .story-col {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .story-heading {
-    font-family: var(--font-heading);
-    font-size: clamp(1.125rem, 2vw, 1.5rem);
-    color: var(--color-navy);
-    line-height: 1.4;
-    margin: 0 0 2rem;
-    max-width: 420px;
-  }
-</style>

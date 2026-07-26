@@ -1,0 +1,67 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Professional Partners — Our People — IICC Mission" description="The legal, medical, academic and professional partners who strengthen the IICC Mission.">
+
+  <div style="background:var(--color-off-white);border-bottom:1px solid rgba(27,39,81,0.07);">
+    <div class="wrap">
+      <nav class="breadcrumb">
+        <a href="/">Home</a><span class="breadcrumb__sep">›</span>
+        <a href="/our-people">Our People</a><span class="breadcrumb__sep">›</span>
+        <span class="breadcrumb__current">Professional Partners</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="hero-split" style="min-height:440px;">
+    <div class="hero-split__text" style="background:#fff;gap:1.25rem;">
+      <span class="eyebrow">Expertise at the Service of Hope</span>
+      <h1 style="font-family:var(--font-display);font-weight:900;text-transform:uppercase;line-height:1.05;">
+        <span style="display:block;color:var(--color-navy);font-size:clamp(1.75rem,4vw,2.75rem);">PROFESSIONAL</span>
+        <span style="display:block;color:var(--color-amber);font-size:clamp(1.75rem,4vw,2.75rem);">PARTNERS</span>
+      </h1>
+      <span class="rule rule--amber"></span>
+      <p class="section-desc" style="max-width:none;">Our professional partners bring legal, medical, psychological, academic and organisational expertise to strengthen the impact of our mission. Together we achieve more than any of us could alone.</p>
+      <a href="/contact" class="btn btn--amber">BECOME A PARTNER ›</a>
+    </div>
+    <div class="hero-split__photo" style="min-height:280px;">
+      <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&h=600&fit=crop" alt="Professional partnership and collaboration" />
+    </div>
+  </div>
+
+  <section class="section section--navy">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:2.5rem;">
+        <span class="eyebrow eyebrow--white">Our Partners</span>
+        <h2 style="font-family:var(--font-display);font-size:clamp(1rem,2vw,1.25rem);letter-spacing:0.15em;text-transform:uppercase;color:#fff;">PROFESSIONAL PARTNER CATEGORIES</h2>
+        <span class="rule rule--amber rule--center"></span>
+      </div>
+      <div class="grid-3">
+        {[
+          { icon: '⚖️', title: 'Legal Professionals', desc: 'Solicitors, barristers and migration agents who provide pro bono legal support to our clients.' },
+          { icon: '🏥', title: 'Healthcare Providers', desc: 'Doctors, nurses, psychologists and counsellors who support the physical and mental health of detainees and inmates.' },
+          { icon: '🎓', title: 'Academic Partners', desc: 'Universities and researchers who collaborate with us on advocacy, policy reform and program evaluation.' },
+          { icon: '🏢', title: 'Organisational Partners', desc: 'Businesses, NGOs and faith organisations that collaborate on programs, funding and community outreach.' },
+          { icon: '🌐', title: 'Media Partners', desc: 'Journalists, photographers and media organisations who help tell the stories of hope from our mission.' },
+          { icon: '🤝', title: 'Community Leaders', desc: 'Community leaders, elders and advocates who bridge our mission with the communities we serve.' },
+        ].map(c => (
+          <div class="card--dark" style="align-items:center;text-align:center;">
+            <div class="card__icon" style="font-size:1.125rem;border-color:rgba(224,123,0,0.4);">{c.icon}</div>
+            <p class="card__title">{c.title}</p>
+            <p class="card__body">{c.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--offwhite">
+    <div class="wrap" style="max-width:700px;text-align:center;">
+      <h2 class="section-title" style="margin-bottom:0.75rem;">Become a Professional Partner</h2>
+      <span class="rule rule--amber rule--center" style="display:block;margin-bottom:1.5rem;"></span>
+      <p class="section-desc" style="margin-bottom:2rem;">If you are a legal, medical, academic or community professional and want to contribute your expertise to this mission, we would love to hear from you.</p>
+      <a href="/contact" class="btn btn--amber">GET IN TOUCH ›</a>
+    </div>
+  </section>
+
+</Layout>

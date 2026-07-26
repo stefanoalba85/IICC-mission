@@ -1,449 +1,176 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import QuoteBand from '../components/QuoteBand.astro';
-import CTASection from '../components/CTASection.astro';
 ---
+<Layout title="About IICC Mission" description="IICC Mission — who we are, what we believe, and why we do what we do.">
 
-<Layout
-  title="About Us"
-  description="Learn about IICC Mission — a Catholic international charity born from lived experience, dedicated to restoring hope, dignity and justice to prisoners, families and communities worldwide."
->
-
-  <!-- HERO -->
-  <section class="page-hero">
-    <div class="page-hero-bg">
+  <!-- Split hero -->
+  <div class="hero-split" style="min-height:500px;">
+    <div class="hero-split__text" style="background:var(--color-navy-dark);gap:1.25rem;">
+      <span class="eyebrow eyebrow--white">International Institute of Compassion &amp; Care</span>
+      <h1 style="font-family:var(--font-display);font-weight:900;text-transform:uppercase;line-height:1.05;">
+        <span style="display:block;color:#fff;font-size:clamp(2rem,5vw,3.5rem);">ABOUT</span>
+        <span style="display:block;color:var(--color-amber);font-size:clamp(2rem,5vw,3.5rem);">IICC MISSION</span>
+      </h1>
+      <span class="rule rule--amber"></span>
+      <p style="font-family:var(--font-heading);font-size:clamp(1rem,2.5vw,1.25rem);color:rgba(255,255,255,0.85);line-height:1.6;">
+        A faith-driven movement to accompany, empower and restore hope — for those who need it most.
+      </p>
+      <div style="display:flex;gap:0.875rem;flex-wrap:wrap;">
+        <a href="/our-story" class="btn btn--amber">OUR STORY ›</a>
+        <a href="/our-mission" class="btn btn--outline-white">OUR MISSION ›</a>
+      </div>
+    </div>
+    <div class="hero-split__photo" style="min-height:320px;position:relative;">
       <img
-        src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=1200&fit=crop&q=80"
-        alt="St. Peter's Square, Vatican City"
-        loading="eager"
+        src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop"
+        alt="IICC Mission — community in prayer"
       />
-      <div class="page-hero-overlay"></div>
-    </div>
-    <div class="page-hero-content">
-      <p class="section-label" style="margin-bottom:0.875rem">About IICC Mission</p>
-      <div class="gold-rule-left" style="margin-bottom:1.25rem"></div>
-      <h1 class="page-hero-title">A Mission Born From Lived Experience. A Mission Dedicated To Restoring Hope.</h1>
-      <a href="/mission" class="learn-more-link" style="color:var(--color-gold)">OUR MISSION, OUR PURPOSE →</a>
-    </div>
-  </section>
-
-  <!-- FOUNDER SECTION -->
-  <section class="section-standard-offwhite">
-    <div class="container">
-      <div class="founder-grid">
-        <div class="founder-img-col">
-          <div class="founder-img-wrap">
-            <img
-              src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&fit=crop&q=80"
-              alt="Antonio G. Dattilo, Founder & Mission Director"
-              loading="lazy"
-              class="founder-img"
-            />
-            <div class="founder-img-badge">
-              <span class="founder-img-badge-label">Founder &amp; Mission Director</span>
-            </div>
-          </div>
-        </div>
-        <div class="founder-text-col">
-          <p class="section-label">OUR FOUNDER &amp; MISSION DIRECTOR</p>
-          <div class="gold-rule-left" style="margin:0.75rem 0 1.25rem"></div>
-          <h2 class="founder-name">Antonio G. Dattilo</h2>
-          <p class="founder-subrole">Founder &amp; Mission Director, IICC Mission</p>
-          <p class="founder-bio">
-            The IICC Mission was founded by Antonio G. Dattilo, who combines professional knowledge and a deep commitment to justice, faith and humanity. His personal journey has become the foundation of a mission dedicated to supporting people and families through some of life's most difficult challenges.
-          </p>
-          <p class="founder-signature">Antonio G. Dattilo</p>
-          <div class="founder-quote-card">
-            <div class="founder-quote-mark">&ldquo;</div>
-            <blockquote class="founder-quote-text">
-              Behind every person there is a story. Behind every story there is a family. Behind every family there should be hope. This mission exists to bring that hope.
-            </blockquote>
-            <cite class="founder-quote-ref">— Antonio G. Dattilo, Founder &amp; Mission Director</cite>
-          </div>
-        </div>
+      <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(18,26,56,0.85));padding:2rem 1.5rem 1.5rem;">
+        <p style="font-family:var(--font-heading);font-size:0.9375rem;color:rgba(255,255,255,0.9);font-style:italic;line-height:1.55;">"I was in prison and you came to visit me." — Matthew 25:36</p>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- OUR STORY -->
-  <section class="section-standard">
-    <div class="container">
-      <div class="story-grid">
-        <div class="story-text">
-          <p class="section-label">OUR STORY</p>
-          <div class="gold-rule-left" style="margin:0.75rem 0 1.25rem"></div>
-          <h2 class="story-heading">A Journey That Became A Mission</h2>
-          <p class="story-body">
-            The IICC Mission was born from real life experiences that revealed the need for compassion, reform and restoration. Through personal challenges, professional work and witnessing the struggles of others, the mission was created to make a meaningful difference.
-          </p>
-          <p class="story-body">
-            We understand the pain. We value dignity. We believe in second chances and in the power of hope.
-          </p>
-          <a href="/our-story" class="learn-more-link" style="margin-top:1rem;display:inline-flex">READ THE FULL STORY →</a>
-        </div>
-        <div class="story-pull">
-          <div class="story-pull-card">
-            <div class="story-pull-quote-mark">&ldquo;</div>
-            <p class="story-pull-text">
-              We understand the pain. We value dignity. We believe in second chances and in the power of hope.
-            </p>
-            <div class="story-pull-rule"></div>
-            <p class="story-pull-label">The Heart of Our Mission</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- OUR VISION -->
-  <section class="section-standard-dark">
-    <div class="container">
-      <div class="vision-grid">
+  <!-- Who we are -->
+  <section class="section section--white">
+    <div class="wrap">
+      <div class="cols-2" style="gap:3.5rem;align-items:start;">
         <div>
-          <p class="section-label">OUR VISION</p>
-          <div class="gold-rule-left" style="margin:0.75rem 0 1.25rem"></div>
-          <h2 class="vision-heading">A World Where Dignity, Justice And Hope Prevail</h2>
+          <span class="eyebrow" style="display:block;margin-bottom:0.5rem;">Who We Are</span>
+          <h2 class="section-title" style="margin-bottom:0.75rem;">A Mission Born from Experience and Faith</h2>
+          <span class="rule rule--amber" style="display:block;margin-bottom:1.5rem;"></span>
+          <span class="heart" style="display:block;margin-bottom:1rem;">♥</span>
+          <p class="section-desc" style="max-width:none;margin-bottom:1rem;">
+            IICC Mission (International Institute of Compassion &amp; Care) is a faith-based humanitarian organisation dedicated to accompanying, empowering and restoring hope to some of society's most vulnerable people — including inmates, immigration detainees, the homeless, and families in crisis.
+          </p>
+          <p class="section-desc" style="max-width:none;margin-bottom:1rem;">
+            Founded by Antonio G. Dattilo — a man who has walked through the criminal justice system himself — we bring authentic, lived experience to our ministry. We know what it feels like to be forgotten, dismissed and without hope. That is precisely why we refuse to look away.
+          </p>
+          <p class="section-desc" style="max-width:none;">
+            We are not simply a charity. We are a movement of compassion rooted in the Gospel, guided by prayer and driven by love for every human person.
+          </p>
         </div>
         <div>
-          <p class="vision-body">
-            We envision a world where every person is valued, every family is supported and every community is strengthened. We advocate for fair opportunities, rehabilitation, inclusion and the restoration of hope.
-          </p>
-          <p class="vision-body">
-            Together, we can create a future built on dignity, compassion, justice and faith.
-          </p>
+          <span class="eyebrow" style="display:block;margin-bottom:0.5rem;">What Drives Us</span>
+          <h2 class="section-title" style="margin-bottom:0.75rem;">Our Core Convictions</h2>
+          <span class="rule rule--amber" style="display:block;margin-bottom:1.5rem;"></span>
+          <div style="display:flex;flex-direction:column;gap:1rem;">
+            {[
+              { icon: '✝️', title: 'Faith as Foundation', desc: 'Every person carries the image of God and deserves dignity, care and hope — regardless of their past.' },
+              { icon: '🤝', title: 'Accompaniment', desc: 'We do not just provide services. We walk alongside people through their darkest moments.' },
+              { icon: '⚖️', title: 'Justice', desc: 'We advocate for systemic change and speak up for those whose voices are rarely heard.' },
+              { icon: '🌍', title: 'Global Vision', desc: 'Our mission extends across nations, cultures and communities to bring hope without borders.' },
+              { icon: '♥', title: 'Unconditional Love', desc: 'Our care is not conditional. We love without limits, just as we are loved.' },
+            ].map(c => (
+              <div style="display:flex;align-items:flex-start;gap:0.875rem;padding-bottom:0.875rem;border-bottom:1px solid rgba(27,39,81,0.07);">
+                <div style="width:2.25rem;height:2.25rem;border-radius:50%;background:rgba(224,123,0,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.875rem;">{c.icon}</div>
+                <div>
+                  <p style="font-weight:700;font-size:0.875rem;color:var(--color-navy);margin-bottom:0.2rem;">{c.title}</p>
+                  <p style="font-size:0.8125rem;color:var(--color-muted);line-height:1.6;">{c.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- OUR VALUES -->
-  <section class="section-standard">
-    <div class="container">
-      <div class="section-header">
-        <p class="section-label">OUR VALUES — THE FOUNDATION OF OUR MISSION</p>
-        <div class="gold-rule" style="margin:0.75rem auto 1.25rem"></div>
-        <h2 class="section-header-title">Everything We Do Is Guided By These Principles</h2>
+  <!-- Stats band -->
+  <div class="stat-band">
+    {[
+      { n: '15+', label: 'Years of Mission' },
+      { n: '6+', label: 'National Missions' },
+      { n: '20+', label: 'State Missions' },
+      { n: '10,000+', label: 'Lives Touched' },
+      { n: '100%', label: 'Faith-Driven' },
+    ].map(s => (
+      <div class="stat-band__item">
+        <span class="stat-band__number">{s.n}</span>
+        <span class="stat-band__label">{s.label}</span>
       </div>
-      <div class="values-grid">
+    ))}
+  </div>
+
+  <!-- What we do -->
+  <section class="section section--navy">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:2.5rem;">
+        <span class="eyebrow eyebrow--white">Our Work</span>
+        <span class="heart" style="color:var(--color-gold);display:block;margin-bottom:0.75rem;">♥</span>
+        <h2 style="font-family:var(--font-display);font-size:clamp(1rem,2vw,1.25rem);letter-spacing:0.15em;text-transform:uppercase;color:#fff;">WHAT WE DO</h2>
+        <span class="rule rule--amber rule--center"></span>
+      </div>
+      <div class="grid-3">
         {[
-          {
-            icon: '✝',
-            title: 'SPIRITUAL & PASTORAL CARE',
-            desc: 'We provide faith-based support, spiritual guidance and pastoral care to nurture hope, healing and inner strength.',
-          },
-          {
-            icon: '⚖',
-            title: 'LEGAL ASSISTANCE & ADVOCACY',
-            desc: 'We advocate for fairness, protect rights and provide legal support to promote dignity, justice and reform.',
-          },
-          {
-            icon: '📚',
-            title: 'EDUCATION & AWARENESS',
-            desc: 'We empower through education, training and awareness to create opportunities and build brighter futures.',
-          },
-          {
-            icon: '🤲',
-            title: 'HUMANITARIAN SUPPORT',
-            desc: 'We provide practical assistance and essential resources to individuals and families in need.',
-          },
-          {
-            icon: '🌟',
-            title: 'HEALING, RESTORATION & REINTEGRATION',
-            desc: 'We walk alongside people on their journey to healing and help rebuild lives with dignity, purpose and belonging.',
-          },
-        ].map((val) => (
-          <div class="info-card card-hover">
-            <span class="info-card-icon">{val.icon}</span>
-            <h3 class="info-card-title">{val.title}</h3>
-            <p class="info-card-desc">{val.desc}</p>
+          { icon: '🙏', title: 'Prison Ministry', desc: 'Visiting, praying, celebrating sacraments and walking with inmates and their families.' },
+          { icon: '⚖️', title: 'Immigration Detention Ministry', desc: 'Providing pastoral care, legal referrals and humanitarian assistance to detainees.' },
+          { icon: '🍞', title: 'Francis Bakery', desc: 'Feeding the homeless through fresh bread, soup kitchens and community partnerships.' },
+          { icon: '📣', title: 'Advocacy', desc: 'Raising our voice for systemic reform, human dignity and justice for the marginalised.' },
+          { icon: '🌍', title: 'Global Missions', desc: 'Building an international network of mission across nations and cultures.' },
+          { icon: '💬', title: 'Spiritual & Pastoral Care', desc: 'Faith-based counselling, prayer and pastoral support for individuals and families.' },
+        ].map(c => (
+          <div class="card--dark" style="text-align:center;align-items:center;gap:0.5rem;">
+            <div class="card__icon" style="font-size:1.125rem;border-color:rgba(224,123,0,0.4);">{c.icon}</div>
+            <p class="card__title">{c.title}</p>
+            <p class="card__body">{c.desc}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- ACKNOWLEDGEMENT BAND -->
-  <section class="ack-band">
-    <div class="container">
-      <div class="ack-inner">
-        <div class="ack-rule"></div>
-        <p class="ack-text">
-          The IICC Mission acknowledges the strength of the communities, professionals, faith leaders and supporters who contribute to this mission every day. Together, we can restore hope and build stronger communities.
-        </p>
-        <div class="ack-rule"></div>
+  <!-- Our Story link section -->
+  <section class="section section--offwhite">
+    <div class="wrap">
+      <div class="cols-2" style="gap:3rem;align-items:center;">
+        <div style="position:relative;border-radius:2px;overflow:hidden;min-height:340px;">
+          <img
+            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=700&h=500&fit=crop"
+            alt="Ambassador Antonio G. Dattilo, Founder of IICC Mission"
+            style="width:100%;height:100%;object-fit:cover;"
+          />
+          <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(18,26,56,0.9));padding:1.5rem 1.25rem 1.25rem;">
+            <p style="font-family:var(--font-display);font-size:0.75rem;letter-spacing:0.15em;color:var(--color-amber);margin-bottom:0.25rem;">OUR FOUNDER</p>
+            <p style="font-weight:700;font-size:1rem;color:#fff;">Ambassador Antonio G. Dattilo</p>
+          </div>
+        </div>
+        <div>
+          <span class="eyebrow" style="display:block;margin-bottom:0.5rem;">Our Founder</span>
+          <h2 class="section-title" style="margin-bottom:0.75rem;">Called by God, Shaped by Experience</h2>
+          <span class="rule rule--amber" style="display:block;margin-bottom:1.5rem;"></span>
+          <span class="heart" style="display:block;margin-bottom:1rem;">♥</span>
+          <p class="section-desc" style="max-width:none;margin-bottom:1rem;">
+            Our founder, Ambassador Antonio G. Dattilo, has a story unlike most. Having walked through the justice system himself, he emerged with a burning conviction: that every person in prison, every detainee, every person forgotten by society deserves to be seen, loved and accompanied.
+          </p>
+          <p class="section-desc" style="max-width:none;margin-bottom:1.5rem;">
+            Recognised by Cardinal George Pell and Archbishop Peter Comensoli for his extraordinary prison ministry, Antonio has dedicated his life to a mission that flows directly from his personal encounter with Christ — and with suffering.
+          </p>
+          <a href="/our-people/ambassador-founder" class="btn btn--amber">MEET OUR FOUNDER ›</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- QUOTE BAND -->
-  <QuoteBand
-    quote="Faith. Hope. Justice. Restoration. These are not just words — they are our calling."
-    dark={true}
-  />
+  <!-- CTA band -->
+  <div class="amber-band">
+    <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
+      <div>
+        <p style="font-family:var(--font-display);font-size:clamp(1.125rem,2.5vw,1.5rem);font-weight:900;color:#fff;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:0.375rem;">READY TO JOIN THE MISSION?</p>
+        <p style="font-size:0.9375rem;color:rgba(255,255,255,0.88);line-height:1.5;">Partner with us as we bring hope where it is needed most.</p>
+      </div>
+      <div style="display:flex;gap:0.875rem;flex-wrap:wrap;">
+        <a href="/donate" class="btn" style="background:#fff;color:var(--color-amber);font-weight:800;">♥ DONATE</a>
+        <a href="/get-involved" class="btn btn--outline-white">GET INVOLVED ›</a>
+      </div>
+    </div>
+  </div>
 
-  <!-- FINAL CTA -->
-  <CTASection
-    eyebrow="Be Part of the Mission"
-    headline="Join Us in Bringing Hope to Those Who Need It Most"
-    buttons={[
-      { label: 'Join The Mission', href: '/get-involved', primary: true },
-      { label: 'Support The Mission', href: '/donate', primary: false },
-      { label: 'Our Partners', href: '/sponsors-supporters', primary: false },
-      { label: 'Contact Us', href: '/contact', primary: false },
-    ]}
-    dark={true}
-  />
+  <!-- Value strip -->
+  <div class="value-strip">
+    {['We See Need', 'We Speak Up', 'We Walk Beside', 'We Restore Hope', 'We Love Unconditionally'].map(v => (
+      <span class="value-strip__item">{v}</span>
+    ))}
+  </div>
 
 </Layout>
-
-<style>
-  /* FOUNDER */
-  .founder-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 3rem;
-    align-items: start;
-  }
-  @media (min-width: 768px) {
-    .founder-grid {
-      grid-template-columns: 2fr 3fr;
-      align-items: center;
-    }
-  }
-
-  .founder-img-wrap {
-    position: relative;
-    border-radius: 2px;
-    overflow: hidden;
-  }
-  .founder-img {
-    width: 100%;
-    height: 480px;
-    object-fit: cover;
-    object-position: top;
-    display: block;
-  }
-  @media (max-width: 767px) {
-    .founder-img { height: 320px; }
-  }
-  .founder-img-badge {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(18,26,56,0.88);
-    border-top: 2px solid var(--color-gold);
-    padding: 0.75rem 1rem;
-    backdrop-filter: blur(6px);
-  }
-  .founder-img-badge-label {
-    font-family: var(--font-display);
-    font-size: 0.625rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--color-gold);
-  }
-
-  .founder-name {
-    font-family: var(--font-heading);
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
-    color: var(--color-navy);
-    margin: 0 0 0.375rem;
-  }
-  .founder-subrole {
-    font-family: var(--font-display);
-    font-size: 0.6875rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--color-gold-dark);
-    margin-bottom: 1.5rem;
-  }
-  .founder-bio {
-    font-size: 1.0625rem;
-    color: #4a4a4a;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-  }
-  .founder-signature {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-style: italic;
-    font-size: 1.5rem;
-    color: var(--color-navy);
-    margin-bottom: 1.75rem;
-    opacity: 0.8;
-  }
-
-  .founder-quote-card {
-    position: relative;
-    background: var(--color-navy);
-    padding: 2rem;
-    border-left: 3px solid var(--color-gold);
-    border-radius: 2px;
-  }
-  .founder-quote-mark {
-    font-family: var(--font-heading);
-    font-size: 4rem;
-    line-height: 1;
-    color: var(--color-gold);
-    opacity: 0.3;
-    position: absolute;
-    top: 0.5rem;
-    left: 1rem;
-    user-select: none;
-    pointer-events: none;
-  }
-  .founder-quote-text {
-    font-family: var(--font-heading);
-    font-style: italic;
-    font-size: 1.0625rem;
-    color: white;
-    line-height: 1.7;
-    margin: 0 0 1rem;
-    position: relative;
-  }
-  .founder-quote-ref {
-    font-family: var(--font-body);
-    font-size: 0.8125rem;
-    font-style: normal;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    color: var(--color-gold);
-  }
-
-  /* STORY */
-  .story-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 3rem;
-    align-items: start;
-  }
-  @media (min-width: 768px) {
-    .story-grid { grid-template-columns: 3fr 2fr; align-items: center; }
-  }
-  .story-heading {
-    font-size: clamp(1.75rem, 3vw, 2.25rem);
-    color: var(--color-navy);
-    margin: 0 0 1.25rem;
-  }
-  .story-body {
-    font-size: 1.0625rem;
-    color: #4a4a4a;
-    line-height: 1.8;
-    margin-bottom: 0.875rem;
-  }
-  .story-pull-card {
-    background: var(--color-offwhite);
-    border: 1px solid rgba(201,160,23,0.25);
-    border-top: 3px solid var(--color-gold);
-    padding: 2rem;
-    position: relative;
-    border-radius: 2px;
-  }
-  .story-pull-quote-mark {
-    font-family: var(--font-heading);
-    font-size: 3.5rem;
-    line-height: 1;
-    color: var(--color-gold);
-    opacity: 0.35;
-    position: absolute;
-    top: 0.5rem;
-    left: 0.875rem;
-    user-select: none;
-    pointer-events: none;
-  }
-  .story-pull-text {
-    font-family: var(--font-heading);
-    font-style: italic;
-    font-size: 1.125rem;
-    color: var(--color-navy);
-    line-height: 1.65;
-    margin-bottom: 1.25rem;
-    position: relative;
-  }
-  .story-pull-rule {
-    width: 2.5rem;
-    height: 2px;
-    background: var(--color-gold);
-    margin-bottom: 0.875rem;
-  }
-  .story-pull-label {
-    font-family: var(--font-display);
-    font-size: 0.625rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--color-gold-dark);
-    margin: 0;
-  }
-
-  /* VISION */
-  .vision-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-    align-items: center;
-  }
-  @media (min-width: 768px) {
-    .vision-grid { grid-template-columns: 1fr 1fr; }
-  }
-  .vision-heading {
-    font-size: clamp(1.75rem, 3vw, 2.25rem);
-    color: white;
-    margin: 0;
-  }
-  .vision-body {
-    font-size: 1.0625rem;
-    color: rgba(255,255,255,0.78);
-    line-height: 1.8;
-    margin-bottom: 1rem;
-  }
-  .vision-body:last-child { margin-bottom: 0; }
-
-  /* VALUES */
-  .values-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  @media (min-width: 640px) {
-    .values-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (min-width: 1024px) {
-    .values-grid { grid-template-columns: repeat(5, 1fr); }
-  }
-
-  /* ACKNOWLEDGEMENT */
-  .ack-band {
-    padding: 4rem 0;
-    background-color: var(--color-offwhite);
-    border-top: 1px solid rgba(201,160,23,0.2);
-    border-bottom: 1px solid rgba(201,160,23,0.2);
-  }
-  .ack-inner {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  .ack-rule {
-    flex-shrink: 0;
-    width: 3rem;
-    height: 1px;
-    background: var(--color-gold);
-    opacity: 0.6;
-  }
-  @media (max-width: 480px) {
-    .ack-inner { flex-direction: column; gap: 1rem; }
-    .ack-rule { width: 2rem; }
-  }
-  .ack-text {
-    font-family: var(--font-heading);
-    font-style: italic;
-    font-size: clamp(1rem, 1.5vw, 1.125rem);
-    color: var(--color-navy);
-    line-height: 1.7;
-    text-align: center;
-    margin: 0;
-    opacity: 0.85;
-  }
-</style>

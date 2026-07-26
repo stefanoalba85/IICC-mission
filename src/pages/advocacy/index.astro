@@ -1,0 +1,222 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Advocacy" description="IICC Mission Advocacy — Raising Voices. Bringing Change. Justice. Dignity. Hope. Every Person Matters.">
+
+  <!-- Hero split -->
+  <div class="hero-split" style="min-height:500px;">
+    <div class="hero-split__text" style="background:#fff;gap:1.25rem;">
+      <img src="/IICC_Logo.png" alt="IICC Mission" style="height:80px;width:auto;object-fit:contain;" />
+      <div>
+        <h1 style="font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4rem);font-weight:900;color:var(--color-navy);text-transform:uppercase;line-height:1.05;">ADVOCACY</h1>
+        <p style="font-family:var(--font-display);font-size:clamp(1.25rem,2.5vw,2rem);font-weight:700;color:var(--color-amber);line-height:1.2;text-transform:uppercase;">
+          RAISING VOICES.<br>BRINGING CHANGE.
+        </p>
+      </div>
+      <span class="rule rule--amber"></span>
+      <p style="font-family:var(--font-heading);font-size:1.0625rem;color:var(--color-muted);font-style:italic;">
+        Justice. Dignity. Hope.<br>Every Person Matters.
+      </p>
+      <span class="heart">♥</span>
+      <p class="section-desc" style="max-width:none;">
+        We advocate for the rights and dignity of inmates, detainees, and their families. We bring attention to forgotten issues, speak up for the voiceless, and work for a more just, compassionate, and merciful society.
+      </p>
+    </div>
+    <div class="hero-split__photo" style="min-height:360px;">
+      <img
+        src="https://images.unsplash.com/photo-1591189863345-0cc9f48e5a26?w=800&h=700&fit=crop"
+        alt="Advocacy — people marching for justice and dignity"
+      />
+      <div class="hero-split__quote">
+        <span class="hero-split__quote-mark">"</span>
+        <p class="hero-split__quote-text">Speak up for those who cannot speak for themselves; ensure justice for those being crushed.</p>
+        <span class="hero-split__quote-ref">— Proverbs 31:8</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Advocacy Focus — navy -->
+  <section class="section section--navy">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:3rem;">
+        <span class="eyebrow eyebrow--white">Our Focus</span>
+        <span class="heart">♥</span>
+        <h2 style="font-family:var(--font-display);font-size:clamp(1rem,2vw,1.25rem);letter-spacing:0.15em;text-transform:uppercase;color:#fff;">OUR ADVOCACY FOCUS</h2>
+        <span class="rule rule--amber rule--center"></span>
+        <p class="section-desc section-desc--white" style="text-align:center;margin-top:0.5rem;max-width:600px;">
+          We advocate for fair treatment, systemic change, and human dignity in prisons, immigration detention, and in our communities.
+        </p>
+      </div>
+      <div class="pillars" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr));">
+        {[
+          { icon: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0-4 4v2 M23 21v-2a4 4 0 0 0-3-3.87 M16 3.13a4 4 0 0 1 0 7.75', label: 'Human Dignity & Rights', desc: 'Upholding the inherent dignity and rights of every person, regardless of their circumstances.' },
+          { icon: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z', label: 'Fair Treatment for All', desc: 'Promoting just policies, fair treatment, and humane conditions in prisons and detention centres.' },
+          { icon: 'M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.59 1.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z', label: 'Giving Voice to the Voiceless', desc: 'Raising awareness about issues that are ignored and ensuring inmates, detainees, and families are heard.' },
+          { icon: 'M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2', label: 'Policy & System Reform', desc: 'Working for legal and policy reforms that promote rehabilitation, reintegration, and second chances.' },
+          { icon: 'M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z', label: 'Community Awareness', desc: 'Educating communities to break stigma, encourage empathy, and build a culture of understanding.' },
+          { icon: 'M12 21.593c-5.63-5.539-11-10.297-11-14.402C1 3.499 3.8 2 6 2c1.2 0 4.5.5 6 4.5C13.5 2.5 16.8 2 18 2c2.2 0 5 1.5 5 5.19 0 4.069-5.373 8.863-11 14.403z', label: 'Hope & Restoration', desc: 'Advocating for opportunities that restore hope and enable individuals to rebuild their lives.' },
+        ].map(p => (
+          <div class="pillar">
+            <div class="pillar__icon-wrap">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d={p.icon}/></svg>
+            </div>
+            <p class="pillar__label pillar__label--white">{p.label}</p>
+            <p class="pillar__desc pillar__desc--white">{p.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 3-col: We Advocate For / What We Do / How You Can Help -->
+  <section class="section section--white">
+    <div class="wrap">
+      <div style="display:grid;grid-template-columns:1fr;gap:2.5rem;" class="adv-grid">
+
+        <div>
+          <h2 style="font-family:var(--font-display);font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-navy);margin-bottom:0.5rem;">WE ADVOCATE FOR</h2>
+          <span class="rule rule--amber" style="margin-bottom:1.5rem;display:block;"></span>
+          <ul class="checklist" style="margin-bottom:1.5rem;">
+            <li>Fair sentencing and sentencing reform</li>
+            <li>Access to legal representation</li>
+            <li>Humane prison and detention conditions</li>
+            <li>Access to rehabilitation and education</li>
+            <li>Reintegration and employment opportunities</li>
+            <li>Family unity and support</li>
+            <li>End to discrimination and stigma</li>
+            <li>Respect for human rights and freedoms</li>
+          </ul>
+          <div style="background:var(--color-off-white);border:1px solid rgba(27,39,81,0.08);border-radius:2px;padding:1.25rem;display:flex;align-items:flex-start;gap:0.875rem;">
+            <span style="color:var(--color-amber);font-size:1.25rem;flex-shrink:0;">⚖️</span>
+            <p style="font-size:0.875rem;color:var(--color-muted);font-style:italic;line-height:1.65;">
+              Advocacy is not about taking sides. It is about standing up for what is right. It is about restoring dignity and hope.
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <h2 style="font-family:var(--font-display);font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-navy);margin-bottom:0.5rem;">WHAT WE DO</h2>
+          <span class="rule rule--amber" style="margin-bottom:1.5rem;display:block;"></span>
+          <div style="display:flex;flex-direction:column;gap:1rem;">
+            {[
+              { icon: '🔍', title: 'Research & Awareness', desc: 'We identify issues, gather facts, and raise awareness.' },
+              { icon: '📣', title: 'Advocate & Influence', desc: 'We engage with policymakers, leaders, and communities.' },
+              { icon: '🤝', title: 'Partner & Collaborate', desc: 'We work with Catholic organizations, NGOs, and community partners.' },
+              { icon: '📚', title: 'Educate & Empower', desc: 'We educate the public and empower people to take action.' },
+              { icon: '🙏', title: 'Support & Accompany', desc: 'We stand with inmates, detainees, and their families every step of the way.' },
+            ].map(d => (
+              <div style="display:flex;align-items:flex-start;gap:0.875rem;">
+                <div style="width:2.25rem;height:2.25rem;border-radius:50%;background:rgba(224,123,0,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.875rem;">
+                  {d.icon}
+                </div>
+                <div>
+                  <p style="font-weight:700;font-size:0.875rem;color:var(--color-navy);margin-bottom:0.125rem;">{d.title}</p>
+                  <p style="font-size:0.8125rem;color:var(--color-muted);line-height:1.55;">{d.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2 style="font-family:var(--font-display);font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-navy);margin-bottom:0.5rem;">HOW YOU CAN HELP</h2>
+          <span class="rule rule--amber" style="margin-bottom:1.5rem;display:block;"></span>
+          <div style="display:flex;flex-direction:column;gap:1rem;margin-bottom:1.5rem;">
+            {[
+              { icon: '📢', title: 'Raise Your Voice', desc: 'Speak up, share, and help bring attention to important issues.' },
+              { icon: '✍️', title: 'Support Our Campaigns', desc: 'Join our advocacy efforts and petition for change.' },
+              { icon: '👐', title: 'Volunteer', desc: 'Use your time and skills to support advocacy initiatives.' },
+              { icon: '🙏', title: 'Pray', desc: 'Pray for justice, mercy, and healing in our communities.' },
+              { icon: '♥', title: 'Donate', desc: 'Your support helps us continue advocacy and bring hope.' },
+            ].map(h => (
+              <div style="display:flex;align-items:flex-start;gap:0.875rem;">
+                <div style="width:2.25rem;height:2.25rem;border-radius:50%;background:rgba(224,123,0,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.875rem;">
+                  {h.icon}
+                </div>
+                <div>
+                  <p style="font-weight:700;font-size:0.875rem;color:var(--color-navy);margin-bottom:0.125rem;">{h.title}</p>
+                  <p style="font-size:0.8125rem;color:var(--color-muted);line-height:1.55;">{h.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <img
+            src="https://images.unsplash.com/photo-1591189863345-0cc9f48e5a26?w=400&h=220&fit=crop"
+            alt="Change starts with us"
+            style="width:100%;height:160px;object-fit:cover;border-radius:2px;"
+          />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Advocacy sub-pages -->
+  <section class="section section--offwhite">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:2.5rem;">
+        <span class="eyebrow">Our Advocacy Areas</span>
+        <h2 class="section-title">CURRENT CAMPAIGNS</h2>
+        <span class="rule rule--amber rule--center"></span>
+      </div>
+      <div class="grid-3">
+        <a href="/advocacy/aus-immigration-detention-reforms" class="card" style="text-decoration:none;">
+          <div class="card__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <p class="card__title">AUS Immigration Detention Reforms</p>
+          <p class="card__body">Advocating for humane, just, and compassionate reforms to Australia's immigration detention system.</p>
+          <span style="font-size:0.75rem;font-weight:700;color:var(--color-amber);letter-spacing:0.1em;text-transform:uppercase;margin-top:auto;">LEARN MORE →</span>
+        </a>
+        <a href="/advocacy/autism-advocacy" class="card" style="text-decoration:none;">
+          <div class="card__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+          <p class="card__title">Autism Advocacy</p>
+          <p class="card__body">Supporting individuals with autism and their families in the justice system and community.</p>
+          <span style="font-size:0.75rem;font-weight:700;color:var(--color-amber);letter-spacing:0.1em;text-transform:uppercase;margin-top:auto;">LEARN MORE →</span>
+        </a>
+        <a href="/advocacy/legal-assistance" class="card" style="text-decoration:none;">
+          <div class="card__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <p class="card__title">Legal Assistance</p>
+          <p class="card__body">Connecting those in need with trusted legal referrals, advice and representation.</p>
+          <span style="font-size:0.75rem;font-weight:700;color:var(--color-amber);letter-spacing:0.1em;text-transform:uppercase;margin-top:auto;">LEARN MORE →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Amos 5:24 quote + CTA -->
+  <div style="background:var(--color-navy-dark);padding-block:4rem;">
+    <div class="wrap" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:2.5rem;">
+      <div style="max-width:500px;">
+        <span style="color:var(--color-amber);font-size:2rem;line-height:0.75;display:block;margin-bottom:0.25rem;">"</span>
+        <p style="font-family:var(--font-heading);font-style:italic;font-size:clamp(1rem,2vw,1.25rem);color:#fff;line-height:1.65;margin-bottom:0.75rem;">
+          Let justice roll on like a river, righteousness like a never-failing stream!
+        </p>
+        <p style="font-size:0.8125rem;font-weight:700;color:var(--color-amber);letter-spacing:0.08em;">— Amos 5:24</p>
+      </div>
+      <div>
+        <p style="font-family:var(--font-display);font-size:clamp(0.875rem,1.5vw,1.125rem);letter-spacing:0.08em;text-transform:uppercase;color:#fff;margin-bottom:0.75rem;">TOGETHER, WE CAN CREATE CHANGE</p>
+        <p style="font-size:0.875rem;color:rgba(255,255,255,0.65);margin-bottom:1.25rem;">Join us in building a more just, merciful, and hopeful world.</p>
+        <a href="/get-involved" class="btn btn--amber">GET INVOLVED →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Value strip -->
+  <div class="value-strip">
+    <div class="wrap">
+      <div class="value-strip__inner">
+        <div class="value-strip__item"><span class="value-strip__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></span><p class="value-strip__title">We See the Need</p><p class="value-strip__desc">We see the pain. We see the injustice.</p></div>
+        <div class="value-strip__item"><span class="value-strip__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/></svg></span><p class="value-strip__title">We Speak Up</p><p class="value-strip__desc">We speak for those who cannot speak.</p></div>
+        <div class="value-strip__item"><span class="value-strip__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><p class="value-strip__title">We Seek Justice</p><p class="value-strip__desc">We work for change that brings hope.</p></div>
+        <div class="value-strip__item"><span class="value-strip__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402C1 3.499 3.8 2 6 2c1.2 0 4.5.5 6 4.5C13.5 2.5 16.8 2 18 2c2.2 0 5 1.5 5 5.19 0 4.069-5.373 8.863-11 14.403z"/></svg></span><p class="value-strip__title">We Bring Hope</p><p class="value-strip__desc">We believe in second chances and a new future.</p></div>
+        <div class="value-strip__item"><span class="value-strip__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><p class="value-strip__title">We Walk Together</p><p class="value-strip__desc">We are one community advocating for all.</p></div>
+      </div>
+    </div>
+  </div>
+
+</Layout>
+
+<style>
+  @media (min-width: 900px) {
+    .adv-grid { grid-template-columns: 1fr 1fr 1fr !important; }
+  }
+</style>

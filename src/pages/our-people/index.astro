@@ -1,0 +1,241 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Our People" description="One Mission. Many Hearts. United in Christ. Meet the dedicated people behind IICC Mission.">
+
+  <!-- Hero split -->
+  <div class="hero-split" style="min-height:480px;">
+    <div class="hero-split__text" style="background:#fff;gap:1.25rem;">
+      <img src="/IICC_Logo.png" alt="IICC Mission" style="height:80px;width:auto;object-fit:contain;" />
+      <h1 style="font-family:var(--font-display);font-size:clamp(2.25rem,5vw,3.75rem);font-weight:900;color:var(--color-navy);text-transform:uppercase;line-height:1.05;">
+        Our People
+      </h1>
+      <p style="font-family:var(--font-heading);font-size:clamp(1rem,2vw,1.25rem);color:var(--color-amber);font-weight:600;">
+        One Mission. Many Hearts. United in Christ.
+      </p>
+      <span class="rule rule--amber"></span>
+      <span class="heart">♥</span>
+      <p class="section-desc" style="max-width:none;">
+        Our strength is in our people. Together, we walk with inmates, detainees, and their families — offering hope, support, and a path to restoration.
+      </p>
+    </div>
+    <div class="hero-split__photo" style="min-height:340px;">
+      <img
+        src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop"
+        alt="IICC Mission team — people united in service"
+      />
+      <div class="hero-split__quote">
+        <span class="hero-split__quote-mark">"</span>
+        <p class="hero-split__quote-text">As each has received a gift, use it to serve one another, as good stewards of God's varied grace.</p>
+        <span class="hero-split__quote-ref">— 1 Peter 4:10</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- The Heart of Our People — navy -->
+  <section class="section section--navy">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:3rem;">
+        <span class="eyebrow eyebrow--white">What Drives Us</span>
+        <span class="heart">♥</span>
+        <h2 style="font-family:var(--font-display);font-size:clamp(1rem,2vw,1.25rem);letter-spacing:0.15em;text-transform:uppercase;color:#fff;">THE HEART OF OUR PEOPLE</h2>
+        <span class="rule rule--amber rule--center"></span>
+        <p class="section-desc section-desc--white" style="text-align:center;margin-top:0.5rem;max-width:560px;">
+          Every person in our mission is guided by faith, driven by compassion, and committed to justice.
+        </p>
+      </div>
+      <div class="pillars" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:2rem;">
+        {[
+          { icon: 'M18 8h1a4 4 0 0 1 0 8h-1 M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z', label: 'Called to Serve', desc: 'We respond to God\'s call to serve those who are imprisoned, detained and forgotten.' },
+          { icon: 'M12 21.593c-5.63-5.539-11-10.297-11-14.402C1 3.499 3.8 2 6 2c1.2 0 4.5.5 6 4.5C13.5 2.5 16.8 2 18 2c2.2 0 5 1.5 5 5.19 0 4.069-5.373 8.863-11 14.403z', label: 'Compassionate', desc: 'We treat every person with dignity, respect and unconditional love.' },
+          { icon: 'M10 3H6a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V9l-6-6z M14 3v6h6', label: 'Faith-Driven', desc: 'Our faith in Christ inspires our service and strengthens our mission.' },
+          { icon: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0-4 4v2 M23 21v-2a4 4 0 0 0-3-3.87 M16 3.13a4 4 0 0 1 0 7.75', label: 'Together as One', desc: 'We work as one family, uniting volunteers, staff, clergy and partners in our mission.' },
+          { icon: 'M22 11.08V12a10 10 0 1 1-5.93-9.14 M22 4L12 14.01l-3-3', label: 'Integrity', desc: 'We act with honesty, transparency and accountability in everything we do.' },
+          { icon: 'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z', label: 'Making an Impact', desc: 'We bring hope, restore dignity and create a better future together.' },
+        ].map(p => (
+          <div class="pillar">
+            <div class="pillar__icon-wrap">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d={p.icon}/></svg>
+            </div>
+            <p class="pillar__label pillar__label--white">{p.label}</p>
+            <p class="pillar__desc pillar__desc--white">{p.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Mission Family — 4 photo cards -->
+  <section class="section section--white">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:2.5rem;">
+        <span class="eyebrow">Who We Are</span>
+        <span class="heart">♥</span>
+        <h2 class="section-title">OUR MISSION FAMILY</h2>
+        <span class="rule rule--amber rule--center"></span>
+      </div>
+      <div class="grid-4" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));">
+        {[
+          { title: 'Our Clergy', desc: 'Priests, deacons and religious who provide spiritual leadership, sacraments and pastoral care.', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=280&fit=crop&crop=top' },
+          { title: 'Our Volunteers', desc: 'Generous men and women who give their time, talents and hearts to make a difference.', img: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&h=280&fit=crop' },
+          { title: 'Our Professionals', desc: 'Lawyers, counselors, educators and specialists who offer expert support and guidance.', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=280&fit=crop&crop=top' },
+          { title: 'Our Partners', desc: 'Organisations, parishes and supporters who walk with us to expand our mission and impact.', img: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=400&h=280&fit=crop' },
+        ].map(c => (
+          <div class="photo-card">
+            <img class="photo-card__img" src={c.img} alt={c.title} />
+            <div class="photo-card__body">
+              <p class="photo-card__title">{c.title}</p>
+              <p class="photo-card__desc">{c.desc}</p>
+              <span class="heart" style="margin-top:0.5rem;display:block;">♥</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Dedicated Team -->
+  <section class="section section--offwhite">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:3rem;">
+        <span class="eyebrow">Leadership</span>
+        <span class="heart">♥</span>
+        <h2 class="section-title">OUR DEDICATED TEAM</h2>
+        <span class="rule rule--amber rule--center"></span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:2rem;">
+        {[
+          { name: 'Antonio G. Dattilo', role: 'Ambassador & Founder', desc: 'Leads our mission with lived experience, passion and a heart for restoration.', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&h=200&fit=crop&crop=top', href: '/our-people/ambassador-founder' },
+          { name: 'Fr. Anthony David', role: 'Spiritual Director', desc: 'Provides spiritual guidance and ensures our mission remains rooted in prayer, faith and the Gospel.', img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=top', href: '/our-people' },
+          { name: 'Maria Grazia', role: 'Operations Director', desc: 'Oversees programs, operations and the day-to-day running of our mission.', img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=top', href: '/our-people' },
+          { name: 'James Porter', role: 'Outreach Director', desc: 'Leads outreach initiatives and builds partnerships in communities worldwide.', img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=top', href: '/our-people' },
+          { name: 'Sr. Lucia Maria', role: 'Pastoral Care Director', desc: 'Coordinates pastoral care and support for individuals and their families.', img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=top', href: '/our-people' },
+          { name: 'Fr. Michael Tran', role: 'Chaplaincy Director', desc: 'Supports chaplains and pastoral teams in prisons and detention centres.', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=top', href: '/our-people' },
+          { name: 'Elena Rossi', role: 'Legal & Advocacy Director', desc: 'Leads legal referral services and advocates for human rights and protection.', img: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=200&fit=crop&crop=top', href: '/our-people' },
+          { name: 'Daniel McCarthy', role: 'Finance & Stewardship Director', desc: 'Manages resources responsibly and ensures financial sustainability.', img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&h=200&fit=crop&crop=top', href: '/our-people' },
+        ].map(m => (
+          <div class="team-member">
+            <img class="team-member__photo" src={m.img} alt={m.name} />
+            <p class="team-member__name">
+              <a href={m.href} style="color:inherit;">{m.name}</a>
+            </p>
+            <p class="team-member__role">{m.role}</p>
+            <p class="team-member__desc">{m.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- People sub-pages navigation -->
+  <section class="section section--white">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:2.5rem;">
+        <span class="eyebrow">Meet Our People</span>
+        <h2 class="section-title">LEARN MORE</h2>
+        <span class="rule rule--amber rule--center"></span>
+      </div>
+      <div class="grid-3">
+        {[
+          { title: 'Ambassador & Founder', desc: 'Learn about the vision and journey of Antonio G. Dattilo.', href: '/our-people/ambassador-founder' },
+          { title: 'Staff & Volunteers', desc: 'Meet the dedicated people who serve day by day.', href: '/our-people/staff-volunteers' },
+          { title: 'Professional Partners', desc: 'Our network of legal, health and professional supporters.', href: '/our-people/professional-partners' },
+          { title: 'Acknowledgements', desc: 'Honouring those who have supported our mission.', href: '/our-people/acknowledgements' },
+          { title: 'Pope Leo XIV', desc: 'Our Holy Father\'s message of encouragement.', href: '/our-people/pope-leo-xiv' },
+          { title: 'Pope Francis', desc: 'Inspired by his call to mercy and service.', href: '/our-people/pope-francis' },
+        ].map(p => (
+          <a href={p.href} class="card" style="text-decoration:none;transition:border-color 0.2s,box-shadow 0.2s;" onmouseover="this.style.boxShadow='0 4px 24px rgba(224,123,0,0.12)'" onmouseout="this.style.boxShadow=''">
+            <p class="card__title">{p.title}</p>
+            <p class="card__body">{p.desc}</p>
+            <span style="font-size:0.75rem;font-weight:700;color:var(--color-amber);letter-spacing:0.1em;text-transform:uppercase;margin-top:0.25rem;">LEARN MORE →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Grow with us / Join band -->
+  <section class="section section--offwhite">
+    <div class="wrap">
+      <div class="cols-2" style="gap:3rem;align-items:start;">
+        <div style="background:var(--color-navy-dark);border-radius:2px;padding:2rem;">
+          <span class="eyebrow eyebrow--white" style="margin-bottom:0.5rem;display:block;">Join the Team</span>
+          <h2 style="font-family:var(--font-display);font-size:clamp(1.125rem,2vw,1.5rem);letter-spacing:0.1em;text-transform:uppercase;color:#fff;margin-bottom:0.75rem;">GROW WITH US</h2>
+          <span class="rule rule--amber" style="margin-bottom:1.5rem;display:block;"></span>
+          <p style="font-size:0.9375rem;color:rgba(255,255,255,0.7);margin-bottom:1.25rem;line-height:1.65;">
+            We believe in investing in people, developing leadership and empowering each individual to use their gifts for God's glory.
+          </p>
+          <ul class="checklist checklist--white">
+            <li>Leadership development</li>
+            <li>Ongoing training &amp; formation</li>
+            <li>Spiritual and professional growth</li>
+            <li>A supportive and faith-filled community</li>
+          </ul>
+          <div style="margin-top:1.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+            <div style="width:3rem;height:3rem;border-radius:50%;background:rgba(224,123,0,0.15);border:1px solid rgba(224,123,0,0.3);display:flex;align-items:center;justify-content:center;color:var(--color-amber);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <p style="font-size:0.875rem;color:rgba(255,255,255,0.65);">There is a place for you in our mission. Together, we can bring hope and restore lives.</p>
+          </div>
+          <a href="/get-involved" class="btn btn--amber" style="margin-top:1.5rem;">BECOME A VOLUNTEER →</a>
+        </div>
+        <div style="background:var(--color-amber);border-radius:2px;padding:2rem;">
+          <span style="font-family:var(--font-display);font-size:0.625rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);display:block;margin-bottom:0.5rem;">Be Part of Something Greater</span>
+          <h2 style="font-family:var(--font-display);font-size:clamp(1.125rem,2vw,1.5rem);letter-spacing:0.1em;text-transform:uppercase;color:#fff;margin-bottom:0.75rem;">JOIN OUR MISSION FAMILY</h2>
+          <span style="display:block;width:3rem;height:2px;background:rgba(255,255,255,0.4);margin-bottom:1.25rem;"></span>
+          <p style="font-size:0.9375rem;color:rgba(255,255,255,0.9);margin-bottom:1.5rem;line-height:1.65;">
+            Whether you have a few hours or a lifetime of experience, your time, talents and prayers can change lives.
+          </p>
+          <a href="/get-involved" class="btn" style="background:#fff;color:var(--color-amber);font-weight:800;">GET INVOLVED TODAY →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Amber CTA band -->
+  <div class="amber-band">
+    <div class="wrap" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.5rem;">
+      <div>
+        <p style="font-family:var(--font-heading);font-size:1.25rem;color:#fff;font-weight:700;">Together, we can restore hope and dignity.</p>
+        <p style="font-size:0.875rem;color:rgba(255,255,255,0.85);margin-top:0.25rem;font-style:italic;">
+          "Let us not love with words or speech but with actions and in truth." — 1 John 3:18
+        </p>
+      </div>
+      <a href="/donate" class="btn" style="background:#fff;color:var(--color-amber);font-weight:800;">SUPPORT OUR MISSION →</a>
+    </div>
+  </div>
+
+  <!-- Value strip -->
+  <div class="value-strip">
+    <div class="wrap">
+      <div class="value-strip__inner">
+        <div class="value-strip__item">
+          <span class="value-strip__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></span>
+          <p class="value-strip__title">You Are Not Alone</p>
+          <p class="value-strip__desc">We stand with you and your family.</p>
+        </div>
+        <div class="value-strip__item">
+          <span class="value-strip__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z"/><path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></span>
+          <p class="value-strip__title">We Listen</p>
+          <p class="value-strip__desc">Your story matters. We are here to listen.</p>
+        </div>
+        <div class="value-strip__item">
+          <span class="value-strip__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+          <p class="value-strip__title">We Guide</p>
+          <p class="value-strip__desc">We help you understand your rights and options.</p>
+        </div>
+        <div class="value-strip__item">
+          <span class="value-strip__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+          <p class="value-strip__title">We Connect</p>
+          <p class="value-strip__desc">We refer you to trusted services and professionals.</p>
+        </div>
+        <div class="value-strip__item">
+          <span class="value-strip__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402C1 3.499 3.8 2 6 2c1.2 0 4.5.5 6 4.5C13.5 2.5 16.8 2 18 2c2.2 0 5 1.5 5 5.19 0 4.069-5.373 8.863-11 14.403z"/></svg></span>
+          <p class="value-strip__title">We Hope</p>
+          <p class="value-strip__desc">We believe in healing, justice, and new beginnings.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</Layout>

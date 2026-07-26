@@ -1,638 +1,193 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import QuoteBand from '../components/QuoteBand.astro';
-import CTASection from '../components/CTASection.astro';
 ---
+<Layout title="Donate — Become a Hope Partner" description="Your donation brings hope, dignity and justice to inmates, detainees and families who need it most.">
 
-<Layout
-  title="Support The Mission"
-  description="Support IICC Mission — Your generosity can change a life. Your compassion creates hope."
->
-
-  <!-- HERO -->
-  <section class="page-hero">
-    <div class="page-hero-bg">
-      <img
-        src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1200&fit=crop&q=80"
-        alt="Hands joined together in support"
-        loading="eager"
-      />
-      <div class="page-hero-overlay"></div>
+  <!-- Dark hero -->
+  <div class="hero-full" style="min-height:52vh;">
+    <div class="hero-full__bg">
+      <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1400&h=700&fit=crop" alt="" aria-hidden="true" />
     </div>
-    <div class="page-hero-content">
-      <p class="section-label" style="margin-bottom:0.875rem">Support The Mission</p>
-      <div class="gold-rule-left" style="margin-bottom:1.25rem"></div>
-      <h1 class="page-hero-title">Help Build A Mission Of Hope.</h1>
-      <p class="page-hero-subtitle">Your generosity can change a life. Your compassion creates hope.</p>
-      <p class="hero-scripture">
-        &ldquo;Whatever you did for one of the least of these brothers and sisters of mine, you did for me.&rdquo; &mdash; Matthew 25:40
+    <div class="hero-full__overlay"></div>
+    <div class="hero-full__content">
+      <span class="eyebrow eyebrow--white" style="display:block;margin-bottom:0.75rem;">Support Our Mission</span>
+      <h1 style="font-family:var(--font-display);font-size:clamp(2.5rem,6vw,4rem);font-weight:900;color:#fff;text-transform:uppercase;line-height:1.05;margin-bottom:0.5rem;">
+        ♥ DONATE TODAY
+      </h1>
+      <span class="rule rule--amber" style="margin-bottom:1.5rem;display:block;"></span>
+      <p style="font-family:var(--font-heading);font-size:clamp(1rem,2.5vw,1.375rem);color:rgba(255,255,255,0.9);line-height:1.5;max-width:500px;">
+        Together we build a world of dignity, justice and hope.
       </p>
-      <a href="#ways-to-support" class="btn-primary" style="margin-top:1.75rem">MAKE A DIFFERENCE TODAY →</a>
-    </div>
-  </section>
-
-  <!-- SECTION 1 — WAYS TO SUPPORT -->
-  <section class="section-standard" id="ways-to-support">
-    <div class="container">
-      <div class="section-header">
-        <p class="section-label">WAYS TO SUPPORT THE MISSION</p>
-        <div class="gold-rule" style="margin:0.75rem auto 1.25rem"></div>
-        <h2 class="section-header-title">How You Can Help</h2>
-        <p class="section-header-desc">Every contribution brings hope, healing and restoration.</p>
-      </div>
-
-      <div class="card-grid-3">
-        <div class="info-card card-hover">
-          <span class="info-card-icon">💛</span>
-          <h3 class="info-card-title">ONE-TIME DONATION</h3>
-          <p class="info-card-desc">Make a secure one-time gift to support our mission and ongoing programs.</p>
-          <a href="/contact" class="learn-more-link" style="margin-top:1rem">DONATE NOW →</a>
-        </div>
-
-        <div class="info-card card-hover">
-          <span class="info-card-icon">📅</span>
-          <h3 class="info-card-title">MONTHLY GIVING</h3>
-          <p class="info-card-desc">Become a monthly donor and help us create lasting change all year round.</p>
-          <a href="/contact" class="learn-more-link" style="margin-top:1rem">GIVE MONTHLY →</a>
-        </div>
-
-        <div class="info-card card-hover">
-          <span class="info-card-icon">🎁</span>
-          <h3 class="info-card-title">IN-KIND SUPPORT</h3>
-          <p class="info-card-desc">Donate goods, services or resources that help our mission grow.</p>
-          <a href="/contact" class="learn-more-link" style="margin-top:1rem">GIVE IN-KIND →</a>
-        </div>
-
-        <div class="info-card card-hover">
-          <span class="info-card-icon">🤝</span>
-          <h3 class="info-card-title">PARTNERSHIPS</h3>
-          <p class="info-card-desc">Partner with us to expand programs and reach more people in need.</p>
-          <a href="/contact" class="learn-more-link" style="margin-top:1rem">PARTNER WITH US →</a>
-        </div>
-
-        <div class="info-card card-hover">
-          <span class="info-card-icon">🎗</span>
-          <h3 class="info-card-title">FUNDRAISE FOR US</h3>
-          <p class="info-card-desc">Organise events, campaigns or initiatives to support the mission.</p>
-          <a href="/contact" class="learn-more-link" style="margin-top:1rem">START FUNDRAISING →</a>
-        </div>
-
-        <div class="info-card card-hover">
-          <span class="info-card-icon">📜</span>
-          <h3 class="info-card-title">LEAVE A LEGACY</h3>
-          <p class="info-card-desc">Include IICC Mission in your will and leave a legacy of hope for future generations.</p>
-          <a href="/contact" class="learn-more-link" style="margin-top:1rem">LEARN MORE →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 2 — CURRENT RESTORATION PROJECTS -->
-  <section class="section-standard-offwhite">
-    <div class="container">
-      <div class="section-header">
-        <p class="section-label">CURRENT RESTORATION PROJECTS</p>
-        <div class="gold-rule" style="margin:0.75rem auto 1.25rem"></div>
-        <h2 class="section-header-title">Where Your Support Makes An Impact</h2>
-      </div>
-
-      <div class="projects-grid">
-        <div class="project-card card-hover">
-          <div class="project-card-img-wrap">
-            <img
-              src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=400&fit=crop&q=80"
-              alt="Spiritual and Pastoral Care"
-              loading="lazy"
-              class="project-card-img"
-            />
-          </div>
-          <div class="project-card-body">
-            <h3 class="project-card-title">Spiritual &amp; Pastoral Care</h3>
-            <p class="project-card-desc">Providing pastoral support, chaplaincy and faith-based care to prisoners and their families.</p>
-          </div>
-        </div>
-
-        <div class="project-card card-hover">
-          <div class="project-card-img-wrap">
-            <img
-              src="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=400&fit=crop&q=80"
-              alt="Legal Assistance"
-              loading="lazy"
-              class="project-card-img"
-            />
-          </div>
-          <div class="project-card-body">
-            <h3 class="project-card-title">Legal Assistance</h3>
-            <p class="project-card-desc">Offering legal advice and education to disadvantaged, vulnerable and incarcerated people.</p>
-          </div>
-        </div>
-
-        <div class="project-card card-hover">
-          <div class="project-card-img-wrap">
-            <img
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&fit=crop&q=80"
-              alt="Education and Training"
-              loading="lazy"
-              class="project-card-img"
-            />
-          </div>
-          <div class="project-card-body">
-            <h3 class="project-card-title">Education &amp; Training</h3>
-            <p class="project-card-desc">Delivering education, skills training and personal development programs.</p>
-          </div>
-        </div>
-
-        <div class="project-card card-hover">
-          <div class="project-card-img-wrap">
-            <img
-              src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=400&fit=crop&q=80"
-              alt="Humanitarian Support"
-              loading="lazy"
-              class="project-card-img"
-            />
-          </div>
-          <div class="project-card-body">
-            <h3 class="project-card-title">Humanitarian Support</h3>
-            <p class="project-card-desc">Providing essential items, supporting families, and practical help to those in need.</p>
-          </div>
-        </div>
-
-        <div class="project-card card-hover">
-          <div class="project-card-img-wrap">
-            <img
-              src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&fit=crop&q=80"
-              alt="Reintegration and Support"
-              loading="lazy"
-              class="project-card-img"
-            />
-          </div>
-          <div class="project-card-body">
-            <h3 class="project-card-title">Reintegration &amp; Support</h3>
-            <p class="project-card-desc">Helping people rebuild their lives and successfully reintegrate into society.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 3 — IMPACT STATS -->
-  <div class="stat-band">
-    <div class="stat-band-inner">
-      <div>
-        <span class="stat-num">10,000+</span>
-        <span class="stat-label">People supported through our programs</span>
-      </div>
-      <div>
-        <span class="stat-num">35+</span>
-        <span class="stat-label">Faith and education programs delivered</span>
-      </div>
-      <div>
-        <span class="stat-num">8</span>
-        <span class="stat-label">Countries where we bring hope and restoration</span>
-      </div>
-      <div>
-        <span class="stat-num">Thousands</span>
-        <span class="stat-label">Of lives transformed through your support</span>
-      </div>
     </div>
   </div>
 
-  <!-- SECTION 4 — YOUR SUPPORT MATTERS -->
-  <section class="section-standard">
-    <div class="container">
-      <div class="two-col">
-        <div class="support-text-col">
-          <p class="section-label">YOUR IMPACT</p>
-          <div class="gold-rule-left" style="margin:0.75rem 0 1.25rem"></div>
-          <h2 class="support-heading">WHY YOUR SUPPORT MATTERS</h2>
+  <!-- Donation options -->
+  <section class="section section--white">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:3rem;">
+        <span class="eyebrow">How to Give</span>
+        <span class="heart">♥</span>
+        <h2 class="section-title">BECOME A HOPE PARTNER</h2>
+        <span class="rule rule--amber rule--center"></span>
+        <p class="section-desc" style="text-align:center;margin-inline:auto;margin-top:0.5rem;">
+          Your support helps bring dignity, compassion and hope to people who need it most.
+        </p>
+      </div>
+      <div class="grid-4" style="margin-bottom:3rem;">
+        {[
+          { icon: '♥', title: 'Monthly Support', desc: 'Provide ongoing hope through a regular monthly gift. Cancel anytime.', btn: 'GIVE MONTHLY', highlight: true },
+          { icon: '🎁', title: 'One-Time Donation', desc: 'Make a one-time gift of any amount. Every dollar makes a difference.', btn: 'DONATE NOW', highlight: false },
+          { icon: '🤝', title: 'Community Partnership', desc: 'Partner with your church, business or organisation to create lasting impact.', btn: 'PARTNER WITH US', highlight: false },
+          { icon: '📱', title: 'GoFundMe Campaign', desc: 'Support our active crowdfunding campaigns for specific mission needs.', btn: 'VIEW CAMPAIGNS', highlight: false },
+        ].map(c => (
+          <div class="card" style={`text-align:center;align-items:center;${c.highlight ? 'border-top-color:var(--color-amber);background:var(--color-navy-dark);' : ''}`}>
+            <div class={`card__icon card__icon--filled`} style="font-size:1.125rem;">{c.icon}</div>
+            <p class={`card__title${c.highlight ? ' ' : ''}`} style={c.highlight ? 'color:#fff;' : ''}>{c.title}</p>
+            <p class={`card__body`} style={c.highlight ? 'color:rgba(255,255,255,0.7);' : ''}>{c.desc}</p>
+            <a href="#donate-form" class="btn btn--amber" style="margin-top:0.5rem;font-size:0.75rem;padding:0.5rem 1.25rem;">{c.btn}</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
-          <ul class="impact-list">
-            <li class="impact-list-item">
-              <span class="impact-check" aria-hidden="true">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              </span>
-              <span>You bring hope to the last</span>
-            </li>
-            <li class="impact-list-item">
-              <span class="impact-check" aria-hidden="true">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              </span>
-              <span>You restore dignity and justice</span>
-            </li>
-            <li class="impact-list-item">
-              <span class="impact-check" aria-hidden="true">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              </span>
-              <span>You empower for future</span>
-            </li>
-            <li class="impact-list-item">
-              <span class="impact-check" aria-hidden="true">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              </span>
-              <span>You create lasting change</span>
-            </li>
-          </ul>
+  <!-- Donate form + info -->
+  <section id="donate-form" class="section section--offwhite">
+    <div class="wrap">
+      <div class="cols-60-40" style="gap:3rem;align-items:start;">
 
-          <div class="support-pull-quote">
-            <div class="support-pull-quote-mark">&ldquo;</div>
-            <p class="support-pull-quote-text">Your support today is someone&rsquo;s hope tomorrow.</p>
+        <!-- Form -->
+        <div style="background:#fff;border:1px solid rgba(27,39,81,0.08);border-radius:2px;padding:2rem 2rem 2.5rem;">
+          <h2 style="font-family:var(--font-display);font-size:0.875rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--color-navy);margin-bottom:0.5rem;">MAKE YOUR DONATION</h2>
+          <span class="rule rule--amber" style="display:block;margin-bottom:1.5rem;"></span>
+
+          <!-- Amount selection -->
+          <p style="font-weight:700;font-size:0.875rem;color:var(--color-navy);margin-bottom:0.75rem;">Select an Amount</p>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.625rem;margin-bottom:1.25rem;">
+            {['$25', '$50', '$100', '$250'].map((amt, i) => (
+              <button type="button" style={`padding:0.625rem;font-weight:700;font-size:0.9375rem;border-radius:2px;cursor:pointer;transition:background 0.2s,color 0.2s;${i === 1 ? 'background:var(--color-amber);color:#fff;border:1.5px solid var(--color-amber);' : 'background:#fff;color:var(--color-navy);border:1.5px solid rgba(27,39,81,0.2);'}`}>
+                {amt}
+              </button>
+            ))}
+          </div>
+          <div class="form-field" style="margin-bottom:1.25rem;">
+            <label for="d-amount">Other Amount ($)</label>
+            <input type="number" id="d-amount" name="amount" class="form-input" placeholder="Enter custom amount" min="1" />
           </div>
 
-          <a href="/contact" class="btn-primary" style="margin-top:2rem">SUPPORT THE MISSION TODAY ❤ →</a>
-        </div>
+          <!-- Frequency -->
+          <p style="font-weight:700;font-size:0.875rem;color:var(--color-navy);margin-bottom:0.75rem;">Donation Frequency</p>
+          <div style="display:flex;gap:0.625rem;margin-bottom:1.5rem;flex-wrap:wrap;">
+            {['Once', 'Monthly', 'Annually'].map((f, i) => (
+              <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;padding:0.5rem 1rem;border-radius:2px;border:1.5px solid rgba(27,39,81,0.15);font-size:0.875rem;font-weight:600;color:var(--color-navy);">
+                <input type="radio" name="frequency" value={f} checked={i === 0} style="accent-color:var(--color-amber);" /> {f}
+              </label>
+            ))}
+          </div>
 
-        <div class="support-img-col">
-          <img
-            src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&fit=crop&q=80"
-            loading="lazy"
-            alt="Support matters"
-            class="support-img"
-          />
-        </div>
-      </div>
-    </div>
-  </section>
+          <!-- Personal info -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.25rem;" class="donate-grid-2">
+            <div class="form-field">
+              <label for="d-first">First Name <span class="required">*</span></label>
+              <input type="text" id="d-first" name="first_name" class="form-input" placeholder="First name" required />
+            </div>
+            <div class="form-field">
+              <label for="d-last">Last Name <span class="required">*</span></label>
+              <input type="text" id="d-last" name="last_name" class="form-input" placeholder="Last name" required />
+            </div>
+          </div>
+          <div class="form-field" style="margin-bottom:1.25rem;">
+            <label for="d-email">Email Address <span class="required">*</span></label>
+            <input type="email" id="d-email" name="email" class="form-input" placeholder="your@email.com" required />
+          </div>
 
-  <!-- SECTION 5 — OUR SUPPORTERS -->
-  <section class="section-standard-dark">
-    <div class="container">
-      <div class="supporters-inner">
-        <div class="supporters-stat-wrap">
-          <span class="supporters-stat-num">5,000+</span>
-          <p class="supporters-stat-label">Supporters, partners and friends of the mission</p>
-        </div>
-        <div class="supporters-quote-wrap">
-          <div class="supporters-quote-mark">&ldquo;</div>
-          <blockquote class="supporters-quote-text">
-            ICC Mission's work brings light to places of darkness. Their compassion, integrity and faith in action inspire us to keep supporting this mission.
-          </blockquote>
-          <cite class="supporters-quote-ref">— A Supporter</cite>
-        </div>
-      </div>
-    </div>
-  </section>
+          <div class="form-field" style="margin-bottom:1.5rem;">
+            <label style="display:flex;align-items:flex-start;gap:0.5rem;font-weight:400;cursor:pointer;font-size:0.8125rem;color:var(--color-muted);">
+              <input type="checkbox" name="newsletter" style="accent-color:var(--color-amber);margin-top:0.15rem;" />
+              Keep me updated on how my donation is making a difference.
+            </label>
+          </div>
 
-  <!-- SECTION 6 — PARTNER WITH PURPOSE -->
-  <section class="section-standard-offwhite">
-    <div class="container">
-      <div class="partner-inner">
-        <div class="partner-header">
-          <p class="section-label">GROW THE MISSION</p>
-          <div class="gold-rule-left" style="margin:0.75rem 0 1.25rem"></div>
-          <h2 class="partner-heading">PARTNER WITH PURPOSE</h2>
-          <p class="partner-body">
-            We work with governments, organisations, churches and businesses to expand programs, create opportunities and restore hope.
+          <button type="submit" class="btn btn--amber" style="width:100%;justify-content:center;font-size:0.9375rem;padding:0.875rem;">
+            ♥ DONATE SECURELY
+          </button>
+          <p style="font-size:0.75rem;color:var(--color-muted);text-align:center;margin-top:0.75rem;">
+            🔒 Your donation is secure and encrypted. IICC Mission is a registered charity.
           </p>
         </div>
 
-        <div class="partner-tiles">
-          <div class="partner-tile">
-            <span class="partner-tile-icon">🏢</span>
-            <span class="partner-tile-label">Corporate Partners</span>
+        <!-- Info sidebar -->
+        <div style="display:flex;flex-direction:column;gap:1.5rem;">
+
+          <!-- Impact -->
+          <div style="background:#fff;border:1px solid rgba(27,39,81,0.08);border-radius:2px;padding:1.5rem;">
+            <h3 style="font-family:var(--font-display);font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--color-navy);margin-bottom:0.5rem;">YOUR IMPACT</h3>
+            <span class="rule rule--amber" style="display:block;margin-bottom:1.25rem;"></span>
+            <div style="display:flex;flex-direction:column;gap:1rem;">
+              {[
+                { amt: '$25', impact: 'Provides spiritual care materials for one detainee for a month.' },
+                { amt: '$50', impact: 'Funds one pastoral visit to a prison or detention centre.' },
+                { amt: '$100', impact: 'Supports a family in crisis with essential humanitarian aid.' },
+                { amt: '$250', impact: 'Enables a Hope Companion to serve for one month.' },
+              ].map(i => (
+                <div style="display:flex;align-items:flex-start;gap:0.875rem;padding-bottom:0.875rem;border-bottom:1px solid rgba(27,39,81,0.06);">
+                  <span style="font-family:var(--font-heading);font-size:1rem;font-weight:700;color:var(--color-amber);min-width:3.5rem;flex-shrink:0;">{i.amt}</span>
+                  <p style="font-size:0.8125rem;color:var(--color-muted);line-height:1.6;">{i.impact}</p>
+                </div>
+              ))}
+            </div>
           </div>
-          <div class="partner-tile">
-            <span class="partner-tile-icon">⛪</span>
-            <span class="partner-tile-label">Catholic Parishes</span>
+
+          <!-- Quote -->
+          <div class="quote-box">
+            <span class="quote-box__mark">"</span>
+            <p class="quote-box__text">Whatever you did for one of the least of these brothers and sisters of mine, you did for me.</p>
+            <span class="quote-box__ref">— Matthew 25:40</span>
           </div>
-          <div class="partner-tile">
-            <span class="partner-tile-icon">🤝</span>
-            <span class="partner-tile-label">Community Partners</span>
+
+          <!-- Thank you -->
+          <div style="background:var(--color-amber);border-radius:2px;padding:1.5rem;text-align:center;">
+            <p style="font-family:var(--font-display);font-size:1rem;font-weight:700;color:#fff;letter-spacing:0.04em;margin-bottom:0.5rem;">THANK YOU</p>
+            <p style="font-size:0.875rem;color:rgba(255,255,255,0.9);line-height:1.65;">For being part of something bigger than ourselves. Together we can restore hope.</p>
           </div>
-          <div class="partner-tile">
-            <span class="partner-tile-icon">🏛</span>
-            <span class="partner-tile-label">Government &amp; Institutional Partnerships</span>
-          </div>
+
         </div>
 
-        <div style="margin-top:2.5rem">
-          <a href="/sponsors-supporters" class="btn-primary">BECOME A PARTNER →</a>
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- QUOTE BAND -->
-  <QuoteBand
-    quote="Be Part of Something Greater — Together we can build a future of dignity, justice and hope."
-    dark={true}
-  />
-
-  <!-- CTA SECTION -->
-  <CTASection
-    headline="Support The Mission Today"
-    dark={true}
-    buttons={[
-      { label: 'Donate Now', href: 'mailto:info@iiccmission.org?subject=Donation', primary: true },
-      { label: 'Become A Partner', href: '/sponsors-supporters', primary: false },
-    ]}
-  />
+  <!-- Donation by category -->
+  <section class="section section--navy">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:2.5rem;">
+        <span class="eyebrow eyebrow--white">Where It Goes</span>
+        <h2 style="font-family:var(--font-display);font-size:clamp(1rem,2vw,1.25rem);letter-spacing:0.15em;text-transform:uppercase;color:#fff;">HOW YOUR DONATION HELPS</h2>
+        <span class="rule rule--amber rule--center"></span>
+      </div>
+      <div class="grid-3">
+        {[
+          { icon: '🙏', title: 'Prison Ministry', desc: 'Spiritual care, pastoral visits, sacraments and hope for those behind bars.' },
+          { icon: '⚖️', title: 'Immigration Detention', desc: 'Walking alongside detainees — prayer, legal referrals and humanitarian aid.' },
+          { icon: '🍞', title: 'Bakery of Hope', desc: 'Fresh bread for the homeless, soup kitchens and shelters every single day.' },
+          { icon: '👥', title: 'Family Support', desc: 'Helping families of inmates and detainees stay connected and supported.' },
+          { icon: '📚', title: 'Education & Advocacy', desc: 'Empowering people through education and advocating for systemic change.' },
+          { icon: '🌍', title: 'Global Network', desc: 'Expanding our mission to more cities, countries and communities worldwide.' },
+        ].map(c => (
+          <div class="card--dark" style="align-items:center;text-align:center;gap:0.5rem;padding:1.5rem;">
+            <div class="card__icon" style="font-size:1.25rem;border-color:rgba(224,123,0,0.5);">{c.icon}</div>
+            <p class="card__title">{c.title}</p>
+            <p class="card__body">{c.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
 </Layout>
 
 <style>
-  /* ─── HERO SCRIPTURE ─────────────────────────────────────────────────────── */
-  .hero-scripture {
-    font-family: var(--font-heading);
-    font-style: italic;
-    font-size: clamp(0.875rem, 1.25vw, 1rem);
-    color: rgba(255,255,255,0.65);
-    line-height: 1.7;
-    max-width: 560px;
-    margin-top: 1.25rem;
-    margin-bottom: 0;
-  }
-
-  /* ─── RESTORATION PROJECTS GRID ─────────────────────────────────────────── */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-  @media (min-width: 768px) {
-    .projects-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-  @media (min-width: 1100px) {
-    .projects-grid {
-      grid-template-columns: repeat(5, 1fr);
-    }
-  }
-
-  .project-card {
-    background: white;
-    border: 1px solid rgba(27,39,81,0.08);
-    border-bottom: 3px solid var(--color-gold);
-    border-radius: 2px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .project-card-img-wrap {
-    overflow: hidden;
-  }
-
-  .project-card-img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.4s ease;
-  }
-
-  .project-card:hover .project-card-img {
-    transform: scale(1.04);
-  }
-
-  .project-card-body {
-    padding: 1.25rem 1rem;
-    flex: 1;
-  }
-
-  .project-card-title {
-    font-family: var(--font-body);
-    font-size: 0.875rem;
-    font-weight: 700;
-    color: var(--color-navy);
-    margin-bottom: 0.5rem;
-    letter-spacing: 0.01em;
-  }
-
-  .project-card-desc {
-    font-size: 0.8125rem;
-    color: #5a5a6a;
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  /* ─── SUPPORT MATTERS (SECTION 4) ───────────────────────────────────────── */
-  .support-heading {
-    font-family: var(--font-heading);
-    font-size: clamp(1.5rem, 2.5vw, 2.25rem);
-    color: var(--color-navy);
-    margin-bottom: 1.75rem;
-  }
-
-  .impact-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.875rem;
-  }
-
-  .impact-list-item {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-size: 1.0625rem;
-    font-weight: 600;
-    color: var(--color-navy);
-  }
-
-  .impact-check {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 1.75rem;
-    height: 1.75rem;
-    background: rgba(201,160,23,0.12);
-    border: 1.5px solid var(--color-gold);
-    border-radius: 50%;
-    color: var(--color-gold-dark);
-    flex-shrink: 0;
-  }
-
-  .support-pull-quote {
-    position: relative;
-    border-left: 3px solid var(--color-gold);
-    padding: 1rem 1.25rem 1rem 1.75rem;
-    background: var(--color-offwhite);
-    border-radius: 0 2px 2px 0;
-  }
-
-  .support-pull-quote-mark {
-    font-family: var(--font-heading);
-    font-size: 3.5rem;
-    line-height: 1;
-    color: var(--color-gold);
-    opacity: 0.3;
-    position: absolute;
-    top: 0.25rem;
-    left: 0.75rem;
-    user-select: none;
-    pointer-events: none;
-  }
-
-  .support-pull-quote-text {
-    font-family: var(--font-heading);
-    font-style: italic;
-    font-size: 1.125rem;
-    color: var(--color-navy);
-    line-height: 1.6;
-    margin: 0;
-    position: relative;
-  }
-
-  .support-img-col {
-    border-radius: 2px;
-    overflow: hidden;
-  }
-
-  .support-img {
-    width: 100%;
-    height: 100%;
-    min-height: 380px;
-    object-fit: cover;
-    display: block;
-  }
-
-  /* ─── OUR SUPPORTERS (SECTION 5) ────────────────────────────────────────── */
-  .supporters-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3rem;
-    text-align: center;
-    max-width: 720px;
-    margin: 0 auto;
-  }
-
-  @media (min-width: 768px) {
-    .supporters-inner {
-      flex-direction: row;
-      text-align: left;
-      max-width: 100%;
-      gap: 5rem;
-      align-items: flex-start;
-    }
-  }
-
-  .supporters-stat-wrap {
-    flex-shrink: 0;
-  }
-
-  .supporters-stat-num {
-    display: block;
-    font-family: var(--font-heading);
-    font-size: clamp(3rem, 6vw, 5rem);
-    font-weight: 700;
-    color: var(--color-gold);
-    line-height: 1;
-    margin-bottom: 0.625rem;
-  }
-
-  .supporters-stat-label {
-    font-size: 0.9375rem;
-    color: rgba(255,255,255,0.65);
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    line-height: 1.5;
-    margin: 0;
-    max-width: 200px;
-  }
-
-  .supporters-quote-wrap {
-    position: relative;
-    flex: 1;
-  }
-
-  .supporters-quote-mark {
-    font-family: var(--font-heading);
-    font-size: 5rem;
-    line-height: 1;
-    color: var(--color-gold);
-    opacity: 0.2;
-    position: absolute;
-    top: -0.75rem;
-    left: -0.5rem;
-    user-select: none;
-    pointer-events: none;
-  }
-
-  .supporters-quote-text {
-    font-family: var(--font-heading);
-    font-style: italic;
-    font-size: clamp(1.0625rem, 1.75vw, 1.3125rem);
-    color: rgba(255,255,255,0.88);
-    line-height: 1.7;
-    margin: 0 0 1.25rem;
-    position: relative;
-  }
-
-  .supporters-quote-ref {
-    font-family: var(--font-body);
-    font-size: 0.8125rem;
-    font-style: normal;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    color: var(--color-gold);
-  }
-
-  /* ─── PARTNER WITH PURPOSE (SECTION 6) ──────────────────────────────────── */
-  .partner-inner {
-    max-width: 800px;
-  }
-
-  .partner-heading {
-    font-family: var(--font-heading);
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
-    color: var(--color-navy);
-    margin-bottom: 1rem;
-  }
-
-  .partner-body {
-    font-size: 1.0625rem;
-    color: #4a4a4a;
-    line-height: 1.75;
-    margin-bottom: 2rem;
-    max-width: 640px;
-  }
-
-  .partner-tiles {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-
-  @media (min-width: 640px) {
-    .partner-tiles {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-
-  .partner-tile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.625rem;
-    padding: 1.5rem 1rem;
-    background: white;
-    border: 1px solid rgba(27,39,81,0.1);
-    border-top: 3px solid var(--color-gold);
-    border-radius: 2px;
-    text-align: center;
-    transition: box-shadow 0.2s ease, transform 0.2s ease;
-  }
-
-  .partner-tile:hover {
-    box-shadow: 0 6px 24px rgba(27,39,81,0.1);
-    transform: translateY(-2px);
-  }
-
-  .partner-tile-icon {
-    font-size: 1.75rem;
-    display: block;
-  }
-
-  .partner-tile-label {
-    font-family: var(--font-body);
-    font-size: 0.8125rem;
-    font-weight: 700;
-    color: var(--color-navy);
-    letter-spacing: 0.02em;
-    line-height: 1.4;
+  @media (max-width: 540px) {
+    .donate-grid-2 { grid-template-columns: 1fr !important; }
   }
 </style>

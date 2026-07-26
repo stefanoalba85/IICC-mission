@@ -1,0 +1,61 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+<Layout title="Community Integration — Immigration Detention — IICC Mission" description="Helping released detainees settle, connect and belong in the Australian community.">
+
+  <div style="background:var(--color-off-white);border-bottom:1px solid rgba(27,39,81,0.07);">
+    <div class="wrap">
+      <nav class="breadcrumb">
+        <a href="/">Home</a><span class="breadcrumb__sep">›</span>
+        <a href="/our-services">Programs</a><span class="breadcrumb__sep">›</span>
+        <a href="/our-services/immigration-detention">Immigration Detention</a><span class="breadcrumb__sep">›</span>
+        <span class="breadcrumb__current">Community Integration</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="hero-split" style="min-height:420px;">
+    <div class="hero-split__text" style="background:var(--color-navy-dark);gap:1.25rem;">
+      <span class="eyebrow eyebrow--white">A New Chapter</span>
+      <h1 style="font-family:var(--font-display);font-weight:900;text-transform:uppercase;line-height:1.05;">
+        <span style="display:block;color:#fff;font-size:clamp(1.5rem,3.5vw,2.5rem);">COMMUNITY</span>
+        <span style="display:block;color:var(--color-amber);font-size:clamp(1.5rem,3.5vw,2.5rem);">INTEGRATION</span>
+      </h1>
+      <span class="rule rule--amber"></span>
+      <p style="font-size:0.9375rem;color:rgba(255,255,255,0.85);line-height:1.7;">Release from detention is a moment of hope — and of overwhelming challenge. IICC Mission walks with people as they find their footing in the community, offering guidance, connection and care.</p>
+      <a href="/contact" class="btn btn--amber">CONTACT US ›</a>
+    </div>
+    <div class="hero-split__photo" style="min-height:280px;">
+      <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop" alt="Community belonging" />
+    </div>
+  </div>
+
+  <section class="section section--white">
+    <div class="wrap">
+      <div class="grid-3">
+        {[
+          { icon: '🏠', title: 'Housing Support', desc: 'Helping newly released individuals find safe and appropriate accommodation in the community.' },
+          { icon: '📋', title: 'Welfare & Services', desc: 'Navigating Centrelink, healthcare, Medicare and other essential government services.' },
+          { icon: '🤝', title: 'Community Connection', desc: 'Introducing people to faith communities, multicultural groups and local support networks.' },
+          { icon: '💼', title: 'Employment Pathways', desc: 'Connecting with employment services, training providers and supportive employers.' },
+          { icon: '🗣️', title: 'Language Support', desc: 'Facilitating interpreter access and ESOL programs to ease communication and integration.' },
+          { icon: '🙏', title: 'Ongoing Pastoral Care', desc: 'Continuing spiritual and pastoral accompaniment through the integration journey.' },
+        ].map(c => (
+          <div class="card" style="align-items:center;text-align:center;">
+            <div class="card__icon card__icon--filled">{c.icon}</div>
+            <p class="card__title">{c.title}</p>
+            <p class="card__body">{c.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="amber-band">
+    <div class="wrap" style="text-align:center;">
+      <p style="font-family:var(--font-display);font-size:clamp(1rem,2.5vw,1.375rem);font-weight:900;color:#fff;text-transform:uppercase;margin-bottom:0.5rem;">READY TO HELP SOMEONE INTEGRATE?</p>
+      <a href="/contact" class="btn" style="background:#fff;color:var(--color-amber);font-weight:800;margin-top:0.5rem;">GET IN TOUCH ›</a>
+    </div>
+  </div>
+
+</Layout>

@@ -1,681 +1,207 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import QuoteBand from '../components/QuoteBand.astro';
-import CTASection from '../components/CTASection.astro';
 ---
+<Layout title="Francis Bakery — Feed the Homeless" description="Francis Bakery — Because no one should be hungry. Because every person is precious. We bake with love. We serve with dignity.">
 
-<Layout
-  title="IICC Mission Bakery"
-  description="IICC Mission Bakery — Rome, Italy. A Bakery of Hope, Restoration and Service. From prison walls to new beginnings."
->
-
-  <!-- HERO -->
-  <section class="page-hero">
-    <div class="page-hero-bg">
-      <img
-        src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=1200&fit=crop&q=80"
-        alt="IICC Mission Bakery — bread and new beginnings"
-        loading="eager"
-      />
-    </div>
-    <div class="page-hero-overlay"></div>
-    <div class="page-hero-content">
-      <p class="section-label" style="margin-bottom:0.875rem">IICC Mission Bakery — Rome, Italy</p>
-      <div class="gold-rule-left" style="margin-bottom:1.25rem"></div>
-      <h1 class="page-hero-title">A Bakery Of Hope,<br>Restoration And Service.</h1>
-      <p class="page-hero-subtitle">
-        Creating opportunity for former inmates. Providing bread for the homeless. Building a stronger, more compassionate community.
+  <!-- Hero split -->
+  <div class="hero-split" style="min-height:520px;">
+    <div class="hero-split__text" style="background:#fff;gap:1rem;">
+      <img src="/IICC_Logo.png" alt="IICC Mission" style="height:80px;width:auto;object-fit:contain;" />
+      <div>
+        <p style="font-family:var(--font-display);font-size:0.6875rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--color-amber);margin-bottom:0.25rem;">FRANCIS BAKERY</p>
+        <h1 style="font-family:var(--font-display);font-size:clamp(2rem,5vw,3.5rem);font-weight:900;color:var(--color-navy);text-transform:uppercase;line-height:1.05;">
+          FEED THE<br><span style="color:var(--color-amber);">HOMELESS</span>
+        </h1>
+      </div>
+      <span class="rule rule--amber"></span>
+      <span class="heart">♥</span>
+      <p style="font-family:var(--font-heading);font-size:clamp(1rem,2vw,1.25rem);color:var(--color-navy);line-height:1.5;">
+        Because no one should be hungry.<br>Because <span style="color:var(--color-amber);">every person is precious.</span>
       </p>
-      <p class="hero-tagline">FROM RESTORATION TO CONTRIBUTION</p>
-      <a href="#vision" class="btn-primary">DISCOVER THE BAKERY →</a>
+      <p class="section-desc" style="max-width:none;">
+        Through the Francis Bakery, we provide fresh bread and baked goods to the homeless, soup kitchens, shelters and community organisations every single day.
+      </p>
+      <p style="font-family:var(--font-heading);font-weight:700;color:var(--color-navy);font-size:0.9375rem;">We bake with love. We serve with dignity.</p>
     </div>
-  </section>
-
-  <!-- SECTION 1: VISION + VALUES -->
-  <section class="section-standard-dark" id="vision">
-    <div class="container">
-      <div class="section-header">
-        <p class="section-label">IICC Mission</p>
-        <div class="gold-rule" style="margin:0.75rem auto 1.25rem"></div>
-        <h2 class="section-header-title section-header-title--white">THE IICC MISSION BAKERY</h2>
-      </div>
-
-      <div class="card-grid-4">
-        <div class="info-card info-card--dark card-hover">
-          <span class="info-card-icon">👁</span>
-          <h3 class="info-card-title">The Vision</h3>
-          <p class="info-card-desc">To establish a bakery in Rome run by former inmates, providing training, employment and a second chance.</p>
-        </div>
-
-        <div class="info-card info-card--dark card-hover">
-          <span class="info-card-icon">🤝</span>
-          <h3 class="info-card-title">Create Opportunities</h3>
-          <p class="info-card-desc">Through training and meaningful work that builds skills, confidence and dignity.</p>
-        </div>
-
-        <div class="info-card info-card--dark card-hover">
-          <span class="info-card-icon">🍞</span>
-          <h3 class="info-card-title">Serve The Community</h3>
-          <p class="info-card-desc">Fresh bread will be donated to the homeless and NGOs that serve vulnerable people every day.</p>
-        </div>
-
-        <div class="info-card info-card--dark card-hover">
-          <span class="info-card-icon">✨</span>
-          <h3 class="info-card-title">Transform Lives</h3>
-          <p class="info-card-desc">From the prison walls to a life of purpose, contribution and hope.</p>
-        </div>
-      </div>
-
-      <div class="promise-box">
-        <p class="promise-text">
-          <span class="promise-label">OUR PROMISE</span>
-          Every loaf is made with purpose. Every loaf is shared with love. Every life can be transformed.
-        </p>
+    <div class="hero-split__photo" style="min-height:360px;">
+      <img
+        src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&h=700&fit=crop"
+        alt="Baker sharing fresh bread with those in need"
+      />
+      <div class="hero-split__quote">
+        <span class="hero-split__quote-mark">"</span>
+        <p class="hero-split__quote-text">When we feed the hungry, we feed more than the body. We feed hope. We feed dignity. We feed love.</p>
+        <span class="hero-split__quote-ref">— Founder</span>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- SECTION 2: INSIDE THE BAKERY -->
-  <section class="section-standard">
-    <div class="container">
-      <div class="section-header">
-        <p class="section-label">A Place of Work and Purpose</p>
-        <div class="gold-rule" style="margin:0.75rem auto 1.25rem"></div>
-        <h2 class="section-header-title">INSIDE THE IICC MISSION BAKERY</h2>
-        <p class="section-header-desc">A Place of Training, Work and Transformation</p>
+  <!-- How We Help — 6 icons, white -->
+  <section class="section section--white">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:3rem;">
+        <span class="eyebrow">What We Do</span>
+        <span class="heart">♥</span>
+        <h2 class="section-title">HOW WE HELP</h2>
+        <span class="rule rule--amber rule--center"></span>
       </div>
-
-      <div class="bakery-features-grid">
-        <div class="bakery-feature-item">
-          <div class="bakery-feature-img-wrap">
-            <img
-              src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=400&fit=crop&q=80"
-              alt="Training and education at the bakery"
-              loading="lazy"
-              class="bakery-feature-img"
-            />
+      <div class="pillars" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr));">
+        {[
+          { icon: '🍞', label: 'Fresh Bread Daily', desc: 'We produce and donate fresh bread and baked goods every day.' },
+          { icon: '🍲', label: 'Soup Kitchens', desc: 'We partner with soup kitchens to provide meals to those in need.' },
+          { icon: '🏠', label: 'Shelters & Missions', desc: 'We supply shelters, missions and outreach programs with nutritious food.' },
+          { icon: '♥', label: 'Made with Dignity', desc: 'Every item is made with care by our team of trainee bakers.' },
+          { icon: '🙏', label: 'Built on Compassion', desc: 'We serve all people regardless of background, belief or situation.' },
+          { icon: '🤝', label: 'Community Partners', desc: 'Working together with local organisations to reach more people in need.' },
+        ].map(h => (
+          <div class="pillar">
+            <div class="pillar__icon-wrap" style="font-size:1.25rem;">{h.icon}</div>
+            <p class="pillar__label">{h.label}</p>
+            <p class="pillar__desc">{h.desc}</p>
           </div>
-          <div class="bakery-feature-body">
-            <span class="bakery-feature-icon">📚</span>
-            <h3 class="bakery-feature-title">TRAINING &amp; EDUCATION</h3>
-            <p class="bakery-feature-desc">Learning new skills for a better future.</p>
-          </div>
-        </div>
-
-        <div class="bakery-feature-item">
-          <div class="bakery-feature-img-wrap">
-            <img
-              src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&fit=crop&q=80"
-              alt="Hands-on baking experience"
-              loading="lazy"
-              class="bakery-feature-img"
-            />
-          </div>
-          <div class="bakery-feature-body">
-            <span class="bakery-feature-icon">👐</span>
-            <h3 class="bakery-feature-title">HANDS-ON EXPERIENCE</h3>
-            <p class="bakery-feature-desc">Gaining confidence through daily practice.</p>
-          </div>
-        </div>
-
-        <div class="bakery-feature-item">
-          <div class="bakery-feature-img-wrap">
-            <img
-              src="https://images.unsplash.com/photo-1581349485608-9469926a8e5e?w=400&fit=crop&q=80"
-              alt="Professional bakery environment"
-              loading="lazy"
-              class="bakery-feature-img"
-            />
-          </div>
-          <div class="bakery-feature-body">
-            <span class="bakery-feature-icon">🏭</span>
-            <h3 class="bakery-feature-title">PROFESSIONAL ENVIRONMENT</h3>
-            <p class="bakery-feature-desc">Modern equipment and high standards.</p>
-          </div>
-        </div>
-
-        <div class="bakery-feature-item">
-          <div class="bakery-feature-img-wrap">
-            <img
-              src="https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?w=400&fit=crop&q=80"
-              alt="Teamwork and purpose in the bakery"
-              loading="lazy"
-              class="bakery-feature-img"
-            />
-          </div>
-          <div class="bakery-feature-body">
-            <span class="bakery-feature-icon">👥</span>
-            <h3 class="bakery-feature-title">TEAMWORK &amp; PURPOSE</h3>
-            <p class="bakery-feature-desc">Working together to create something meaningful.</p>
-          </div>
-        </div>
-
-        <div class="bakery-feature-item">
-          <div class="bakery-feature-img-wrap">
-            <img
-              src="https://images.unsplash.com/photo-1549931319-a545dcf3bc7c?w=400&fit=crop&q=80"
-              alt="Quality and care in every loaf"
-              loading="lazy"
-              class="bakery-feature-img"
-            />
-          </div>
-          <div class="bakery-feature-body">
-            <span class="bakery-feature-icon">⭐</span>
-            <h3 class="bakery-feature-title">QUALITY &amp; CARE</h3>
-            <p class="bakery-feature-desc">Every loaf is made with pride and passion.</p>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- SECTION 3: THE FIRST BAKERY -->
-  <section class="section-standard-offwhite">
-    <div class="container">
-      <div class="two-col two-col--60-40">
-        <div class="first-bakery-text">
-          <p class="section-label">THE FIRST IICC MISSION BAKERY</p>
-          <div class="gold-rule-left" style="margin:0.875rem 0 1.25rem"></div>
-          <h2 class="first-bakery-heading">Rome, Italy — The beginning of a mission that can grow around the world.</h2>
-          <div class="first-bakery-features">
-            <div class="first-bakery-feature">
-              <span class="first-bakery-feature-icon">🎓</span>
-              <div>
-                <h4 class="first-bakery-feature-title">VOCATIONAL TRAINING</h4>
-                <p class="first-bakery-feature-desc">Real training, real skills</p>
-              </div>
-            </div>
-            <div class="first-bakery-feature">
-              <span class="first-bakery-feature-icon">💼</span>
-              <div>
-                <h4 class="first-bakery-feature-title">EMPLOYMENT</h4>
-                <p class="first-bakery-feature-desc">Real jobs, real hope</p>
-              </div>
-            </div>
-            <div class="first-bakery-feature">
-              <span class="first-bakery-feature-icon">🤝</span>
-              <div>
-                <h4 class="first-bakery-feature-title">COMMUNITY SERVICE</h4>
-                <p class="first-bakery-feature-desc">Bread for those in need</p>
-              </div>
-            </div>
-            <div class="first-bakery-feature">
-              <span class="first-bakery-feature-icon">🏢</span>
-              <div>
-                <h4 class="first-bakery-feature-title">PARTNERSHIP WITH NGOs</h4>
-                <p class="first-bakery-feature-desc">Collaboration for impact</p>
-              </div>
-            </div>
-            <div class="first-bakery-feature">
-              <span class="first-bakery-feature-icon">♻</span>
-              <div>
-                <h4 class="first-bakery-feature-title">SUSTAINABILITY</h4>
-                <p class="first-bakery-feature-desc">A social enterprise with a mission</p>
-              </div>
-            </div>
-            <div class="first-bakery-feature">
-              <span class="first-bakery-feature-icon">🌱</span>
-              <div>
-                <h4 class="first-bakery-feature-title">RESTORATION</h4>
-                <p class="first-bakery-feature-desc">Changing lives and strengthening communities</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="first-bakery-img-wrap">
+  <!-- More Than Bread / Hunger Is Real / Bread of Hope — 3-col -->
+  <section class="section section--offwhite">
+    <div class="wrap">
+      <div style="display:grid;grid-template-columns:1fr;gap:1.5rem;" class="bakery-3col">
+
+        <!-- More Than Bread -->
+        <div style="background:var(--color-navy-dark);border-radius:2px;overflow:hidden;">
           <img
-            src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=600&fit=crop&q=80"
-            loading="lazy"
-            alt="IICC Mission Bakery Rome"
-            class="first-bakery-img"
+            src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=600&h=220&fit=crop"
+            alt="Fresh bread"
+            style="width:100%;height:160px;object-fit:cover;"
           />
+          <div style="padding:1.5rem;">
+            <h3 style="font-family:var(--font-display);font-size:0.875rem;letter-spacing:0.1em;text-transform:uppercase;color:#fff;margin-bottom:0.25rem;">MORE THAN BREAD</h3>
+            <p style="color:var(--color-amber);font-weight:700;font-size:0.875rem;margin-bottom:1rem;">We give hope.</p>
+            <p style="font-size:0.875rem;color:rgba(255,255,255,0.7);margin-bottom:1rem;line-height:1.65;">A warm loaf of bread can bring comfort, but a kind heart can bring change.</p>
+            <ul class="checklist checklist--white">
+              <li>Restores dignity and self-worth</li>
+              <li>Shows that someone cares</li>
+              <li>Builds connections and community</li>
+              <li>Opens doors to support and hope</li>
+              <li>Creates a pathway to a better future</li>
+            </ul>
+            <p style="margin-top:1rem;font-size:0.875rem;color:var(--color-amber);font-weight:700;">Together, we can make a difference.</p>
+          </div>
         </div>
+
+        <!-- Hunger Is Real -->
+        <div style="background:#fff;border:1px solid rgba(27,39,81,0.08);border-radius:2px;padding:1.5rem;">
+          <h3 style="font-family:var(--font-display);font-size:0.875rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-navy);margin-bottom:0.5rem;">HUNGER IS REAL</h3>
+          <span class="rule rule--amber" style="margin-bottom:1.25rem;display:block;"></span>
+          <div style="display:flex;flex-direction:column;gap:1rem;">
+            {[
+              { icon: '👥', stat: 'Over 800 million people worldwide are hungry.' },
+              { icon: '📊', stat: '1 in 5 Australians have experienced food insecurity.' },
+              { icon: '🏙️', stat: 'Thousands sleep rough every night in our cities.' },
+              { icon: '🍽️', stat: 'Simple acts of kindness create lasting change.' },
+            ].map(f => (
+              <div style="display:flex;align-items:flex-start;gap:0.875rem;">
+                <div style="width:2.5rem;height:2.5rem;border-radius:50%;background:rgba(224,123,0,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem;">{f.icon}</div>
+                <p style="font-size:0.875rem;color:var(--color-muted);line-height:1.6;margin-top:0.25rem;">{f.stat}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Bread of Hope -->
+        <div style="background:var(--color-navy);border-radius:2px;overflow:hidden;">
+          <img
+            src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=200&fit=crop"
+            alt="Bakery team"
+            style="width:100%;height:140px;object-fit:cover;"
+          />
+          <div style="padding:1.5rem;">
+            <h3 style="font-family:var(--font-display);font-size:0.875rem;letter-spacing:0.1em;text-transform:uppercase;color:#fff;margin-bottom:0.25rem;">BREAD OF HOPE</h3>
+            <p style="color:var(--color-amber);font-weight:700;font-size:0.875rem;margin-bottom:0.75rem;">Made by hands. Given with love.</p>
+            <p style="font-size:0.875rem;color:rgba(255,255,255,0.75);margin-bottom:1rem;line-height:1.65;">
+              Our former inmates and trainees bake bread that feeds the hungry and builds their own future.
+            </p>
+            <p style="font-family:var(--font-heading);font-weight:700;color:#fff;font-size:1rem;margin-bottom:0.5rem;">Every loaf is a step toward restoration.</p>
+            <span style="color:var(--color-amber);font-size:1.5rem;">🍞♥</span>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- SECTION 4: COMMUNITY IMPACT -->
-  <section class="section-standard-dark">
-    <div class="container">
-      <h2 class="impact-heading">COMMUNITY IMPACT</h2>
-      <div class="impact-grid">
-        <div class="impact-item">
-          <span class="impact-check">✓</span>
-          <p class="impact-text">Former inmates gain skills, confidence and employment.</p>
-        </div>
-        <div class="impact-item">
-          <span class="impact-check">✓</span>
-          <p class="impact-text">Bread is provided to the homeless and vulnerable.</p>
-        </div>
-        <div class="impact-item">
-          <span class="impact-check">✓</span>
-          <p class="impact-text">Families and communities are strengthened.</p>
-        </div>
-        <div class="impact-item">
-          <span class="impact-check">✓</span>
-          <p class="impact-text">A culture of mercy, dignity and second chances grows.</p>
-        </div>
+  <!-- Stats band -->
+  <div class="stat-band">
+    <div class="wrap">
+      <div style="text-align:center;margin-bottom:2rem;">
+        <h2 style="font-family:var(--font-display);font-size:clamp(1rem,2vw,1.25rem);letter-spacing:0.15em;text-transform:uppercase;color:#fff;">THE IMPACT TOGETHER</h2>
+        <span class="rule rule--amber rule--center" style="margin-top:0.75rem;display:block;"></span>
+      </div>
+      <div class="stat-band__inner" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr));">
+        <div class="stat-band__item"><span class="stat-band__icon">🍞</span><p class="stat-band__num">10,000+</p><p class="stat-band__label">Loaves of bread donated each month</p></div>
+        <div class="stat-band__item"><span class="stat-band__icon">👥</span><p class="stat-band__num">5,000+</p><p class="stat-band__label">People and families fed every month</p></div>
+        <div class="stat-band__item"><span class="stat-band__icon">🏠</span><p class="stat-band__num">50+</p><p class="stat-band__label">Soup kitchens, shelters and charities supported</p></div>
+        <div class="stat-band__item"><span class="stat-band__icon">♥</span><p class="stat-band__num">100%</p><p class="stat-band__label">Donations go directly to feeding the hungry</p></div>
+        <div class="stat-band__item"><span class="stat-band__icon">🤝</span><p class="stat-band__num">Countless</p><p class="stat-band__label">Lives touched with dignity and hope</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- You Can Help Feed the Hungry -->
+  <section class="section section--white">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:2.5rem;">
+        <span class="eyebrow">Get Involved</span>
+        <h2 class="section-title">YOU CAN HELP FEED THE HUNGRY</h2>
+        <span class="rule rule--amber rule--center"></span>
+        <p class="section-desc" style="text-align:center;margin-inline:auto;margin-top:0.5rem;">Your support helps us bake bread and bring hope to those who need it most.</p>
+      </div>
+      <div class="grid-4">
+        {[
+          { icon: '♥', title: 'Donate Now', desc: 'Help us bake more bread and feed more people.', btn: 'DONATE', href: '/donate' },
+          { icon: '🌐', title: 'Support on GoFundMe', desc: 'Fund our bread program and outreach.', btn: 'SUPPORT', href: '/donate' },
+          { icon: '👐', title: 'Volunteer With Us', desc: 'Join our bakery team or outreach program.', btn: 'VOLUNTEER', href: '/get-involved' },
+          { icon: '📢', title: 'Share This Mission', desc: 'Share our mission and inspire others.', btn: 'SHARE', href: '/get-involved' },
+        ].map(c => (
+          <div class="card" style="text-align:center;align-items:center;">
+            <div class="card__icon card__icon--filled" style="font-size:1.125rem;">{c.icon}</div>
+            <p class="card__title">{c.title}</p>
+            <p class="card__body">{c.desc}</p>
+            <a href={c.href} class="btn btn--amber" style="margin-top:0.5rem;font-size:0.75rem;padding:0.5rem 1.25rem;">{c.btn}</a>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- SECTION 5: JOURNEY OF HOPE -->
-  <section class="section-standard">
-    <div class="container">
-      <div class="section-header" style="margin-bottom:3rem">
-        <p class="section-label">THE JOURNEY OF HOPE</p>
-        <div class="gold-rule" style="margin:0.75rem auto 0"></div>
-      </div>
-      <div class="journey-timeline">
-        <div class="journey-step">
-          <span class="journey-icon">🔒</span>
-          <span class="journey-label">FROM PRISON WALLS</span>
+  <!-- Mother Teresa quote / amber CTA -->
+  <div style="background:var(--color-off-white);border-top:1px solid rgba(27,39,81,0.07);padding-block:3.5rem;">
+    <div class="wrap">
+      <div class="cols-2" style="gap:3rem;align-items:center;">
+        <div style="display:flex;align-items:flex-start;gap:1rem;">
+          <div style="width:3rem;height:3rem;border-radius:50%;background:var(--color-amber);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.125rem;">♥</div>
+          <div>
+            <p style="font-family:var(--font-heading);font-size:1.0625rem;color:var(--color-navy);font-weight:700;margin-bottom:0.25rem;">A small act of kindness can change someone's day.</p>
+            <p style="font-family:var(--font-heading);font-size:1.0625rem;color:var(--color-navy);">Together, we can change lives.</p>
+          </div>
         </div>
-        <span class="journey-arrow">→</span>
-        <div class="journey-step">
-          <span class="journey-icon">📚</span>
-          <span class="journey-label">TO TRAINING &amp; SKILLS</span>
-        </div>
-        <span class="journey-arrow">→</span>
-        <div class="journey-step">
-          <span class="journey-icon">💼</span>
-          <span class="journey-label">TO WORK &amp; PURPOSE</span>
-        </div>
-        <span class="journey-arrow">→</span>
-        <div class="journey-step">
-          <span class="journey-icon">🤝</span>
-          <span class="journey-label">TO SERVING OTHERS</span>
-        </div>
-        <span class="journey-arrow">→</span>
-        <div class="journey-step">
-          <span class="journey-icon">🌍</span>
-          <span class="journey-label">TO A COMMUNITY TRANSFORMED</span>
+        <div>
+          <span style="color:var(--color-amber);font-size:2rem;line-height:0.75;display:block;">"</span>
+          <p style="font-family:var(--font-heading);font-style:italic;font-size:clamp(1rem,2vw,1.25rem);color:var(--color-navy);line-height:1.65;margin-bottom:0.75rem;">
+            If you can't feed a hundred people, then feed just one.
+          </p>
+          <p style="font-size:0.875rem;font-weight:700;color:var(--color-amber);">— Mother Teresa</p>
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- SECTION 6: HELP BUILD THE BAKERY -->
-  <section class="bakery-cta-section">
-    <div class="container">
-      <div class="bakery-cta-inner">
-        <h2 class="bakery-cta-heading">HELP BUILD THE IICC MISSION BAKERY</h2>
-        <p class="bakery-cta-text">
-          We need your support to establish the first bakery in Rome. Your donation will help create a place of transformation and provide bread to those who need it most.
-        </p>
-        <div class="bakery-cost-breakdown">
-          <span class="cost-tag">🏠 PREMISES</span>
-          <span class="cost-tag">⚙ EQUIPMENT</span>
-          <span class="cost-tag">🎓 TRAINING</span>
-          <span class="cost-tag">🌾 SUPPLIES</span>
-          <span class="cost-tag">🔧 OPERATIONS</span>
-        </div>
-        <a href="/donate" class="btn-primary bakery-cta-btn">SUPPORT OUR CAMPAIGN →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- QUOTE BAND -->
-  <QuoteBand
-    quote="Bread is more than food. It is hope. It is dignity. It is a new beginning."
-    dark={true}
-  />
-
-  <!-- CTA SECTION -->
-  <CTASection
-    eyebrow="From Restoration to Contribution"
-    headline="Lives are Changed. Communities are Stronger. Together, we can bake hope and rebuild lives."
-    subtext="FAITH. HOPE. JUSTICE. RESTORATION."
-    dark={true}
-    buttons={[
-      { label: 'Support the Bakery', href: '/donate', primary: true },
-      { label: 'Learn More About Our Mission', href: '/mission', primary: false },
-    ]}
-  />
+  </div>
 
 </Layout>
 
 <style>
-  /* ----------------------------------------
-     HERO TAGLINE
-  ---------------------------------------- */
-  .hero-tagline {
-    font-family: var(--font-display);
-    font-size: 0.6875rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--color-gold);
-    margin: 1.25rem 0 1.5rem;
-  }
-
-  /* ----------------------------------------
-     PROMISE BOX
-  ---------------------------------------- */
-  .promise-box {
-    margin-top: 3rem;
-    border: 1px solid rgba(201,160,23,0.35);
-    border-left: 3px solid var(--color-gold);
-    background: rgba(201,160,23,0.06);
-    padding: 1.5rem 2rem;
-    max-width: 720px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-  }
-  .promise-text {
-    font-family: var(--font-heading);
-    font-size: clamp(1rem, 1.75vw, 1.25rem);
-    color: rgba(255,255,255,0.88);
-    line-height: 1.7;
-    margin: 0;
-  }
-  .promise-label {
-    display: block;
-    font-family: var(--font-display);
-    font-size: 0.6875rem;
-    letter-spacing: 0.2em;
-    color: var(--color-gold);
-    margin-bottom: 0.625rem;
-  }
-
-  /* ----------------------------------------
-     INSIDE THE BAKERY — FEATURES GRID
-  ---------------------------------------- */
-  .bakery-features-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-  @media (min-width: 1024px) {
-    .bakery-features-grid {
-      grid-template-columns: repeat(5, 1fr);
-    }
-  }
-  .bakery-feature-item {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid rgba(27,39,81,0.08);
-    border-top: 3px solid var(--color-gold);
-    border-radius: 2px;
-    overflow: hidden;
-    background: white;
-    transition: box-shadow 0.2s ease, transform 0.2s ease;
-  }
-  .bakery-feature-item:hover {
-    box-shadow: 0 8px 24px rgba(27,39,81,0.12);
-    transform: translateY(-2px);
-  }
-  .bakery-feature-img-wrap {
-    overflow: hidden;
-    flex-shrink: 0;
-  }
-  .bakery-feature-img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.4s ease;
-  }
-  .bakery-feature-item:hover .bakery-feature-img {
-    transform: scale(1.04);
-  }
-  .bakery-feature-body {
-    padding: 1.25rem 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.375rem;
-    flex: 1;
-  }
-  .bakery-feature-icon {
-    font-size: 1.5rem;
-    display: block;
-  }
-  .bakery-feature-title {
-    font-family: var(--font-display);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.07em;
-    color: var(--color-navy);
-    margin: 0;
-    text-transform: uppercase;
-  }
-  .bakery-feature-desc {
-    font-size: 0.875rem;
-    color: #5a5a6a;
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  /* ----------------------------------------
-     FIRST BAKERY SECTION
-  ---------------------------------------- */
-  .first-bakery-heading {
-    font-family: var(--font-heading);
-    font-size: clamp(1.375rem, 2.5vw, 1.875rem);
-    color: var(--color-navy);
-    line-height: 1.35;
-    margin-bottom: 2rem;
-  }
-  .first-bakery-features {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.25rem;
-  }
-  .first-bakery-feature {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-  }
-  .first-bakery-feature-icon {
-    font-size: 1.5rem;
-    flex-shrink: 0;
-    line-height: 1;
-    margin-top: 0.1rem;
-  }
-  .first-bakery-feature-title {
-    font-family: var(--font-display);
-    font-size: 0.6875rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    color: var(--color-navy);
-    text-transform: uppercase;
-    margin: 0 0 0.2rem;
-  }
-  .first-bakery-feature-desc {
-    font-size: 0.875rem;
-    color: #5a5a6a;
-    margin: 0;
-    line-height: 1.5;
-  }
-  .first-bakery-img-wrap {
-    border-radius: 2px;
-    overflow: hidden;
-  }
-  .first-bakery-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    min-height: 380px;
-  }
-
-  /* ----------------------------------------
-     COMMUNITY IMPACT
-  ---------------------------------------- */
-  .impact-heading {
-    font-family: var(--font-display);
-    font-size: clamp(1.25rem, 2.5vw, 1.875rem);
-    letter-spacing: 0.08em;
-    color: white;
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-  .impact-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  @media (min-width: 640px) {
-    .impact-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  .impact-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 1.25rem;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(201,160,23,0.2);
-    border-left: 3px solid var(--color-gold);
-    padding: 1.5rem 1.75rem;
-    border-radius: 2px;
-  }
-  .impact-check {
-    font-size: 1.5rem;
-    color: var(--color-gold);
-    font-weight: 700;
-    line-height: 1.4;
-    flex-shrink: 0;
-    font-family: var(--font-display);
-  }
-  .impact-text {
-    font-family: var(--font-heading);
-    font-size: 1rem;
-    color: rgba(255,255,255,0.88);
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  /* ----------------------------------------
-     JOURNEY OF HOPE TIMELINE
-  ---------------------------------------- */
-  .journey-timeline {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-  @media (min-width: 768px) {
-    .journey-timeline {
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-  }
-  .journey-step {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.625rem;
-    background: white;
-    border: 1px solid rgba(27,39,81,0.1);
-    border-top: 3px solid var(--color-gold);
-    padding: 1.25rem 1.5rem;
-    border-radius: 2px;
-    text-align: center;
-    min-width: 130px;
-    flex-shrink: 0;
-  }
-  .journey-icon {
-    font-size: 1.75rem;
-    display: block;
-  }
-  .journey-label {
-    font-family: var(--font-display);
-    font-size: 0.625rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    color: var(--color-navy);
-    text-transform: uppercase;
-    line-height: 1.4;
-  }
-  .journey-arrow {
-    font-size: 1.5rem;
-    color: var(--color-gold);
-    opacity: 0.7;
-    flex-shrink: 0;
-    font-weight: 700;
-  }
-  @media (max-width: 767px) {
-    .journey-arrow {
-      transform: rotate(90deg);
-    }
-  }
-
-  /* ----------------------------------------
-     HELP BUILD THE BAKERY CTA
-  ---------------------------------------- */
-  .bakery-cta-section {
-    background: linear-gradient(135deg, var(--color-gold-dark) 0%, var(--color-amber) 50%, var(--color-gold) 100%);
-    padding: 5rem 1.5rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .bakery-cta-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    pointer-events: none;
-  }
-  .bakery-cta-inner {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 1.75rem;
-  }
-  .bakery-cta-heading {
-    font-family: var(--font-heading);
-    font-size: clamp(1.75rem, 4vw, 3rem);
-    font-weight: 700;
-    color: white;
-    line-height: 1.2;
-    margin: 0;
-    text-shadow: 0 2px 12px rgba(0,0,0,0.2);
-  }
-  .bakery-cta-text {
-    font-family: var(--font-body);
-    font-size: clamp(1rem, 1.5vw, 1.125rem);
-    color: rgba(255,255,255,0.92);
-    line-height: 1.75;
-    max-width: 640px;
-    margin: 0;
-  }
-  .bakery-cost-breakdown {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.75rem;
-  }
-  .cost-tag {
-    background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.4);
-    color: white;
-    font-family: var(--font-display);
-    font-size: 0.6875rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    padding: 0.5rem 1rem;
-    border-radius: 2px;
-    text-transform: uppercase;
-    backdrop-filter: blur(4px);
-  }
-  .bakery-cta-btn {
-    font-size: 1rem;
-    padding: 1rem 2.5rem;
-    background: white;
-    color: var(--color-navy);
-    border-color: white;
-  }
-  .bakery-cta-btn:hover {
-    background: var(--color-navy);
-    color: white;
-    border-color: var(--color-navy);
+  @media (min-width: 900px) {
+    .bakery-3col { grid-template-columns: 1fr 1fr 1fr !important; }
   }
 </style>

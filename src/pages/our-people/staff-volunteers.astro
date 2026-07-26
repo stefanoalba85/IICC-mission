@@ -1,0 +1,100 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Staff & Volunteers — Our People — IICC Mission" description="Meet the dedicated staff and volunteers who power the IICC Mission every single day.">
+
+  <div style="background:var(--color-off-white);border-bottom:1px solid rgba(27,39,81,0.07);">
+    <div class="wrap">
+      <nav class="breadcrumb">
+        <a href="/">Home</a><span class="breadcrumb__sep">›</span>
+        <a href="/our-people">Our People</a><span class="breadcrumb__sep">›</span>
+        <span class="breadcrumb__current">Staff &amp; Volunteers</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="hero-split" style="min-height:460px;">
+    <div class="hero-split__text" style="background:var(--color-navy-dark);gap:1.25rem;">
+      <span class="eyebrow eyebrow--white">The Hands and Feet of the Mission</span>
+      <h1 style="font-family:var(--font-display);font-weight:900;text-transform:uppercase;line-height:1.05;">
+        <span style="display:block;color:#fff;font-size:clamp(1.75rem,4vw,2.75rem);">STAFF &amp;</span>
+        <span style="display:block;color:var(--color-amber);font-size:clamp(1.75rem,4vw,2.75rem);">VOLUNTEERS</span>
+      </h1>
+      <span class="rule rule--amber"></span>
+      <p style="font-size:0.9375rem;color:rgba(255,255,255,0.85);line-height:1.7;">Our staff and volunteers are the mission. Without them, none of this is possible. They give their time, their skills and their hearts — to serve people that most of the world has forgotten.</p>
+      <a href="/get-involved" class="btn btn--amber">JOIN OUR TEAM ›</a>
+    </div>
+    <div class="hero-split__photo" style="min-height:280px;">
+      <img src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b7?w=800&h=600&fit=crop" alt="Staff and volunteers serving together" />
+    </div>
+  </div>
+
+  <section class="section section--white">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:3rem;">
+        <span class="eyebrow">Our Team</span>
+        <span class="heart">♥</span>
+        <h2 class="section-title">THE HEART OF OUR MISSION</h2>
+        <span class="rule rule--amber rule--center"></span>
+      </div>
+      <div class="grid-4">
+        {[
+          { img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&face', name: 'Mission Director', role: 'Leadership' },
+          { img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&face', name: 'Pastoral Care Coordinator', role: 'Ministry' },
+          { img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&face', name: 'Prison Ministry Lead', role: 'Prison Ministry' },
+          { img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop&face', name: 'Immigration Ministry Coord.', role: 'Immigration' },
+          { img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop&face', name: 'Volunteer Coordinator', role: 'Volunteers' },
+          { img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&h=300&fit=crop&face', name: 'Community Outreach', role: 'Community' },
+          { img: 'https://images.unsplash.com/photo-1507152832244-10d45c7eda57?w=300&h=300&fit=crop&face', name: 'Administration Manager', role: 'Operations' },
+          { img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&h=300&fit=crop&face', name: 'Communications Lead', role: 'Media' },
+        ].map(m => (
+          <div class="team-member">
+            <div class="team-member__photo">
+              <img src={m.img} alt={m.name} loading="lazy" />
+            </div>
+            <p class="team-member__name">{m.name}</p>
+            <p class="team-member__role">{m.role}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Volunteer types -->
+  <section class="section section--offwhite">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:2.5rem;">
+        <span class="eyebrow">How Volunteers Serve</span>
+        <h2 class="section-title">VOLUNTEER ROLES</h2>
+        <span class="rule rule--amber rule--center"></span>
+      </div>
+      <div class="grid-3">
+        {[
+          { icon: '🙏', title: 'Prison Visitors', desc: 'Trained volunteers who visit correctional facilities to pray and provide pastoral care.' },
+          { icon: '⚖️', title: 'Detention Companions', desc: 'Compassionate companions who visit immigration detainees and walk beside them.' },
+          { icon: '🍞', title: 'Bakery Volunteers', desc: 'Helping bake, pack and distribute bread and meals to homeless communities.' },
+          { icon: '📋', title: 'Administrative Support', desc: 'Behind-the-scenes heroes who keep the organisation running efficiently.' },
+          { icon: '📣', title: 'Advocacy Volunteers', desc: 'Sharing our message, organising events and running awareness campaigns.' },
+          { icon: '🙏', title: 'Prayer Warriors', desc: 'Interceding for all those we serve — from a home, church or prayer group.' },
+        ].map(c => (
+          <div class="card" style="align-items:center;text-align:center;">
+            <div class="card__icon card__icon--filled">{c.icon}</div>
+            <p class="card__title">{c.title}</p>
+            <p class="card__body">{c.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="amber-band">
+    <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
+      <div>
+        <p style="font-family:var(--font-display);font-size:clamp(1rem,2.5vw,1.375rem);font-weight:900;color:#fff;text-transform:uppercase;margin-bottom:0.375rem;">JOIN THE MISSION FAMILY</p>
+        <p style="font-size:0.9375rem;color:rgba(255,255,255,0.88);">Register your interest today and we'll find the perfect role for you.</p>
+      </div>
+      <a href="/get-involved" class="btn" style="background:#fff;color:var(--color-amber);font-weight:800;white-space:nowrap;">GET INVOLVED ›</a>
+    </div>
+  </div>
+
+</Layout>

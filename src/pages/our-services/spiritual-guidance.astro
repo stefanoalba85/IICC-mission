@@ -1,0 +1,75 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Spiritual Guidance — IICC Mission" description="Faith-based spiritual direction, mentoring and guidance for individuals seeking growth and healing.">
+
+  <div style="background:var(--color-off-white);border-bottom:1px solid rgba(27,39,81,0.07);">
+    <div class="wrap">
+      <nav class="breadcrumb">
+        <a href="/">Home</a><span class="breadcrumb__sep">›</span>
+        <a href="/our-services">Our Programs</a><span class="breadcrumb__sep">›</span>
+        <span class="breadcrumb__current">Spiritual Guidance</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="hero-split" style="min-height:480px;">
+    <div class="hero-split__text" style="background:#fff;gap:1.25rem;">
+      <div style="display:flex;align-items:center;gap:1rem;">
+        <div style="width:3.5rem;height:3.5rem;border-radius:50%;border:2px solid var(--color-amber);display:flex;align-items:center;justify-content:center;color:var(--color-amber);flex-shrink:0;font-size:1.25rem;">✝️</div>
+        <h1 style="font-family:var(--font-display);font-weight:900;text-transform:uppercase;line-height:1.05;">
+          <span style="display:block;color:var(--color-navy);font-size:clamp(1.5rem,3.5vw,2.5rem);">SPIRITUAL</span>
+          <span style="display:block;color:var(--color-amber);font-size:clamp(1.5rem,3.5vw,2.5rem);">GUIDANCE</span>
+        </h1>
+      </div>
+      <span class="rule rule--amber"></span>
+      <p style="font-family:var(--font-heading);font-size:1.0625rem;color:var(--color-amber);font-weight:700;">Walking with you toward the light.</p>
+      <p class="section-desc" style="max-width:none;">
+        IICC Mission offers faith-based spiritual guidance and direction for individuals at every stage of their journey — whether they are questioning, growing, healing or simply seeking a deeper encounter with God.
+      </p>
+      <a href="/contact" class="btn btn--amber">REQUEST GUIDANCE ›</a>
+    </div>
+    <div class="hero-split__photo" style="min-height:320px;">
+      <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop" alt="Prayer at sunset — spiritual journey" />
+    </div>
+  </div>
+
+  <section class="section section--offwhite">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:2.5rem;">
+        <span class="eyebrow">What We Offer</span>
+        <h2 class="section-title">SPIRITUAL GUIDANCE PROGRAMS</h2>
+        <span class="rule rule--amber rule--center"></span>
+      </div>
+      <div class="grid-3">
+        {[
+          { icon: '🧭', title: 'Spiritual Direction', desc: 'One-on-one accompaniment by a trained spiritual director to help discern God\'s will for your life.' },
+          { icon: '📖', title: 'Scripture Reflection', desc: 'Guided engagement with Sacred Scripture to deepen prayer and understanding of God\'s word.' },
+          { icon: '🙏', title: 'Prayer Mentoring', desc: 'Learning to pray more deeply — through different forms and traditions of Christian prayer.' },
+          { icon: '💬', title: 'Faith Conversations', desc: 'Open, compassionate conversations for those with questions, doubts or seeking to return to faith.' },
+          { icon: '✝️', title: 'Sacramental Preparation', desc: 'Preparation for the sacraments of Reconciliation, Eucharist and Confirmation.' },
+          { icon: '🌿', title: 'Retreat Guidance', desc: 'Support for those wishing to undertake a personal retreat or a directed retreat experience.' },
+        ].map(c => (
+          <div class="card" style="align-items:center;text-align:center;">
+            <div class="card__icon card__icon--filled">{c.icon}</div>
+            <p class="card__title">{c.title}</p>
+            <p class="card__body">{c.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--navy">
+    <div class="wrap" style="max-width:700px;text-align:center;">
+      <span class="heart" style="color:var(--color-gold);font-size:1.25rem;display:block;margin-bottom:1rem;">♥</span>
+      <blockquote style="font-family:var(--font-heading);font-size:clamp(1.125rem,2.5vw,1.5rem);color:#fff;font-style:italic;line-height:1.65;margin-bottom:0.75rem;">"You will seek me and find me when you seek me with all your heart."</blockquote>
+      <p style="font-size:0.875rem;color:var(--color-amber);letter-spacing:0.12em;font-weight:700;margin-bottom:2rem;">— Jeremiah 29:13</p>
+      <div style="display:flex;gap:0.875rem;justify-content:center;flex-wrap:wrap;">
+        <a href="/contact" class="btn btn--amber">REQUEST GUIDANCE ›</a>
+        <a href="/prayer" class="btn btn--outline-white">PRAYER COMMUNITY ›</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>

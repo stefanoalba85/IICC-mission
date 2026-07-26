@@ -1,0 +1,116 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Humanitarian Support — IICC Mission" description="Emergency assistance, welfare support and practical help for individuals and families in crisis.">
+
+  <!-- Breadcrumb -->
+  <div style="background:var(--color-off-white);border-bottom:1px solid rgba(27,39,81,0.07);">
+    <div class="wrap">
+      <nav class="breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb__sep">›</span>
+        <a href="/our-services">Our Programs</a>
+        <span class="breadcrumb__sep">›</span>
+        <span class="breadcrumb__current">Humanitarian Support</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero split -->
+  <div class="hero-split" style="min-height:480px;">
+    <div class="hero-split__text" style="background:#fff;gap:1.25rem;">
+      <div style="display:flex;align-items:center;gap:1rem;">
+        <div style="width:3.5rem;height:3.5rem;border-radius:50%;border:2px solid var(--color-amber);display:flex;align-items:center;justify-content:center;color:var(--color-amber);flex-shrink:0;font-size:1.25rem;">🤝</div>
+        <h1 style="font-family:var(--font-display);font-weight:900;text-transform:uppercase;line-height:1.05;">
+          <span style="display:block;color:var(--color-navy);font-size:clamp(1.5rem,3.5vw,2.5rem);">HUMANITARIAN</span>
+          <span style="display:block;color:var(--color-amber);font-size:clamp(1.5rem,3.5vw,2.5rem);">SUPPORT</span>
+        </h1>
+      </div>
+      <span class="rule rule--amber"></span>
+      <p style="font-family:var(--font-heading);font-size:1.0625rem;color:var(--color-amber);font-weight:700;">Practical help. Real hope. Unconditional love.</p>
+      <p class="section-desc" style="max-width:none;">
+        When people face crisis — whether due to poverty, displacement, family breakdown or systemic disadvantage — IICC Mission responds with practical, compassionate humanitarian support grounded in faith and dignity.
+      </p>
+      <a href="/contact" class="btn btn--amber">REQUEST SUPPORT ›</a>
+    </div>
+    <div class="hero-split__photo" style="min-height:320px;">
+      <img
+        src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&h=600&fit=crop"
+        alt="Humanitarian assistance — people supporting each other"
+      />
+    </div>
+  </div>
+
+  <!-- What We Provide -->
+  <section class="section section--white">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:2.5rem;">
+        <span class="eyebrow">How We Help</span>
+        <h2 class="section-title">WHAT WE PROVIDE</h2>
+        <span class="rule rule--amber rule--center"></span>
+      </div>
+      <div class="grid-3">
+        {[
+          { icon: '🚨', title: 'Emergency Assistance', desc: 'Immediate support for people in acute crisis — including food, shelter referrals and emergency supplies.' },
+          { icon: '💰', title: 'Financial Aid', desc: 'One-off financial assistance for utility bills, transport and essential needs for vulnerable individuals.' },
+          { icon: '🏠', title: 'Housing Support', desc: 'Connecting people with appropriate housing services and advocacy for stable accommodation.' },
+          { icon: '👕', title: 'Material Aid', desc: 'Clothing, food parcels, hygiene kits and essential items for people doing it tough.' },
+          { icon: '📋', title: 'Welfare Referrals', desc: 'Navigating government services, welfare systems and community support on behalf of vulnerable people.' },
+          { icon: '👨‍👩‍👧', title: 'Family Support', desc: 'Helping families stay connected, cope with trauma and access the care they need.' },
+        ].map(c => (
+          <div class="card" style="align-items:center;text-align:center;">
+            <div class="card__icon card__icon--filled" style="font-size:1.125rem;">{c.icon}</div>
+            <p class="card__title">{c.title}</p>
+            <p class="card__body">{c.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Who We Help + checklist -->
+  <section class="section section--offwhite">
+    <div class="wrap">
+      <div class="cols-2" style="gap:3rem;align-items:center;">
+        <div style="border-radius:2px;overflow:hidden;min-height:340px;">
+          <img
+            src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=700&h=500&fit=crop"
+            alt="Humanitarian support in action"
+            style="width:100%;height:100%;object-fit:cover;"
+          />
+        </div>
+        <div>
+          <span class="eyebrow" style="display:block;margin-bottom:0.5rem;">Who We Serve</span>
+          <h2 class="section-title" style="margin-bottom:0.75rem;">No One Is Turned Away</h2>
+          <span class="rule rule--amber" style="display:block;margin-bottom:1.25rem;"></span>
+          <p class="section-desc" style="max-width:none;margin-bottom:1.25rem;">
+            Our humanitarian support reaches some of the most marginalised people in our society. We do not turn anyone away, and we do not judge. We simply ask: how can we help?
+          </p>
+          <ul class="checklist" style="margin-bottom:1.5rem;">
+            <li>Inmates and their families in financial hardship</li>
+            <li>Immigration detainees and recently released individuals</li>
+            <li>Homeless individuals and rough sleepers</li>
+            <li>Families in crisis due to domestic violence or poverty</li>
+            <li>Refugees and asylum seekers needing practical support</li>
+            <li>Individuals with no social safety net</li>
+          </ul>
+          <a href="/contact" class="btn btn--amber">CONTACT US ›</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote + CTA -->
+  <section class="section section--navy">
+    <div class="wrap" style="max-width:720px;text-align:center;">
+      <span class="heart" style="color:var(--color-gold);display:block;font-size:1.25rem;margin-bottom:1rem;">♥</span>
+      <blockquote style="font-family:var(--font-heading);font-size:clamp(1.125rem,2.5vw,1.5rem);color:#fff;font-style:italic;line-height:1.65;margin-bottom:0.75rem;">
+        "Give to the one who asks you, and do not turn away from the one who wants to borrow from you."
+      </blockquote>
+      <p style="font-size:0.875rem;color:var(--color-amber);letter-spacing:0.12em;font-weight:700;margin-bottom:2rem;">— Matthew 5:42</p>
+      <a href="/donate" class="btn btn--amber" style="margin-right:0.75rem;">♥ DONATE</a>
+      <a href="/contact" class="btn btn--outline-white">GET IN TOUCH ›</a>
+    </div>
+  </section>
+
+</Layout>

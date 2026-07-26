@@ -1,0 +1,97 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Former Prisoner Reintegration — IICC Mission" description="Walking with those leaving prison — practical support, spiritual care and community connection for a fresh start.">
+
+  <!-- Breadcrumb -->
+  <div style="background:var(--color-off-white);border-bottom:1px solid rgba(27,39,81,0.07);">
+    <div class="wrap">
+      <nav class="breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb__sep">›</span>
+        <a href="/our-services">Our Programs</a>
+        <span class="breadcrumb__sep">›</span>
+        <span class="breadcrumb__current">Former Prisoner Reintegration</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero split -->
+  <div class="hero-split" style="min-height:480px;">
+    <div class="hero-split__text" style="background:#fff;gap:1.25rem;">
+      <span class="eyebrow">A New Beginning</span>
+      <h1 style="font-family:var(--font-display);font-weight:900;text-transform:uppercase;line-height:1.05;">
+        <span style="display:block;color:var(--color-navy);font-size:clamp(1.75rem,4vw,2.75rem);">REINTEGRATION</span>
+        <span style="display:block;color:var(--color-amber);font-size:clamp(1.75rem,4vw,2.75rem);">SUPPORT</span>
+      </h1>
+      <span class="rule rule--amber"></span>
+      <p style="font-family:var(--font-heading);font-size:1.0625rem;color:var(--color-amber);font-weight:700;">Every ending is a new beginning. We walk with you.</p>
+      <p class="section-desc" style="max-width:none;">
+        Leaving prison is one of the most critical and vulnerable moments in a person's journey. IICC Mission walks alongside former prisoners as they rebuild their lives — providing practical support, spiritual accompaniment and connection to community.
+      </p>
+      <a href="/contact" class="btn btn--amber">GET SUPPORT ›</a>
+    </div>
+    <div class="hero-split__photo" style="min-height:320px;">
+      <img
+        src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&h=600&fit=crop"
+        alt="New beginning — walking forward"
+      />
+    </div>
+  </div>
+
+  <!-- Support types -->
+  <section class="section section--navy">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:2.5rem;">
+        <span class="eyebrow eyebrow--white">How We Help</span>
+        <h2 style="font-family:var(--font-display);font-size:clamp(1rem,2vw,1.25rem);letter-spacing:0.15em;text-transform:uppercase;color:#fff;">REINTEGRATION PATHWAYS</h2>
+        <span class="rule rule--amber rule--center"></span>
+      </div>
+      <div class="grid-3">
+        {[
+          { icon: '🏠', title: 'Housing Assistance', desc: 'Help finding stable, safe accommodation — one of the biggest barriers after release.' },
+          { icon: '💼', title: 'Employment Support', desc: 'Connecting former prisoners with training, employment opportunities and supportive employers.' },
+          { icon: '👥', title: 'Mentoring & Companionship', desc: 'One-on-one mentoring from trained volunteers who walk alongside you in the first critical months.' },
+          { icon: '🙏', title: 'Spiritual Accompaniment', desc: 'Continuing pastoral care and prayer support as you find your footing in the community.' },
+          { icon: '📋', title: 'Welfare Navigation', desc: 'Help accessing Centrelink, healthcare, legal obligations and other essential services.' },
+          { icon: '👨‍👩‍👧', title: 'Family Reconnection', desc: 'Supporting the healing and reconnection of family relationships after incarceration.' },
+        ].map(c => (
+          <div class="card--dark" style="align-items:center;text-align:center;">
+            <div class="card__icon" style="font-size:1.125rem;border-color:rgba(224,123,0,0.4);">{c.icon}</div>
+            <p class="card__title">{c.title}</p>
+            <p class="card__body">{c.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Scripture + CTA -->
+  <section class="section section--offwhite">
+    <div class="wrap">
+      <div class="cols-2" style="gap:3rem;align-items:center;">
+        <div class="quote-box" style="padding:2rem;">
+          <span class="quote-box__mark">"</span>
+          <p class="quote-box__text">Therefore, if anyone is in Christ, the new creation has come: the old has gone, the new is here!</p>
+          <span class="quote-box__ref">— 2 Corinthians 5:17</span>
+        </div>
+        <div>
+          <span class="eyebrow" style="display:block;margin-bottom:0.5rem;">You Are Not Defined by Your Past</span>
+          <h2 class="section-title" style="margin-bottom:0.75rem;">A Fresh Start Is Possible</h2>
+          <span class="rule rule--amber" style="display:block;margin-bottom:1.25rem;"></span>
+          <p class="section-desc" style="max-width:none;margin-bottom:1rem;">
+            At IICC Mission, we believe in the possibility of genuine transformation. No matter what someone has done, no matter how long they were inside, every person deserves support, dignity and a real chance at a new life.
+          </p>
+          <p class="section-desc" style="max-width:none;margin-bottom:1.5rem;">
+            We work to reduce recidivism not by punishing people further, but by accompanying them toward wholeness.
+          </p>
+          <div style="display:flex;gap:0.875rem;flex-wrap:wrap;">
+            <a href="/contact" class="btn btn--amber">CONTACT US ›</a>
+            <a href="/donate" class="btn btn--outline" style="border-color:var(--color-navy);color:var(--color-navy);">SUPPORT THIS WORK ›</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>

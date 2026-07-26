@@ -1,0 +1,73 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+<Layout title="Legal Assistance — Prison Ministry — IICC Mission" description="Connecting inmates and their families with legal information, referrals and advocacy.">
+
+  <div style="background:var(--color-off-white);border-bottom:1px solid rgba(27,39,81,0.07);">
+    <div class="wrap">
+      <nav class="breadcrumb">
+        <a href="/">Home</a><span class="breadcrumb__sep">›</span>
+        <a href="/our-services">Programs</a><span class="breadcrumb__sep">›</span>
+        <a href="/our-services/prisoner-support">Prison Ministry</a><span class="breadcrumb__sep">›</span>
+        <span class="breadcrumb__current">Legal Assistance</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="hero-split" style="min-height:420px;">
+    <div class="hero-split__text" style="background:#fff;gap:1.25rem;">
+      <span class="eyebrow">Justice. Dignity. Rights.</span>
+      <h1 style="font-family:var(--font-display);font-weight:900;text-transform:uppercase;line-height:1.05;">
+        <span style="display:block;color:var(--color-navy);font-size:clamp(1.5rem,3.5vw,2.5rem);">LEGAL</span>
+        <span style="display:block;color:var(--color-amber);font-size:clamp(1.5rem,3.5vw,2.5rem);">ASSISTANCE</span>
+      </h1>
+      <span class="rule rule--amber"></span>
+      <p class="section-desc" style="max-width:none;">
+        Navigating the legal system is complex and overwhelming. IICC Mission connects inmates and their families with legal information, referrals and advocacy — because everyone deserves to know and understand their rights.
+      </p>
+      <a href="/contact" class="btn btn--amber">REQUEST ASSISTANCE ›</a>
+    </div>
+    <div class="hero-split__photo" style="min-height:280px;">
+      <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&h=600&fit=crop" alt="Legal assistance — justice scales" />
+    </div>
+  </div>
+
+  <section class="section section--navy">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:2.5rem;">
+        <span class="eyebrow eyebrow--white">What We Offer</span>
+        <h2 style="font-family:var(--font-display);font-size:clamp(1rem,2vw,1.25rem);letter-spacing:0.15em;text-transform:uppercase;color:#fff;">OUR LEGAL SUPPORT</h2>
+        <span class="rule rule--amber rule--center"></span>
+      </div>
+      <div class="grid-3">
+        {[
+          { icon: '📋', title: 'Legal Information', desc: 'Providing plain-language information about rights, processes and legal options to inmates and families.' },
+          { icon: '🔗', title: 'Referral Network', desc: 'Connecting individuals with pro bono solicitors, legal aid services and community legal centres.' },
+          { icon: '✍️', title: 'Application Support', desc: 'Assisting with parole applications, appeal documentation and correspondence with authorities.' },
+          { icon: '⚖️', title: 'Advocacy', desc: 'Advocating for the rights and fair treatment of inmates within the correctional system.' },
+          { icon: '💬', title: 'Court Support', desc: 'Accompanying individuals to court hearings and providing emotional and spiritual support.' },
+          { icon: '📖', title: 'Know Your Rights', desc: 'Running workshops and educational sessions on legal rights within correctional facilities.' },
+        ].map(c => (
+          <div class="card--dark" style="align-items:center;text-align:center;">
+            <div class="card__icon" style="font-size:1.125rem;border-color:rgba(224,123,0,0.4);">{c.icon}</div>
+            <p class="card__title">{c.title}</p>
+            <p class="card__body">{c.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--offwhite">
+    <div class="wrap" style="max-width:700px;text-align:center;">
+      <p style="font-size:0.8125rem;color:var(--color-muted);line-height:1.7;padding:1.5rem;background:#fff;border-left:3px solid var(--color-amber);border-radius:2px;text-align:left;">
+        <strong style="color:var(--color-navy);">Disclaimer:</strong> IICC Mission is not a law firm and does not provide legal advice. We connect individuals with qualified legal professionals and community legal services. For urgent legal matters, please contact Legal Aid or a qualified solicitor directly.
+      </p>
+      <div style="margin-top:2rem;display:flex;gap:0.875rem;justify-content:center;flex-wrap:wrap;">
+        <a href="/contact" class="btn btn--amber">CONTACT US ›</a>
+        <a href="/advocacy/legal-assistance" class="btn btn--outline" style="border-color:var(--color-navy);color:var(--color-navy);">ADVOCACY PAGE ›</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>

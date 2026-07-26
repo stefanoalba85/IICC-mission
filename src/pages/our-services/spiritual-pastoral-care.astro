@@ -1,0 +1,158 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Spiritual & Pastoral Care" description="Faith. Comfort. Hope. You are not alone. IICC Mission spiritual and pastoral care.">
+
+  <!-- Breadcrumb -->
+  <div style="background:var(--color-off-white);border-bottom:1px solid rgba(27,39,81,0.07);">
+    <div class="wrap">
+      <nav class="breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb__sep">›</span>
+        <a href="/our-services">Our Programs</a>
+        <span class="breadcrumb__sep">›</span>
+        <span class="breadcrumb__current">Spiritual &amp; Pastoral Care</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero split -->
+  <div class="hero-split" style="min-height:480px;">
+    <div class="hero-split__text" style="background:#fff;gap:1.25rem;">
+      <div style="display:flex;align-items:center;gap:1rem;">
+        <div style="width:3.5rem;height:3.5rem;border-radius:50%;border:2px solid var(--color-amber);display:flex;align-items:center;justify-content:center;color:var(--color-amber);flex-shrink:0;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg>
+        </div>
+        <h1 style="font-family:var(--font-display);font-weight:900;text-transform:uppercase;line-height:1.05;">
+          <span style="display:block;color:var(--color-navy);font-size:clamp(1.75rem,4vw,2.75rem);">SPIRITUAL &amp;</span>
+          <span style="display:block;color:var(--color-amber);font-size:clamp(1.75rem,4vw,2.75rem);">PASTORAL CARE</span>
+        </h1>
+      </div>
+      <span class="rule rule--amber"></span>
+      <p style="font-family:var(--font-heading);font-size:1.0625rem;color:var(--color-amber);font-weight:700;">Faith. Comfort. Hope. You are not alone.</p>
+      <p class="section-desc" style="max-width:none;">
+        At IICC Mission, we believe in the power of God's love to heal the heart, restore dignity and strengthen the soul. Our spiritual and pastoral care provides faith-based support for individuals and families on their journey toward healing and restoration.
+      </p>
+      <a href="/contact" class="btn btn--amber">GET SPIRITUAL SUPPORT ›</a>
+    </div>
+    <div class="hero-split__photo" style="min-height:320px;">
+      <img
+        src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=800&h=600&fit=crop"
+        alt="Spiritual care — hands together in prayer with candle and cross"
+      />
+    </div>
+  </div>
+
+  <!-- Our Approach — 4 cards -->
+  <section class="section section--white">
+    <div class="wrap">
+      <div class="cols-60-40" style="gap:3rem;align-items:start;">
+        <div>
+          <span class="eyebrow" style="margin-bottom:0.5rem;display:block;">Our Approach</span>
+          <h2 class="section-title" style="margin-bottom:1rem;">Compassionate Care Rooted in Faith</h2>
+          <span class="rule rule--amber" style="margin-bottom:1.25rem;display:block;"></span>
+          <span class="heart" style="display:block;margin-bottom:1rem;">♥</span>
+          <p class="section-desc" style="max-width:none;margin-bottom:1rem;">
+            We walk alongside individuals and families, offering prayer, encouragement, spiritual guidance and pastoral support in a safe, respectful and confidential environment.
+          </p>
+          <p class="section-desc" style="max-width:none;">
+            Our care is grounded in the love of Christ and guided by empathy, integrity and hope.
+          </p>
+        </div>
+        <div class="grid-2" style="gap:1rem;">
+          {[
+            { icon: '🙏', title: 'Prayer & Intercession', desc: 'We believe in the power of prayer and stand with you in faith.' },
+            { icon: '💬', title: 'Pastoral Counselling', desc: 'Compassionate conversations to bring comfort, clarity and hope.' },
+            { icon: '📖', title: 'Spiritual Guidance', desc: 'Biblical wisdom and faith-based support for every season of life.' },
+            { icon: '👥', title: 'Faith Community Connection', desc: 'We connect you with faith-filled communities and support networks.' },
+          ].map(c => (
+            <div class="card" style="align-items:center;text-align:center;gap:0.5rem;">
+              <div class="card__icon card__icon--filled">{c.icon}</div>
+              <p class="card__title">{c.title}</p>
+              <p class="card__body">{c.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who We Support — split with photo -->
+  <section class="section section--offwhite">
+    <div class="wrap">
+      <div class="cols-2" style="gap:3rem;align-items:center;">
+        <div style="position:relative;border-radius:2px;overflow:hidden;min-height:320px;">
+          <img
+            src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=700&h=500&fit=crop"
+            alt="Person praying at sunset with cross"
+            style="width:100%;height:100%;object-fit:cover;"
+          />
+        </div>
+        <div>
+          <span class="eyebrow" style="margin-bottom:0.5rem;display:block;">Who We Support</span>
+          <h2 class="section-title" style="margin-bottom:0.5rem;">You Are Seen. You Are Loved. You Are Not Alone.</h2>
+          <span class="rule rule--amber" style="margin-bottom:1.25rem;display:block;"></span>
+          <span class="heart" style="display:block;margin-bottom:1rem;">♥</span>
+          <p class="section-desc" style="max-width:none;margin-bottom:1.25rem;">
+            Our spiritual and pastoral care is for anyone who needs faith-based support, encouragement or a listening ear.
+          </p>
+          <ul class="checklist" style="margin-bottom:1.5rem;">
+            <li>Individuals experiencing emotional or spiritual distress</li>
+            <li>Survivors of hardship, trauma or injustice</li>
+            <li>Families seeking strength, healing and hope</li>
+            <li>Anyone wanting prayer, guidance or a faith connection</li>
+          </ul>
+          <a href="/contact" class="btn btn--amber">REQUEST SUPPORT ›</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- A Safe Place / Quote -->
+  <section class="section section--white">
+    <div class="wrap">
+      <div class="cols-60-40" style="gap:3rem;align-items:start;">
+        <div>
+          <span class="eyebrow" style="margin-bottom:0.5rem;display:block;">What You Can Expect</span>
+          <h2 class="section-title" style="margin-bottom:1rem;">A Safe Place to Heal and Grow</h2>
+          <span class="rule rule--amber" style="margin-bottom:1.5rem;display:block;"></span>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;" class="safe-grid">
+            {[
+              { icon: '🔒', title: 'Confidential & Safe', desc: 'Your privacy and dignity are always respected.' },
+              { icon: '❤️', title: 'Non-judgmental Support', desc: 'We meet you with compassion, love and understanding.' },
+              { icon: '✝️', title: 'Faith-Centered Care', desc: 'We offer care grounded in Christian faith and values.' },
+              { icon: '🚶', title: 'Walking With You', desc: 'We journey with you every step of the way.' },
+            ].map(f => (
+              <div style="display:flex;align-items:flex-start;gap:0.875rem;padding:1rem;background:var(--color-off-white);border-radius:2px;">
+                <div style="font-size:1.125rem;flex-shrink:0;">{f.icon}</div>
+                <div>
+                  <p style="font-weight:700;font-size:0.875rem;color:var(--color-navy);margin-bottom:0.25rem;">{f.title}</p>
+                  <p style="font-size:0.8125rem;color:var(--color-muted);line-height:1.55;">{f.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:1.5rem;">
+          <div class="quote-box">
+            <span class="quote-box__mark">"</span>
+            <p class="quote-box__text">Come to me, all you who are weary and burdened, and I will give you rest.</p>
+            <span class="quote-box__ref">— Matthew 11:28</span>
+          </div>
+          <div style="background:var(--color-amber);border-radius:2px;padding:1.5rem;text-align:center;">
+            <span class="heart" style="color:#fff;font-size:1.25rem;display:block;margin-bottom:0.75rem;">♥</span>
+            <p style="font-size:0.9375rem;color:#fff;font-style:italic;margin-bottom:1.25rem;line-height:1.65;">Let us pray with you and walk beside you on your path toward healing and hope.</p>
+            <a href="/contact" class="btn" style="background:#fff;color:var(--color-amber);font-weight:800;">CONNECT WITH US ›</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  @media (max-width: 540px) {
+    .safe-grid { grid-template-columns: 1fr !important; }
+  }
+</style>

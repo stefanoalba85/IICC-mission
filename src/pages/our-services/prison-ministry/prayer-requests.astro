@@ -1,0 +1,84 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+<Layout title="Prayer Requests — Prison Ministry — IICC Mission" description="Submit a prayer request for yourself or a loved one in prison. We pray for every request.">
+
+  <div style="background:var(--color-off-white);border-bottom:1px solid rgba(27,39,81,0.07);">
+    <div class="wrap">
+      <nav class="breadcrumb">
+        <a href="/">Home</a><span class="breadcrumb__sep">›</span>
+        <a href="/our-services">Programs</a><span class="breadcrumb__sep">›</span>
+        <a href="/our-services/prisoner-support">Prison Ministry</a><span class="breadcrumb__sep">›</span>
+        <span class="breadcrumb__current">Prayer Requests</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="hero-split" style="min-height:400px;">
+    <div class="hero-split__text" style="background:#fff;gap:1.25rem;">
+      <span class="eyebrow">We Pray for Every Request</span>
+      <h1 style="font-family:var(--font-display);font-weight:900;text-transform:uppercase;line-height:1.05;">
+        <span style="display:block;color:var(--color-navy);font-size:clamp(1.5rem,3.5vw,2.5rem);">PRAYER</span>
+        <span style="display:block;color:var(--color-amber);font-size:clamp(1.5rem,3.5vw,2.5rem);">REQUESTS</span>
+      </h1>
+      <span class="rule rule--amber"></span>
+      <p class="section-desc" style="max-width:none;">Submit a prayer request for an inmate, a family member or yourself. Our prayer team commits to interceding for every request we receive.</p>
+    </div>
+    <div class="hero-split__photo" style="min-height:260px;">
+      <img src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=800&h=600&fit=crop" alt="Candles and prayer" />
+    </div>
+  </div>
+
+  <section class="section section--offwhite">
+    <div class="wrap">
+      <div class="cols-60-40" style="gap:3rem;align-items:start;">
+        <div style="background:#fff;border:1px solid rgba(27,39,81,0.08);border-radius:2px;padding:2rem;">
+          <h2 style="font-family:var(--font-display);font-size:0.875rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--color-navy);margin-bottom:0.5rem;">SUBMIT YOUR PRAYER REQUEST</h2>
+          <span class="rule rule--amber" style="display:block;margin-bottom:1.5rem;"></span>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.25rem;" class="pr-grid-2">
+            <div class="form-field">
+              <label for="pr-first">First Name</label>
+              <input type="text" id="pr-first" name="first_name" class="form-input" placeholder="First name" />
+            </div>
+            <div class="form-field">
+              <label for="pr-last">Last Name</label>
+              <input type="text" id="pr-last" name="last_name" class="form-input" placeholder="Last name" />
+            </div>
+          </div>
+          <div class="form-field" style="margin-bottom:1.25rem;">
+            <label for="pr-email">Email</label>
+            <input type="email" id="pr-email" name="email" class="form-input" placeholder="your@email.com" />
+          </div>
+          <div class="form-field" style="margin-bottom:1.5rem;">
+            <label for="pr-request">Your Prayer Request <span class="required">*</span></label>
+            <textarea id="pr-request" name="request" class="form-input form-input--textarea" placeholder="Share what you would like us to pray for…" style="min-height:8rem;" required></textarea>
+          </div>
+          <div class="form-field" style="margin-bottom:1.5rem;">
+            <label style="display:flex;align-items:flex-start;gap:0.5rem;font-weight:400;cursor:pointer;font-size:0.8125rem;color:var(--color-muted);">
+              <input type="checkbox" name="consent" style="accent-color:var(--color-amber);margin-top:0.15rem;" required />
+              I consent to IICC Mission holding my prayer request for up to 30 days for prayer purposes.
+            </label>
+          </div>
+          <button type="submit" class="btn btn--amber" style="width:100%;justify-content:center;">🙏 SUBMIT PRAYER REQUEST</button>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:1.5rem;">
+          <div class="quote-box">
+            <span class="quote-box__mark">"</span>
+            <p class="quote-box__text">Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God.</p>
+            <span class="quote-box__ref">— Philippians 4:6</span>
+          </div>
+          <div style="background:var(--color-navy-dark);border-radius:2px;padding:1.5rem;">
+            <p style="font-family:var(--font-display);font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-amber);margin-bottom:0.75rem;">OUR PROMISE</p>
+            <p style="font-size:0.875rem;color:rgba(255,255,255,0.85);line-height:1.7;">Every prayer request we receive is prayed over by our team. No request is too small, too big or too broken.</p>
+          </div>
+          <a href="/prayer-request" class="btn btn--amber" style="text-align:center;justify-content:center;">GENERAL PRAYER REQUEST FORM ›</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  @media (max-width: 540px) { .pr-grid-2 { grid-template-columns: 1fr !important; } }
+</style>

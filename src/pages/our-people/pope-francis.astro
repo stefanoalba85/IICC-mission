@@ -1,0 +1,73 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Pope Francis — Our People — IICC Mission" description="His Holiness Pope Francis — the Pope of Mercy whose call to the peripheries founded our mission.">
+
+  <div style="background:var(--color-off-white);border-bottom:1px solid rgba(27,39,81,0.07);">
+    <div class="wrap">
+      <nav class="breadcrumb">
+        <a href="/">Home</a><span class="breadcrumb__sep">›</span>
+        <a href="/our-people">Our People</a><span class="breadcrumb__sep">›</span>
+        <span class="breadcrumb__current">Pope Francis</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="hero-split" style="min-height:480px;">
+    <div class="hero-split__text" style="background:var(--color-navy-dark);gap:1.25rem;">
+      <div style="display:flex;align-items:center;gap:1rem;">
+        <img src="/IICC_Logo.png" alt="IICC Mission" style="height:3.5rem;object-fit:contain;" />
+        <span style="font-family:var(--font-display);font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--color-amber);font-weight:700;">Spiritual Inspiration</span>
+      </div>
+      <h1 style="font-family:var(--font-display);font-weight:900;text-transform:uppercase;line-height:1.05;">
+        <span style="display:block;color:var(--color-gold);font-size:clamp(0.875rem,1.5vw,1rem);letter-spacing:0.2em;margin-bottom:0.375rem;">HIS HOLINESS</span>
+        <span style="display:block;color:#fff;font-size:clamp(1.75rem,4vw,2.75rem);">POPE</span>
+        <span style="display:block;color:var(--color-amber);font-size:clamp(1.75rem,4vw,2.75rem);">FRANCIS</span>
+      </h1>
+      <span class="rule rule--amber"></span>
+      <p style="font-family:var(--font-heading);font-size:1.0625rem;color:rgba(255,255,255,0.85);font-style:italic;line-height:1.6;">
+        "Go out to the peripheries. Go out and meet the poor where they are."
+      </p>
+    </div>
+    <div class="hero-split__photo" style="min-height:320px;position:relative;">
+      <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&h=600&fit=crop" alt="St Peter's Square — Vatican City" />
+      <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(18,26,56,0.88));padding:2rem 1.5rem 1.5rem;">
+        <p style="font-size:0.875rem;font-weight:600;color:var(--color-amber);letter-spacing:0.08em;">Vatican City, Rome</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="section section--white">
+    <div class="wrap" style="max-width:860px;">
+      <div class="cols-2" style="gap:3rem;align-items:start;">
+        <div>
+          <span class="eyebrow" style="display:block;margin-bottom:0.5rem;">The Pope of Mercy</span>
+          <h2 class="section-title" style="margin-bottom:0.75rem;">Pope Francis &amp; the IICC Mission</h2>
+          <span class="rule rule--amber" style="display:block;margin-bottom:1.25rem;"></span>
+          <p class="section-desc" style="max-width:none;margin-bottom:1rem;">
+            His Holiness Pope Francis has been a source of profound inspiration for the IICC Mission from its very beginning. His call to a "Church that goes forth," to "tend the wounds of the injured," and to go to the "existential peripheries" directly shapes our ministry to those in prison and detention.
+          </p>
+          <p class="section-desc" style="max-width:none;margin-bottom:1rem;">
+            Pope Francis has himself visited prisons around the world, washed the feet of inmates, and spoken continuously about the need for the Church to accompany those society has thrown away.
+          </p>
+          <p class="section-desc" style="max-width:none;">
+            We carry his example in our hearts each time we enter a prison, a detention facility or a soup kitchen.
+          </p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:1.5rem;">
+          {[
+            { quote: 'Do not be afraid to visit those who are imprisoned. I want to be near those who are forgotten — those whom society has discarded.', ref: '— Pope Francis' },
+            { quote: 'A Church that does not go out of herself, sooner or later, sickens from the stale air of closed rooms.', ref: '— Pope Francis, Evangelii Gaudium' },
+          ].map(q => (
+            <div class="quote-box">
+              <span class="quote-box__mark">"</span>
+              <p class="quote-box__text">{q.quote}</p>
+              <span class="quote-box__ref">{q.ref}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>

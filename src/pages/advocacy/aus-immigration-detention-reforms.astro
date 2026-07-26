@@ -1,0 +1,99 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="AUS Immigration Detention Reforms — Advocacy — IICC Mission" description="IICC Mission advocates for humane, just and transparent reform of Australia's immigration detention system.">
+
+  <div style="background:var(--color-off-white);border-bottom:1px solid rgba(27,39,81,0.07);">
+    <div class="wrap">
+      <nav class="breadcrumb">
+        <a href="/">Home</a><span class="breadcrumb__sep">›</span>
+        <a href="/advocacy">Advocacy</a><span class="breadcrumb__sep">›</span>
+        <span class="breadcrumb__current">AUS Immigration Detention Reforms</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="hero-full" style="min-height:54vh;">
+    <div class="hero-full__bg">
+      <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1400&h=700&fit=crop" alt="" aria-hidden="true" />
+    </div>
+    <div class="hero-full__overlay"></div>
+    <div class="hero-full__content">
+      <span class="eyebrow eyebrow--white" style="display:block;margin-bottom:0.75rem;">Advocacy for Change</span>
+      <h1 style="font-family:var(--font-display);font-size:clamp(2rem,5vw,3.5rem);font-weight:900;color:#fff;text-transform:uppercase;line-height:1.05;margin-bottom:0.5rem;">
+        AUS IMMIGRATION<br>DETENTION REFORMS
+      </h1>
+      <span class="rule rule--amber" style="margin-bottom:1.5rem;display:block;"></span>
+      <p style="font-family:var(--font-heading);font-size:clamp(1rem,2.5vw,1.25rem);color:rgba(255,255,255,0.9);max-width:520px;line-height:1.6;">"Speak up for those who cannot speak for themselves." — Proverbs 31:8</p>
+    </div>
+  </div>
+
+  <section class="section section--white">
+    <div class="wrap">
+      <div class="cols-2" style="gap:3rem;align-items:start;">
+        <div>
+          <span class="eyebrow" style="display:block;margin-bottom:0.5rem;">The Problem</span>
+          <h2 class="section-title" style="margin-bottom:0.75rem;">Australia's Detention System Needs Reform</h2>
+          <span class="rule rule--amber" style="display:block;margin-bottom:1.25rem;"></span>
+          <span class="heart" style="display:block;margin-bottom:1rem;">♥</span>
+          <p class="section-desc" style="max-width:none;margin-bottom:1rem;">
+            Australia's immigration detention system holds thousands of people — many for extended periods without trial, without charge and without a clear pathway to resolution. These include asylum seekers, refugees and individuals with no criminal history.
+          </p>
+          <p class="section-desc" style="max-width:none;margin-bottom:1rem;">
+            IICC Mission has witnessed first-hand the devastating impact of prolonged detention on the mental, physical and spiritual wellbeing of detainees and their families. We cannot stay silent.
+          </p>
+          <p class="section-desc" style="max-width:none;">
+            We call on the Australian government and all people of goodwill to advocate for a more just, humane and transparent system that upholds the dignity of every person.
+          </p>
+        </div>
+        <div>
+          <span class="eyebrow" style="display:block;margin-bottom:0.5rem;">Our Reforms Agenda</span>
+          <h2 class="section-title" style="margin-bottom:0.75rem;">What We Are Calling For</h2>
+          <span class="rule rule--amber" style="display:block;margin-bottom:1.25rem;"></span>
+          <ul class="checklist">
+            <li>Time limits on immigration detention — no indefinite detention</li>
+            <li>Independent oversight and accountability mechanisms</li>
+            <li>Access to fair and timely legal processes for all detainees</li>
+            <li>Community-based alternatives to detention where appropriate</li>
+            <li>Adequate mental health services for those held in detention</li>
+            <li>Humane physical conditions and respect for religious practice</li>
+            <li>Transparent reporting on the number and duration of detentions</li>
+            <li>Special protections for vulnerable groups including children</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--navy">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:2.5rem;">
+        <span class="eyebrow eyebrow--white">Take Action</span>
+        <h2 style="font-family:var(--font-display);font-size:clamp(1rem,2vw,1.25rem);letter-spacing:0.15em;text-transform:uppercase;color:#fff;">HOW YOU CAN HELP</h2>
+        <span class="rule rule--amber rule--center"></span>
+      </div>
+      <div class="grid-4">
+        {[
+          { icon: '✍️', title: 'Sign Petitions', desc: 'Add your voice to petitions calling for detention reform in Australia.' },
+          { icon: '📢', title: 'Write to MPs', desc: 'Contact your local Member of Parliament and call for humane immigration reform.' },
+          { icon: '🌐', title: 'Share Our Stories', desc: 'Share our advocacy content and raise awareness in your networks.' },
+          { icon: '🙏', title: 'Pray', desc: 'Intercede for detainees, their families and for the hearts of policymakers.' },
+        ].map(c => (
+          <div class="card--dark" style="align-items:center;text-align:center;">
+            <div class="card__icon" style="font-size:1.125rem;border-color:rgba(224,123,0,0.4);">{c.icon}</div>
+            <p class="card__title">{c.title}</p>
+            <p class="card__body">{c.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="amber-band">
+    <div class="wrap" style="text-align:center;">
+      <p style="font-family:var(--font-display);font-size:clamp(1rem,2.5vw,1.375rem);font-weight:900;color:#fff;text-transform:uppercase;margin-bottom:0.5rem;">JOIN THE ADVOCACY MOVEMENT</p>
+      <a href="/contact" class="btn" style="background:#fff;color:var(--color-amber);font-weight:800;margin-top:0.5rem;">GET INVOLVED ›</a>
+    </div>
+  </div>
+
+</Layout>

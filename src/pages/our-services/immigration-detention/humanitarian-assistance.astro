@@ -1,0 +1,61 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+<Layout title="Humanitarian Assistance — Immigration Detention — IICC Mission" description="Essential material, welfare and practical support for immigration detainees.">
+
+  <div style="background:var(--color-off-white);border-bottom:1px solid rgba(27,39,81,0.07);">
+    <div class="wrap">
+      <nav class="breadcrumb">
+        <a href="/">Home</a><span class="breadcrumb__sep">›</span>
+        <a href="/our-services">Programs</a><span class="breadcrumb__sep">›</span>
+        <a href="/our-services/immigration-detention">Immigration Detention</a><span class="breadcrumb__sep">›</span>
+        <span class="breadcrumb__current">Humanitarian Assistance</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="hero-split" style="min-height:420px;">
+    <div class="hero-split__text" style="background:#fff;gap:1.25rem;">
+      <span class="eyebrow">Dignity in the Details</span>
+      <h1 style="font-family:var(--font-display);font-weight:900;text-transform:uppercase;line-height:1.05;">
+        <span style="display:block;color:var(--color-navy);font-size:clamp(1.5rem,3.5vw,2.5rem);">HUMANITARIAN</span>
+        <span style="display:block;color:var(--color-amber);font-size:clamp(1.5rem,3.5vw,2.5rem);">ASSISTANCE</span>
+      </h1>
+      <span class="rule rule--amber"></span>
+      <p class="section-desc" style="max-width:none;">Small acts of practical care can make an enormous difference. IICC Mission provides essential material and welfare support that upholds the dignity of every person in detention.</p>
+      <a href="/contact" class="btn btn--amber">REQUEST HELP ›</a>
+    </div>
+    <div class="hero-split__photo" style="min-height:280px;">
+      <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&h=600&fit=crop" alt="Humanitarian aid and support" />
+    </div>
+  </div>
+
+  <section class="section section--navy">
+    <div class="wrap">
+      <div class="grid-3">
+        {[
+          { icon: '👕', title: 'Essential Items', desc: 'Clothing, personal hygiene products and other essential items for people in detention.' },
+          { icon: '📞', title: 'Communication Support', desc: 'Facilitating phone and internet access to help detainees stay connected with family.' },
+          { icon: '🍎', title: 'Food & Nutrition', desc: 'Supplementing meals and ensuring dietary needs — especially for those with religious requirements — are met.' },
+          { icon: '🏥', title: 'Healthcare Advocacy', desc: 'Advocating for adequate medical and mental health care for detainees who need it.' },
+          { icon: '📖', title: 'Reading & Learning', desc: 'Books, educational materials and activities that help people maintain dignity and purpose.' },
+          { icon: '🌐', title: 'Welfare Navigation', desc: 'Helping detainees understand and access welfare entitlements and support services.' },
+        ].map(c => (
+          <div class="card--dark" style="align-items:center;text-align:center;">
+            <div class="card__icon" style="font-size:1.125rem;border-color:rgba(224,123,0,0.4);">{c.icon}</div>
+            <p class="card__title">{c.title}</p>
+            <p class="card__body">{c.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="amber-band">
+    <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
+      <p style="font-family:var(--font-display);font-size:clamp(1rem,2.5vw,1.375rem);font-weight:900;color:#fff;text-transform:uppercase;">YOUR DONATION PROVIDES HUMANITARIAN AID</p>
+      <a href="/donate" class="btn" style="background:#fff;color:var(--color-amber);font-weight:800;white-space:nowrap;">♥ DONATE</a>
+    </div>
+  </div>
+
+</Layout>

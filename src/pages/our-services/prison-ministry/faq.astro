@@ -1,0 +1,84 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const faqs = [
+  {
+    q: 'Can anyone contact IICC Mission for prison ministry support?',
+    a: 'Yes. Inmates, families of inmates, correctional facility staff and community members can all reach out to us. We welcome anyone who wants prayer, pastoral support or information about our programs.',
+  },
+  {
+    q: 'Do you visit prisons in all states of Australia?',
+    a: 'We currently operate in Victoria and are expanding to other states. Contact us to find out about availability in your area and how we can connect you with the nearest mission team.',
+  },
+  {
+    q: 'Is your ministry available to prisoners of all faiths or just Catholics?',
+    a: 'Our ministry is Catholic in its spiritual tradition, but we welcome and serve people of all faith backgrounds — and those with no faith at all. Every person deserves compassion and pastoral care.',
+  },
+  {
+    q: 'How can I request a pastoral visit for a family member in prison?',
+    a: 'Contact us through our contact form or by phone. Provide the name of the correctional facility and your family member\'s details, and our team will do their best to arrange a visit.',
+  },
+  {
+    q: 'Can I volunteer with IICC Mission prison ministry?',
+    a: 'Absolutely. We welcome volunteers who feel called to this ministry. All volunteers undergo training and a working-with-vulnerable-people check. Register your interest through our Get Involved page.',
+  },
+  {
+    q: 'Does IICC Mission provide legal advice?',
+    a: 'We do not provide legal advice, but we can connect inmates and families with pro bono solicitors, legal aid services and community legal centres through our referral network.',
+  },
+  {
+    q: 'How are prayer requests handled?',
+    a: 'Every prayer request submitted to IICC Mission is prayed over by our dedicated prayer team. Requests are held confidentially and treated with deep respect. We do not share personal details.',
+  },
+  {
+    q: 'Is IICC Mission a registered charity?',
+    a: 'Yes. IICC Mission is a registered organisation operating in Australia. All donations are used to fund our mission programs, and we are committed to transparency and accountability.',
+  },
+];
+---
+<Layout title="FAQ — Prison Ministry — IICC Mission" description="Frequently asked questions about IICC Mission's prison ministry programs and how to access support.">
+
+  <div style="background:var(--color-off-white);border-bottom:1px solid rgba(27,39,81,0.07);">
+    <div class="wrap">
+      <nav class="breadcrumb">
+        <a href="/">Home</a><span class="breadcrumb__sep">›</span>
+        <a href="/our-services">Programs</a><span class="breadcrumb__sep">›</span>
+        <a href="/our-services/prisoner-support">Prison Ministry</a><span class="breadcrumb__sep">›</span>
+        <span class="breadcrumb__current">FAQ</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="hero-full" style="min-height:36vh;">
+    <div class="hero-full__bg">
+      <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=1400&h=500&fit=crop" alt="" aria-hidden="true" />
+    </div>
+    <div class="hero-full__overlay"></div>
+    <div class="hero-full__content">
+      <span class="eyebrow eyebrow--white" style="display:block;margin-bottom:0.75rem;">Prison Ministry</span>
+      <h1 style="font-family:var(--font-display);font-size:clamp(2rem,5vw,3.5rem);font-weight:900;color:#fff;text-transform:uppercase;margin-bottom:0.5rem;">FREQUENTLY ASKED QUESTIONS</h1>
+      <span class="rule rule--amber" style="display:block;"></span>
+    </div>
+  </div>
+
+  <section class="section section--white">
+    <div class="wrap" style="max-width:800px;">
+      <div style="display:flex;flex-direction:column;gap:1.25rem;">
+        {faqs.map((faq, i) => (
+          <div style="border:1px solid rgba(27,39,81,0.08);border-radius:2px;border-left:3px solid var(--color-amber);overflow:hidden;">
+            <div style="padding:1.25rem 1.5rem;background:#fff;">
+              <p style="font-family:var(--font-heading);font-size:1rem;font-weight:700;color:var(--color-navy);margin-bottom:0.75rem;line-height:1.4;">{faq.q}</p>
+              <p style="font-size:0.875rem;color:var(--color-muted);line-height:1.7;">{faq.a}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div style="margin-top:3rem;background:var(--color-off-white);border-radius:2px;padding:2rem;text-align:center;">
+        <p style="font-family:var(--font-heading);font-size:1.0625rem;font-weight:700;color:var(--color-navy);margin-bottom:0.5rem;">Still Have Questions?</p>
+        <p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.65;">We're here to help. Contact our team directly and we'll respond as soon as possible.</p>
+        <a href="/contact" class="btn btn--amber">CONTACT US ›</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>

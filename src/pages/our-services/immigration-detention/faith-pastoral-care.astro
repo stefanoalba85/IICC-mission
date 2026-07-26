@@ -1,0 +1,73 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+<Layout title="Faith & Pastoral Care — Immigration Detention — IICC Mission" description="Bringing prayer, sacraments and the presence of God into immigration detention centres.">
+
+  <div style="background:var(--color-off-white);border-bottom:1px solid rgba(27,39,81,0.07);">
+    <div class="wrap">
+      <nav class="breadcrumb">
+        <a href="/">Home</a><span class="breadcrumb__sep">›</span>
+        <a href="/our-services">Programs</a><span class="breadcrumb__sep">›</span>
+        <a href="/our-services/immigration-detention">Immigration Detention</a><span class="breadcrumb__sep">›</span>
+        <span class="breadcrumb__current">Faith &amp; Pastoral Care</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="hero-split" style="min-height:420px;">
+    <div class="hero-split__text" style="background:#fff;gap:1.25rem;">
+      <span class="eyebrow">God's Love Knows No Walls</span>
+      <h1 style="font-family:var(--font-display);font-weight:900;text-transform:uppercase;line-height:1.05;">
+        <span style="display:block;color:var(--color-navy);font-size:clamp(1.5rem,3.5vw,2.5rem);">FAITH &amp;</span>
+        <span style="display:block;color:var(--color-amber);font-size:clamp(1.5rem,3.5vw,2.5rem);">PASTORAL CARE</span>
+      </h1>
+      <span class="rule rule--amber"></span>
+      <p class="section-desc" style="max-width:none;">We enter immigration detention facilities to bring prayer, pastoral care, the sacraments and the transforming presence of God. No one is beyond God's reach — and no wall can stop His love.</p>
+      <a href="/contact" class="btn btn--amber">REQUEST A VISIT ›</a>
+    </div>
+    <div class="hero-split__photo" style="min-height:280px;">
+      <img src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=800&h=600&fit=crop" alt="Prayer with hands and candle" />
+    </div>
+  </div>
+
+  <section class="section section--navy">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:2.5rem;">
+        <span class="eyebrow eyebrow--white">What We Bring</span>
+        <h2 style="font-family:var(--font-display);font-size:clamp(1rem,2vw,1.25rem);letter-spacing:0.15em;text-transform:uppercase;color:#fff;">PASTORAL CARE INSIDE DETENTION</h2>
+        <span class="rule rule--amber rule--center"></span>
+      </div>
+      <div class="grid-3">
+        {[
+          { icon: '🙏', title: 'Prayer Visits', desc: 'Regular visits to detention centres to pray with, listen to and accompany detainees.' },
+          { icon: '🕊️', title: 'Sacraments', desc: 'Celebrating Mass, Confession and other sacraments for Catholic detainees when possible.' },
+          { icon: '📖', title: 'Scripture & Faith', desc: 'Sharing the Word of God through Bible study, devotional materials and faith conversations.' },
+          { icon: '💬', title: 'Pastoral Listening', desc: 'A compassionate presence to hear the fears, hopes and stories of those in detention.' },
+          { icon: '🕯️', title: 'Spiritual Support', desc: 'Walking alongside people in times of deep spiritual distress, uncertainty and despair.' },
+          { icon: '✝️', title: 'Intercession', desc: 'Our prayer team intercedes continuously for all detainees in our care and ministry.' },
+        ].map(c => (
+          <div class="card--dark" style="align-items:center;text-align:center;">
+            <div class="card__icon" style="font-size:1.125rem;border-color:rgba(224,123,0,0.4);">{c.icon}</div>
+            <p class="card__title">{c.title}</p>
+            <p class="card__body">{c.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--offwhite">
+    <div class="wrap" style="max-width:700px;text-align:center;">
+      <div class="quote-box" style="margin-inline:auto;">
+        <span class="quote-box__mark">"</span>
+        <p class="quote-box__text">I was a stranger and you invited me in.</p>
+        <span class="quote-box__ref">— Matthew 25:35</span>
+      </div>
+      <div style="margin-top:2rem;display:flex;gap:0.875rem;justify-content:center;flex-wrap:wrap;">
+        <a href="/contact" class="btn btn--amber">PARTNER WITH US ›</a>
+        <a href="/prayer" class="btn btn--outline" style="border-color:var(--color-navy);color:var(--color-navy);">PRAYER COMMUNITY ›</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
