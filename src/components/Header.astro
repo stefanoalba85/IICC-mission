@@ -3,10 +3,210 @@ interface Props {
   currentPath?: string;
 }
 const { currentPath = '/' } = Astro.props;
+
+const isActive = (href: string) =>
+  href === '/' ? currentPath === '/' : currentPath.startsWith(href);
 ---
-<!-- Header — da implementare -->
-<header style="background:var(--color-navy);padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;">
-  <a href="/">
-    <img src="/IICC_Logo.png" alt="IICC Mission" style="height:48px;object-fit:contain;" />
-  </a>
+
+<header class="site-header">
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+  <div class="site-header__bar wrap">
+    <a href="/" class="site-header__brand">
+      <img src="/IICC_Logo.png" alt="IICC Mission" class="site-header__logo" />
+      <span class="site-header__wordmark">
+        <strong>IICC MISSION</strong>
+        <small>Faith. Hope. Justice. Restoration.</small>
+      </span>
+    </a>
+
+    <label for="nav-toggle" class="site-header__burger" aria-label="Apri il menu">
+      <svg width="18" height="14" viewBox="0 0 18 14" fill="none"><path d="M0 1h18M0 7h18M0 13h18" stroke="currentColor" stroke-width="2"/></svg>
+    </label>
+
+    <nav class="mega-nav" aria-label="Menu principale">
+      <ul class="mega-nav__list">
+        <li class="mega-nav__item">
+          <a href="/" class="mega-nav__link" aria-current={isActive('/') && currentPath === '/' ? 'page' : undefined}>Home</a>
+        </li>
+
+        <li class="mega-nav__item">
+          <details class="mega-nav__item--dropdown">
+            <summary class="mega-nav__link">
+              About Us
+              <svg class="mega-nav__caret" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6"/></svg>
+            </summary>
+            <div class="mega-nav__panel">
+              <div class="mega-nav__col">
+                <span class="mega-nav__col-title">Chi Siamo</span>
+                <a href="/about-us">About Us</a>
+                <a href="/about-us/our-mission">Our Mission</a>
+                <a href="/about-us/our-vision">Our Vision</a>
+                <a href="/about-us/our-story">Our Story</a>
+                <a href="/about-us/our-leadership">Our Leadership</a>
+              </div>
+              <div class="mega-nav__col">
+                <span class="mega-nav__col-title">Il Nostro Fondatore</span>
+                <a href="/about-us/ambassador-founder">Ambassador &amp; Founder</a>
+                <a href="/about-us/founder-messages">Founder Messages</a>
+                <a href="/about-us/prison-didnt-break-me">Prison Didn't Break Me</a>
+                <a href="/about-us/inspired-by-faith">Inspired By Faith</a>
+              </div>
+              <div class="mega-nav__col">
+                <span class="mega-nav__col-title">Fede &amp; Riconoscimenti</span>
+                <a href="/about-us/pope-francis">Pope Francis</a>
+                <a href="/about-us/pope-leo-xiv">Pope Leo XIV</a>
+                <a href="/about-us/cardinal-george-pell">Cardinal George Pell</a>
+                <a href="/about-us/peter-comensoli">Peter Comensoli</a>
+              </div>
+              <div class="mega-nav__col">
+                <span class="mega-nav__col-title">Our People</span>
+                <a href="/about-us/our-people">Our People</a>
+                <a href="/about-us/our-people/staff-volunteers">Staff &amp; Volunteers</a>
+                <a href="/about-us/our-people/professional-partners">Professional Partners</a>
+                <a href="/about-us/our-people/acknowledgements">Acknowledgements</a>
+              </div>
+            </div>
+          </details>
+        </li>
+
+        <li class="mega-nav__item">
+          <details class="mega-nav__item--dropdown">
+            <summary class="mega-nav__link">
+              Our Services
+              <svg class="mega-nav__caret" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6"/></svg>
+            </summary>
+            <div class="mega-nav__panel">
+              <div class="mega-nav__col">
+                <span class="mega-nav__col-title"><a href="/our-services/who-we-serve">Who We Serve</a></span>
+                <a href="/our-services/who-we-serve/incarcerated-individuals">Incarcerated Individuals</a>
+                <a href="/our-services/who-we-serve/immigration-detainees">Immigration Detainees</a>
+                <a href="/our-services/who-we-serve/families-affected-by-detention">Families Affected</a>
+              </div>
+              <div class="mega-nav__col">
+                <span class="mega-nav__col-title"><a href="/our-services/prison-ministry">Prison Ministry</a></span>
+                <a href="/our-services/prison-ministry/spiritual-pastoral-care">Spiritual &amp; Pastoral Care</a>
+                <a href="/our-services/prison-ministry/prison-visits">Prison Visits</a>
+                <a href="/our-services/prison-ministry/legal-support-referrals">Legal Support &amp; Referrals</a>
+              </div>
+              <div class="mega-nav__col">
+                <span class="mega-nav__col-title"><a href="/our-services/immigration-detention">Immigration Detention</a></span>
+                <a href="/our-services/immigration-detention/support-for-detainees">Support for Detainees</a>
+                <a href="/our-services/immigration-detention/family-support">Family Support</a>
+                <a href="/our-services/immigration-detention/legal-referral-services">Legal Referral Services</a>
+              </div>
+              <div class="mega-nav__col">
+                <span class="mega-nav__col-title"><a href="/our-services/mental-health">Mental Health &amp; Wellbeing</a></span>
+                <a href="/our-services/mental-health/mental-health-resources">Mental Health Resources</a>
+                <a href="/our-services/mental-health/crisis-support-resources">Crisis Support</a>
+              </div>
+              <div class="mega-nav__col">
+                <span class="mega-nav__col-title"><a href="/our-services/advocacy">Advocacy &amp; Human Rights</a></span>
+                <a href="/our-services/advocacy/research-reports">Research &amp; Reports</a>
+                <a href="/our-services/advocacy/petition-campaigns">Petition Campaigns</a>
+              </div>
+            </div>
+          </details>
+        </li>
+
+        <li class="mega-nav__item">
+          <details class="mega-nav__item--dropdown">
+            <summary class="mega-nav__link">
+              Programs
+              <svg class="mega-nav__caret" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6"/></svg>
+            </summary>
+            <div class="mega-nav__panel">
+              <div class="mega-nav__col">
+                <span class="mega-nav__col-title"><a href="/programs/hope-companion">Hope Companion Program</a></span>
+                <a href="/programs/hope-companion/how-it-works">How The Program Works</a>
+                <a href="/programs/hope-companion/become-a-companion">Become a Hope Companion</a>
+                <a href="/programs/hope-companion/stories">Stories of Hope</a>
+              </div>
+              <div class="mega-nav__col">
+                <span class="mega-nav__col-title"><a href="/programs/bakery-of-hope">Francis Bakery of Hope</a></span>
+                <a href="/programs/bakery-of-hope">Coming Soon</a>
+              </div>
+            </div>
+          </details>
+        </li>
+
+        <li class="mega-nav__item">
+          <details class="mega-nav__item--dropdown">
+            <summary class="mega-nav__link">
+              Get Involved
+              <svg class="mega-nav__caret" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6"/></svg>
+            </summary>
+            <div class="mega-nav__panel">
+              <div class="mega-nav__col">
+                <span class="mega-nav__col-title">Partecipa</span>
+                <a href="/get-involved">Get Involved</a>
+                <a href="/get-involved/volunteer-program">Volunteer Program</a>
+                <a href="/get-involved/ambassador-program">Ambassador Program</a>
+              </div>
+              <div class="mega-nav__col">
+                <span class="mega-nav__col-title">Sostieni</span>
+                <a href="/donate">Donate</a>
+                <a href="/get-involved/prayer-request">Prayer Request</a>
+                <a href="/get-involved/submit-your-story">Submit Your Story</a>
+              </div>
+            </div>
+          </details>
+        </li>
+
+        <li class="mega-nav__item">
+          <details class="mega-nav__item--dropdown">
+            <summary class="mega-nav__link">
+              Partnerships
+              <svg class="mega-nav__caret" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6"/></svg>
+            </summary>
+            <div class="mega-nav__panel">
+              <div class="mega-nav__col">
+                <span class="mega-nav__col-title">Global Network</span>
+                <a href="/partnerships">Global Mission Network</a>
+                <a href="/partnerships/international-branches">International Branches</a>
+                <a href="/partnerships/rome-headquarters">Rome Headquarters</a>
+              </div>
+              <div class="mega-nav__col">
+                <span class="mega-nav__col-title">Comunità</span>
+                <a href="/partnerships/churches-parish-partners">Churches &amp; Parish Partners</a>
+              </div>
+            </div>
+          </details>
+        </li>
+
+        <li class="mega-nav__item">
+          <details class="mega-nav__item--dropdown">
+            <summary class="mega-nav__link">
+              Resources
+              <svg class="mega-nav__caret" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6"/></svg>
+            </summary>
+            <div class="mega-nav__panel">
+              <div class="mega-nav__col">
+                <span class="mega-nav__col-title"><a href="/resources">Resource Centre</a></span>
+                <a href="/resources/articles">Articles &amp; Insights</a>
+                <a href="/resources/prayer-resources">Prayer Resources</a>
+                <a href="/resources/bible-daily-gospel">Bible &amp; Daily Gospel</a>
+              </div>
+              <div class="mega-nav__col">
+                <span class="mega-nav__col-title"><a href="/resources/autism">Autism Resources</a></span>
+                <a href="/resources/autism/awareness">Autism Awareness</a>
+                <a href="/resources/autism/support">Autism Support</a>
+              </div>
+            </div>
+          </details>
+        </li>
+
+        <li class="mega-nav__item">
+          <a href="/news" class="mega-nav__link" aria-current={isActive('/news') ? 'page' : undefined}>News &amp; Events</a>
+        </li>
+        <li class="mega-nav__item">
+          <a href="/contact" class="mega-nav__link" aria-current={isActive('/contact') ? 'page' : undefined}>Contact Us</a>
+        </li>
+      </ul>
+    </nav>
+
+    <a href="/donate" class="btn btn--amber site-header__donate">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-10-9.3C.3 8.4 2 4.8 5.6 4.1c2-.4 4 .5 5 2.1a4.8 4.8 0 0 1 5-2.1c3.6.7 5.3 4.3 3.6 7.6C19.5 16.4 12 21 12 21Z"/></svg>
+      Donate
+    </a>
+  </div>
 </header>
