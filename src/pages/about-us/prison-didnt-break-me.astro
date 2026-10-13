@@ -1,75 +1,198 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
+const img = (n: string) => `/images/prison-didnt-break-me/${n}.jpg`;
+
 const chapters = [
-  { n: 1, title: 'My Story', text: "I made mistakes. I paid the price. Eight years of my life in prison. It was a time of loss, pain and isolation. But it was also a time that changed my heart forever. I learned that every person, no matter their past, still has dignity, still has value, and still has a future." },
-  { n: 2, title: 'Faith Was My Strength', text: 'In the silence of my cell, I discovered something powerful: God never left me. Through prayer, through the Gospel, through the Sacraments when I could, my faith became my anchor. Faith gave me strength. Hope gave me purpose.' },
-  { n: 3, title: 'The Prison Bakery Experience', text: 'For four years, I worked in the prison bakery. I learned the craft of breadmaking. I saw how creating something with your hands can change the way you see yourself. I saw men who had lost everything, stand a little taller because they were trusted, they were needed, they were capable. That experience inspired the Bakery of Hope — a place of second chances and new beginnings.' },
-  { n: 4, title: 'Prison Did Not Define Me', text: 'My past is real. But it is not my identity. I am more than my mistakes. I am defined by the choices I make today and the good I choose for tomorrow. A person’s worst moment is not the end of their story.' },
-  { n: 5, title: 'A Message to Inmates and Detainees', text: 'If you are in prison or immigration detention, please hear this: You are not forgotten. You still have dignity. You still have a purpose. And you still have a future. Hold on to hope. It can change your life.' },
-  { n: 6, title: 'A Message to Families', text: 'Families carry a pain too. The wait. The worry. The uncertainty. You are not alone in this journey. Stay strong. Stay connected. Hope is possible for your loved one, and for you.' },
-  { n: 7, title: 'Why IICC Mission Exists', text: 'IICC Mission was born from my journey and my calling. We exist to bring hope, dignity and practical support through Prison Ministry, Immigration Detention Ministry, Advocacy &amp; Justice, Pastoral Care &amp; Spiritual Support, Reintegration &amp; Education and Humanitarian Support.' },
-  { n: 8, title: 'From Experience to Mission', text: 'My story is not defined by where I was. It is defined by the hope I found and the hope I now share with others. IICC Mission is more than an organization. It is a family, a mission of love, mercy and hope for everyone behind walls and for their families.' },
-  { n: 9, title: 'I Will Continue to Give Hope', text: 'I can visit prisons and detention centres to speak with inmates and detainees, to listen, to encourage and to remind them that they are not alone. I will continue to be their voice, their ambassador, and their brother. Together, we can build a world where no one is forgotten.' },
+  { n: 1, title: 'My Story', photo: 'c1', body: ['I made mistakes. I paid the price.', 'Eight years of my life in prison.', 'It was a time of loss, pain and isolation.', 'But it was also a time that changed my heart forever.', '', 'I learned that every person, no matter their past, still has dignity, still has value, and still has a future.'], strong: [] },
+  { n: 2, title: 'Faith Was My Strength', photo: 'c2', body: ['In the silence of my cell, I discovered something powerful: God never left me.', '', 'Through prayer, through the Gospel, through the Sacraments when I could, my faith became my anchor.'], strong: ['Faith gave me strength.', 'Hope gave me purpose.'] },
+  { n: 3, title: 'The Prison Bakery Experience', photo: 'c3', body: ['For four years, I worked in the prison bakery. I learned the craft of breadmaking.', 'I saw how creating something with your hands can change the way you see yourself.', 'I saw men, who had lost everything, stand a little taller because they were trusted, they were needed, they were capable.'], strong: ['That experience inspired the Bakery of Hope — a place of second chances and new beginnings.'] },
+  { n: 4, title: 'Prison Did Not Define Me', photo: 'c4', body: ['My past is real.', 'But it is not my identity.', 'I am more than my mistakes.', 'I am defined by the choices I make today and the good I choose to do tomorrow.'], strong: ['A person’s worst moment is not the end of their story.'] },
+  { n: 5, title: 'A Message to Inmates and Detainees', photo: 'c5', body: ['If you are in prison or immigration detention, please hear me:'], strong: ['• You are not forgotten.', '• You still have dignity.', '• You still have a purpose.', '• And you still have a future.', '', 'Hold on to hope.', 'It can change your life.'] },
+  { n: 6, title: 'A Message to Families', photo: 'c6', body: ['Families carry a pain too.', 'The wait. The worry. The uncertainty.', 'You are not alone in this journey.', 'Stay strong. Stay connected.', 'Hope is possible for your loved one, and for you.'], strong: [] },
 ];
+
+const pillars = ['Prison Ministry', 'Immigration Detention Ministry', 'Advocacy & Justice', 'Pastoral Care & Spiritual Support', 'Reintegration & Education', 'Humanitarian Support'];
+const values = ['Faith-Based Catholic Values', 'Global Presence Local Impact', 'Hope & Healing for All', 'Restoration & Reintegration', 'Compassion in Action', 'Justice with Mercy', 'Dignity for Every Human Being'];
 ---
 <Layout title="Prison Didn't Break Me" description="A story of faith, hope, restoration and purpose — the Ambassador & Founder's own journey.">
-  <nav class="breadcrumb wrap"><a href="/">Home</a><span class="breadcrumb__sep">/</span><a href="/about-us">About Us</a><span class="breadcrumb__sep">/</span><span class="breadcrumb__current">Prison Didn't Break Me</span></nav>
+  <style>
+    .pd { --pd-dark: #0b1020; --pd-cream: #efe8dc; --pd-card: #f6f1e8; --pd-gold: #c9962a; }
+    .pd-hero { background: var(--pd-dark); color: #fff; }
+    .pd-hero__grid { display: grid; grid-template-columns: 1fr 1.15fr 0.95fr; align-items: end; min-height: 440px; }
+    .pd-hero__text { padding: 3rem 0 2.5rem; display: flex; flex-direction: column; gap: 1.25rem; }
+    .pd-hero__title { font-family: var(--font-body); font-weight: 900; font-size: clamp(2.5rem, 5.5vw, 4.25rem); line-height: 0.95; text-transform: uppercase; letter-spacing: -0.01em; }
+    .pd-hero__title span { color: var(--pd-gold); display: block; }
+    .pd-hero__sub { color: var(--pd-gold); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.875rem; line-height: 1.5; }
+    .pd-hero__quote { font-size: 0.9375rem; line-height: 1.6; color: rgba(255,255,255,0.9); position: relative; padding-left: 2rem; max-width: 260px; }
+    .pd-hero__quote::before { content: '\201C'; position: absolute; left: 0; top: -0.4rem; font-family: var(--font-heading); font-size: 2.5rem; color: var(--pd-gold); }
+    .pd-hero__founder img { width: 100%; display: block; }
+    .pd-hero__woman { position: relative; align-self: stretch; display: flex; flex-direction: column; justify-content: space-between; }
+    .pd-hero__woman img { width: 100%; display: block; -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent); mask-image: linear-gradient(to bottom, #000 70%, transparent); }
+    .pd-hero__script { font-family: var(--font-heading); font-style: italic; font-size: 1.375rem; line-height: 1.35; padding: 0 0 2.5rem 1rem; }
+    .pd-hero__script em { color: var(--pd-gold); }
 
-  <section class="hero-full" style="min-height:40vh;">
-    <div class="hero-full__bg">
-      <img src="https://images.unsplash.com/photo-1528605105345-5344ea20e269?w=1600&q=80" alt="Light through prison window" />
-    </div>
-    <div class="hero-full__overlay"></div>
-    <div class="hero-full__content">
-      <span class="eyebrow eyebrow--white">A Story of Faith, Hope, Restoration and Purpose</span>
-      <h1 class="section-title section-title--white" style="margin-block:0.5rem; font-size:clamp(2rem,5vw,3rem);">Prison Didn't <span class="text-amber">Break Me</span></h1>
-      <div class="quote-box" style="max-width:480px; margin-top:1rem;">
-        <p class="quote-box__text">"During my time in prison I wasn't alone. I had God and the power of the Gospel guiding me."</p>
-        <span class="quote-box__ref">Even in the darkest place, hope can remain present.</span>
-      </div>
-    </div>
-  </section>
+    .pd-chapters { background: var(--pd-cream); padding-block: 2.5rem; }
+    .pd-chapters__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem 1.5rem; }
+    .pd-card { background: var(--pd-card); display: grid; grid-template-columns: 1fr 100px; gap: 1rem; padding: 1rem; border-radius: 2px; }
+    .pd-card__head { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; }
+    .pd-card__num { width: 1.75rem; height: 1.75rem; border-radius: 50%; background: var(--pd-dark); color: var(--pd-gold); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; }
+    .pd-card__title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--pd-dark); }
+    .pd-card__title b { color: var(--pd-gold); }
+    .pd-card p { font-size: 0.78rem; line-height: 1.6; color: #2a2a35; }
+    .pd-card p.strong { font-weight: 700; color: var(--pd-dark); }
+    .pd-card img { width: 100%; height: 100%; object-fit: cover; border-radius: 2px; }
+    .pd-card--wide { grid-template-columns: 1fr; }
+    .pd-pillars { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0.5rem; margin-block: 1rem; text-align: center; }
+    .pd-pillars span { font-size: 0.65rem; color: #2a2a35; line-height: 1.3; }
+    .pd-pillars svg { color: var(--pd-dark); margin-inline: auto; margin-bottom: 0.25rem; }
+    .pd-darkquote { background: var(--pd-dark); color: #fff; padding: 0.875rem 1rem; font-size: 0.8rem; line-height: 1.5; display: flex; gap: 0.75rem; align-items: center; border-radius: 2px; }
+    .pd-darkquote b { font-family: var(--font-heading); font-size: 1.75rem; color: var(--pd-gold); line-height: 1; }
 
-  <section class="section section--white">
-    <div class="wrap grid-3">
-      {chapters.map(c => (
-        <div class="card">
-          <span class="card__title">{c.n}. {c.title}</span>
-          <p class="card__body">{c.text}</p>
+    .pd-light { background: var(--pd-cream); padding-bottom: 2.5rem; }
+    .pd-light__grid { display: grid; grid-template-columns: 1fr 1.1fr 1.1fr 1fr; gap: 1.5rem; align-items: center; }
+    .pd-box { background: var(--pd-dark); color: #fff; padding: 1.75rem 1.5rem; border-radius: 2px; align-self: stretch; display: flex; flex-direction: column; justify-content: center; gap: 0.75rem; }
+    .pd-box h3 { font-family: var(--font-heading); font-style: italic; color: var(--pd-gold); font-size: 1.5rem; font-weight: 400; }
+    .pd-box p { font-size: 0.8125rem; line-height: 1.7; color: rgba(255,255,255,0.85); }
+    .pd-light__photo img { width: 100%; -webkit-mask-image: radial-gradient(ellipse at center, #000 60%, transparent 100%); mask-image: radial-gradient(ellipse at center, #000 60%, transparent 100%); }
+    .pd-light__text p { font-size: 0.8125rem; line-height: 1.9; color: #2a2a35; }
+    .pd-light__text p.gold { color: var(--pd-gold); font-weight: 600; }
+
+    .pd-cta { background: var(--pd-dark); color: #fff; padding-block: 2.5rem 1.5rem; }
+    .pd-cta h2 { text-align: center; color: var(--pd-gold); font-family: var(--font-body); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; font-size: 1.125rem; margin-bottom: 2rem; }
+    .pd-cta__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .pd-cta__item { display: flex; gap: 1rem; }
+    .pd-cta__item svg { color: var(--pd-gold); flex-shrink: 0; }
+    .pd-cta__item h3 { font-family: var(--font-body); color: var(--pd-gold); font-size: 0.8125rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+    .pd-cta__item p { font-size: 0.78rem; color: rgba(255,255,255,0.7); margin-block: 0.4rem 0.75rem; }
+    .pd-btn { display: inline-block; background: var(--pd-gold); color: #fff; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.5rem 1.25rem; border-radius: 2px; }
+    .pd-values { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; padding-top: 1.5rem; }
+    .pd-values span { font-size: 0.7rem; color: rgba(255,255,255,0.7); padding-inline: 0.5rem; border-right: 1px solid rgba(255,255,255,0.1); }
+    .pd-values span:last-child { border-right: none; }
+
+    @media (max-width: 900px) {
+      .pd-hero__grid { grid-template-columns: 1fr 1fr; }
+      .pd-hero__text { grid-column: 1 / -1; padding-bottom: 0; }
+      .pd-chapters__grid, .pd-cta__grid { grid-template-columns: 1fr; }
+      .pd-light__grid { grid-template-columns: 1fr 1fr; }
+      .pd-values { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+      .pd-values span { border: none; }
+      .pd-pillars { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
+
+  <div class="pd">
+    <section class="pd-hero">
+      <div class="wrap pd-hero__grid">
+        <div class="pd-hero__text">
+          <h1 class="pd-hero__title">Prison <span>Didn't</span> Break Me</h1>
+          <p class="pd-hero__sub">A story of faith, hope,<br />restoration and purpose</p>
+          <p class="pd-hero__quote">During my time in prison I wasn't alone. I had God and the power of the Gospel guiding me.</p>
         </div>
-      ))}
-    </div>
-  </section>
-
-  <div class="quote-box" style="max-width:720px; margin-inline:auto; margin-bottom:3rem;">
-    <p class="quote-box__text">We accompany those who feel forgotten, and we walk with them toward a brighter future.</p>
-  </div>
-
-  <div class="cta-band">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow eyebrow--white">You Can Be Part of This Mission</span>
-      </div>
-      <div class="cols-60-40" style="align-items:center;">
-        <div class="grid-3">
-          <div>
-            <p class="card__title" style="color:#fff;">Support the Mission</p>
-            <p class="card__body" style="color:rgba(255,255,255,0.65);">Your donation helps us reach more lives and bring hope to those in need.</p>
-            <a href="/donate" class="btn btn--amber" style="margin-top:0.75rem;">Donate Now</a>
-          </div>
-          <div>
-            <p class="card__title" style="color:#fff;">Become an Ambassador</p>
-            <p class="card__body" style="color:rgba(255,255,255,0.65);">Use your voice, your talents and your heart to make a difference.</p>
-            <a href="/get-involved" class="btn btn--outline-white" style="margin-top:0.75rem;">Get Involved</a>
-          </div>
-          <div>
-            <p class="card__title" style="color:#fff;">Share Hope</p>
-            <p class="card__body" style="color:rgba(255,255,255,0.65);">Share this story. You never know who needs to hear it today.</p>
-            <a href="/get-involved/submit-your-story" class="btn btn--outline-white" style="margin-top:0.75rem;">Share Now</a>
-          </div>
+        <div class="pd-hero__founder"><img src={img('founder')} alt="Antonio G. Dattilo seated in a prison room lit by sunlight" /></div>
+        <div class="pd-hero__woman">
+          <img src={img('woman')} alt="A woman bathed in warm light" />
+          <p class="pd-hero__script">Even in the darkest place,<br /><em>hope</em> can remain present.</p>
         </div>
       </div>
-    </div>
+    </section>
+
+    <section class="pd-chapters">
+      <div class="wrap pd-chapters__grid">
+        {chapters.map(c => (
+          <article class="pd-card">
+            <div>
+              <div class="pd-card__head"><span class="pd-card__num">✦</span><span class="pd-card__title"><b>{c.n}.</b> {c.title}</span></div>
+              {c.body.map(l => l ? <p>{l}</p> : <p>&nbsp;</p>)}
+              {c.strong.length > 0 && <p>&nbsp;</p>}
+              {c.strong.map(l => l ? <p class="strong">{l}</p> : <p>&nbsp;</p>)}
+            </div>
+            <img src={img(c.photo)} alt="" />
+          </article>
+        ))}
+
+        <article class="pd-card pd-card--wide">
+          <div>
+            <div class="pd-card__head"><span class="pd-card__num">✦</span><span class="pd-card__title"><b>7.</b> Why IICC Mission Exists</span></div>
+            <p>IICC Mission was born from my journey and my calling.</p>
+            <p class="strong">We exist to bring hope, dignity and practical support through:</p>
+            <div class="pd-pillars">
+              {pillars.map(p => (
+                <div>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 21V9l8-5 8 5v12M4 21h16M9 21v-6h6v6" /></svg>
+                  <span>{p}</span>
+                </div>
+              ))}
+            </div>
+            <div class="pd-darkquote"><b>&ldquo;</b>We accompany those who feel forgotten, and we walk with them toward a brighter future.</div>
+          </div>
+        </article>
+
+        <article class="pd-card pd-card--wide">
+          <div>
+            <div class="pd-card__head"><span class="pd-card__num">✦</span><span class="pd-card__title"><b>8.</b> From Experience to Mission</span></div>
+            <p>My story is not defined by where I was.</p>
+            <p>It is <strong>defined by the hope I found</strong> and the hope I now share with others.</p>
+            <p>&nbsp;</p>
+            <p>IICC Mission is more than an organization. It is a family, a mission of love, mercy and hope for everyone behind walls and for their families.</p>
+          </div>
+        </article>
+
+        <article class="pd-card">
+          <div>
+            <div class="pd-card__head"><span class="pd-card__num">✦</span><span class="pd-card__title"><b>9.</b> I Will Continue to Give Hope</span></div>
+            <p>I can visit prisons and detention centres to speak with inmates and detainees, to listen, to encourage and to remind them that they are not alone.</p>
+            <p>&nbsp;</p>
+            <p>I will continue to be their voice, their ambassador, and their brother.</p>
+            <p>&nbsp;</p>
+            <p class="strong">Together, we can build a world where no one is forgotten.</p>
+          </div>
+          <img src={img('c9')} alt="" />
+        </article>
+      </div>
+    </section>
+
+    <section class="pd-light">
+      <div class="wrap pd-light__grid">
+        <div class="pd-box">
+          <h3>A Light That Never Left Me</h3>
+          <p>During my darkest days, when everything felt lost, I held on to hope.</p>
+          <p>There was someone who believed in me, who inspired me, who gave me strength when I had nothing left.</p>
+        </div>
+        <div class="pd-light__photo"><img src={img('light')} alt="A woman in soft golden light" /></div>
+        <div class="pd-light__text">
+          <p>I had her photos in my cell.</p>
+          <p>She was always on my mind.</p>
+          <p>Her light reminded me that goodness still exists, that love is real, and that a future is still possible.</p>
+          <p class="gold">That light helped me survive.</p>
+          <p class="gold">That hope helped me rise.</p>
+        </div>
+        <div class="pd-box">
+          <h3>♥ Hope is Real</h3>
+          <p>No matter how dark the cell,<br />no matter how heavy the chain,<br />hope can remain.<br />Hope can heal.<br />Hope can set you free.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="pd-cta">
+      <div class="wrap">
+        <h2>You Can Be Part of This Mission</h2>
+        <div class="pd-cta__grid">
+          <div class="pd-cta__item">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor"><path d="M12 13s-4.5-2.8-5.8-5.4C5.1 5.4 6.2 3.3 8.3 2.9c1.2-.2 2.3.3 2.9 1.2.6-.9 1.7-1.4 2.9-1.2 2.1.4 3.2 2.5 2.1 4.7C14.9 10.2 12 13 12 13ZM2 15h4l5 2h4a1.5 1.5 0 0 1 0 3H9m-3 0H2"/></svg>
+            <div><h3>Support the Mission</h3><p>Your donation helps us reach more lives and bring hope to those in need.</p><a class="pd-btn" href="/donate">Donate Now</a></div>
+          </div>
+          <div class="pd-cta__item">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor"><path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm8 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM2 20c0-3 2.7-5 6-5s6 2 6 5v1H2v-1Zm12.3-4.6c2.1.5 3.7 2.2 3.7 4.6v1h4v-1c0-2.8-2.3-4.9-5.1-4.9-.9 0-1.8.1-2.6.3Z"/></svg>
+            <div><h3>Become an IICC Mission Ambassador</h3><p>Use your voice, your talents and your heart to make a difference.</p><a class="pd-btn" href="/get-involved/ambassador-program">Get Involved</a></div>
+          </div>
+          <div class="pd-cta__item">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 4l5 5-5 5M20 9H10a6 6 0 0 0-6 6v4"/></svg>
+            <div><h3>Share Hope</h3><p>Share this story. You never know who needs to hear it today.</p><a class="pd-btn" href="/get-involved/submit-your-story">Share Now</a></div>
+          </div>
+        </div>
+        <div class="pd-values">{values.map(v => <span>{v}</span>)}</div>
+      </div>
+    </section>
   </div>
 </Layout>
