@@ -1,0 +1,7 @@
+---
+import Icon from './Icon.astro';
+interface Props { items: { icon: string; title: string; text: string }[]; }
+---
+<section class="im-strip"><div class="wrap">
+  {Astro.props.items.map(i => <div><span style="color:var(--color-navy);"><Icon name={i.icon} size={38} /></span><div><strong>{i.title}</strong><span>{i.text}</span></div></div>)}
+</div></section>

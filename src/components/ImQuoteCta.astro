@@ -1,0 +1,10 @@
+---
+import Icon from './Icon.astro';
+interface Props { quote: string; ref: string; cta: string; sub: string; href?: string; }
+const p = Astro.props;
+---
+<section class="im-qcta"><div class="wrap">
+  <blockquote>{p.quote}<cite>– {p.ref}</cite></blockquote>
+  <span style="color:#d9a540;"><Icon name="heart" size={44} /></span>
+  <a href={p.href ?? '/contact'}>{p.cta} ›<small>{p.sub}</small></a>
+</div></section>

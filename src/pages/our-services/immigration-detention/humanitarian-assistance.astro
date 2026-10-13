@@ -1,0 +1,64 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import MinHero from '../../../components/MinHero.astro';
+import MinBand from '../../../components/MinBand.astro';
+import ImQuoteCta from '../../../components/ImQuoteCta.astro';
+import ImStrip from '../../../components/ImStrip.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/immigration/humanitarian/${n}.jpg`;
+const values = [
+  { icon: 'user', title: 'Dignity', text: 'We respect every person as a child of God.' },
+  { icon: 'heart', title: 'Compassion', text: 'We serve with love, empathy, and understanding.' },
+  { icon: 'scale-balanced', title: 'Justice', text: 'We stand for fairness and support those who are often forgotten.' },
+  { icon: 'dove', title: 'Hope', text: 'We bring hope today for a better tomorrow.' },
+];
+const areas = [
+  { icon: 'envelope-open-text', title: 'Detention Centre Support', text: 'Supplying items and care packages to detainees.' },
+  { icon: 'people-roof', title: 'Family Assistance', text: 'Helping families stay strong and caring for their loved ones.' },
+  { icon: 'handshake', title: 'Community Partnerships', text: 'Working with parishes, NGOs, and local groups to reach more people.' },
+  { icon: 'box-open', title: 'Special Projects & Donations', text: 'Collecting and distributing donations for urgent humanitarian needs.' },
+];
+const make = [
+  { icon: 'heart', b: 'Donate:', t: 'Financial or in-kind donations make a real impact.' },
+  { icon: 'people-arrows', b: 'Volunteer:', t: 'Join our team and serve those in need.' },
+  { icon: 'hands-praying', b: 'Pray:', t: 'Your prayers bring strength and hope.' },
+  { icon: 'bullhorn', b: 'Spread the Word:', t: 'Help us reach more hearts and communities.' },
+];
+---
+<Layout title="Humanitarian Assistance" description="Compassion in Action. Hope in Every Help.">
+  <MinHero title="Humanitarian<br/><span>Assistance</span>" subtitle="Compassion in Action.<br/>Hope in Every Help."
+    intro={['We provide practical aid and essential resources to inmates, detainees, and their families — restoring dignity, meeting basic needs, and bringing hope where it’s needed most.']}
+    img={img('hero')} alt="An IICC Mission volunteer handing a parcel to a woman"
+    quote="Whoever is kind to the poor lends to the Lord, and He will reward them." quoteRef="Proverbs 19:17" />
+  <MinBand title="We Are Here to Bring Hope and Help"
+    intro="Our humanitarian assistance programs provide essential support to individuals and families facing hardship during and after incarceration or immigration detention."
+    items={[
+      { icon: 'box-open', title: 'Food & Essential Items', text: 'Providing food parcels, toiletries, and essentials to those in need.' },
+      { icon: 'shirt', title: 'Clothing & Hygiene', text: 'Supplying clean clothing and hygiene items to promote dignity and comfort.' },
+      { icon: 'house', title: 'Shelter & Housing Support', text: 'Assisting families and individuals in finding safe shelter and transitional housing.' },
+      { icon: 'hand-holding-dollar', title: 'Financial Assistance', text: 'Providing help with emergency expenses, transport, ID documents, and basic needs.' },
+      { icon: 'people-roof', title: 'Family Support', text: 'Supporting families with children through hard times with care and resources.' },
+      { icon: 'handshake', title: 'Reintegration Support', text: 'Helping individuals reintegrate with job referrals, training, and community connection.' },
+      { icon: 'globe', title: 'Crisis & Emergency Response', text: 'Responding quickly in times of crisis with compassionate and timely assistance.' },
+    ]} />
+  <section class="im-split">
+    <img src={img('left')} alt="An IICC Mission volunteer loading food boxes into a van" />
+    <div><h2 class="im-h im-h--center">We Help With</h2><ul class="im-check">
+      <li>Food, meals &amp; nutrition</li><li>Clothing &amp; seasonal items</li><li>Toiletries &amp; personal care</li><li>Transportation assistance</li><li>Financial hardship support</li><li>Housing &amp; shelter referrals</li><li>Educational &amp; school supplies</li><li>Emergency &amp; crisis support</li><li>Document &amp; ID assistance</li><li>Post-release &amp; detention support</li></ul></div>
+    <img src={img('right')} alt="A volunteer giving a bag of supplies to a mother and daughter" />
+  </section>
+  <section class="wrap im-panels">
+    <div class="im-panel"><h2 class="im-h im-h--center">Our Values in Action</h2>{values.map(r => <div class="im-row"><i><Icon name={r.icon} size={22} /></i><div><h3>{r.title}</h3><p>{r.text}</p></div></div>)}</div>
+    <div class="im-panel"><h2 class="im-h im-h--center">Our Program Areas</h2>{areas.map(r => <div class="im-row"><i><Icon name={r.icon} size={22} /></i><div><h3 style="text-transform:none; font-size:1rem;">{r.title}</h3><p>{r.text}</p></div></div>)}</div>
+    <div class="im-panel"><h2 class="im-h im-h--center">You Can Make a Difference</h2><p class="im-p" style="margin-top:0.5rem;">Your support helps us reach more people with the help they need.</p>{make.map(r => <div class="im-row" style="grid-template-columns:2rem 1fr;"><span style="color:var(--color-navy);"><Icon name={r.icon} size={26} /></span><p><strong style="font-weight:400;">{r.b}</strong> {r.t}</p></div>)}</div>
+  </section>
+  <section class="im-photos">{[1,2,3,4].map(n => <img src={img(`p${n}`)} alt="" />)}</section>
+  <ImQuoteCta quote="Let us not love with words or speech but with actions and in truth." ref="1 John 3:18" cta="Be the Hands of Hope" sub="Together, we can bring relief, restore dignity, and build a brighter future." href="/donate" />
+  <ImStrip items={[
+    { icon: 'eye', title: 'We See You', text: 'You are not forgotten.' },
+    { icon: 'heart', title: 'We Care', text: 'You matter to us.' },
+    { icon: 'people-group', title: 'We Stand With You', text: 'You are not alone.' },
+    { icon: 'dove', title: 'We Bring Hope', text: 'There is hope. There is a future.' },
+    { icon: 'hand-holding-heart', title: 'Together We Can', text: 'We can make a difference one life at a time.' },
+  ]} />
+</Layout>

@@ -1,0 +1,68 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import MinHero from '../../../components/MinHero.astro';
+import MinBand from '../../../components/MinBand.astro';
+import ImQuoteCta from '../../../components/ImQuoteCta.astro';
+import ImStrip from '../../../components/ImStrip.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/immigration/legal/${n}.jpg`;
+const commit = [
+  { icon: 'lock', title: 'Confidential', text: 'Your information is kept private and secure.' },
+  { icon: 'hand-holding-heart', title: 'Compassionate', text: 'We treat you with respect, dignity, and understanding.' },
+  { icon: 'cross', title: 'Faith-Based', text: 'Our work is guided by Catholic values and the love of Christ.' },
+  { icon: 'globe', title: 'For Everyone', text: 'We support inmates, detainees, and their families — regardless of background.' },
+];
+const steps = [
+  { icon: 'phone', t: '1. Reach Out', d: 'Contact us by email, phone, or through our website.' },
+  { icon: 'comment-dots', t: '2. Share Your Situation', d: 'We listen and gather basic information about your case.' },
+  { icon: 'user-tie', t: '3. We Connect You', d: 'We refer you to a trusted legal professional suitable for your needs.' },
+  { icon: 'scale-balanced', t: '4. Receive Support', d: 'You receive guidance and support through the legal process.' },
+];
+const rights = [
+  { icon: 'comment', t: 'You have the right to be heard.' }, { icon: 'scale-balanced', t: 'You have the right to fair treatment.' },
+  { icon: 'gavel', t: 'You have the right to legal assistance.' }, { icon: 'hand-holding-heart', t: 'You have the right to hope and dignity.' },
+];
+---
+<Layout title="Legal Referral Services" description="Justice. Dignity. Hope. Every Person Matters.">
+  <MinHero title="Legal<br/><span>Referral</span><br/>Services" subtitle="Justice. Dignity. Hope.<br/>Every Person Matters."
+    intro={['We connect inmates, detainees, and their families with trusted Catholic legal professionals who can help with their rights, cases, and legal needs.']}
+    img={img('hero')} alt="A lawyer meeting a detainee"
+    quote="Ensure justice for the weak and the fatherless; uphold the right of the oppressed and the destitute." quoteRef="Psalm 82:3" />
+  <MinBand title="We Are Here to Help"
+    intro="Our legal referral services are confidential, compassionate, and focused on protecting the rights and dignity of every person."
+    items={[
+      { icon: 'scale-balanced', title: 'Legal Information & Guidance', text: 'We provide clear information about rights, legal processes, and available options.' },
+      { icon: 'user-tie', title: 'Referral to Trusted Lawyers', text: 'We connect you with experienced Catholic lawyers who understand your situation.' },
+      { icon: 'file-lines', title: 'Case Review & Assessment', text: 'We assist in reviewing your case and identifying the best legal pathway forward.' },
+      { icon: 'handshake', title: 'Advocacy & Representation', text: 'Our legal partners provide advocacy and, where possible, representation in your legal matters.' },
+      { icon: 'people-roof', title: 'Family Legal Support', text: 'We support your family with legal matters affecting your loved one’s case.' },
+      { icon: 'shield-halved', title: 'Human Dignity & Justice', text: 'We believe in justice for all and stand with you in seeking fairness and mercy.' },
+    ]} />
+  <section class="im-split">
+    <img src={img('left')} alt="A lawyer taking notes with a detainee" />
+    <div><h2 class="im-h im-h--center">We Can Help With</h2><ul class="im-check">
+      <li>Appeals and sentence reviews</li><li>Parole and release applications</li><li>Criminal law matters</li><li>Immigration detention reviews</li><li>Visa and protection claims</li><li>Human rights concerns</li><li>Family law matters</li><li>Document and legal guidance</li></ul></div>
+    <img src={img('right')} alt="A legal adviser meeting a client" />
+  </section>
+  <section class="wrap im-panels">
+    <div class="im-panel"><h2 class="im-h im-h--center">Our Commitment</h2>{commit.map(r => <div class="im-row"><i><Icon name={r.icon} size={22} /></i><div><h3>{r.title}</h3><p>{r.text}</p></div></div>)}</div>
+    <div class="im-panel">
+      <h2 class="im-h im-h--center">How It Works</h2>
+      <div class="im-steps">{steps.map(s => <div><i><Icon name={s.icon} size={28} /></i><strong>{s.t}</strong>{s.d}</div>)}</div>
+      <div class="im-note"><span style="color:var(--color-navy);"><Icon name="hand-holding-heart" size={40} /></span><span>You don’t have to face this alone.<br />We are here to walk with you.</span></div>
+    </div>
+    <div class="im-panel">
+      <h2 class="im-h im-h--center">Your Rights Matter</h2>
+      {rights.map(r => <div class="im-row" style="align-items:center;"><i><Icon name={r.icon} size={20} /></i><p style="font-size:1rem;">{r.t}</p></div>)}
+      <div class="im-note" style="background:#efe6d4; border:none;"><span style="color:var(--color-navy);"><Icon name="cross" size={34} /></span><span style="font-size:0.9375rem;">We believe in second chances, restoration, and a future filled with hope.</span></div>
+    </div>
+  </section>
+  <ImQuoteCta quote="Seek justice, encourage the oppressed, defend the cause of the fatherless, plead the case of the widow." ref="Isaiah 1:17" cta="We Are Here for You" sub="Reach out today. Let us help you take the next step." />
+  <ImStrip items={[
+    { icon: 'people-group', title: 'You Are Not Alone', text: 'We stand with you and your family.' },
+    { icon: 'ear-listen', title: 'We Listen', text: 'Your story matters. We are here to listen.' },
+    { icon: 'signs-post', title: 'We Guide', text: 'We help you understand your rights and options.' },
+    { icon: 'handshake', title: 'We Connect', text: 'We refer you to trusted legal professionals.' },
+    { icon: 'dove', title: 'We Hope', text: 'We believe in healing, justice, and new beginnings.' },
+  ]} />
+</Layout>

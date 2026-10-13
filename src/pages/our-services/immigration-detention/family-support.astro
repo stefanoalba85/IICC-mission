@@ -1,0 +1,70 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import MinHero from '../../../components/MinHero.astro';
+import MinBand from '../../../components/MinBand.astro';
+import ImQuoteCta from '../../../components/ImQuoteCta.astro';
+import ImStrip from '../../../components/ImStrip.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/immigration/family/${n}.jpg`;
+const programs = [
+  { icon: 'people-group', title: 'Support Groups', text: 'Connect with other families who understand what you are going through.' },
+  { icon: 'cross', title: 'Prayer & Spiritual Care', text: 'We offer prayer, spiritual guidance, and sacraments for you and your family.' },
+  { icon: 'child-reaching', title: 'Child & Youth Support', text: 'Resources and guidance to help children and young people cope with difficult situations.' },
+  { icon: 'gift', title: 'Holiday & Special Occasions Support', text: 'We help families stay connected during important days and celebrations.' },
+];
+const care = [
+  { icon: 'ear-listen', t: 'Listening with Love' }, { icon: 'heart', t: 'Standing with You' }, { icon: 'hands-praying', t: 'Praying with You' },
+  { icon: 'people-arrows', t: 'Supporting Your Journey' }, { icon: 'dove', t: 'Bringing Hope' }, { icon: 'people-roof', t: 'Building Stronger Families' },
+];
+---
+<Layout title="Family Support During Detention" description="You Are Not Alone. We Are Here for You.">
+  <MinHero title="Family<br/><span>Support</span>" subtitle="You Are Not Alone.<br/>We Are Here for You."
+    intro={['We support the families of inmates and people in immigration detention centres with compassion, understanding, and practical help every step of the way.']}
+    img={img('hero')} alt="An IICC Mission volunteer holding a mother's hands at home"
+    quote="Be strong and take heart, all you who hope in the Lord." quoteRef="Psalm 31:24" />
+  <MinBand title="We Are Here to Support Your Family"
+    intro="We provide caring support and practical resources to help families stay strong, informed, and connected during challenging times."
+    items={[
+      { icon: 'people-group', title: 'Emotional Support', text: 'We listen with compassion and provide a safe space to share your feelings and find strength.' },
+      { icon: 'people-roof', title: 'Family Connection', text: 'We help you stay connected with your loved one through calls, letters, and visits (where possible).' },
+      { icon: 'file-lines', title: 'Information & Guidance', text: 'We provide clear information about the detention or prison process and available resources.' },
+      { icon: 'scale-balanced', title: 'Legal & Referral Support', text: 'We connect you with trusted legal services and referrals for advice and representation.' },
+      { icon: 'hand-holding-heart', title: 'Practical Assistance', text: 'We assist with basic needs, transport, forms, and other practical support when possible.' },
+      { icon: 'people-arrows', title: 'Community & Hope', text: 'We bring families together through groups, prayer, and events to encourage and uplift one another.' },
+    ]} />
+  <section class="im-split" style="grid-template-columns:1fr 1.05fr 1fr;">
+    <div>
+      <h2 class="im-h im-h--center">We Understand the Challenges Families Face</h2>
+      <span class="heart-rule heart-rule--center" style="max-width:160px;">♡</span>
+      <ul class="im-check"><li>Worry and uncertainty</li><li>Emotional stress and loneliness</li><li>Financial difficulties</li><li>Managing daily responsibilities alone</li><li>Feeling helpless or unheard</li></ul>
+      <p class="im-p">You don’t have to face these challenges alone. We walk with you, offering hope and practical support.</p>
+    </div>
+    <img src={img('center')} alt="A mother embracing her two children beside a candle and a photograph" />
+    <div>
+      <h2 class="im-h im-h--center">You Are Not Alone</h2>
+      <span class="heart-rule heart-rule--center" style="max-width:160px;">♡</span>
+      <ul class="im-check"><li>We walk with you in prayer.</li><li>We listen with compassion.</li><li>We support you with practical help.</li><li>We connect you with resources.</li><li>We give you hope for tomorrow.</li></ul>
+      <div class="im-note"><span style="color:var(--color-navy);"><Icon name="hand-holding-heart" size={44} /></span><span>Your loved one is not forgotten.<br />Your family is not forgotten.<br />You are not forgotten.<br />We are here for you.</span></div>
+    </div>
+  </section>
+  <section class="wrap im-panels">
+    <div class="im-panel"><h2 class="im-h">Our Family Support Programs</h2>{programs.map(r => <div class="im-row"><i><Icon name={r.icon} size={22} /></i><div><h3>{r.title}</h3><p>{r.text}</p></div></div>)}</div>
+    <div class="im-panel"><h2 class="im-h im-h--center">We Care About Your Family</h2><div class="im-tiles">{care.map(c => <div><i><Icon name={c.icon} size={28} /></i>{c.t}</div>)}</div></div>
+    <div class="im-panel" style="display:grid; grid-template-columns:1fr; gap:0.5rem;">
+      <h2 class="im-h">You Can Reach Out</h2>
+      <p class="im-p">We are here to listen and help. Contact us for support or more information.</p>
+      <p class="im-p" style="display:flex; gap:0.6rem; align-items:center;"><Icon name="envelope" size={16} /> info@iiccmission.org</p>
+      <p class="im-p" style="display:flex; gap:0.6rem; align-items:center;"><Icon name="globe" size={16} /> www.iiccmission.org</p>
+      <p class="im-p" style="display:flex; gap:0.6rem; align-items:center;"><Icon name="phone" size={16} /> +39 349 303 6235</p>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; align-items:end;"><p class="im-p">Head Office:<br />Vatican City / Rome</p><img src={img('reach')} alt="An IICC Mission volunteer meeting a family member" style="width:100%; border-radius:4px;" /></div>
+    </div>
+  </section>
+  <ImQuoteCta quote="Carry each other’s burdens, and in this way you will fulfill the law of Christ." ref="Galatians 6:2" cta="We Are Here for You" sub="Reach out today. Let us walk this journey with you." />
+  <ImStrip items={[
+    { icon: 'comment-dots', title: 'We Listen', text: 'Your feelings matter. We are here to hear you.' },
+    { icon: 'hand-holding-heart', title: 'We Support', text: 'Your family matters. We are here to support you.' },
+    { icon: 'people-arrows', title: 'We Walk With You', text: 'Every step of the way. You are not alone.' },
+    { icon: 'dove', title: 'We Bring Hope', text: 'There is hope. There is a future.' },
+    { icon: 'people-group', title: 'Together', text: 'We can get through this together.' },
+  ]} />
+</Layout>
