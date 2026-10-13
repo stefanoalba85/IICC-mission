@@ -1,62 +1,105 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
+import PeopleHero from '../../../components/PeopleHero.astro';
+import AssuranceStrip from '../../../components/AssuranceStrip.astro';
+import Icon from '../../../components/Icon.astro';
+import type { IconName } from '../../../lib/icons';
 
-const partners = [
-  { title: 'Legal Partners', sub: 'Justice. Advocacy. Dignity.', desc: 'Our legal partners provide pro bono and low-cost services to protect rights and ensure fair treatment for all.', items: ['Criminal Law', 'Civil & Commercial Law', 'Human Rights Advocacy', 'Immigration Law', 'Appeals & Reviews'] },
-  { title: 'Forensic Psychologists', sub: 'Understanding. Assessment. Support.', desc: 'Helping to assess, understand and support individuals on the path to healing and reintegration.', items: ['Psychological Assessments', 'Risk & Rehabilitation Reports', 'Treatment Recommendations', 'Court Reports', 'Expert Witness Services'] },
-  { title: 'Counsellors & Therapists', sub: 'Healing Hearts. Restoring Lives.', desc: 'Providing professional counselling and emotional support for individuals and families.', items: ['Individual Counselling', 'Family Counselling', 'Trauma & Grief Support', 'Addiction Support', 'Reintegration Support'] },
-  { title: 'Catholic Parish Partners', sub: 'Faith in Action. Community in Love.', desc: 'Working with Catholic parishes to extend care, welcome and practical support to those in need.', items: ['Pastoral Care & Support', 'Accommodation & Shelter', 'Food & Essentials', 'Community Connection', 'Spiritual Guidance'] },
-  { title: 'Community & NGO Partners', sub: 'Stronger Together. Greater Impact.', desc: 'Collaborating with trusted organisations to provide wrap-around services and resources.', items: ['Housing & Homelessness Support', 'Education & Training Programs', 'Employment Pathways', 'Health & Wellbeing Services', 'Youth & Family Support'] },
-  { title: 'Education & Training Partners', sub: 'Knowledge. Skills. New Beginnings.', desc: 'Empowering individuals through education, skills development and employment opportunities.', items: ['Vocational Training', 'Life Skills Programs', 'Mentoring & Coaching', 'Employment Support', 'Digital Literacy'] },
+const partners: { title: string; sub: string; text: string; items: string[]; icon: IconName; amber?: boolean }[] = [
+  { title: 'Legal Partners', sub: 'Justice. Advocacy. Dignity.', text: 'Our legal partners provide pro bono and low-cost services to protect rights and ensure fair treatment for all.', items: ['Criminal Law', 'Civil & Commercial Law', 'Human Rights Advocacy', 'Immigration Law', 'Appeals & Reviews'], icon: 'scales' },
+  { title: 'Forensic Psychologists', sub: 'Understanding. Assessment. Support.', text: 'Helping to assess, understand and support individuals on the path to healing and reintegration.', items: ['Psychological Assessments', 'Risk & Rehabilitation Reports', 'Treatment Recommendations', 'Court Reports', 'Expert Witness Services'], icon: 'person', amber: true },
+  { title: 'Counsellors & Therapists', sub: 'Healing Hearts. Restoring Lives.', text: 'Providing professional counselling and emotional support for individuals and families.', items: ['Individual Counselling', 'Family Counselling', 'Trauma & Grief Support', 'Addiction Support', 'Reintegration Support'], icon: 'heartHand' },
+  { title: 'Catholic Parish Partners', sub: 'Faith in Action. Community in Love.', text: 'Working with Catholic parishes to extend care, welcome and practical support to those in need.', items: ['Pastoral Care & Support', 'Accommodation & Shelter', 'Food & Essentials', 'Community Connection', 'Spiritual Guidance'], icon: 'church' },
+  { title: 'Community & NGO Partners', sub: 'Stronger Together. Greater Impact.', text: 'Collaborating with trusted organisations to provide wrap-around services and resources.', items: ['Housing & Homelessness Support', 'Education & Training Programs', 'Employment Pathways', 'Health & Wellbeing Services', 'Youth & Family Support'], icon: 'people', amber: true },
+  { title: 'Education & Training Partners', sub: 'Knowledge. Skills. New Beginnings.', text: 'Empowering individuals through education, skills development and employment opportunities.', items: ['Vocational Training', 'Life Skills Programs', 'Mentoring & Coaching', 'Employment Support', 'Digital Literacy'], icon: 'book' },
+];
+const ways: { title: string; icon: IconName }[] = [
+  { title: 'Make a Difference', icon: 'person' },
+  { title: 'Share Your Expertise', icon: 'people' },
+  { title: 'Support Those in Need', icon: 'people' },
+  { title: 'Build Hope Together', icon: 'heartHand' },
 ];
 ---
 <Layout title="Professional Partners" description="Experts. Compassion. Restoring Hope.">
+  <style>
+    .pp-h { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; text-align: center; font-size: 1.25rem; }
+    .pp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.875rem; margin-top: 1.25rem; }
+    .pp-card { background: #f7f6f3; border: 1px solid rgba(27,39,81,0.07); border-radius: 6px; padding: 1.25rem; display: grid; grid-template-columns: 4.25rem 1fr; gap: 1rem; }
+    .pp-card__icon { width: 4.25rem; height: 4.25rem; border-radius: 50%; background: var(--color-navy); color: var(--color-amber); display: flex; align-items: center; justify-content: center; }
+    .pp-card__icon--amber { background: var(--color-amber-dark); color: #fff; }
+    .pp-card h3 { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: 1rem; font-weight: 400; }
+    .pp-card .sub { font-family: var(--font-heading); color: var(--color-amber); font-size: 0.875rem; }
+    .pp-card p { font-family: var(--font-heading); font-size: 0.8125rem; line-height: 1.6; margin-block: 0.75rem; }
+    .pp-card ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.35rem; font-family: var(--font-heading); font-size: 0.8125rem; }
+    .pp-card li::before { content: '✓'; display: inline-flex; width: 1rem; height: 1rem; border-radius: 50%; background: var(--color-amber); color: #fff; font-size: 0.6rem; align-items: center; justify-content: center; margin-right: 0.6rem; }
+    .pp-quote { background: #f4efe7; border-radius: 6px; padding: 1.5rem 2rem; display: grid; grid-template-columns: 5rem 1fr 1.3fr; gap: 1.5rem; align-items: center; margin-top: 1rem; }
+    .pp-quote p { font-family: var(--font-heading); color: var(--color-navy); font-size: 1.0625rem; line-height: 1.55; }
+    .pp-band { background: var(--color-navy-dark); color: #fff; }
+    .pp-band__grid { display: grid; grid-template-columns: 1.6fr 2fr 1fr; gap: 1.5rem; align-items: center; padding-block: 1.25rem; }
+    .pp-band h2 { font-family: var(--font-heading); color: var(--color-amber); text-transform: uppercase; font-size: 1.125rem; }
+    .pp-band p { font-family: var(--font-heading); font-size: 0.875rem; line-height: 1.55; }
+    .pp-ways { display: grid; grid-template-columns: repeat(4, 1fr); text-align: center; border-left: 1px solid rgba(255,255,255,0.2); padding-left: 0.75rem; }
+    .pp-ways span { font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+    .pp-ways i { width: 3.25rem; height: 3.25rem; border-radius: 50%; border: 1.5px solid var(--color-amber); color: var(--color-amber); display: flex; align-items: center; justify-content: center; }
+    @media (max-width: 960px) { .pp-grid, .pp-band__grid { grid-template-columns: 1fr; } .pp-quote { grid-template-columns: 1fr; } }
+  </style>
 
-  <section class="hero-split">
-    <div class="hero-split__text">
-      <h1 class="section-title" style="margin-block:0.5rem;">Professional Partners</h1>
-      <p style="font-weight:700; color:var(--color-amber);">Experts. Compassion. Restoring Hope.</p>
-      <p class="section-desc" style="max-width:none;">
-        Our Professional Partners generously donate their expertise, time and services to help
-        inmates, detainees and their families access justice, healing and a brighter future.
-      </p>
-      <div class="hero-split__quote" style="position:static; width:auto;">
-        <p class="hero-split__quote-text">Where there is no guidance, the people fall, but in abundance of counsellors there is safety.</p>
-        <span class="hero-split__quote-ref">— Proverbs 11:14</span>
-      </div>
-    </div>
-    <div class="hero-split__photo">
-      <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1000&q=80" alt="Handshake over documents" />
-    </div>
-  </section>
+  <PeopleHero
+    title="Professional<br/>Partners"
+    subtitle="Experts. Compassion.<br/>Restoring Hope."
+    photo="/images/our-people/partners-hero.jpg"
+    photoAlt="A handshake over a signed document beside the scales of justice"
+    quote="Where there is no guidance, the people fall, but in abundance of counselors there is safety."
+    quoteRef="Proverbs 11:14"
+  >
+    <p>Our Professional Partners generously donate their expertise, time and services to help inmates, detainees and their families access justice, healing and a brighter future.</p>
+  </PeopleHero>
 
-  <div class="amber-band">
-    <p style="font-family:var(--font-heading); font-weight:700; color:#fff; font-size:1.0625rem;">TOGETHER, WE BRING EXPERTISE AND COMPASSION TO THOSE WHO NEED IT MOST.</p>
+  <div class="statement-band">
+    <div class="wrap">
+      <h2>Together, We Bring Expertise and Compassion to Those Who Need It Most.</h2>
+      <p>Our partners walk with us to ensure every person receives the guidance, support and resources they need to rebuild their lives with dignity and hope.</p>
+    </div>
   </div>
 
-  <section class="section section--white">
+  <section style="padding-block:1.5rem;">
     <div class="wrap">
-      <div class="section-head"><h2 class="section-title">Our Professional Partners</h2></div>
-      <div class="grid-3">
+      <h2 class="pp-h">Our Professional Partners</h2>
+      <span class="heart-rule heart-rule--center" style="max-width:120px;">♥</span>
+      <div class="pp-grid">
         {partners.map(p => (
-          <div class="card">
-            <span class="card__title">{p.title}</span>
-            <p style="font-size:0.75rem; font-weight:700; color:var(--color-amber);">{p.sub}</p>
-            <p class="card__body">{p.desc}</p>
-            <ul class="checklist">{p.items.map(i => <li>{i}</li>)}</ul>
-          </div>
+          <article class="pp-card">
+            <span class={`pp-card__icon ${p.amber ? 'pp-card__icon--amber' : ''}`}><Icon name={p.icon} size={32} /></span>
+            <div>
+              <h3>{p.title}</h3>
+              <span class="sub">{p.sub}</span>
+              <p>{p.text}</p>
+              <ul>{p.items.map(i => <li>{i}</li>)}</ul>
+            </div>
+          </article>
         ))}
       </div>
+      <div class="pp-quote">
+        <span class="text-amber"><Icon name="heartHand" size={72} stroke={1.4} /></span>
+        <p>Our partners are more than professionals – they are compassionate people who believe in second chances and the power of restoration.</p>
+        <div class="divider-col"><p>“Each of you should use whatever gift you have received to serve others, as faithful stewards of God’s grace in its various forms.”</p><p class="text-amber" style="font-size:1rem; margin-top:0.4rem;">– 1 Peter 4:10</p></div>
+      </div>
     </div>
   </section>
 
-  <div class="cta-band">
-    <div class="wrap cta-band__inner">
-      <div class="cta-band__text">
-        <h2 class="section-title section-title--white">Interested in Partnering With Us?</h2>
-        <p class="section-desc section-desc--white">If you are a professional, organisation or parish who would like to partner with IICC Mission, we would love to hear from you.</p>
+  <section class="pp-band">
+    <div class="wrap pp-band__grid">
+      <div style="display:grid; grid-template-columns:3.5rem 1fr; gap:1rem; align-items:start;">
+        <span class="text-amber"><Icon name="handshake" size={52} stroke={1.5} /></span>
+        <div><h2>Interested in Partnering With Us?</h2><p>If you are a professional, organisation or parish who would like to partner with IICC Mission, we would love to hear from you and explore how we can work together.</p></div>
       </div>
-      <a href="/contact" class="btn btn--amber">Contact Us Today &gt;</a>
+      <div class="pp-ways">{ways.map(w => <span><i><Icon name={w.icon} size={24} /></i>{w.title}</span>)}</div>
+      <div style="display:flex; flex-direction:column; gap:0.75rem;">
+        <a href="/contact" class="btn btn--amber" style="justify-content:center;">Become a Partner →</a>
+        <a href="/contact" class="btn btn--outline-white" style="justify-content:center;">Contact Us Today →</a>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <AssuranceStrip />
 </Layout>

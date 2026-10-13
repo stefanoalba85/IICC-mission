@@ -1,69 +1,99 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
+import PeopleHero from '../../../components/PeopleHero.astro';
+import AssuranceStrip from '../../../components/AssuranceStrip.astro';
+import Icon from '../../../components/Icon.astro';
+import type { IconName } from '../../../lib/icons';
 
-const groups = [
-  { title: 'Former Prisoners', sub: 'A Living Testimony of Hope', desc: 'Thank you for your courage, your second chances, and for using your lived experience to inspire and help others find hope and purpose.' },
-  { title: 'Prisoners & Detainees', sub: 'Our Brothers and Sisters', desc: 'Thank you for your trust, your faith, and for allowing us to walk with you in your journey. You are not forgotten. You are loved.' },
-  { title: 'Chaplains & Priests', sub: 'Shepherds of Hope', desc: "Thank you for your faithful ministry, spiritual guidance, and for being Christ's presence behind bars and in detention centres." },
-  { title: 'Archbishops, Bishops & Religious Leaders', sub: 'Guidance and Blessings', desc: 'Thank you for your endorsement, wisdom, and support of our mission. Your leadership and prayers strengthen our foundation.' },
-  { title: 'Families & Loved Ones', sub: 'The Heart Behind Every Journey', desc: 'Thank you for your unwavering love, patience, and sacrifices. You are the silent strength that keeps hope alive.' },
-  { title: 'Volunteers & Staff', sub: 'The Hands and Feet of Our Mission', desc: 'Thank you for giving your time, skills and compassion. Your dedication turns our mission into action and changes lives every day.' },
-  { title: 'Donors & Supporters', sub: 'Partners in Hope', desc: 'Thank you for your generosity and belief in our mission. Your support provides resources, restores dignity and builds brighter futures.' },
-  { title: 'Parishes, Communities & Organisations', sub: 'Stronger Together', desc: 'Thank you for working with us in faith, for opening doors, and for standing united with us in this mission of love and justice.' },
+const groups: { title: string; sub: string; text: string; icon: IconName }[] = [
+  { title: 'Former Prisoners', sub: 'A Living Testimony of Hope', text: 'Thank you for your courage, your second chances, and for using your lived experience to inspire and help others find hope and purpose.', icon: 'people' },
+  { title: 'Prisoners & Detainees', sub: 'Our Brothers and Sisters', text: 'Thank you for your trust, your faith, and for allowing us to walk with you in your journey. You are not forgotten. You are loved.', icon: 'bars' },
+  { title: 'Chaplains & Priests', sub: 'Shepherds of Hope', text: 'Thank you for your faithful ministry, spiritual guidance, and for being Christ’s presence behind bars and in detention centres.', icon: 'person' },
+  { title: 'Archbishops, Bishops & Religious Leaders', sub: 'Guidance and Blessings', text: 'Thank you for your endorsement, wisdom, and support of our mission. Your leadership and prayers strengthen our foundation.', icon: 'church' },
+  { title: 'Families & Loved Ones', sub: 'The Heart Behind Every Journey', text: 'Thank you for your unwavering love, patience, and sacrifices. You are the silent strength that keeps hope alive.', icon: 'people' },
+  { title: 'Volunteers & Staff', sub: 'The Hands and Feet of Our Mission', text: 'Thank you for giving your time, skills and compassion. Your dedication turns our mission into action and changes lives every day.', icon: 'handshake' },
+  { title: 'Donors & Supporters', sub: 'Partners in Hope', text: 'Thank you for your generosity and belief in our mission. Your support provides resources, restores dignity and builds brighter futures.', icon: 'heartHand' },
+  { title: 'Parishes, Communities & Organisations', sub: 'Stronger Together', text: 'Thank you for working with us in faith, for opening doors, and for standing united with us in this mission of love and justice.', icon: 'church' },
+];
+const thanks: { title: string; icon: IconName }[] = [
+  { title: 'Thank You for Your Faith', icon: 'pray' },
+  { title: 'Thank You for Your Love', icon: 'heartHand' },
+  { title: 'Thank You for Your Support', icon: 'people' },
+  { title: 'Thank You for Being Hope', icon: 'dove' },
 ];
 ---
 <Layout title="Acknowledgements" description="Grateful Hearts. Stronger Mission.">
+  <style>
+    .ak-h { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; text-align: center; font-size: 1.25rem; }
+    .ak-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.875rem; margin-top: 1.25rem; }
+    .ak-card { background: #f7f6f3; border-radius: 6px; padding: 1.25rem 1rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+    .ak-card__icon { width: 4.5rem; height: 4.5rem; border-radius: 50%; background: var(--color-navy); color: #fff; display: flex; align-items: center; justify-content: center; margin-bottom: 0.5rem; }
+    .ak-card h3 { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: 1rem; font-weight: 400; }
+    .ak-card .sub { font-family: var(--font-heading); color: var(--color-amber); font-size: 0.875rem; }
+    .ak-card p { font-family: var(--font-heading); font-size: 0.8125rem; line-height: 1.6; flex: 1; }
+    .ak-quote { background: #f4efe7; border-radius: 6px; padding: 1.25rem 2rem; display: grid; grid-template-columns: 5rem 1fr; gap: 1.5rem; align-items: center; margin-top: 1rem; }
+    .ak-quote p { font-family: var(--font-heading); color: var(--color-navy); font-size: 1.1875rem; line-height: 1.5; }
+    .ak-band { background: var(--color-navy-dark); color: #fff; }
+    .ak-band__grid { display: grid; grid-template-columns: 1.3fr repeat(4, 1fr); align-items: center; padding-block: 1.5rem; }
+    .ak-band h2 { font-family: var(--font-heading); color: var(--color-amber); text-transform: uppercase; font-size: 1.25rem; }
+    .ak-band p { font-family: var(--font-heading); font-size: 0.9375rem; line-height: 1.5; margin-block: 0.5rem 0.875rem; }
+    .ak-thanks { text-align: center; border-left: 1px solid rgba(255,255,255,0.2); display: flex; flex-direction: column; align-items: center; gap: 0.75rem; font-family: var(--font-heading); text-transform: uppercase; font-size: 0.8125rem; }
+    .ak-thanks i { width: 4rem; height: 4rem; border-radius: 50%; border: 1.5px solid var(--color-amber); color: var(--color-amber); display: flex; align-items: center; justify-content: center; }
+    @media (max-width: 960px) { .ak-grid { grid-template-columns: 1fr 1fr; } .ak-band__grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; } .ak-band__grid > div:first-child { grid-column: 1 / -1; } }
+  </style>
 
-  <section class="hero-split">
-    <div class="hero-split__text">
-      <h1 class="section-title" style="margin-block:0.5rem;">Acknowledgements</h1>
-      <p style="font-weight:700; color:var(--color-amber);">Grateful Hearts. Stronger Mission.</p>
-      <p class="section-desc" style="max-width:none;">
-        The IICC Mission exists because of the generosity, faith and love of so many people. To
-        every individual, community and organisation who has walked with us — thank you.
-      </p>
-      <p style="font-weight:700; color:var(--color-navy);">Together, we bring hope.</p>
-      <div class="hero-split__quote" style="position:static; width:auto;">
-        <p class="hero-split__quote-text">I can do all things through Christ who strengthens me.</p>
-        <span class="hero-split__quote-ref">— Philippians 4:13</span>
-      </div>
-    </div>
-    <div class="hero-split__photo">
-      <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=1000&q=80" alt="Community gathered at sunset" />
-    </div>
-  </section>
+  <PeopleHero
+    title="Acknowledgements"
+    subtitle="Grateful Hearts.<br/>Stronger Mission."
+    photo="/images/our-people/ack-hero.jpg"
+    photoAlt="People standing together beneath a cross at sunset"
+    quote="I can do all things through Christ who strengthens me."
+    quoteRef="Philippians 4:13"
+  >
+    <p>The IICC Mission exists because of the generosity, faith and love of so many people. To every individual, community and organisation who has walked with us—thank you.</p>
+    <p><strong>Together, we bring hope.</strong></p>
+  </PeopleHero>
 
-  <div class="amber-band">
-    <p style="font-family:var(--font-heading); font-weight:700; color:#fff; font-size:1.0625rem;">WITH GRATITUDE, WE ACKNOWLEDGE EVERY HEART THAT MAKES OUR MISSION POSSIBLE.</p>
-    <p style="color:rgba(255,255,255,0.9); margin-top:0.5rem;">Your prayers, time, talents, resources and encouragement strengthen our mission.</p>
+  <div class="statement-band">
+    <div class="wrap">
+      <h2>With Gratitude, We Acknowledge Every Heart That Makes Our Mission Possible.</h2>
+      <p>Your prayers, time, talents, resources and encouragement strengthen our mission and allow us to walk alongside those who are often forgotten.</p>
+      <span class="heart-rule heart-rule--center" style="max-width:120px; margin-top:0.5rem;">♥</span>
+    </div>
   </div>
 
-  <section class="section section--white">
+  <section style="padding-block:1.5rem;">
     <div class="wrap">
-      <div class="section-head"><h2 class="section-title">We Gratefully Acknowledge</h2></div>
-      <div class="grid-4">
+      <h2 class="ak-h">We Gratefully Acknowledge</h2>
+      <span class="heart-rule heart-rule--center" style="max-width:120px;">♥</span>
+      <div class="ak-grid">
         {groups.map(g => (
-          <div class="card">
-            <span class="card__title">{g.title}</span>
-            <p style="font-size:0.75rem; font-weight:700; color:var(--color-amber);">{g.sub}</p>
-            <p class="card__body">{g.desc}</p>
-          </div>
+          <article class="ak-card">
+            <span class="ak-card__icon"><Icon name={g.icon} size={34} /></span>
+            <h3>{g.title}</h3>
+            <span class="sub">{g.sub}</span>
+            <p>{g.text}</p>
+            <span class="heart-rule" style="width:120px;">♡</span>
+          </article>
         ))}
       </div>
-      <div class="quote-box" style="max-width:600px; margin-inline:auto; margin-top:2.5rem;">
-        <p class="quote-box__text">"Whatever you did for one of the least of these brothers and sisters of mine, you did for me."</p>
-        <span class="quote-box__ref">— Matthew 25:40</span>
+      <div class="ak-quote">
+        <span class="text-amber"><Icon name="heartHand" size={72} stroke={1.4} /></span>
+        <div><p>“Whatever you did for one of the least of these brothers and sisters of mine, you did for me.”</p><p class="text-amber" style="font-size:1rem; margin-top:0.4rem;">– Matthew 25:40</p></div>
       </div>
     </div>
   </section>
 
-  <div class="cta-band">
-    <div class="wrap cta-band__inner">
-      <div class="cta-band__text">
-        <h2 class="section-title section-title--white">You Are Part of Their Story</h2>
-        <p class="section-desc section-desc--white">Because of you, lives are being transformed. Together, we are restoring hope, rebuilding dignity and creating pathways to a new beginning.</p>
+  <section class="ak-band">
+    <div class="wrap ak-band__grid">
+      <div>
+        <h2>You Are Part of Their Story</h2>
+        <p>Because of you, lives are being transformed. Together, we are restoring hope, rebuilding dignity and creating pathways to a new beginning.</p>
+        <a href="/get-involved" class="btn btn--amber">Join Our Mission →</a>
       </div>
-      <a href="/get-involved" class="btn btn--amber">Join Our Mission &gt;</a>
+      {thanks.map(t => <div class="ak-thanks"><i><Icon name={t.icon} size={30} /></i>{t.title}</div>)}
     </div>
-  </div>
+  </section>
+
+  <AssuranceStrip />
 </Layout>

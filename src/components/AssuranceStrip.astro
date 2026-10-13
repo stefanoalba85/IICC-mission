@@ -1,0 +1,21 @@
+---
+import Icon from './Icon.astro';
+import type { IconName } from '../lib/icons';
+const items: { title: string; text: string; icon: IconName }[] = [
+  { title: 'You Are Not Alone', text: 'We stand with you and your family.', icon: 'people' },
+  { title: 'We Listen', text: 'Your story matters. We are here to listen.', icon: 'ear' },
+  { title: 'We Guide', text: 'We help you understand your rights and options.', icon: 'signpost' },
+  { title: 'We Connect', text: 'We refer you to trusted services and professionals.', icon: 'handshake' },
+  { title: 'We Hope', text: 'We believe in healing, justice, and new beginnings.', icon: 'dove' },
+];
+---
+<section class="assurance">
+  <div class="wrap assurance__grid">
+    {items.map(i => (
+      <div class="assurance__item">
+        <Icon name={i.icon} size={40} stroke={1.8} />
+        <div><strong>{i.title}</strong><span>{i.text}</span></div>
+      </div>
+    ))}
+  </div>
+</section>

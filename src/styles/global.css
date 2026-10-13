@@ -38,6 +38,7 @@
 
   h1, h2, h3 {
     font-family: var(--font-heading);
+    font-weight: 700;
     line-height: 1.2;
     margin: 0;
   }
@@ -440,6 +441,63 @@
     .photo-band__bg { position: absolute; inset: 0; }
     .photo-band__bg::after { content: ''; position: absolute; inset: 0; background: rgba(18,26,56,0.35); }
   }
+
+  /* ─── PEOPLE HERO (logo · text · photo + quote box) ─── */
+  .people-hero {
+    display: grid;
+    grid-template-columns: minmax(180px, 0.7fr) 1.1fr 1.35fr;
+    align-items: center;
+    background: #fff;
+    min-height: 420px;
+  }
+  .people-hero__logo { padding: 2rem 1.5rem 2rem max(1.5rem, calc((100vw - 1200px) / 2)); }
+  .people-hero__logo img { width: 100%; max-width: 220px; margin-inline: auto; }
+  .people-hero__text { padding: 2rem 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; }
+  .people-hero__title { font-family: var(--font-heading); font-weight: 700; color: var(--color-navy); font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; }
+  .people-hero__subtitle { font-family: var(--font-heading); color: var(--color-amber); font-size: clamp(1.25rem, 2.2vw, 1.75rem); line-height: 1.25; }
+  .people-hero__text p:not(.people-hero__subtitle) { font-family: var(--font-heading); color: var(--color-navy); font-size: 0.9375rem; line-height: 1.65; }
+  .people-hero__photo { position: relative; align-self: stretch; min-height: 380px; }
+  .people-hero__photo > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 12%); mask-image: linear-gradient(90deg, transparent 0, #000 12%); }
+  .people-hero__quote {
+    position: absolute; right: 1.25rem; top: 50%; transform: translateY(-50%);
+    width: min(230px, 40%); margin: 0;
+    background: var(--color-navy-dark); color: #fff; border-radius: 4px;
+    padding: 1.5rem 1.25rem; display: flex; flex-direction: column; gap: 0.75rem;
+  }
+  .people-hero__quote-mark { font-family: var(--font-heading); font-size: 3.5rem; line-height: 0.6; color: var(--color-amber); height: 1.5rem; }
+  .people-hero__quote blockquote { margin: 0; font-family: var(--font-heading); font-size: 1.1875rem; line-height: 1.45; }
+  .people-hero__quote figcaption { font-family: var(--font-heading); color: var(--color-amber); font-weight: 700; }
+  .heart-rule { display: flex; align-items: center; gap: 0.75rem; color: var(--color-amber); font-size: 0.875rem; max-width: 220px; }
+  .heart-rule::before, .heart-rule::after { content: ''; flex: 1; height: 1px; background: var(--color-amber); }
+  .heart-rule--center { margin-inline: auto; }
+  @media (max-width: 960px) {
+    .people-hero { grid-template-columns: 1fr 1.4fr; }
+    .people-hero__photo { grid-column: 1 / -1; min-height: 360px; }
+    .people-hero__photo > img { -webkit-mask-image: none; mask-image: none; }
+  }
+  @media (max-width: 600px) {
+    .people-hero { grid-template-columns: 1fr; }
+    .people-hero__logo img { max-width: 160px; }
+  }
+
+  /* ─── STATEMENT BAND (navy, amber heading) ─── */
+  .statement-band { background: var(--color-navy-dark); color: #fff; text-align: center; padding-block: 2rem; }
+  .statement-band h2 { font-family: var(--font-heading); color: var(--color-amber); font-size: clamp(1.125rem, 2vw, 1.5rem); text-transform: uppercase; letter-spacing: 0.02em; }
+  .statement-band p { font-family: var(--font-heading); font-size: 1.0625rem; line-height: 1.6; max-width: 820px; margin: 0.75rem auto 0; color: rgba(255,255,255,0.92); }
+
+  /* ─── ASSURANCE STRIP ─── */
+  .assurance { background: #fff; border-top: 1px solid rgba(27,39,81,0.08); padding-block: 1.75rem; }
+  .assurance__grid { display: grid; grid-template-columns: repeat(5, 1fr); }
+  .assurance__item { display: flex; gap: 0.875rem; align-items: flex-start; padding-inline: 1rem; border-right: 1px solid rgba(201,160,23,0.4); color: var(--color-navy); }
+  .assurance__item:last-child { border-right: none; }
+  .assurance__item svg { flex-shrink: 0; }
+  .assurance__item strong { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.25rem; }
+  .assurance__item span { font-size: 0.75rem; color: var(--color-text); line-height: 1.45; }
+  @media (max-width: 900px) { .assurance__grid { grid-template-columns: 1fr 1fr; gap: 1.25rem; } .assurance__item { border: none; } }
+
+  /* ─── PANEL (light rounded box) ─── */
+  .panel { background: #f7f6f3; border-radius: 6px; padding: 1.75rem 1.5rem; }
+  .panel__title { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; text-align: center; font-size: 1.125rem; font-weight: 700; }
 
   /* ─── CARDS ──────────────────────────────── */
   .card {

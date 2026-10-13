@@ -1,0 +1,31 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  photo: string;
+  photoAlt: string;
+  quote: string;
+  quoteRef: string;
+}
+const { title, subtitle, photo, photoAlt, quote, quoteRef } = Astro.props;
+---
+<section class="people-hero">
+  <div class="people-hero__logo">
+    <img src="/IICC_Logo_main.png" alt="IICC Mission — Faith. Hope. Justice. Restoration." />
+  </div>
+  <div class="people-hero__text">
+    <h1 class="people-hero__title" set:html={title} />
+    {subtitle && <p class="people-hero__subtitle" set:html={subtitle} />}
+    <span class="heart-rule" aria-hidden="true">♥</span>
+    <slot />
+  </div>
+  <div class="people-hero__photo">
+    <img src={photo} alt={photoAlt} />
+    <figure class="people-hero__quote">
+      <span class="people-hero__quote-mark">&ldquo;</span>
+      <blockquote>{quote}</blockquote>
+      <span class="heart-rule heart-rule--light" aria-hidden="true">♥</span>
+      <figcaption>– {quoteRef}</figcaption>
+    </figure>
+  </div>
+</section>

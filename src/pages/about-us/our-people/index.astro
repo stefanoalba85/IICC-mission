@@ -1,98 +1,168 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
+import PeopleHero from '../../../components/PeopleHero.astro';
+import AssuranceStrip from '../../../components/AssuranceStrip.astro';
+import Icon from '../../../components/Icon.astro';
+import type { IconName } from '../../../lib/icons';
 
-const heart = [
-  { title: 'Called to Serve', desc: 'We respond to God’s call to serve those who are imprisoned, detained and forgotten.' },
-  { title: 'Compassionate', desc: 'We treat every person with dignity, respect and unconditional love.' },
-  { title: 'Faith-Driven', desc: 'Our faith in Christ inspires our service and strengthens our mission.' },
-  { title: 'Together As One', desc: 'We work as one family, uniting volunteers, staff, clergy and partners in our mission.' },
-  { title: 'Integrity', desc: 'We act with honesty, transparency and accountability in everything we do.' },
-  { title: 'Making an Impact', desc: 'We bring hope, restore dignity and create a better future together.' },
+const img = (n: string) => `/images/our-people/${n}.jpg`;
+
+const heart: { title: string; text: string; icon: IconName }[] = [
+  { title: 'Called to Serve', text: 'We respond to God’s call to serve those who are imprisoned, detained and forgotten.', icon: 'people' },
+  { title: 'Compassionate', text: 'We treat every person with dignity, respect and unconditional love.', icon: 'heartHand' },
+  { title: 'Faith-Driven', text: 'Our faith in Christ inspires our service and strengthens our mission.', icon: 'cross' },
+  { title: 'Together As One', text: 'We work as one family, uniting volunteers, staff, clergy and partners in our mission.', icon: 'handshake' },
+  { title: 'Integrity', text: 'We act with honesty, transparency and accountability in everything we do.', icon: 'shield' },
+  { title: 'Making an Impact', text: 'We bring hope, restore dignity and create a better future together.', icon: 'globe' },
 ];
 const family = [
-  { title: 'Our Clergy', desc: 'Priests, deacons and religious who provide spiritual leadership, sacraments and pastoral care.', href: '/about-us/our-people/staff-volunteers' },
-  { title: 'Our Volunteers', desc: 'Generous men and women who give their time, talents and hearts to make a difference.', href: '/about-us/our-people/staff-volunteers' },
-  { title: 'Our Professionals', desc: 'Lawyers, counsellors, educators and specialists who offer expert support and guidance.', href: '/about-us/our-people/professional-partners' },
-  { title: 'Our Partners', desc: 'Organisations, parishes and supporters who walk with us to expand our mission and impact.', href: '/about-us/our-people/professional-partners' },
+  { title: 'Our Clergy', text: 'Priests, deacons and religious who provide spiritual leadership, sacraments and pastoral care.', photo: 'clergy', href: '/about-us/our-people/staff-volunteers' },
+  { title: 'Our Volunteers', text: 'Generous men and women who give their time, talents and hearts to make a difference.', photo: 'volunteers', href: '/about-us/our-people/staff-volunteers' },
+  { title: 'Our Professionals', text: 'Lawyers, counselors, educators and specialists who offer expert support and guidance.', photo: 'professionals', href: '/about-us/our-people/professional-partners' },
+  { title: 'Our Partners', text: 'Organizations, parishes and supporters who walk with us to expand our mission and impact.', photo: 'partners', href: '/about-us/our-people/professional-partners' },
 ];
 const team = [
-  { name: 'Antonio G. Dattilo', role: 'Ambassador & Founder', desc: 'Leads our mission with lived experience, passion and a heart for restoration.' },
-  { name: 'Fr. Anthony David', role: 'Spiritual Director', desc: 'Provides spiritual guidance and ensures our mission remains rooted in prayer, faith and the Gospel.' },
-  { name: 'Maria Grazia', role: 'Operations Director', desc: 'Oversees programs, operations and the day-to-day running of our mission.' },
-  { name: 'James Porter', role: 'Outreach Director', desc: 'Leads outreach initiatives and builds partnerships in communities worldwide.' },
-  { name: 'Sr. Lucia Maria', role: 'Pastoral Care Director', desc: 'Coordinates pastoral care and support for individuals and their families.' },
-  { name: 'Fr. Michael Tran', role: 'Chaplaincy Director', desc: 'Supports chaplains and pastoral teams in prisons and detention centres.' },
-  { name: 'Elena Rossi', role: 'Legal & Advocacy Director', desc: 'Leads legal referral services and advocates for human rights and protection.' },
-  { name: 'Daniel McCarthy', role: 'Finance & Stewardship Director', desc: 'Manages resources responsibly and ensures financial sustainability.' },
+  { name: 'Antonio G. Dattilo', role: 'Ambassador & Founder', text: 'Leads our mission with lived experience, passion and a heart for restoration.' },
+  { name: 'Fr. Anthony David', role: 'Spiritual Director', text: 'Provides spiritual guidance and ensures our mission remains rooted in prayer, faith and the Gospel.' },
+  { name: 'Maria Grazia', role: 'Operations Director', text: 'Oversees programs, operations and the day-to-day running of our mission.' },
+  { name: 'James Porter', role: 'Outreach Director', text: 'Leads outreach initiatives and builds partnerships in communities worldwide.' },
+  { name: 'Sr. Lucia Maria', role: 'Pastoral Care Director', text: 'Coordinates pastoral care and support for individuals and their families.' },
+  { name: 'Fr. Michael Tran', role: 'Chaplaincy Director', text: 'Supports chaplains and pastoral teams in prisons and detention centres.' },
+  { name: 'Elena Rossi', role: 'Legal & Advocacy Director', text: 'Leads legal referral services and advocates for human rights and protection.' },
+  { name: 'Daniel McCarthy', role: 'Finance & Stewardship Director', text: 'Manages resources responsibly and ensures financial sustainability.' },
 ];
 ---
 <Layout title="Our People" description="One Mission. Many Hearts. United in Christ.">
+  <style>
+    .op-heart { background: var(--color-navy-dark); color: #fff; padding-block: 1.75rem 2.25rem; text-align: center; }
+    .op-heart h2 { font-family: var(--font-heading); color: var(--color-amber); text-transform: uppercase; font-size: 1.25rem; }
+    .op-heart > .wrap > p { font-family: var(--font-heading); margin-top: 0.4rem; }
+    .op-heart__grid { display: grid; grid-template-columns: repeat(6, 1fr); margin-top: 1.5rem; }
+    .op-heart__item { padding-inline: 1rem; border-right: 1px solid rgba(201,160,23,0.35); display: flex; flex-direction: column; align-items: center; gap: 0.6rem; }
+    .op-heart__item:last-child { border-right: none; }
+    .op-heart__ring { width: 4rem; height: 4rem; border-radius: 50%; border: 2px solid var(--color-amber); color: var(--color-amber); display: flex; align-items: center; justify-content: center; }
+    .op-heart__item h3 { font-family: var(--font-heading); font-size: 0.9375rem; text-transform: uppercase; }
+    .op-heart__item p { font-family: var(--font-heading); font-size: 0.8125rem; line-height: 1.55; color: rgba(255,255,255,0.85); }
+    .op-h { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; text-align: center; font-size: 1.25rem; }
+    .op-family { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1.25rem; }
+    .op-fcard { background: #faf8f4; border: 1px solid rgba(27,39,81,0.08); border-radius: 6px; overflow: hidden; text-align: center; display: flex; flex-direction: column; }
+    .op-fcard img { width: 100%; aspect-ratio: 218 / 120; object-fit: cover; }
+    .op-fcard div { padding: 1rem 1rem 0.75rem; display: flex; flex-direction: column; gap: 0.5rem; flex: 1; }
+    .op-fcard h3 { font-family: var(--font-heading); color: var(--color-navy); font-size: 1.0625rem; text-transform: uppercase; font-weight: 400; }
+    .op-fcard p { font-family: var(--font-heading); font-size: 0.875rem; line-height: 1.55; flex: 1; }
+    .op-team { display: grid; grid-template-columns: repeat(8, 1fr); gap: 0.5rem; margin-top: 1.25rem; }
+    .op-member { background: #faf8f4; border-radius: 6px; padding: 0.75rem 0.5rem 1rem; text-align: center; display: flex; flex-direction: column; gap: 0.35rem; }
+    .op-member img { width: 86%; aspect-ratio: 1; border-radius: 50%; object-fit: cover; margin-inline: auto; }
+    .op-member h3 { font-family: var(--font-heading); color: var(--color-navy); font-size: 0.9375rem; font-weight: 400; margin-top: 0.4rem; }
+    .op-member span { font-family: var(--font-heading); color: var(--color-amber); font-size: 0.75rem; }
+    .op-member p { font-family: var(--font-heading); font-size: 0.72rem; line-height: 1.5; }
+    .op-three { display: grid; grid-template-columns: 1.3fr 0.75fr 1.2fr; gap: 0.75rem; }
+    .op-card-dark { background: var(--color-navy-dark); color: #fff; border-radius: 6px; overflow: hidden; display: grid; }
+    .op-card-dark h2 { font-family: var(--font-heading); color: var(--color-amber); text-transform: uppercase; font-size: 1.125rem; }
+    .op-card-dark p, .op-card-dark li { font-family: var(--font-heading); font-size: 0.875rem; line-height: 1.55; }
+    .op-card-dark ul { list-style: none; padding: 0; margin: 0.5rem 0 0; display: flex; flex-direction: column; gap: 0.3rem; }
+    .op-card-dark li::before { content: '✓'; display: inline-flex; width: 1rem; height: 1rem; border-radius: 50%; background: var(--color-amber); color: #fff; font-size: 0.6rem; align-items: center; justify-content: center; margin-right: 0.5rem; }
+    .op-card-dark img { width: 100%; height: 100%; object-fit: cover; }
+    .op-mid { background: #f3efe7; border-radius: 6px; padding: 1.25rem; display: flex; flex-direction: column; justify-content: center; gap: 1rem; }
+    .op-band { position: relative; background: var(--color-navy-dark); color: #fff; overflow: hidden; }
+    .op-band__photo { position: absolute; inset: 0 0 0 72%; }
+    .op-band__photo img { width: 100%; height: 100%; object-fit: cover; -webkit-mask-image: linear-gradient(90deg, transparent, #000 50%); mask-image: linear-gradient(90deg, transparent, #000 50%); }
+    .op-band__inner { position: relative; display: flex; align-items: center; gap: 1.5rem; padding-block: 1.25rem; flex-wrap: wrap; }
+    .op-band h2 { font-family: var(--font-heading); color: var(--color-amber); text-transform: uppercase; font-size: 1.375rem; }
+    .op-band p { font-family: var(--font-heading); }
+    @media (max-width: 960px) {
+      .op-heart__grid { grid-template-columns: repeat(3, 1fr); row-gap: 1.5rem; }
+      .op-family { grid-template-columns: 1fr 1fr; }
+      .op-team { grid-template-columns: repeat(4, 1fr); }
+      .op-three { grid-template-columns: 1fr; }
+    }
+  </style>
 
-  <section class="hero-split">
-    <div class="hero-split__text">
-      <h1 class="section-title" style="margin-block:0.5rem;">Our People</h1>
-      <p style="font-weight:700; color:var(--color-amber);">One Mission. Many Hearts. United in Christ.</p>
-      <p class="section-desc" style="max-width:none;">
-        Our strength is in our people. Together, we walk with inmates, detainees, and their
-        families — offering hope, support, and a path to restoration.
-      </p>
-      <div class="hero-split__quote" style="position:static; width:auto;">
-        <p class="hero-split__quote-text">As each has received a gift, use it to serve one another, as good stewards of God's varied grace.</p>
-        <span class="hero-split__quote-ref">— 1 Peter 4:10</span>
+  <PeopleHero
+    title="Our People"
+    subtitle="One Mission. Many Hearts.<br/>United in Christ."
+    photo={img('hero')}
+    photoAlt="IICC Mission clergy, staff and volunteers together"
+    quote="As each has received a gift, use it to serve one another, as good stewards of God’s varied grace."
+    quoteRef="1 Peter 4:10"
+  >
+    <p>Our strength is in our people. Together, we walk with inmates, detainees, and their families—offering hope, support, and a path to restoration.</p>
+  </PeopleHero>
+
+  <section class="op-heart">
+    <div class="wrap">
+      <h2>The Heart of Our People</h2>
+      <p>Every person in our mission is guided by faith, driven by compassion, and committed to justice.</p>
+      <div class="op-heart__grid">
+        {heart.map(h => (
+          <div class="op-heart__item"><span class="op-heart__ring"><Icon name={h.icon} size={30} /></span><h3>{h.title}</h3><p>{h.text}</p></div>
+        ))}
       </div>
-    </div>
-    <div class="hero-split__photo">
-      <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=1000&q=80" alt="IICC Mission team" />
     </div>
   </section>
 
-  <div class="value-strip">
-    <div class="wrap value-strip__inner">
-      {heart.map(h => (
-        <div class="value-strip__item"><span class="value-strip__title">{h.title}</span><span class="value-strip__desc">{h.desc}</span></div>
-      ))}
-    </div>
-  </div>
-
-  <section class="section section--white">
+  <section style="padding-block:1.5rem;">
     <div class="wrap">
-      <div class="section-head"><h2 class="section-title">Our Mission Family</h2></div>
-      <div class="grid-4">
+      <h2 class="op-h">Our Mission Family</h2>
+      <span class="heart-rule heart-rule--center" style="max-width:120px;">♥</span>
+      <div class="op-family">
         {family.map(f => (
-          <a href={f.href} class="photo-card" style="text-align:center; padding:1.5rem 1.25rem;">
-            <span class="photo-card__title">{f.title}</span>
-            <p class="photo-card__desc">{f.desc}</p>
+          <a href={f.href} class="op-fcard">
+            <img src={img(f.photo)} alt={f.title} />
+            <div><h3>{f.title}</h3><p>{f.text}</p><span class="text-amber">♡</span></div>
           </a>
         ))}
       </div>
-    </div>
-  </section>
 
-  <section class="section section--offwhite">
-    <div class="wrap">
-      <div class="section-head"><h2 class="section-title">Our Dedicated Team</h2></div>
-      <div class="grid-4">
-        {team.map(t => (
-          <div class="team-member">
-            <div class="team-member__photo" style="background:var(--color-navy); display:flex; align-items:center; justify-content:center; color:var(--color-amber); font-family:var(--font-heading); font-size:1.5rem;">
-              {t.name.split(' ').map(w => w[0]).slice(0,2).join('')}
-            </div>
-            <span class="team-member__name">{t.name}</span>
-            <span class="team-member__role">{t.role}</span>
-            <p class="team-member__desc">{t.desc}</p>
-          </div>
+      <h2 class="op-h" style="margin-top:2rem;">Our Dedicated Team</h2>
+      <span class="heart-rule heart-rule--center" style="max-width:120px;">♥</span>
+      <div class="op-team">
+        {team.map((t, i) => (
+          <div class="op-member"><img src={img(`t${i + 1}`)} alt={t.name} /><h3>{t.name}</h3><span>{t.role}</span><p>{t.text}</p></div>
         ))}
       </div>
     </div>
   </section>
 
-  <div class="cta-band">
-    <div class="wrap cta-band__inner">
-      <div class="cta-band__text">
-        <h2 class="section-title section-title--white">Join Our Mission Family</h2>
-        <p class="section-desc section-desc--white">Whether you have a few hours or a lifetime of experience, your time, talents and prayers can change lives.</p>
+  <section style="padding-bottom:0.75rem;">
+    <div class="wrap op-three">
+      <div class="op-card-dark" style="grid-template-columns:0.55fr 1fr;">
+        <img src={img('grow')} alt="Hands holding a young plant" />
+        <div style="padding:1.25rem;">
+          <h2>Grow With Us</h2>
+          <p>We believe in investing in people, developing leadership and empowering each individual to use their gifts for God’s glory.</p>
+          <ul><li>Leadership development</li><li>Ongoing training &amp; formation</li><li>Spiritual and professional growth</li><li>A supportive and faith-filled community</li></ul>
+        </div>
       </div>
-      <a href="/get-involved" class="btn btn--amber">Get Involved Today &gt;</a>
+      <div class="op-mid">
+        <div style="display:flex; gap:1rem; align-items:center;">
+          <span style="flex-shrink:0; width:4rem; height:4rem; border-radius:50%; border:1.5px solid var(--color-amber); color:var(--color-navy); display:flex; align-items:center; justify-content:center;"><Icon name="people" size={32} /></span>
+          <p style="font-family:var(--font-heading); font-size:0.875rem; color:var(--color-navy);">There is a place for you in our mission. Together, we can bring hope and restore lives.</p>
+        </div>
+        <a href="/get-involved/volunteer-program" class="btn btn--navy" style="justify-content:center;">Become a Volunteer →</a>
+      </div>
+      <div class="op-card-dark" style="grid-template-columns:1fr 0.5fr;">
+        <div style="padding:1.25rem; display:flex; flex-direction:column; gap:0.75rem;">
+          <h2>Join Our Mission Family</h2>
+          <p style="font-size:1rem;">Whether you have a few hours or a lifetime of experience, your time, talents and prayers can change lives.</p>
+          <a href="/get-involved" class="btn btn--amber" style="align-self:flex-start;">Get Involved Today →</a>
+        </div>
+        <img src={img('join')} alt="Hands joined together" />
+      </div>
     </div>
-  </div>
+  </section>
+
+  <section class="op-band">
+    <div class="op-band__photo"><img src={img('sunset')} alt="" /></div>
+    <div class="wrap op-band__inner">
+      <span class="text-amber"><Icon name="heart" size={44} stroke={1.5} /></span>
+      <div style="flex:1;">
+        <h2>Together, We Can Restore Hope and Dignity.</h2>
+        <p>Let us not love with words or speech but with actions and in truth. <span class="text-amber">– 1 John 3:18</span></p>
+      </div>
+      <a href="/donate" class="btn btn--amber">Support Our Mission →</a>
+    </div>
+  </section>
+
+  <AssuranceStrip />
 </Layout>
