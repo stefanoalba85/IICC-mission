@@ -48,7 +48,7 @@ const values: { title: string; text: string; icon: IconName }[] = [
     .sv-leader p { font-family: var(--font-heading); font-size: 0.75rem; line-height: 1.5; flex: 1; }
     .sv-leader .contact { font-size: 0.6875rem; color: var(--color-navy); text-align: left; display: flex; flex-direction: column; gap: 0.25rem; margin-top: 0.5rem; }
     .sv-leader .contact span { display: flex; gap: 0.4rem; align-items: center; }
-    .sv-leader .contact svg { color: var(--color-amber); flex-shrink: 0; }
+    .sv-leader .contact :global(svg) { color: var(--color-amber); flex-shrink: 0; }
     .sv-vols { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.75rem; margin-top: 1rem; }
     .sv-vol { background: #faf8f4; border-radius: 6px; overflow: hidden; text-align: center; }
     .sv-vol__photo { position: relative; }

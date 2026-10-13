@@ -17,8 +17,8 @@ interface Props {
   band: Row[];
   leftTitle: string;
   left: Row[];
-  centerQuote: string;
-  centerRef: string;
+  centerQuote?: string;
+  centerRef?: string;
   rightTitle: string;
   right: Row[];
   box: string[];
@@ -29,6 +29,7 @@ interface Props {
   supportText: string;
   supportCta?: string;
   boxUnderCenter?: boolean;
+  features?: { title: string; text: string }[];
   stripLight?: boolean;
   stripNumbered?: boolean;
   supportIcon?: string;
@@ -71,6 +72,8 @@ const img = (n: string) => `/images/prison-ministry/${p.dir}/${n}.jpg`;
   .pm-row h3 { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: 1.0625rem; font-weight: 400; }
   .pm-row p { font-family: var(--font-heading); color: var(--color-navy); font-size: 1.0625rem; line-height: 1.35; }
   .pm-center { background: var(--color-navy-dark); color: #fff; display: flex; flex-direction: column; }
+  .pm-center--photo { height: 100%; }
+  .pm-center--photo img { aspect-ratio: auto; height: 100%; -webkit-mask-image: none; mask-image: none; }
   .pm-center img { width: 100%; aspect-ratio: 294 / 245; object-fit: cover; -webkit-mask-image: linear-gradient(#000 75%, transparent); mask-image: linear-gradient(#000 75%, transparent); }
   .pm-center blockquote { margin: -2rem 0 0; position: relative; padding: 0 1.5rem 1.5rem 3rem; font-family: var(--font-heading); font-size: 1.25rem; line-height: 1.4; }
   .pm-center blockquote::before { content: '\201C'; position: absolute; left: 1rem; top: -0.25rem; color: #d9a540; font-size: 3rem; line-height: 1; }
@@ -87,6 +90,12 @@ const img = (n: string) => `/images/prison-ministry/${p.dir}/${n}.jpg`;
   .pm-strip__grid h3 { font-family: var(--font-heading); color: #d9a540; text-transform: uppercase; font-size: 0.9375rem; font-weight: 400; margin-top: 0.5rem; }
   .pm-strip__grid p { font-family: var(--font-heading); font-size: 0.875rem; line-height: 1.35; }
   .pm-support { background: var(--color-navy-dark); color: #fff; border-top: 1px solid rgba(184,137,43,0.5); }
+  .pm-features { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; padding-top: 0.75rem; }
+  .pm-features div { border: 1px solid rgba(27,39,81,0.15); background: #fff; }
+  .pm-features img { width: 100%; aspect-ratio: 240 / 150; object-fit: cover; }
+  .pm-features h3 { background: var(--color-navy-dark); color: #d9a540; font-family: var(--font-heading); text-transform: uppercase; font-size: 0.875rem; font-weight: 400; text-align: center; padding: 0.3rem; }
+  .pm-features p { font-family: var(--font-heading); color: var(--color-navy); font-size: 0.9375rem; line-height: 1.35; padding: 0.5rem 1rem 0.75rem; }
+  @media (max-width: 900px) { .pm-features { grid-template-columns: 1fr 1fr; } }
   .pm-row--photo { grid-template-columns: 8rem 1fr; border-bottom: 1px solid rgba(184,137,43,0.4); padding-bottom: 0.6rem; }
   .pm-row--photo img { width: 100%; aspect-ratio: 128 / 92; object-fit: cover; }
   .pm-strip--light { background: #f6f4ef; color: var(--color-navy); }
@@ -135,15 +144,21 @@ const img = (n: string) => `/images/prison-ministry/${p.dir}/${n}.jpg`;
     </div>
   </section>
 
+  {p.features && (
+    <section class="wrap pm-features">
+      {p.features.map((f, i) => <div><img src={img(`f${i + 1}`)} alt="" /><h3>{f.title}</h3><p>{f.text}</p></div>)}
+    </section>
+  )}
+
   <section class="wrap pm-three">
     <div>
       <h2 class="pm-h">{p.leftTitle}</h2>
       <div class="pm-rows">{p.left.map(r => <div class="pm-row"><i><Icon name={r.icon ?? 'check'} size={26} /></i><div>{r.title && <h3>{r.title}</h3>}<p>{r.text}</p></div></div>)}</div>
     </div>
     <div>
-      <figure class="pm-center" style="margin:0;">
+      <figure class={`pm-center ${p.centerQuote ? '' : 'pm-center--photo'}`} style="margin:0;">
         <img src={img('center')} alt="" />
-        <blockquote>{p.centerQuote}<cite>– {p.centerRef}</cite></blockquote>
+        {p.centerQuote && <blockquote>{p.centerQuote}<cite>– {p.centerRef}</cite></blockquote>}
       </figure>
       {p.boxUnderCenter && <div class="pm-box"><i><Icon name="heart" size={18} /></i><div>{p.box.map(b => <p>{b}</p>)}</div><p class="accent">{p.boxAccent}</p></div>}
     </div>

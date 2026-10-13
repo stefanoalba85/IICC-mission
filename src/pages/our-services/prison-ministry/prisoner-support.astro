@@ -1,0 +1,44 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import SupportLanding from '../../../components/SupportLanding.astro';
+---
+<Layout title="Prisoner Support" description="You are not defined by your mistakes. You are defined by your future.">
+  <SupportLanding
+    dir="prisoner-support" eyebrow="Prisoner Support"
+    title="You are not defined by your mistakes." accent="You are defined by your future."
+    intro="Our Prisoner Support programs provide hope, encouragement and practical resources to individuals still incarcerated. We come alongside them with faith, compassion and the belief that every life can be transformed."
+    heroAlt="An IICC Mission volunteer visiting a smiling inmate"
+    quote="I was in prison and you came to me. You gave me hope when I had none.”" quoteRef="Matthew 25:36"
+    pillars={[
+      { icon: 'hands-praying', title: 'Sharing Hope', text: 'Bringing the message of God’s love and hope to those behind bars.' },
+      { icon: 'book-open', title: 'Spiritual Growth', text: 'Providing Bible study, faith resources and prayer for strength and renewal.' },
+      { icon: 'user', title: 'Emotional Support', text: 'Offering encouragement and support to help individuals heal and grow.' },
+      { icon: 'graduation-cap', title: 'Education & Skills', text: 'Equipping individuals with knowledge and tools for a brighter future.' },
+      { icon: 'handshake', title: 'Reentry Preparation', text: 'Helping individuals prepare mentally, emotionally and spiritually for reentry.' },
+      { icon: 'people-group', title: 'Restoring Purpose', text: 'Helping individuals discover their God-given purpose and potential.' },
+    ]}
+    progTitle="Our Support Programs"
+    progText="We offer a range of programs and resources to meet the spiritual, emotional and practical needs of incarcerated individuals."
+    programs={[
+      { icon: 'cross', title: 'Bible Study & Discipleship', text: 'Bible study lessons and devotionals to strengthen faith and understanding.' },
+      { icon: 'envelope', title: 'Letter Writing & Correspondence', text: 'Encouraging letters and faith-based materials to remind them they are not forgotten.' },
+      { icon: 'hands-praying', title: 'Prayer Ministry', text: 'A dedicated team lifting up prisoners in prayer and interceding for their lives.' },
+      { icon: 'graduation-cap', title: 'Education Resources', text: 'Providing access to educational materials and self-development resources.' },
+      { icon: 'user', title: 'Reentry Planning', text: 'Guidance and resources to help individuals plan for a successful return to society.' },
+      { icon: 'heart', title: 'Encouragement & Mentorship', text: 'Ongoing encouragement and mentorship to help them grow and stay hopeful.' },
+    ]}
+    impact={[
+      { icon: 'people-group', num: '5000+', label: 'Individuals Reached Each Year' },
+      { icon: 'envelope', num: '25000+', label: 'Letters & Materials Sent Annually' },
+      { icon: 'book-open', num: '100+', label: 'Prisons & Detention Centers Reached' },
+      { icon: 'hands-praying', num: '1200+', label: 'Prayer Partners Worldwide' },
+      { icon: 'heart', num: 'Countless', label: 'Lives Encouraged with Hope & Faith' },
+    ]}
+    storyTitle="A Message of Hope"
+    story="“While I was in prison, I received a letter that changed my life. It reminded me that I was not forgotten and that God still had a plan for me. Today, I am free, employed and helping others not to give up.”"
+    storyBy="Former Inmate" storyAlt="Hands holding an IICC Mission letter through prison bars"
+    boxTitle="You Can Make a Difference" boxText="Your support helps us reach more incarcerated individuals with hope, encouragement and resources that transform lives."
+    boxBtn="Donate Today" boxBtnHref="/donate" boxBtn2="Volunteer" boxBtn2Href="/get-involved/volunteer-program"
+    ctaTitle="Together, we can bring hope behind bars." ctaText="Your support helps us share God’s love and prepare lives for a second chance and a brighter future."
+  />
+</Layout>

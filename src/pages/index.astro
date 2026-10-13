@@ -48,14 +48,14 @@ const locations: { flag: string; country: string; cities: string }[] = [
     .hp-hero p { font-size: 1.0625rem; line-height: 1.5; max-width: 520px; }
     .hp-hero__btns { display: flex; flex-wrap: wrap; gap: 1rem; }
     .hp-office { position: absolute; right: 1.5rem; bottom: 6rem; width: 230px; background: rgba(18,26,56,0.92); border-radius: 6px; padding: 1rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.25rem; font-size: 0.875rem; }
-    .hp-office svg { color: var(--color-amber); }
+    .hp-office :global(svg) { color: var(--color-amber); }
     .hp-office strong { font-size: 0.875rem; text-transform: uppercase; }
     .hp-office b { font-size: 1rem; }
     .hp-values { position: relative; margin-top: -4.5rem; z-index: 2; }
     .hp-values__box { background: var(--color-navy-dark); border-radius: 6px; display: grid; grid-template-columns: repeat(5, 1fr); padding-block: 1.1rem; color: #fff; text-align: center; box-shadow: 0 10px 24px rgba(18,26,56,0.25); }
     .hp-values__box > div { padding-inline: 0.75rem; border-right: 1px solid rgba(255,255,255,0.12); display: flex; flex-direction: column; align-items: center; gap: 0.35rem; }
     .hp-values__box > div:last-child { border-right: none; }
-    .hp-values__box svg { color: var(--color-amber); }
+    .hp-values__box :global(svg) { color: var(--color-amber); }
     .hp-values__box strong { font-size: 0.9375rem; text-transform: uppercase; }
     .hp-values__box span { font-size: 0.8125rem; color: rgba(255,255,255,0.85); line-height: 1.35; }
     .hp-founder { display: grid; grid-template-columns: 0.95fr 1.85fr; gap: 1.75rem; padding-block: 1.25rem 1rem; }
@@ -81,7 +81,7 @@ const locations: { flag: string; country: string; cities: string }[] = [
     .hp-panel h3 { font-family: var(--font-body); font-size: 0.8125rem; text-transform: uppercase; color: var(--color-navy); }
     .hp-panel__row { display: grid; grid-template-columns: 1.75rem 1fr; gap: 0.6rem; align-items: start; font-size: 0.75rem; line-height: 1.35; color: var(--color-text); }
     .hp-panel__row strong { display: block; color: var(--color-navy); text-transform: uppercase; font-size: 0.75rem; }
-    .hp-panel__row svg { color: var(--color-amber); }
+    .hp-panel__row :global(svg) { color: var(--color-amber); }
     .hp-flag { font-size: 1.25rem; line-height: 1; }
     .hp-map { display: flex; align-items: center; }
     .hp-map img { width: 100%; }

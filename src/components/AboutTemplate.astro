@@ -85,7 +85,7 @@ const stats: { num: string; label: string; icon: IconName }[] = [
   .at-stats { display: grid; grid-template-columns: repeat(4, 1fr); text-align: center; }
   .at-stats > div { border-right: 1px solid rgba(255,255,255,0.15); display: flex; flex-direction: column; align-items: center; gap: 0.15rem; padding-inline: 0.4rem; }
   .at-stats > div:last-child { border-right: none; }
-  .at-stats svg { color: var(--color-amber); }
+  .at-stats :global(svg) { color: var(--color-amber); }
   .at-stats strong { color: var(--color-amber); font-size: 1.5rem; font-family: var(--font-heading); }
   .at-stats span { font-size: 0.75rem; line-height: 1.3; }
   .at-ctas { display: flex; flex-direction: column; gap: 0.5rem; justify-self: end; width: min(280px, 100%); }

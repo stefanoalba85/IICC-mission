@@ -1,0 +1,53 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import MinistryTemplate from '../../../components/MinistryTemplate.astro';
+---
+<Layout title="Mental Health Support in Prison" description="Healing Minds. Restoring Hope. Changing Lives.">
+  <MinistryTemplate
+    dir="mental"
+    kicker="Prison Ministry"
+    title="Mental<br/>Health" titleAccent="Support"
+    subtitle="Healing Minds. Restoring Hope. Changing Lives."
+    intro={['The IICC Mission provides pastoral and practical support to address the mental health challenges faced by incarcerated individuals, helping them find hope, stability and a pathway toward a brighter future.']}
+    heroQuote="The Lord is close to the broken-hearted and saves those who are crushed in spirit." heroQuoteRef="Psalm 34:18"
+    heroAlt="A priest sitting with a man praying in his cell"
+    bandTitle="Our Mental Health Support Includes"
+    bandIntro="We work in partnership with chaplains, trained volunteers and mental health professionals to provide compassionate support that addresses the emotional, psychological and spiritual needs of incarcerated individuals."
+    band={[
+      { icon: 'hand-holding-heart', title: 'Pastoral Care', text: 'A listening ear, prayer and spiritual encouragement for those struggling with mental health challenges.' },
+      { icon: 'people-group', title: 'Emotional Support', text: 'Regular contact and companionship through letters, visits and programs to reduce isolation and build hope.' },
+      { icon: 'brain', title: 'Mental Health Awareness', text: 'Education and resources to help individuals understand mental health, manage challenges and seek appropriate support.' },
+      { icon: 'handshake', title: 'Referrals and Guidance', text: 'Connection to qualified mental health services, counselling and support programs available within the system.' },
+      { icon: 'book-open', title: 'Hope and Resilience', text: 'Helping individuals find purpose, rebuild self-worth and develop healthy coping strategies for a brighter future.' },
+    ]}
+    leftTitle="What We Offer"
+    left={[
+      { icon: 'people-group', title: 'One-on-One Support', text: 'Regular letters and visits from chaplains and trained volunteers.' },
+      { icon: 'book-open', title: 'Mental Health Resources', text: 'Faith-based and practical materials on wellbeing, stress management and resilience.' },
+      { icon: 'people-group', title: 'Group Programs', text: 'Support groups, workshops and discussions where possible.' },
+      { icon: 'cross', title: 'Spiritual Counselling', text: 'Prayer, reflection and guidance for inner healing and strength.' },
+      { icon: 'share', title: 'Referrals', text: 'Links to professional mental health services and community support available.' },
+      { icon: 'heart', title: 'Ongoing Encouragement', text: 'A consistent, caring presence that reminds them they are not alone.' },
+    ]}
+    centerQuote="Even in the darkest moments, there is hope. You are not alone. Your life has value. Healing is possible, and a brighter tomorrow can begin today." centerRef="IICC Mission"
+    rightTitle="You Are Not Alone"
+    right={[
+      { icon: 'heart', title: 'We Listen', text: 'Your story matters.' },
+      { icon: 'people-group', title: 'We Understand', text: 'Mental health challenges are real, and you are not alone.' },
+      { icon: 'cross', title: 'We Pray', text: 'We walk with you in faith and compassion.' },
+      { icon: 'hand-holding-heart', title: 'We Support', text: 'We help you access the right resources and care.' },
+      { icon: 'book-open', title: 'We Believe', text: 'Healing is possible, and a brighter future can be built.' },
+    ]}
+    box={['Your mental health matters.', 'Your life has purpose.']} boxAccent="Together, we can build a brighter tomorrow."
+    stripTitle="Positive Impact"
+    strip={[
+      { title: 'Reduces Isolation', text: 'Provides a sense of connection and belonging.' },
+      { title: 'Builds Resilience', text: 'Helps individuals develop healthier coping strategies.' },
+      { title: 'Restores Hope', text: 'Encourages a more positive outlook on life.' },
+      { title: 'Strengthens Faith', text: 'Offers spiritual support and inner peace.' },
+      { title: 'A Brighter Tomorrow', text: 'Supporting mental wellbeing for successful reintegration.' },
+    ]}
+    supportTitle="Together we can heal minds and restore lives." supportText="Compassion. Support. Hope. A brighter tomorrow."
+    supportCta="Support Our Prison Ministry"
+  />
+</Layout>

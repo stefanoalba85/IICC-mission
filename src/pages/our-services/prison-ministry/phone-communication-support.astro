@@ -1,0 +1,128 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/prison-ministry/faq/${n}.jpg`;
+const faqs = [
+  { icon: 'cross', q: 'What is IICC Mission?', a: 'IICC Mission is a Catholic organization that brings Christ’s love, hope, and support to inmates, people in immigration detention, and their families. We provide spiritual care, practical assistance, advocacy, education, and pathways to healing and reintegration.' },
+  { icon: 'hand-holding-heart', q: 'Who does IICC Mission serve?', a: 'We serve inmates in prisons, people in immigration detention, and their families. We also support victims of abuse and domestic violence, individuals facing mental health challenges, and anyone in need of hope and support.' },
+  { icon: 'people-group', q: 'What services does IICC Mission provide?', a: 'We offer spiritual & pastoral care, prison visits, legal assistance & referrals, family support, education & rehabilitation programs, reintegration support, mental health resources, advocacy, and humanitarian aid.' },
+  { icon: 'hands-holding-child', q: 'How can I volunteer?', a: 'You can volunteer by visiting our “Get Involved” page on our website and completing the volunteer form. Opportunities include prison visits, letter writing, mentorship, events, administration, and more.' },
+  { icon: 'heart', q: 'Can I write or call an inmate or detainee?', a: 'Yes! We facilitate letter-writing, phone support, and visits through our programs. Visit our “Prison Visit” or “Adopt a Prisoner” page to learn how you can connect and make a difference.' },
+  { icon: 'scale-balanced', q: 'Do you provide legal help?', a: 'We do not provide direct legal representation. However, we offer legal advice, referrals, and support through our network of trusted Catholic lawyers and professionals. Visit our “Legal Assistance & Referrals” page for more information.' },
+  { icon: 'house', q: 'How can my family get support?', a: 'We provide emotional, spiritual, and practical support for families. Visit our “Family Support” page to access resources, counseling referrals, and community connections.' },
+  { icon: 'dove', q: 'Do you support people after release?', a: 'Absolutely. Our reintegration programs help individuals rebuild their lives through education, employment assistance, housing support, mentoring, and community connections.' },
+  { icon: 'hand-holding-dollar', q: 'How can I donate?', a: 'You can donate securely online through our “Donate” page. Your generosity helps us continue our mission and reach more people in need.' },
+  { icon: 'hands-praying', q: 'Can I request prayer?', a: 'Yes. Your prayer intentions are important to us. Submit your request on our “Prayer Requests” page, and our community will lift you up in prayer.' },
+  { icon: 'globe', q: 'Where does IICC Mission operate?', a: 'Our Head Office is in Vatican City / Rome. We have National, State, and Regional Missions in the USA, Australia, Canada, Italy, San Marino, and Monaco, and we are growing worldwide.' },
+  { icon: 'shield-halved', q: 'Is IICC Mission a religious organization?', a: 'Yes, we are a Catholic organization rooted in the Gospel. Our mission is guided by Catholic values of faith, hope, justice, compassion, and reconciliation.' },
+];
+const alone = [
+  { icon: 'heart', title: 'We Listen', text: 'We hear you with compassion and without judgment.' },
+  { icon: 'cross', title: 'We Care', text: 'Your story matters. You matter.' },
+  { icon: 'people-group', title: 'We Walk With You', text: 'We walk beside you every step of the way.' },
+  { icon: 'dove', title: 'We Bring Hope', text: 'There is hope today and a brighter future.' },
+];
+const strip = [
+  { icon: 'comment-dots', title: 'We Respond', text: 'We aim to respond within 24–48 hours.' },
+  { icon: 'shield-halved', title: 'Your Privacy Matters', text: 'Your information is kept confidential and secure.' },
+  { icon: 'hand-holding-heart', title: 'We Are Here to Help', text: 'No question is too small. We are here for you.' },
+  { icon: 'cross', title: 'Faith. Hope. Justice. Restoration.', text: 'That’s our mission. That’s our promise.' },
+];
+---
+<Layout title="Phone & Communication Support — FAQ" description="Frequently asked questions about IICC Mission's prison ministry.">
+  <style>
+    .fq-hero { display: grid; grid-template-columns: 0.95fr 1.05fr; background: #f6f4ef; min-height: 330px; position: relative; overflow: hidden; }
+    .fq-hero__text { padding: 1.75rem 1.5rem 1.5rem max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem)); display: grid; grid-template-columns: 10rem 1fr; gap: 1.5rem; align-items: center; }
+    .fq-hero__text img { width: 100%; }
+    .fq-kicker { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: 1.25rem; }
+    .fq-hero h1 { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.02; }
+    .fq-hero h1 span { color: #b8892b; }
+    .fq-hero p { font-family: var(--font-heading); color: var(--color-navy); font-size: 1.125rem; line-height: 1.3; margin-top: 0.5rem; }
+    .fq-hero__photo img { width: 100%; height: 100%; object-fit: cover; -webkit-mask-image: linear-gradient(90deg, transparent, #000 18%); mask-image: linear-gradient(90deg, transparent, #000 18%); }
+    .fq-hero__photo::after { content: ''; position: absolute; inset: 0 0 0 75%; background: linear-gradient(90deg, transparent, rgba(18,26,56,0.92) 40%); }
+    .fq-hero__quote { position: absolute; right: max(1.5rem, calc((100vw - 1200px) / 2)); top: 50%; transform: translateY(-50%); width: 170px; color: #fff; font-family: var(--font-heading); font-size: 1.0625rem; line-height: 1.4; z-index: 2; }
+    .fq-hero__quote::before { content: '\201C'; display: block; color: #d9a540; font-size: 3rem; line-height: 0.6; }
+    .fq-hero__quote cite { display: block; color: #d9a540; font-style: normal; margin-top: 0.3rem; }
+    .fq-body { display: grid; grid-template-columns: 1.65fr 1fr; gap: 2rem; padding-block: 1.5rem; }
+    .fq-item { display: grid; grid-template-columns: 4rem 1fr; gap: 1.1rem; padding-block: 0.8rem; border-bottom: 1px solid rgba(184,137,43,0.35); }
+    .fq-item i { width: 4rem; height: 4rem; border-radius: 50%; background: var(--color-navy-dark); color: #fff; display: flex; align-items: center; justify-content: center; }
+    .fq-item h2 { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: 1.0625rem; font-weight: 400; }
+    .fq-item p { font-family: var(--font-heading); color: var(--color-navy); font-size: 0.9375rem; line-height: 1.45; margin-top: 0.25rem; }
+    .fq-side { display: flex; flex-direction: column; gap: 0.9rem; }
+    .fq-card { border: 1px solid #c9a96a; border-radius: 8px; padding: 1.25rem; background: #fff; }
+    .fq-card h3 { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: 1.125rem; font-weight: 400; }
+    .fq-card p, .fq-card li { font-family: var(--font-heading); color: var(--color-navy); font-size: 1rem; line-height: 1.45; }
+    .fq-contact { list-style: none; padding: 0; margin: 0.6rem 0 0; display: flex; flex-direction: column; gap: 0.5rem; }
+    .fq-contact li { display: flex; gap: 0.75rem; align-items: center; }
+    .fq-contact i { width: 1.9rem; height: 1.9rem; border-radius: 50%; background: var(--color-navy-dark); color: #fff; display: flex; align-items: center; justify-content: center; }
+    .fq-alone { background: var(--color-navy-dark); color: #fff; border-radius: 8px; padding: 1.25rem; }
+    .fq-alone h3 { font-family: var(--font-heading); color: #d9a540; text-transform: uppercase; text-align: center; font-size: 1.125rem; font-weight: 400; margin-bottom: 0.75rem; }
+    .fq-alone > div { display: grid; grid-template-columns: 3.25rem 1fr; gap: 0.9rem; align-items: center; margin-bottom: 0.75rem; }
+    .fq-alone i { width: 3.25rem; height: 3.25rem; border-radius: 50%; border: 1.5px solid #b8892b; color: #d9a540; display: flex; align-items: center; justify-content: center; }
+    .fq-alone strong { font-family: var(--font-heading); text-transform: uppercase; font-weight: 400; display: block; }
+    .fq-alone span { font-family: var(--font-heading); font-size: 0.9375rem; }
+    .fq-photo { border: 1px solid #c9a96a; border-radius: 8px; overflow: hidden; background: #fff; }
+    .fq-photo img { width: 100%; aspect-ratio: 305 / 154; object-fit: cover; }
+    .fq-photo p { font-family: var(--font-heading); color: var(--color-navy); font-size: 1rem; line-height: 1.45; padding: 0.75rem 1rem; }
+    .fq-strip { background: #f6f4ef; border-top: 1px solid rgba(184,137,43,0.4); }
+    .fq-strip h2 { text-align: center; font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: 1.125rem; padding-top: 0.75rem; }
+    .fq-strip .wrap > div { display: grid; grid-template-columns: repeat(4, 1fr); padding-block: 0.75rem 1.25rem; }
+    .fq-strip .wrap > div > div { display: grid; grid-template-columns: 3.5rem 1fr; gap: 0.75rem; align-items: center; border-right: 1px solid rgba(184,137,43,0.35); padding-inline: 1rem; }
+    .fq-strip .wrap > div > div:last-child { border-right: none; }
+    .fq-strip i { width: 3.5rem; height: 3.5rem; border-radius: 50%; background: var(--color-navy-dark); color: #fff; display: flex; align-items: center; justify-content: center; }
+    .fq-strip strong { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: 0.8125rem; font-weight: 400; display: block; }
+    .fq-strip span { font-family: var(--font-heading); color: var(--color-navy); font-size: 0.8125rem; }
+    @media (max-width: 900px) { .fq-hero, .fq-body, .fq-strip .wrap > div { grid-template-columns: 1fr; } .fq-hero__photo { min-height: 280px; } .fq-hero__text { grid-template-columns: 6rem 1fr; } }
+  </style>
+
+  <section class="fq-hero">
+    <div class="fq-hero__text">
+      <img src="/IICC_Logo_main.png" alt="IICC Mission" />
+      <div>
+        <p class="fq-kicker">Prison Ministry</p>
+        <h1>Frequently<br /><span>Asked</span><br />Questions</h1>
+        <p>Bringing Christ’s Love and Hope Behind Bars</p>
+      </div>
+    </div>
+    <div class="fq-hero__photo"><img src={img('hero')} alt="An IICC Mission volunteer reading the Bible with an inmate" /></div>
+    <p class="fq-hero__quote">I was in prison and you visited me. You came alongside me when I needed a new beginning.<cite>– Matthew 25:36</cite></p>
+  </section>
+
+  <section class="wrap fq-body">
+    <div>
+      {faqs.map((f, i) => (
+        <div class="fq-item"><i><Icon name={f.icon} size={30} /></i><div><h2>{i + 1}. {f.q}</h2><p>{f.a}</p></div></div>
+      ))}
+    </div>
+    <aside class="fq-side">
+      <div class="fq-card">
+        <h3>Need More Help?</h3>
+        <div style="display:grid; grid-template-columns:4.5rem 1fr; gap:1rem; align-items:center; margin-top:0.75rem; padding-bottom:1rem; border-bottom:1px solid #c9a96a;">
+          <span style="width:4.5rem; height:4.5rem; border-radius:50%; background:var(--color-navy-dark); color:#fff; display:flex; align-items:center; justify-content:center;"><Icon name="comment-dots" size={34} /></span>
+          <p><strong style="font-weight:400; text-transform:uppercase;">We are here for you.</strong><br />If you have a question not listed here, please reach out to us.</p>
+        </div>
+        <h3 style="color:#b8892b; margin-top:1rem;">Contact Us</h3>
+        <ul class="fq-contact">
+          <li><i><Icon name="envelope" size={14} /></i>info@iiccmission.org</li>
+          <li><i><Icon name="globe" size={14} /></i>www.iiccmission.org</li>
+          <li><i><Icon name="phone" size={14} /></i>+39 349 303 6235</li>
+        </ul>
+        <p style="margin-top:0.75rem; padding-left:2.65rem;">Head Office:<br />Vatican City / Rome</p>
+      </div>
+      <div class="fq-alone">
+        <h3>You Are Not Alone</h3>
+        {alone.map(a => <div><i><Icon name={a.icon} size={24} /></i><div><strong>{a.title}</strong><span>{a.text}</span></div></div>)}
+        <p style="text-align:center; font-family:var(--font-heading); color:#d9a540; text-transform:uppercase;">Together,<br />we can build new beginnings.</p>
+      </div>
+      <figure class="fq-photo" style="margin:0;">
+        <img src={img('sport')} alt="IICC Mission volunteers playing basketball with inmates" />
+        <p>“Therefore, if anyone is in Christ, the new creation has come: The old has gone, the new is here!”<br /><span style="color:#b8892b;">– 2 Corinthians 5:17</span></p>
+      </figure>
+    </aside>
+  </section>
+
+  <section class="fq-strip">
+    <h2 class="wrap">Have a Question? <span style="color:#b8892b;">We’re just a message away.</span></h2>
+    <div class="wrap"><div>{strip.map(s => <div><i><Icon name={s.icon} size={26} /></i><div><strong>{s.title}</strong><span>{s.text}</span></div></div>)}</div></div>
+  </section>
+</Layout>

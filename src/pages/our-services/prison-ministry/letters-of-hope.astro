@@ -1,0 +1,50 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import MinistryTemplate from '../../../components/MinistryTemplate.astro';
+---
+<Layout title="Letters of Hope" description="A Letter. A Connection. A Brighter Tomorrow.">
+  <MinistryTemplate
+    dir="letters"
+    kicker="Prison Ministry"
+    title="Letter" titleAccent="Support"
+    subtitle="A Letter. A Connection. A Brighter Tomorrow."
+    intro={['Through our Letter Support program, we connect incarcerated individuals with a priest or trained volunteer who commits to writing regular letters, offering encouragement, friendship, prayer and a listening heart. No one should be forgotten.']}
+    heroQuote="I was in prison and you wrote to me. Your letter gave me hope." heroQuoteRef="Matthew 25:36"
+    heroAlt="A priest writing a letter by the window"
+    bandTitle="How Our Letter Support Works"
+    bandIntro="We pair each incarcerated individual with a priest or trained volunteer who commits to regular, ongoing correspondence."
+    band={[
+      { icon: 'envelope', title: 'A Personal Connection', text: 'Each person is paired with a priest or trained volunteer who writes regular letters.' },
+      { icon: 'hands-praying', title: 'Encouragement and Prayer', text: 'Sharing messages of hope, faith and support through words and prayer.' },
+      { icon: 'people-group', title: 'A Listening Heart', text: 'Providing a safe and non-judgmental connection with someone who cares.' },
+      { icon: 'book-open', title: 'Spiritual and Practical Support', text: 'Offering Scripture, reflections, guidance and information where appropriate.' },
+      { icon: 'heart', title: 'Ongoing Correspondence', text: 'Building a meaningful relationship through consistent letters over time.' },
+    ]}
+    leftTitle="What We Offer"
+    left={[
+      { icon: 'envelope', title: 'Letter Pairing', text: 'Each incarcerated individual is matched with a priest or trained volunteer.' },
+      { icon: 'heart', title: 'Regular Letters', text: 'Ongoing correspondence offering encouragement, friendship and hope.' },
+      { icon: 'book-open', title: 'Faith and Reflection', text: 'Sharing Scripture, prayer and positive messages.' },
+      { icon: 'people-group', title: 'Guidance and Referrals', text: 'Where appropriate, we can provide information on programs, services and support available.' },
+    ]}
+    centerQuote="A simple letter can bring light into a dark place and remind someone that they are still valued, still loved and never forgotten." centerRef="IICC Mission"
+    rightTitle="You Are Not Alone"
+    right={[
+      { icon: 'heart', title: 'We Listen', text: 'Your story matters.' },
+      { icon: 'people-group', title: 'We Care', text: 'There is someone who believes in you.' },
+      { icon: 'cross', title: 'We Pray', text: 'You are in our prayers.' },
+      { icon: 'book-open', title: 'We Encourage', text: 'We share messages of hope and faith.' },
+    ]}
+    box={['A letter can', 'change a life.']} boxAccent="Together, we bring Christ’s love behind bars."
+    stripTitle="The Impact of a Letter"
+    strip={[
+      { title: 'Reduces Isolation', text: 'Knowing someone cares gives strength and hope.' },
+      { title: 'Builds Confidence', text: 'Encouragement can help people make positive choices.' },
+      { title: 'Supports Healing', text: 'Fostering a sense of dignity, purpose and belonging.' },
+      { title: 'Strengthens Faith', text: 'Sharing God’s love and hope through words.' },
+      { title: 'A Brighter Tomorrow', text: 'A simple letter can plant the seed for a new beginning.' },
+    ]}
+    supportTitle="Let us write a brighter tomorrow together." supportText="A letter. A connection. A prayer. A life changed."
+    supportCta="Support Our Letter Program"
+  />
+</Layout>

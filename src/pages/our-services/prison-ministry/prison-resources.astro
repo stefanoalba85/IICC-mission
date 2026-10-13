@@ -1,0 +1,149 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/prison-ministry/resources/${n}.jpg`;
+const pillars = [
+  { icon: 'book-open', title: 'Spiritual Growth', text: 'Strengthen your faith and grow closer to God.' },
+  { icon: 'brain', title: 'Mental Health & Wellbeing', text: 'Support for your mind, emotions and recovery.' },
+  { icon: 'scale-balanced', title: 'Legal Information & Rights', text: 'Know your rights and understand the process.' },
+  { icon: 'people-group', title: 'Education & Skills', text: 'Learn, develop skills and prepare for the future.' },
+  { icon: 'people-roof', title: 'Family & Relationships', text: 'Stay connected and rebuild what matters.' },
+  { icon: 'handshake', title: 'Reintegration & Reentry', text: 'Plan for release and a new beginning.' },
+  { icon: 'hand-holding-heart', title: 'Practical Help & Support', text: 'Everyday resources and practical assistance.' },
+];
+const cats = [
+  { icon: 'cross', title: 'Spiritual Growth', text: 'Daily devotionals, Bible studies, prayers and encouragement.' },
+  { icon: 'brain', title: 'Mental Health & Wellbeing', text: 'Coping strategies, emotional support and mental health information.' },
+  { icon: 'scale-balanced', title: 'Legal Information & Rights', text: 'Know your rights, understand legal processes and find legal help.' },
+  { icon: 'graduation-cap', title: 'Education & Skills', text: 'Study guides, vocational training and personal development tools.' },
+  { icon: 'people-roof', title: 'Family & Relationships', text: 'Communication tips, family support and guidance for loved ones.' },
+  { icon: 'handshake', title: 'Reintegration & Reentry', text: 'Release planning, housing, employment and building a new life.' },
+  { icon: 'envelope', title: 'Letters & Communication', text: 'How to write letters, stay in contact and maintain healthy communication.' },
+  { icon: 'hand-holding-heart', title: 'Practical Help & Support', text: 'Programs, referrals, financial support and everyday assistance.' },
+];
+const links = [
+  { icon: 'envelope', title: 'How to Write a Letter', text: 'Tips for writing to inmates.' },
+  { icon: 'book', title: 'Approved Reading List', text: 'Books that inspire and build.' },
+  { icon: 'clipboard-list', title: 'Prison Rules & Information', text: 'General information and guidance.' },
+  { icon: 'church', title: 'Religious Services', text: 'Mass, prayer and spiritual resources.' },
+  { icon: 'people-group', title: 'Coping with Incarceration', text: 'Tools to help you stay strong.' },
+  { icon: 'dollar-sign', title: 'Money & Commissary Info', text: 'Information on deposits and spending.' },
+  { icon: 'people-arrows', title: 'Parole & Release Information', text: 'Understanding the process.' },
+  { icon: 'people-roof', title: 'Help for Families', text: 'Support and resources for loved ones.' },
+];
+---
+<Layout title="Prison Resources" description="Hope behind bars. A future beyond.">
+  <style>
+    .pr-hero { display: grid; grid-template-columns: 0.85fr 1.15fr; min-height: 380px; background: #f6f4ef; overflow: hidden; }
+    .pr-hero__text { padding: 2rem 1.5rem 2rem max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem)); display: grid; grid-template-columns: 9rem 1fr; gap: 1.5rem; align-items: start; }
+    .pr-hero__text > img { width: 100%; }
+    .pr-hero h1 { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: clamp(2.25rem, 4.5vw, 3.25rem); line-height: 1; }
+    .pr-hero h2 { font-family: var(--font-heading); color: var(--color-amber); font-size: 1.375rem; line-height: 1.3; margin-block: 0.75rem; }
+    .pr-hero p { font-size: 0.9375rem; line-height: 1.6; color: var(--color-navy); margin-bottom: 1rem; }
+    .pr-hero__photo img { width: 100%; height: 100%; object-fit: cover; object-position: 75% center; -webkit-mask-image: linear-gradient(90deg, transparent, #000 18%); mask-image: linear-gradient(90deg, transparent, #000 18%); }
+    .pr-band { background: var(--color-navy-dark); color: #fff; }
+    .pr-band .wrap { display: grid; grid-template-columns: repeat(7, 1fr); padding-block: 1.25rem; }
+    .pr-band .wrap > div { text-align: center; border-right: 1px solid rgba(255,255,255,0.15); padding-inline: 0.5rem; display: flex; flex-direction: column; align-items: center; gap: 0.35rem; }
+    .pr-band .wrap > div:last-child { border-right: none; }
+    .pr-band :global(svg) { color: var(--color-amber); }
+    .pr-band h3 { font-family: var(--font-body); text-transform: uppercase; font-size: 0.8125rem; }
+    .pr-band p { font-size: 0.75rem; line-height: 1.4; color: rgba(255,255,255,0.85); }
+    .pr-main { display: grid; grid-template-columns: 1fr 0.34fr; gap: 1rem; padding-block: 1.75rem 1rem; }
+    .pr-cats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin-top: 1rem; }
+    .pr-cat { background: #fff; border-radius: 6px; box-shadow: 0 3px 10px rgba(18,26,56,0.08); overflow: hidden; }
+    .pr-cat__photo { position: relative; }
+    .pr-cat__photo img { width: 100%; aspect-ratio: 171 / 92; object-fit: cover; }
+    .pr-cat__photo i { position: absolute; left: 0.75rem; bottom: -1.4rem; width: 2.9rem; height: 2.9rem; border-radius: 50%; background: var(--color-navy-dark); color: #fff; border: 2px solid #fff; display: flex; align-items: center; justify-content: center; }
+    .pr-cat > div:last-child { padding: 1.75rem 0.75rem 0.9rem; display: flex; flex-direction: column; gap: 0.4rem; }
+    .pr-cat h3 { font-family: var(--font-heading); color: var(--color-navy); font-size: 1rem; }
+    .pr-cat p { font-size: 0.75rem; line-height: 1.45; color: var(--color-text); }
+    .pr-cat a { font-size: 0.75rem; color: var(--color-amber); text-transform: uppercase; font-weight: 700; }
+    .pr-links { background: #f3f1ec; border-radius: 8px; padding: 1.25rem; display: flex; flex-direction: column; gap: 0.75rem; }
+    .pr-links h2 { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; text-align: center; font-size: 1rem; }
+    .pr-link { display: grid; grid-template-columns: 2rem 1fr; gap: 0.75rem; align-items: center; color: var(--color-navy); }
+    .pr-link strong { display: block; font-family: var(--font-heading); font-size: 0.875rem; font-weight: 400; }
+    .pr-link span { font-size: 0.75rem; color: var(--color-text); }
+    .pr-need { background: var(--color-navy-dark); color: #fff; border-radius: 6px; padding: 1rem; display: grid; grid-template-columns: 3rem 1fr; gap: 0.75rem; }
+    .pr-need h3 { font-family: var(--font-body); text-transform: uppercase; font-size: 0.8125rem; }
+    .pr-need p { font-size: 0.75rem; line-height: 1.45; margin-block: 0.3rem 0.6rem; }
+    .pr-three { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; padding-bottom: 1.5rem; }
+    .pr-box { background: #f3f1ec; border-radius: 8px; padding: 1.5rem; }
+    .pr-news { background: var(--color-navy-dark); color: #fff; }
+    .pr-news .wrap { display: grid; grid-template-columns: 4.5rem 1.2fr 1fr; gap: 1.25rem; align-items: center; padding-block: 1.1rem; }
+    .pr-news form { display: flex; }
+    .pr-news input { flex: 1; padding: 0.7rem 1rem; border: none; border-radius: 4px 0 0 4px; font-size: 0.875rem; }
+    .pr-news button { border: none; border-radius: 0 4px 4px 0; }
+    @media (max-width: 960px) {
+      .pr-hero, .pr-main, .pr-three, .pr-news .wrap { grid-template-columns: 1fr; }
+      .pr-band .wrap { grid-template-columns: repeat(2, 1fr); row-gap: 1rem; }
+      .pr-cats { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+
+  <section class="pr-hero">
+    <div class="pr-hero__text">
+      <img src="/IICC_Logo_main.png" alt="IICC Mission" />
+      <div>
+        <h1>Prison<br />Resources</h1>
+        <h2>Hope behind bars.<br />A future beyond.</h2>
+        <p>Practical tools, spiritual support and helpful information for inmates, their families and supporters. You are not alone. We walk with you every step of the way.</p>
+        <a href="#categories" class="btn btn--amber">View All Prison Resources →</a>
+      </div>
+    </div>
+    <div class="pr-hero__photo"><img src={img('hero')} alt="An inmate writing at a desk with a Bible and an IICC Mission mug" /></div>
+  </section>
+
+  <section class="pr-band">
+    <div class="wrap">{pillars.map(p => <div><Icon name={p.icon} size={42} /><h3>{p.title}</h3><p>{p.text}</p></div>)}</div>
+  </section>
+
+  <section class="wrap pr-main" id="categories">
+    <div>
+      <h2 class="sec-h sec-h--center">Resource Categories</h2>
+      <div class="pr-cats">
+        {cats.map((c, i) => (
+          <article class="pr-cat">
+            <div class="pr-cat__photo"><img src={img(`c${i + 1}`)} alt="" /><i><Icon name={c.icon} size={20} /></i></div>
+            <div><h3>{c.title}</h3><p>{c.text}</p><a href="/resources">View Resources →</a></div>
+          </article>
+        ))}
+      </div>
+    </div>
+    <aside class="pr-links">
+      <h2>Quick Links</h2>
+      <span class="heart-rule heart-rule--center" style="max-width:120px;">♡</span>
+      {links.map(l => <a href="/resources" class="pr-link"><Icon name={l.icon} size={26} /><div><strong>{l.title}</strong><span>{l.text}</span></div></a>)}
+      <div class="pr-need">
+        <span class="text-amber"><Icon name="headset" size={40} /></span>
+        <div><h3>Need Support?</h3><p>We are here for you. Request support or speak with a team member.</p><a href="/get-involved/support-request" class="btn btn--amber" style="padding:0.4rem 0.9rem; font-size:0.7rem;">Request Support →</a></div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="wrap pr-three">
+    <div class="pr-box" style="display:grid; grid-template-columns:5rem 1fr; gap:1rem; align-items:center;">
+      <span style="color:var(--color-navy); opacity:0.6;"><Icon name="dove" size={70} /></span>
+      <p style="font-family:var(--font-heading); color:var(--color-navy); font-size:1.125rem; line-height:1.45;">You are not defined by your past. You are defined by God’s plan for your future.<br /><span class="text-amber" style="font-size:0.9375rem;">– Jeremiah 29:11</span></p>
+    </div>
+    <div>
+      <h2 class="sec-h sec-h--center" style="font-size:1.125rem;">You Are Not Alone</h2>
+      <p style="font-size:0.875rem; line-height:1.55; color:var(--color-navy); margin-block:0.75rem;">Wherever you are in your journey, there is hope. Use these resources to grow, heal and prepare for a brighter tomorrow.</p>
+      <ul class="check"><li>God’s love never fails</li><li>Change is possible</li><li>You have a purpose</li><li>We believe in you</li></ul>
+    </div>
+    <div class="pr-box" style="display:grid; grid-template-columns:5rem 1fr; gap:1rem; align-items:center;">
+      <span style="color:var(--color-navy); opacity:0.6;"><Icon name="hand-holding-heart" size={70} /></span>
+      <div><h3 style="font-family:var(--font-heading); color:var(--color-navy); font-size:1.125rem; font-weight:400;">We Walk With You</h3><p style="font-size:0.875rem; line-height:1.6; color:var(--color-navy); margin-top:0.5rem;">IICC Mission is here to support you with compassion, dignity and respect. You matter. Your future matters. Your life can change.</p></div>
+    </div>
+  </section>
+
+  <section class="pr-news">
+    <div class="wrap">
+      <span style="width:4.5rem; height:4.5rem; border-radius:50%; border:2px solid var(--color-amber); color:var(--color-amber); display:flex; align-items:center; justify-content:center;"><Icon name="envelope-open-text" size={30} /></span>
+      <div><h2 style="font-family:var(--font-body); text-transform:uppercase; font-size:1.0625rem;">Stay Connected. Stay Inspired.</h2><p style="font-size:0.9375rem;">Receive encouraging resources, updates and prayers delivered to you.</p></div>
+      <form onsubmit="event.preventDefault(); this.querySelector('button').textContent='Subscribed';">
+        <input type="email" required placeholder="Enter your email address" aria-label="Email address" />
+        <button class="btn btn--amber" type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+</Layout>

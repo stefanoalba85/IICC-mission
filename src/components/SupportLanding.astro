@@ -1,0 +1,135 @@
+---
+import Icon from './Icon.astro';
+type Item = { icon: string; title: string; text: string };
+interface Props {
+  dir: string; eyebrow: string; title: string; accent: string; intro: string; heroAlt: string;
+  quote: string; quoteRef: string; pillars: Item[]; progTitle: string; progText: string; programs: Item[];
+  impact: { icon: string; num: string; label: string }[];
+  storyTitle: string; story: string; storyBy: string; storyAlt: string;
+  boxTitle: string; boxText: string; boxBtn: string; boxBtnHref: string; boxBtn2: string; boxBtn2Href: string;
+  ctaTitle: string; ctaText: string;
+}
+const p = Astro.props;
+const img = (n: string) => `/images/prison-ministry/${p.dir}/${n}.jpg`;
+---
+<style>
+    .ps-hero { position: relative; min-height: 420px; display: grid; grid-template-columns: 0.9fr 1.1fr; background: #fff; overflow: hidden; }
+    .ps-hero__text { padding: 2.25rem 1.5rem 2rem max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem)); display: flex; flex-direction: column; gap: 0.9rem; position: relative; z-index: 2; }
+    .ps-hero h1 { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; }
+    .ps-hero h2 { font-family: var(--font-body); color: var(--color-amber); text-transform: uppercase; font-size: 1.25rem; }
+    .ps-hero p { font-size: 1rem; line-height: 1.6; color: var(--color-navy); }
+    .ps-hero__photo { position: relative; }
+    .ps-hero__photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; -webkit-mask-image: linear-gradient(90deg, transparent, #000 18%); mask-image: linear-gradient(90deg, transparent, #000 18%); }
+    .ps-hero__quote { position: absolute; right: max(1.5rem, calc((100vw - 1200px) / 2)); top: 50%; transform: translateY(-50%); width: 210px; background: var(--color-navy-dark); color: #fff; border-radius: 6px; padding: 1.5rem 1.25rem; font-size: 1.125rem; line-height: 1.55; z-index: 2; }
+    .ps-hero__quote::before { content: '\201C'; display: block; color: var(--color-amber); font-family: var(--font-heading); font-size: 3rem; line-height: 0.6; margin-bottom: 0.5rem; }
+    .ps-hero__quote cite { display: block; font-style: normal; font-size: 0.875rem; margin-top: 0.75rem; border-bottom: 2px solid var(--color-amber); padding-bottom: 0.5rem; width: max-content; }
+    .ps-pillars { background: var(--color-navy-dark); color: #fff; }
+    .ps-pillars .wrap { display: grid; grid-template-columns: repeat(6, 1fr); padding-block: 1.5rem; }
+    .ps-pillars .wrap > div { text-align: center; border-right: 1px solid rgba(255,255,255,0.2); padding-inline: 0.75rem; display: flex; flex-direction: column; align-items: center; gap: 0.4rem; }
+    .ps-pillars .wrap > div:last-child { border-right: none; }
+    .ps-pillars :global(svg) { color: var(--color-amber); }
+    .ps-pillars h3 { font-family: var(--font-body); text-transform: uppercase; font-size: 0.9375rem; }
+    .ps-pillars p { font-size: 0.875rem; line-height: 1.5; color: rgba(255,255,255,0.88); }
+    .ps-progs { display: grid; grid-template-columns: 0.8fr repeat(6, 1fr); gap: 0.6rem; padding-block: 1.75rem; }
+    .ps-progs h2, .ps-impact h2 { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: 1.25rem; }
+    .ps-prog { background: #fff; border-radius: 6px; box-shadow: 0 3px 10px rgba(18,26,56,0.08); overflow: hidden; text-align: center; }
+    .ps-prog__photo { position: relative; }
+    .ps-prog__photo img { width: 100%; aspect-ratio: 117 / 85; object-fit: cover; }
+    .ps-prog__photo i { position: absolute; left: 50%; bottom: -1.5rem; transform: translateX(-50%); width: 3rem; height: 3rem; border-radius: 50%; background: var(--color-navy-dark); color: #fff; border: 2px solid #fff; display: flex; align-items: center; justify-content: center; }
+    .ps-prog h3 { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: 0.8125rem; margin: 2rem 0.5rem 0.5rem; }
+    .ps-prog p { font-size: 0.75rem; line-height: 1.55; padding: 0 0.6rem 1rem; color: var(--color-text); }
+    .ps-impact { text-align: center; padding-bottom: 1.5rem; }
+    .ps-impact__grid { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; margin-top: 1rem; }
+    .ps-impact__grid > div { border-right: 1px solid rgba(27,39,81,0.12); display: flex; flex-direction: column; align-items: center; gap: 0.25rem; }
+    .ps-impact__grid > div:last-child { border-right: none; }
+    .ps-impact :global(svg) { color: var(--color-amber); }
+    .ps-impact strong { font-family: var(--font-heading); color: var(--color-navy); font-size: 1.6rem; font-weight: 400; }
+    .ps-impact span { color: var(--color-navy); font-size: 0.9375rem; }
+    .ps-two { display: grid; grid-template-columns: 1.6fr 1fr; gap: 0.75rem; padding-bottom: 1.25rem; }
+    .ps-msg { background: #f4f2ed; border-radius: 8px; display: grid; grid-template-columns: 1.3fr 1fr; overflow: hidden; }
+    .ps-msg > div { padding: 1.5rem; display: grid; grid-template-columns: 2.5rem 1fr; gap: 0.75rem; }
+    .ps-msg h3 { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: 1rem; }
+    .ps-msg p { font-size: 0.8125rem; line-height: 1.6; color: var(--color-text); margin-top: 0.5rem; }
+    .ps-msg img { width: 100%; height: 100%; object-fit: cover; -webkit-mask-image: linear-gradient(90deg, transparent, #000 25%); mask-image: linear-gradient(90deg, transparent, #000 25%); }
+    .ps-make { background: var(--color-navy-dark); color: #fff; border-radius: 8px; padding: 1.75rem; display: flex; flex-direction: column; gap: 0.75rem; }
+    .ps-make h3 { font-family: var(--font-heading); text-transform: uppercase; font-size: 1.125rem; }
+    .ps-make p { font-size: 0.9375rem; line-height: 1.55; }
+    .ps-cta { background: var(--color-navy-dark); color: #fff; }
+    .ps-cta .wrap { display: grid; grid-template-columns: 4.5rem 1fr auto; gap: 1.25rem; align-items: center; padding-block: 1.1rem; }
+    .ps-cta h2 { font-family: var(--font-heading); color: var(--color-amber); text-transform: uppercase; font-size: 1.375rem; }
+    @media (max-width: 960px) {
+      .ps-hero, .ps-two, .ps-msg, .ps-cta .wrap { grid-template-columns: 1fr; }
+      .ps-hero__photo { min-height: 320px; }
+      .ps-pillars .wrap, .ps-impact__grid { grid-template-columns: repeat(2, 1fr); row-gap: 1.25rem; }
+      .ps-progs { grid-template-columns: repeat(2, 1fr); }
+      .ps-progs > div:first-child { grid-column: 1 / -1; }
+    }
+  </style>
+
+<section class="ps-hero">
+  <div class="ps-hero__text">
+    <span class="eyebrow" style="font-size:1rem;">{p.eyebrow}</span>
+    <h1 set:html={p.title} />
+    <h2>{p.accent}</h2>
+    <span style="width:2rem; height:2px; background:var(--color-amber);"></span>
+    <p>{p.intro}</p>
+    <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+      <a href="#programs" class="btn btn--navy">Our Programs →</a>
+      <a href="/get-involved" class="btn btn--outline">Get Involved →</a>
+    </div>
+  </div>
+  <div class="ps-hero__photo"><img src={img('hero')} alt={p.heroAlt} /></div>
+  <blockquote class="ps-hero__quote">{p.quote}{p.quoteRef && <cite>— {p.quoteRef}</cite>}</blockquote>
+</section>
+
+<section class="ps-pillars">
+  <div class="wrap">{p.pillars.map(x => <div><Icon name={x.icon} size={48} /><h3>{x.title}</h3><p>{x.text}</p></div>)}</div>
+</section>
+
+<section class="wrap ps-progs" id="programs">
+  <div style="display:flex; flex-direction:column; gap:1rem;">
+    <h2 set:html={p.progTitle} />
+    <p style="font-size:0.9375rem; line-height:1.6; color:var(--color-navy);">{p.progText}</p>
+    <a href="/our-services/prison-ministry" class="btn btn--navy" style="align-self:flex-start; font-size:0.7rem;">Learn More About Our Programs →</a>
+  </div>
+  {p.programs.map((x, i) => (
+    <article class="ps-prog">
+      <div class="ps-prog__photo"><img src={img(`p${i + 1}`)} alt="" /><i><Icon name={x.icon} size={20} /></i></div>
+      <h3>{x.title}</h3><p>{x.text}</p>
+    </article>
+  ))}
+</section>
+
+<section class="wrap ps-impact">
+  <h2>Our Impact</h2>
+  <div class="ps-impact__grid">{p.impact.map(i => <div><Icon name={i.icon} size={40} /><strong>{i.num}</strong><span>{i.label}</span></div>)}</div>
+</section>
+
+<section class="wrap ps-two">
+  <div class="ps-msg">
+    <div>
+      <span class="text-amber" style="font-family:var(--font-heading); font-size:3rem; line-height:0.8;">&ldquo;</span>
+      <div><h3>{p.storyTitle}</h3><p>{p.story}</p><p>– {p.storyBy}</p></div>
+    </div>
+    <img src={img('msg')} alt={p.storyAlt} />
+  </div>
+  <div class="ps-make">
+    <h3>{p.boxTitle}</h3>
+    <p>{p.boxText}</p>
+    <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:0.5rem;">
+      <a href={p.boxBtnHref} class="btn btn--amber">{p.boxBtn} →</a>
+      <a href={p.boxBtn2Href} class="btn btn--outline-white">{p.boxBtn2} →</a>
+    </div>
+  </div>
+</section>
+
+<section class="ps-cta">
+  <div class="wrap">
+    <span style="width:4.5rem; height:4.5rem; border-radius:50%; border:2px solid var(--color-amber); color:var(--color-amber); display:flex; align-items:center; justify-content:center;"><Icon name="hand-holding-heart" size={34} /></span>
+    <div><h2>{p.ctaTitle}</h2><p>{p.ctaText}</p></div>
+    <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+      <a href="/donate" class="btn btn--amber">Donate →</a>
+      <a href="/get-involved" class="btn btn--outline-white">Get Involved →</a>
+    </div>
+  </div>
+</section>

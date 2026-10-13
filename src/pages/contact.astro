@@ -27,7 +27,7 @@ const info: { title: string; lines: string[]; icon: IconName }[] = [
     .ct-form .full { grid-column: 1 / -1; }
     .ct-send { width: 100%; justify-content: center; font-size: 1.0625rem; padding-block: 0.9rem; border-radius: 4px; background: #e2a93b; }
     .ct-privacy { display: flex; align-items: center; justify-content: center; gap: 0.6rem; font-family: var(--font-heading); color: var(--color-navy); }
-    .ct-privacy svg { color: var(--color-amber); }
+    .ct-privacy :global(svg) { color: var(--color-amber); }
     .ct-band { display: grid; grid-template-columns: 1fr 1.2fr; }
     .ct-hours { background: #f7f6f3; padding: 1.75rem 2rem 1.75rem max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem)); display: grid; grid-template-columns: 6rem 1fr; gap: 1.75rem; align-items: center; }
     .ct-hours h2 { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: 1.25rem; border-bottom: 1.5px solid var(--color-amber); padding-bottom: 0.5rem; margin-bottom: 0.75rem; }

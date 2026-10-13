@@ -1,0 +1,45 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import SupportLanding from '../../../components/SupportLanding.astro';
+---
+<Layout title="Former Prisoner Reintegration" description="A second chance. A new beginning.">
+  <SupportLanding
+    dir="former" eyebrow="Former Prisoner Reintegration"
+    title="A second chance.<br/>A new beginning." accent="Empowering Lives. Restoring Hope. Building Futures."
+    intro="We walk alongside formerly incarcerated individuals as they rebuild their lives with dignity, purpose and confidence. Through practical support, mentorship and opportunities, we help them successfully reintegrate into their families, communities and the workforce."
+    heroAlt="An IICC Mission mentor shaking hands with a former prisoner"
+    quote="“The past does not define you. God’s grace gives you the power to rebuild.”" quoteRef=""
+    pillars={[
+      { icon: 'hand-holding-heart', title: 'Restoring Dignity', text: 'Treating every individual with respect, compassion and unconditional love.' },
+      { icon: 'people-group', title: 'Empowering Change', text: 'Equipping individuals with the tools and support they need to succeed.' },
+      { icon: 'handshake', title: 'Building Opportunities', text: 'Creating pathways to education, employment and stable housing.' },
+      { icon: 'people-roof', title: 'Strengthening Families', text: 'Rebuilding relationships and creating strong, supportive foundations.' },
+      { icon: 'globe', title: 'Transforming Communities', text: 'Reducing recidivism and promoting safer, stronger communities for all.' },
+      { icon: 'cross', title: 'Sharing Hope', text: 'Sharing the love of Christ and the hope of a brighter future.' },
+    ]}
+    progTitle="Our Reintegration Programs"
+    progText="Our comprehensive programs address the real challenges faced after release and provide the support needed to thrive beyond incarceration."
+    programs={[
+      { icon: 'user-tie', title: 'One-on-One Mentorship', text: 'Personal mentors provide guidance, accountability and encouragement.' },
+      { icon: 'briefcase', title: 'Job Training & Employment', text: 'Skills training, job placement and career support for lasting employment.' },
+      { icon: 'house', title: 'Housing Assistance', text: 'Help with finding safe, stable housing to rebuild life with dignity.' },
+      { icon: 'book-open', title: 'Life Skills & Education', text: 'Financial literacy, communication, conflict resolution and continued education.' },
+      { icon: 'people-group', title: 'Counseling & Support Groups', text: 'Emotional support, healing and peer community for ongoing growth.' },
+      { icon: 'heart', title: 'Family Reconciliation', text: 'Restoring broken relationships and rebuilding trust with loved ones.' },
+    ]}
+    impact={[
+      { icon: 'people-group', num: '800+', label: 'Individuals Supported Annually' },
+      { icon: 'briefcase', num: '70%+', label: 'Successfully Employed Within 12 Months' },
+      { icon: 'house', num: '500+', label: 'Secured Stable Housing' },
+      { icon: 'graduation-cap', num: '300+', label: 'Completed Training or Education Programs' },
+      { icon: 'people-roof', num: '60%', label: 'Reconnected with Family' },
+      { icon: 'shield-halved', num: 'Lower Recidivism', label: 'Building Safer, Stronger Communities' },
+    ]}
+    storyTitle="A Story of Transformation"
+    story="“When I was released, I had nowhere to go and no idea how to start over. IICC Mission believed in me when I didn’t believe in myself. With their help, I found a job, a home and restored my relationship with my family. Today, I am free, employed and helping others do the same.”"
+    storyBy="Program Participant" storyAlt="A man in an IICC Mission T-shirt walking down a tree-lined path"
+    boxTitle="Success Beyond the Stats" boxText="Every life restored creates a ripple effect of hope in families, neighborhoods and generations. Together, we build a future where everyone has the chance to thrive."
+    boxBtn="See More Stories" boxBtnHref="/programs/hope-companion/stories" boxBtn2="Volunteer" boxBtn2Href="/get-involved/volunteer-program"
+    ctaTitle="You can help change a life." ctaText="Your support provides hope, practical help and new opportunities for a second chance."
+  />
+</Layout>
