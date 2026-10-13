@@ -1,0 +1,12 @@
+---
+import Icon from './Icon.astro';
+interface Props { title: string; items: { icon: string; label: string }[]; cols?: number; }
+const p = Astro.props;
+---
+<div>
+  <h2 class="im-h im-h--center" style="font-size:1.25rem;">{p.title}</h2>
+  <span class="heart-rule heart-rule--center" style="max-width:none; margin-block:0.25rem 0.75rem;">♡</span>
+  <div style={`display:grid; grid-template-columns:repeat(${p.cols ?? 4},1fr); gap:1rem 0.5rem; text-align:center;`}>
+    {p.items.map(i => <div style="display:flex; flex-direction:column; align-items:center; gap:0.4rem; font-family:var(--font-heading); color:var(--color-navy); font-size:0.875rem; line-height:1.25;"><span style="width:3.5rem; height:3.5rem; border-radius:50%; background:var(--color-navy-dark); color:#fff; display:flex; align-items:center; justify-content:center;"><Icon name={i.icon} size={26} /></span><Fragment set:html={i.label} /></div>)}
+  </div>
+</div>

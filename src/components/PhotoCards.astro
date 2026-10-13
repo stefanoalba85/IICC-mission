@@ -1,0 +1,31 @@
+---
+import Icon from './Icon.astro';
+interface Props { title?: string; dir: string; items: { photo: string; title: string; text?: string; icon?: string; href?: string; cta?: string }[]; variant?: 'plain' | 'overlay' | 'badge'; }
+const p = Astro.props;
+const v = p.variant ?? 'plain';
+const img = (n: string) => `/images/${p.dir}/${n}.jpg`;
+---
+<style>
+  .pc { display: grid; grid-template-columns: repeat(var(--n), 1fr); gap: 0.6rem; }
+  .pc > a, .pc > div { background: #fff; border: 1px solid rgba(201,169,106,0.6); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; color: inherit; }
+  .pc__ph { position: relative; }
+  .pc__ph img { width: 100%; aspect-ratio: 185 / 115; object-fit: cover; display: block; }
+  .pc__ph i { position: absolute; left: 0.6rem; bottom: -1.3rem; width: 2.75rem; height: 2.75rem; border-radius: 50%; background: var(--color-navy-dark); color: #fff; border: 2px solid #fff; display: flex; align-items: center; justify-content: center; }
+  .pc h3 { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: 0.875rem; font-weight: 400; padding: 0.6rem 0.75rem 0; }
+  .pc--badge h3 { padding-left: 3.75rem; padding-top: 0.5rem; min-height: 2.5rem; }
+  .pc p { font-family: var(--font-heading); color: var(--color-navy); font-size: 0.875rem; line-height: 1.4; padding: 0.35rem 0.75rem 0.8rem; flex: 1; }
+  .pc--overlay > a { border: none; position: relative; }
+  .pc--overlay h3 { position: absolute; inset: auto 0 0 0; background: var(--color-navy-dark); color: #fff; text-transform: none; font-size: 1rem; padding: 0.6rem 2.75rem 0.6rem 0.75rem; line-height: 1.2; }
+  .pc--overlay h3::after { content: '→'; position: absolute; right: 0.6rem; top: 50%; transform: translateY(-50%); width: 1.6rem; height: 1.6rem; border: 1.5px solid #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; }
+  .pc--overlay .pc__ph img { aspect-ratio: 162 / 140; }
+  @media (max-width: 900px) { .pc { grid-template-columns: 1fr 1fr; } }
+</style>
+<section class="wrap" style="padding-block:0.75rem 1.25rem;">
+  {p.title && <h2 class="sec-h--center" style="font-family:var(--font-heading); color:var(--color-navy); text-transform:uppercase; font-size:1.375rem; display:flex; justify-content:center; align-items:center; gap:1rem; margin-bottom:0.9rem;">{p.title}</h2>}
+  <div class={`pc pc--${v}`} style={`--n:${p.items.length}`}>
+    {p.items.map(i => {
+      const Tag = i.href ? 'a' : 'div';
+      return <Tag href={i.href}><div class="pc__ph"><img src={img(i.photo)} alt="" />{v === 'badge' && i.icon && <i><Icon name={i.icon} size={20} /></i>}</div><h3>{i.title}</h3>{i.text && <p>{i.text}</p>}{i.cta && <span style="color:var(--color-amber); font-size:0.75rem; font-weight:700; text-transform:uppercase; padding:0 0.75rem 0.75rem;">{i.cta} →</span>}</Tag>;
+    })}
+  </div>
+</section>

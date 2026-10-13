@@ -614,6 +614,12 @@
   .im-panels--4 { grid-template-columns: repeat(4, 1fr); }
   @media (max-width: 900px) { .im-cols, .im-panels--4 { grid-template-columns: 1fr; } .im-cols > div { border-right: none; } }
 
+  .tri { display: grid; grid-template-columns: 1fr 1fr 1.05fr; gap: 1.5rem; padding-block: 1.25rem; align-items: stretch; }
+  .tri--photo-mid { grid-template-columns: 1fr 1fr 1.1fr; }
+  .tri h2.tri__h { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: 1.25rem; line-height: 1.2; border-bottom: 1.5px solid #c9a96a; padding-bottom: 0.4rem; margin-bottom: 0.75rem; }
+  .tri p.tri__p { font-family: var(--font-heading); color: var(--color-navy); font-size: 1rem; line-height: 1.45; margin-bottom: 0.6rem; }
+  @media (max-width: 900px) { .tri, .tri--photo-mid { grid-template-columns: 1fr; } section.wrap[style*="grid-template-columns:1.1fr 1fr 1fr"] { grid-template-columns: 1fr !important; } }
+
   /* ─── CARDS ──────────────────────────────── */
   .card {
     background: #fff;

@@ -1,0 +1,58 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import MinHero from '../../../components/MinHero.astro';
+import MinBand from '../../../components/MinBand.astro';
+import NavyCta from '../../../components/NavyCta.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/mental-health/${n}.jpg`;
+const cats = [
+  { icon: 'brain', title: 'Understanding Mental Health', text: 'Information about mental health conditions, common challenges and how to seek help.' },
+  { icon: 'people-group', title: 'Counselling & Therapy Support', text: 'Guides on accessing professional support in detention, immigration settings and the community.' },
+  { icon: 'book-open', title: 'Self-Help Guides & Workbooks', text: 'Practical tools, worksheets and guides to support mental wellbeing and personal growth.' },
+  { icon: 'seedling', title: 'Stress & Anxiety Management', text: 'Strategies and techniques to manage stress, anxiety, depression and emotional challenges.' },
+  { icon: 'cross', title: 'Faith, Hope & Spiritual Care', text: 'Bible reflections, prayers and faith-based resources for strength, peace and healing.' },
+  { icon: 'people-roof', title: 'Support for Families & Loved Ones', text: 'Guidance and resources for families, friends and support networks.' },
+  { icon: 'gear', title: 'Crisis Support & Safety', text: 'Information on what to do in a crisis, helplines and immediate support services.' },
+  { icon: 'user', title: 'Wellbeing & Life Skills', text: 'Resources to build self-esteem, resilience, positive habits and meaningful goals.' },
+  { icon: 'globe', title: 'Useful Links & Global Resources', text: 'A curated list of trusted organisations, hotlines and information sources worldwide.' },
+];
+const links = [
+  { icon: 'file-lines', t: 'Mental Health Assessment', d: 'Information and guidance.' },
+  { icon: 'phone', t: 'Find a Counsellor', d: 'Locate professional support.' },
+  { icon: 'people-group', t: 'Support Groups', d: 'Find local and online groups.' },
+  { icon: 'book-open', t: 'Educational Materials', d: 'Guides, workbooks and articles.' },
+  { icon: 'heart', t: 'Crisis Hotlines', d: '24/7 support when you need it.' },
+  { icon: 'laptop', t: 'Apps & Online Tools', d: 'Helpful apps for wellbeing.' },
+  { icon: 'circle-play', t: 'Videos & Webinars', d: 'Watch and learn online.' },
+  { icon: 'globe', t: 'Organisations & Services', d: 'A list of trusted mental health organisations worldwide.' },
+];
+---
+<Layout title="Mental Health Resources" description="Information. Support. Guidance. Hope for a Brighter Tomorrow.">
+  <MinHero title="Mental Health<br/><span>Resources</span>" subtitle="Information. Support. Guidance.<br/>Hope for a Brighter Tomorrow."
+    intro={['Practical tools, resources and information to support the mental health and wellbeing of individuals, inmates, immigration detainees and their families.']}
+    tagline="Accompanying. Empowering. Restoring Hope."
+    img={img('r-hero')} alt="A man praying by a window at sunset"
+    quote="Be strong and courageous. Do not be afraid; do not be discouraged, for the Lord your God will be with you wherever you go." quoteRef="Joshua 1:9" />
+  <MinBand title="Find What You Need" items={[
+    { icon: 'brain', title: 'Understand', text: 'Learn about mental health and wellbeing.' },
+    { icon: 'people-group', title: 'Get Support', text: 'Access practical tools, guidance and help.' },
+    { icon: 'book-open', title: 'Learn', text: 'Explore educational resources and self-help materials.' },
+    { icon: 'cross', title: 'Find Hope', text: 'Faith-based resources for strength, peace and healing.' },
+    { icon: 'hand-holding-heart', title: 'Support Others', text: 'Resources for families, friends and support workers.' },
+    { icon: 'globe', title: 'Global Resources', text: 'Information and links for different countries and languages.' },
+  ]} />
+  <section class="wrap" style="display:grid; grid-template-columns:1fr 0.36fr; gap:1rem; padding-block:1.25rem;">
+    <div>
+      <h2 class="sec-h--center" style="font-family:var(--font-heading); color:var(--color-navy); text-transform:uppercase; font-size:1.375rem; display:flex; justify-content:center; gap:1rem; align-items:center;">Explore Mental Health Resource Categories</h2>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:0.75rem; margin-top:1rem;">
+        {cats.map((c, i) => <article style="background:#fff; border-radius:6px; box-shadow:0 3px 10px rgba(18,26,56,0.08); overflow:hidden;"><div style="position:relative;"><img src={img(`r-c${i + 1}`)} alt="" style="width:100%; aspect-ratio:233/80; object-fit:cover;" /><span style="position:absolute; left:0.75rem; bottom:-1.4rem; width:2.9rem; height:2.9rem; border-radius:50%; background:var(--color-navy-dark); color:#fff; border:2px solid #fff; display:flex; align-items:center; justify-content:center;"><Icon name={c.icon} size={20} /></span></div><div style="padding:1.75rem 0.9rem 0.9rem;"><h3 class="im-h" style="font-size:0.9375rem;">{c.title}</h3><p class="im-p" style="font-size:0.8125rem; margin-block:0.3rem 0.5rem;">{c.text}</p><a href="/resources" style="color:var(--color-amber); font-size:0.75rem; font-weight:700; text-transform:uppercase;">Explore Resources →</a></div></article>)}
+      </div>
+    </div>
+    <aside style="display:flex; flex-direction:column; gap:0.75rem;">
+      <div style="background:#f3f1ec; border-radius:8px; padding:1.1rem;"><h2 class="im-h im-h--center">Quick Links</h2>{links.map(l => <a href="/resources" style="display:grid; grid-template-columns:2rem 1fr; gap:0.6rem; align-items:center; margin-top:0.7rem; color:var(--color-navy);"><Icon name={l.icon} size={22} /><span style="font-family:var(--font-heading); font-size:0.875rem;">{l.t}<small style="display:block; font-size:0.75rem; color:var(--color-text);">{l.d}</small></span></a>)}</div>
+      <div style="background:var(--color-navy-dark); color:#fff; border-radius:8px; padding:1.1rem; display:grid; grid-template-columns:3rem 1fr; gap:0.75rem;"><span style="color:#d9a540;"><Icon name="headset" size={40} /></span><div><h3 style="font-family:var(--font-heading); text-transform:uppercase; font-weight:400;">Need Support?</h3><p style="font-size:0.8125rem; line-height:1.45; margin-block:0.3rem 0.6rem;">If you are struggling or need to talk to someone, help is available. You are not alone.</p><a href="/our-services/mental-health/crisis-support-resources" class="btn btn--amber" style="padding:0.4rem 0.9rem; font-size:0.7rem;">Find Support Now →</a></div></div>
+      <div style="background:#f3f1ec; border-radius:8px; padding:1.1rem; text-align:center;"><h3 class="im-h">You Are Not Alone</h3><p class="im-p" style="margin-top:0.4rem; font-size:0.9375rem;">It’s okay to not be okay. There is hope, and help is available. We walk with you.</p></div>
+    </aside>
+  </section>
+  <NavyCta title="Together, we can support healthier minds and brighter lives." text="Compassion. Understanding. Support. Hope. A brighter tomorrow." cta="Get Involved Today" />
+</Layout>

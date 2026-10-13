@@ -1,0 +1,38 @@
+---
+import MinHero from './MinHero.astro';
+import MinBand from './MinBand.astro';
+import PhotoQuote from './PhotoQuote.astro';
+import IconGrid from './IconGrid.astro';
+import PhotoCards from './PhotoCards.astro';
+import HopeTrio from './HopeTrio.astro';
+import NavyCta from './NavyCta.astro';
+interface Props {
+  k: string; title: string; subtitle: string; intro: string; heroAlt: string; quote: string; quoteRef: string;
+  band: { icon: string; title: string; text: string }[];
+  leftTitle: string; left: string[]; leftNote?: string;
+  centerQuote: string;
+  gridTitle?: string; grid?: { icon: string; label: string }[];
+  supportTitle: string; support: { title: string; text: string; icon?: string }[]; badge?: boolean;
+  story?: string; storyBy?: string; alone?: string[]; need?: string; needCta?: string;
+  ctaTitle: string; ctaText: string; cta?: string;
+}
+const p = Astro.props;
+const img = (n: string) => `/images/mental-health/${p.k}-${n}.jpg`;
+---
+<MinHero boxed title={p.title} subtitle={p.subtitle} intro={[p.intro]} tagline="Accompanying. Empowering. Restoring Hope."
+  img={img('hero')} alt={p.heroAlt} quote={p.quote} quoteRef={p.quoteRef} />
+<MinBand items={p.band} />
+<section class="wrap tri">
+  <div>
+    <h2 class="tri__h" set:html={p.leftTitle} />
+    {p.left.filter(t => !t.startsWith('✓')).map(t => <p class="tri__p">{t}</p>)}
+    {p.left.some(t => t.startsWith('✓')) && <ul class="check">{p.left.filter(t => t.startsWith('✓')).map(t => <li>{t.slice(2)}</li>)}</ul>}
+    {p.leftNote && <div class="im-note" style="background:#f7f1e6; border:none;"><span style="color:var(--color-amber); font-size:2rem;">♡</span><span style="font-style:italic;">{p.leftNote}</span></div>}
+    {!p.leftNote && <span class="heart-rule heart-rule--center" style="max-width:none; margin-top:0.5rem;">♡</span>}
+  </div>
+  <PhotoQuote src={img('center')} quote={p.centerQuote} by="IICC Mission" />
+  <slot name="right">{p.grid && <IconGrid title={p.gridTitle ?? 'Common Challenges'} items={p.grid} />}</slot>
+</section>
+<PhotoCards title={p.supportTitle} dir="mental-health" variant={p.badge ? 'badge' : 'plain'} items={p.support.map((s, i) => ({ ...s, photo: `${p.k}-s${i + 1}` }))} />
+<slot name="bottom">{p.story && <HopeTrio storyImg={img('story')} story={p.story} storyBy={p.storyBy!} alone={p.alone!} need={p.need!} needCta={p.needCta} />}</slot>
+<NavyCta title={p.ctaTitle} text={p.ctaText} cta={p.cta ?? 'Get Involved Today'} />

@@ -1,0 +1,57 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import MhDetail from '../../../components/MhDetail.astro';
+import Icon from '../../../components/Icon.astro';
+const lines = [
+  { icon: 'people-group', n: 'Beyond Blue', p: '1300 22 4636', d: 'Mental health support and resources.' },
+  { icon: 'user', n: 'MensLine Australia', p: '1300 78 99 78', d: 'Counselling and support for men.' },
+  { icon: 'child', n: 'Kids Helpline', p: '1800 55 1800', d: '24/7 support for young people aged 5–25.' },
+  { icon: 'heart', n: '1800RESPECT', p: '1800 737 732', d: 'Support for family and domestic violence.' },
+];
+const useful = [
+  { icon: 'file-lines', t: 'Crisis Plan Template', d: 'Steps to take when feeling overwhelmed.', c: 'Download PDF' },
+  { icon: 'book-open', t: 'Coping Strategies Guide', d: 'Practical techniques for managing distress.', c: 'View Guide' },
+  { icon: 'people-group', t: 'Support Services Directory', d: 'A list of trusted mental health organisations.', c: 'View Directory' },
+  { icon: 'circle-play', t: 'Videos & Webinars', d: 'Helpful videos on mental health and crisis support.', c: 'Watch Now' },
+];
+---
+<Layout title="Crisis Support Resources" description="Immediate help. Real support. You are not alone.">
+  <MhDetail k="c" title="Crisis Support<br/><span>Resources</span>" subtitle="Immediate help. Real support.<br/>You are not alone."
+    intro="If you or someone you care about is experiencing a mental health crisis, you can get help. The IICC Mission provides information, guidance and referrals to professional services, support networks and crisis resources for individuals in prison, immigration detention and their families."
+    heroAlt="A man holding his head in distress" quote="“The Lord is close to the broken-hearted and saves those who are crushed in spirit.”" quoteRef="Psalm 34:18"
+    band={[
+      { icon: 'phone-volume', title: 'Immediate Support', text: 'Information on 24/7 crisis services and hotlines.' },
+      { icon: 'people-group', title: 'Professional Help', text: 'Access to mental health professionals, counselling and referral services.' },
+      { icon: 'heart', title: 'Practical Guidance', text: 'Steps to take in a crisis and where to find help in detention.' },
+      { icon: 'book-open', title: 'Support for Families', text: 'Resources for families and loved ones who are worried or in distress.' },
+      { icon: 'leaf', title: 'Hope & Safety', text: 'Helping individuals find safety, stability and a pathway to healing.' },
+    ]}
+    leftTitle="When to Seek<br/>Crisis Support"
+    left={['It is important to reach out for help if you or someone you know is experiencing:', '✓ Thoughts of self-harm or suicide', '✓ Feelings of hopelessness or overwhelming sadness', '✓ Severe anxiety, panic attacks or distress', '✓ Inability to cope with daily life', '✓ Extreme mood changes or withdrawal', '✓ Trauma-related distress', '✓ Concerns about the mental health of a family member, friend or fellow detainee']}
+    centerQuote="You are not alone.<br/>There is help.<br/>There is hope."
+    badge
+    supportTitle="How IICC Mission Supports in a Crisis"
+    support={[
+      { icon: 'hands-praying', title: 'Listen & Support', text: 'A compassionate and non-judgemental space to talk and be heard.' },
+      { icon: 'comment-dots', title: 'Professional Referrals', text: 'Connection to qualified counsellors, psychologists and mental health services.' },
+      { icon: 'book-open', title: 'Practical Resources', text: 'Guides, coping strategies and educational materials to manage crisis situations.' },
+      { icon: 'people-group', title: 'Family Support', text: 'Guidance and resources for families and loved ones during a crisis.' },
+      { icon: 'leaf', title: 'Faith & Hope', text: 'Spiritual care, prayer and encouragement for strength, peace and a way forward.' },
+    ]}
+    ctaTitle="Together, we can support those in crisis and build brighter tomorrows." ctaText="Compassion. Understanding. Support. Hope. A brighter tomorrow." cta="Get Help or Support Someone">
+    <div slot="right">
+      <h2 style="font-family:var(--font-heading); color:#c0392b; text-transform:uppercase; font-size:1.25rem; text-align:center;">If You Are in Immediate Danger</h2>
+      <p class="im-p" style="text-align:center; font-size:0.9375rem;">If you or someone else is at risk of harm, please contact emergency services immediately.</p>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.5rem; margin-block:0.75rem;">
+        <div style="background:#c0392b; color:#fff; border-radius:4px; padding:0.75rem;"><div style="display:flex; gap:0.5rem; align-items:center;"><Icon name="phone" size={30} /><div><small>EMERGENCY</small><strong style="display:block; font-size:1.75rem; line-height:1;">000</strong></div></div><p style="font-size:0.8125rem; margin-top:0.4rem;">If someone is in immediate danger or needs urgent medical assistance.</p></div>
+        <div style="background:var(--color-navy-dark); color:#fff; border-radius:4px; padding:0.75rem;"><div style="display:flex; gap:0.5rem; align-items:center;"><Icon name="comment" size={30} /><div><small>LIFELINE</small><strong style="display:block; font-size:1.75rem; line-height:1;">13 11 14</strong></div></div><p style="font-size:0.8125rem; margin-top:0.4rem;">24/7 crisis support and suicide prevention (available Australia-wide).</p></div>
+      </div>
+      <h3 class="im-h im-h--center" style="font-size:0.9375rem;">Other Helplines (Australia)</h3>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.4rem; margin-top:0.5rem;">{lines.map(l => <div style="border:1px solid #e6dcc6; padding:0.5rem; display:grid; grid-template-columns:2rem 1fr; gap:0.5rem; color:var(--color-navy);"><Icon name={l.icon} size={26} /><div style="font-size:0.8125rem; line-height:1.3;"><strong>{l.n}</strong><br />{l.p}<br /><span style="font-size:0.75rem;">{l.d}</span></div></div>)}</div>
+    </div>
+    <section slot="bottom" class="wrap" style="display:grid; grid-template-columns:2fr 1fr; gap:0.75rem; padding-bottom:1.25rem;">
+      <div><h2 class="im-h" style="font-size:1.25rem;">Useful Resources</h2><div style="display:grid; grid-template-columns:repeat(4,1fr); gap:0.6rem; margin-top:0.75rem;">{useful.map(u => <div class="im-panel" style="text-align:center; display:flex; flex-direction:column; align-items:center; gap:0.35rem;"><span style="color:var(--color-navy);"><Icon name={u.icon} size={34} /></span><h3 class="im-h" style="font-size:0.875rem; text-transform:none; font-weight:700;">{u.t}</h3><p class="im-p" style="font-size:0.8125rem;">{u.d}</p><a href="/resources" class="btn btn--amber" style="padding:0.35rem 0.8rem; font-size:0.65rem;">{u.c} →</a></div>)}</div></div>
+      <div class="im-panel"><h2 class="im-h im-h--center" style="font-size:1.25rem;">You Are Not Alone</h2><ul class="check" style="margin-top:0.75rem;"><li>It’s okay to reach out for help.</li><li>There is hope, and support is available.</li><li>Talking to someone can make a difference.</li><li>You are valued. You are loved.</li><li>Your life matters.</li></ul></div>
+    </section>
+  </MhDetail>
+</Layout>

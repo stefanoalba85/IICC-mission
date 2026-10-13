@@ -1,5 +1,5 @@
 ---
-interface Props { kicker?: string; title: string; subtitle: string; intro: string[]; img: string; alt: string; quote: string; quoteRef: string; }
+interface Props { kicker?: string; title: string; subtitle: string; intro: string[]; img: string; alt: string; quote: string; quoteRef: string; boxed?: boolean; tagline?: string; }
 const p = Astro.props;
 ---
 <style>
@@ -18,9 +18,12 @@ const p = Astro.props;
   .mh__quote { position: absolute; right: max(1.5rem, calc((100vw - 1200px) / 2)); bottom: 2rem; width: 175px; z-index: 2; color: #fff; font-family: var(--font-heading); font-size: 1.125rem; line-height: 1.4; }
   .mh__quote::before { content: '\201C'; display: block; color: #d9a540; font-size: 3rem; line-height: 0.6; }
   .mh__quote cite { display: block; color: #d9a540; font-style: normal; margin-top: 0.4rem; }
+  .mh--boxed .mh__photo::after { display: none; }
+  .mh--boxed .mh__quote { top: 50%; bottom: auto; transform: translateY(-50%); width: 190px; background: rgba(18,26,56,0.94); border: 1.5px solid #c9962a; border-radius: 6px; padding: 1.25rem 1rem; }
+  .mh__tag { font-family: var(--font-heading); font-style: italic; color: var(--color-navy); font-size: 1.125rem; text-align: center; }
   @media (max-width: 900px) { .mh { grid-template-columns: 1fr; } .mh__photo { min-height: 300px; } .mh__brand { grid-template-columns: 6rem 1fr; } }
 </style>
-<section class="mh">
+<section class={`mh ${p.boxed ? 'mh--boxed' : ''}`}>
   <div class="mh__text">
     <div class="mh__brand">
       <img src="/IICC_Logo_main.png" alt="IICC Mission" />
@@ -30,8 +33,9 @@ const p = Astro.props;
         <p class="mh__sub" set:html={p.subtitle} />
       </div>
     </div>
-    <span class="heart-rule" style="max-width:none;">♡</span>
+    {!p.tagline && <span class="heart-rule" style="max-width:none;">♡</span>}
     <div class="mh__intro">{p.intro.map(t => <p set:html={t} />)}</div>
+    {p.tagline && <><span class="heart-rule" style="max-width:none;">♡</span><p class="mh__tag">{p.tagline}</p></>}
   </div>
   <div class="mh__photo"><img src={p.img} alt={p.alt} /></div>
   <p class="mh__quote">{p.quote}<cite>– {p.quoteRef}</cite></p>

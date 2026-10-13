@@ -1,0 +1,22 @@
+---
+import Icon from './Icon.astro';
+interface Props { storyImg: string; story: string; storyBy: string; alone: string[]; need: string; needCta?: string; storyTitle?: string; }
+const p = Astro.props;
+---
+<section class="wrap" style="display:grid; grid-template-columns:1.1fr 1fr 1fr; gap:0.75rem; padding-bottom:1.25rem;">
+  <div class="im-panel">
+    <h2 class="im-h" style="font-size:1.25rem;">{p.storyTitle ?? 'Real Stories. Real Hope.'}</h2>
+    <div style="display:grid; grid-template-columns:0.9fr 1.1fr; gap:0.9rem; margin-top:0.75rem; align-items:start;">
+      <img src={p.storyImg} alt="" style="width:100%; border-radius:2px;" />
+      <p style="font-family:var(--font-heading); font-style:italic; color:var(--color-navy); font-size:0.9375rem; line-height:1.45;"><span style="color:var(--color-amber); font-size:2rem; line-height:0.5; font-style:normal;">&ldquo;</span>{p.story}<span style="display:block; color:#b8892b; margin-top:0.5rem;">— {p.storyBy}</span></p>
+    </div>
+  </div>
+  <div class="im-panel">
+    <h2 class="im-h" style="font-size:1.25rem;">You Are Not Alone</h2>
+    <ul class="check" style="margin-top:0.75rem;">{p.alone.map(a => <li>{a}</li>)}</ul>
+  </div>
+  <div class="im-panel" style="display:grid; grid-template-columns:4rem 1fr; gap:1rem; align-items:start;">
+    <span style="color:var(--color-amber);"><Icon name="headset" size={58} /></span>
+    <div><h2 class="im-h" style="font-size:1.25rem;">Need Support?</h2><p class="im-p" style="font-size:0.9375rem; margin-block:0.5rem 0.75rem;">{p.need}</p><a href="/get-involved/support-request" class="btn btn--amber">{p.needCta ?? 'Find Support Now'} →</a></div>
+  </div>
+</section>

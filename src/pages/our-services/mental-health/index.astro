@@ -1,0 +1,60 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import MinHero from '../../../components/MinHero.astro';
+import MinBand from '../../../components/MinBand.astro';
+import PhotoCards from '../../../components/PhotoCards.astro';
+import NavyCta from '../../../components/NavyCta.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/mental-health/${n}.jpg`;
+const programs = [
+  { icon: 'brain', title: 'Mental Health Assessment', text: 'Helping identify mental health concerns and connect individuals with the right support.' },
+  { icon: 'spa', title: 'Counselling & Therapy Support', text: 'Access to professional counsellors, either in person or by phone, for emotional support and guidance.' },
+  { icon: 'head-side-virus', title: 'Stress & Anxiety Management', text: 'Tools and strategies to manage stress, anxiety, depression and emotional challenges.' },
+  { icon: 'people-group', title: 'Support Groups', text: 'Safe and supportive group sessions to share, listen, learn and encourage one another.' },
+  { icon: 'book-open', title: 'Education & Awareness', text: 'Resources and learning opportunities to build self-awareness and coping skills.' },
+  { icon: 'cross', title: 'Faith & Hope', text: 'Spiritual support and encouragement for those who wish to draw strength from their faith.' },
+];
+---
+<Layout title="Mental Health & Wellbeing" description="You matter. Your mind matters. You are not alone.">
+  <MinHero boxed title="Mental Health &amp;<br/><span>Wellbeing</span><br/>Support" subtitle="You matter. Your mind matters.<br/>You are not alone."
+    intro={['The IICC Mission provides compassionate mental health support for incarcerated individuals, immigration detainees and their families, offering hope, understanding and practical pathways to healing and a brighter future.']}
+    tagline="Accompanying. Empowering. Restoring Hope."
+    img={img('m-hero')} alt="A chaplain comforting a man in distress"
+    quote="The Lord is close to the broken-hearted and saves those who are crushed in spirit." quoteRef="Psalm 34:18" />
+  <MinBand title="Our Support" items={[
+    { icon: 'brain', title: 'Mental Health Awareness', text: 'Helping individuals recognise mental health challenges and understand that help is available.' },
+    { icon: 'people-group', title: 'Counselling Support', text: 'Access to professional counsellors, chaplains and trained volunteers through in-person, phone and letter support.' },
+    { icon: 'book-open', title: 'Education & Resources', text: 'Practical information on mental wellbeing, coping strategies and pathways to professional care.' },
+    { icon: 'handshake', title: 'Peer Support & Community', text: 'Support groups and encouragement from people who understand, helping individuals feel less alone.' },
+    { icon: 'sun', title: 'Hope & Restoration', text: 'Building resilience, self-worth and a positive outlook for a brighter tomorrow.' },
+  ]} />
+  <section class="im-split" style="grid-template-columns:0.9fr 1.05fr 0.45fr 1fr;">
+    <img src={img('m-bible')} alt="Hands clasped in prayer on a Bible" />
+    <div>
+      <h2 class="im-h" style="font-size:1.375rem;">Mental Health Matters</h2>
+      <p class="im-p" style="margin-top:0.6rem;">Mental health is a vital part of human dignity. Through faith, compassionate support and access to the right resources, we walk with individuals on their journey toward healing, stability and a brighter future.</p>
+      <span class="heart-rule heart-rule--center" style="max-width:none; margin-block:0.75rem;">♡</span>
+      <p class="im-p" style="font-style:italic; text-align:center;">“Come to me, all you who are weary and burdened, and I will give you rest.”<br /><span style="color:#b8892b; font-size:0.875rem;">– Matthew 11:28</span></p>
+    </div>
+    <img src={img('m-rock')} alt="A man sitting on a rock at sunset" />
+    <div>
+      <h2 class="im-h" style="font-size:1.375rem;">You Are Not Alone</h2>
+      <ul class="check" style="margin-top:0.75rem;"><li>We listen without judgement.</li><li>We respect your dignity and privacy.</li><li>We provide professional and compassionate support.</li><li>We walk with you on your journey to healing.</li><li>We help you build hope, resilience and a meaningful future.</li></ul>
+    </div>
+  </section>
+  <section class="wrap" style="padding-block:1rem;">
+    <h2 class="sec-h--center" style="font-family:var(--font-heading); color:var(--color-navy); text-transform:uppercase; font-size:1.375rem; display:flex; justify-content:center; gap:1rem; align-items:center;">Our Mental Health Programs</h2>
+    <div style="display:grid; grid-template-columns:repeat(6,1fr); gap:0.5rem; margin-top:0.9rem;">
+      {programs.map(p => <div class="im-panel" style="text-align:center; display:flex; flex-direction:column; align-items:center; gap:0.4rem; padding:0.9rem 0.6rem;"><span style="width:3.5rem; height:3.5rem; border-radius:50%; background:var(--color-navy-dark); color:#d9a540; display:flex; align-items:center; justify-content:center;"><Icon name={p.icon} size={28} /></span><h3 class="im-h" style="font-size:0.875rem;">{p.title}</h3><p class="im-p" style="font-size:0.8125rem;">{p.text}</p></div>)}
+    </div>
+  </section>
+  <PhotoCards title="Explore Mental Health Resources" dir="mental-health" variant="overlay" items={[
+    { photo: 'm-r1', title: 'Understanding Mental Health', href: '/our-services/mental-health/mental-health-resources' },
+    { photo: 'm-r2', title: 'Coping Strategies and Self-Care', href: '/our-services/mental-health/mental-health-resources' },
+    { photo: 'm-r3', title: 'Signs and When to Seek Help', href: '/our-services/mental-health/crisis-support-resources' },
+    { photo: 'm-r4', title: 'Guides and Workbooks', href: '/our-services/mental-health/mental-health-resources' },
+    { photo: 'm-r5', title: 'Counselling Information', href: '/our-services/mental-health/mental-health-resources' },
+    { photo: 'm-r6', title: 'Stories of Hope and Recovery', href: '/programs/hope-companion/stories' },
+  ]} />
+  <NavyCta title="Together, we can support healthier minds and brighter lives." text="Compassion. Understanding. Support. Hope. A brighter tomorrow." cta="Explore Our Resources" href="/our-services/mental-health/mental-health-resources" />
+</Layout>

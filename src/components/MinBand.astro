@@ -1,6 +1,6 @@
 ---
 import Icon from './Icon.astro';
-interface Props { title: string; intro?: string; items: { icon: string; title: string; text: string }[]; }
+interface Props { title?: string; intro?: string; items: { icon: string; title: string; text: string }[]; }
 const p = Astro.props;
 ---
 <style>
@@ -18,7 +18,7 @@ const p = Astro.props;
 </style>
 <section class="mb">
   <div class="wrap">
-    <h2>{p.title}</h2>
+    {p.title && <h2>{p.title}</h2>}
     {p.intro && <p class="mb__intro">{p.intro}</p>}
     <div class="mb__grid">{p.items.map(i => <div><i><Icon name={i.icon} size={46} /></i><h3>{i.title}</h3><p>{i.text}</p></div>)}</div>
   </div>

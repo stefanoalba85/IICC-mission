@@ -1,0 +1,36 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import MhDetail from '../../../components/MhDetail.astro';
+---
+<Layout title="Mental Health in Detention" description="Care. Compassion. Support. You are not alone.">
+  <MhDetail k="d" title="Mental Health<br/><span>in Detention</span>" subtitle="Care. Compassion. Support.<br/>You are not alone."
+    intro="The IICC Mission provides practical, emotional and spiritual support to individuals experiencing mental health challenges in prisons and immigration detention centres, helping them find hope, stability and a pathway to a brighter future."
+    heroAlt="A chaplain comforting a detainee" quote="The Lord is close to the broken-hearted and saves those who are crushed in spirit." quoteRef="Psalm 34:18"
+    band={[
+      { icon: 'brain', title: 'Mental Health Awareness', text: 'Recognising the signs and understanding the challenges of detention.' },
+      { icon: 'people-group', title: 'Emotional Support', text: 'A listening ear, encouragement and connection with trained support workers.' },
+      { icon: 'spa', title: 'Counselling & Referrals', text: 'Access to professional counsellors, chaplains and mental health services.' },
+      { icon: 'book-open', title: 'Faith & Hope', text: 'Spiritual support, prayer and pastoral care for strength and healing.' },
+      { icon: 'leaf', title: 'Pathways to Wellbeing', text: 'Practical tools and resources to build resilience, stability and a brighter future.' },
+    ]}
+    leftTitle="Mental Health Matters<br/>in Detention"
+    left={['Detention can be an extremely stressful and isolating experience. Many individuals face mental health challenges due to uncertainty, separation from family, past trauma, and the loss of freedom.', 'The IICC Mission walks alongside individuals, offering compassion, understanding and practical support to help them cope, heal and maintain hope.']}
+    centerQuote="You are not forgotten.<br/>You are not alone.<br/>There is hope."
+    gridTitle="Common Mental Health Challenges in Detention"
+    grid={[
+      { icon: 'brain', label: 'Anxiety<br/>and stress' }, { icon: 'face-frown', label: 'Depression<br/>and low mood' }, { icon: 'people-group', label: 'Isolation<br/>and loneliness' }, { icon: 'head-side-virus', label: 'Trauma<br/>and PTSD' },
+      { icon: 'gear', label: 'Uncertainty<br/>and fear' }, { icon: 'heart-crack', label: 'Grief and loss' }, { icon: 'lightbulb', label: 'Adjustment<br/>difficulties' }, { icon: 'cloud', label: 'Hopelessness' },
+    ]}
+    supportTitle="How We Support"
+    support={[
+      { title: 'Listen & Encourage', text: 'Providing a safe, non-judgemental space to talk and be heard.' },
+      { title: 'Counselling & Referrals', text: 'Connecting individuals with professional mental health services and support networks.' },
+      { title: 'Resources & Education', text: 'Providing practical tools, self-help guides and information to manage mental health and build resilience.' },
+      { title: 'Spiritual Support', text: 'Offering prayer, Scripture, and pastoral care for strength, peace and healing.' },
+      { title: 'Family Connection', text: 'Supporting communication with loved ones and helping maintain important family relationships.' },
+    ]}
+    story="I was at my lowest point, feeling alone and hopeless. The support and encouragement from IICC Mission gave me strength to keep going." storyBy="Detention Centre Client"
+    alone={['It’s okay to not be okay.', 'There is hope, and help is available.', 'Talking to someone can make a difference.', 'You are valued. You are loved.', 'Your life matters.']}
+    need="If you are in prison or immigration detention and would like to speak with someone, we are here for you. Reach out through chaplains, support services or our IICC Mission team."
+    ctaTitle="Together, we can support healthier minds and brighter lives." ctaText="Compassion. Understanding. Support. Hope. A brighter tomorrow." />
+</Layout>
