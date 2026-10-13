@@ -1,101 +1,104 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Icon from '../../components/Icon.astro';
+import type { IconName } from '../../lib/icons';
 
-const values = [
-  { title: 'Faith', desc: 'Guided by the Gospel and the belief that every person has value.', icon: 'M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm0 2c-4 0-6 2-6 4v2h12v-2c0-2-2-4-6-4Zm9-9v6m-3-3h6', color: 'navy' },
-  { title: 'Compassion', desc: 'Seeing the person, not only the circumstance.', icon: 'M12 21s-7-4.3-9-8.3C1.3 9.2 3 6 6.2 5.4c1.8-.4 3.6.4 4.5 1.9a4.3 4.3 0 0 1 4.5-1.9C18.4 6 20 9.2 18.3 12.7 16 16.7 12 21 12 21Z', color: 'navy' },
-  { title: 'Dignity', desc: 'Recognising the worth of every human being.', icon: 'M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0 2c-5 0-9 2.5-9 6v2h18v-2c0-3.5-4-6-9-6Z', color: 'navy' },
-  { title: 'Justice', desc: 'Supporting fairness, restoration and opportunity.', icon: 'M12 2v2M4 6l8-2 8 2M4 6l-2 6h6L6 6Zm16 0-2 6h6l-2-6ZM4 12a3 3 0 0 0 6 0M14 12a3 3 0 0 0 6 0M12 4v15m-5 0h10', color: 'navy' },
-  { title: 'Hope', desc: 'Believing that a new beginning is possible.', icon: 'M12 3c-2 2.5-4 3-4 6a4 4 0 0 0 8 0c0-3-2-3.5-4-6ZM4 21c2-4 6-6 8-6s6 2 8 6', color: 'amber' },
+const ministries: { title: string; icon: IconName; color: string }[] = [
+  { title: 'Spiritual & Pastoral Care', icon: 'pray', color: 'var(--color-navy)' },
+  { title: 'Legal Assistance & Advocacy', icon: 'scales', color: 'var(--color-navy)' },
+  { title: 'Education & Awareness', icon: 'book', color: '#5e6b2f' },
+  { title: 'Humanitarian Support', icon: 'heartHand', color: 'var(--color-navy)' },
+  { title: 'Healing, Restoration & Reintegration', icon: 'sunRoad', color: 'var(--color-amber)' },
+];
+const values: { title: string; text: string; icon: IconName; amber?: boolean }[] = [
+  { title: 'Faith', text: 'Guided by the Gospel and the belief that every person has value.', icon: 'pray' },
+  { title: 'Compassion', text: 'Seeing the person, not only the circumstance.', icon: 'heartHand' },
+  { title: 'Dignity', text: 'Recognising the worth of every human being.', icon: 'person' },
+  { title: 'Justice', text: 'Supporting fairness, restoration and opportunity.', icon: 'scales' },
+  { title: 'Hope', text: 'Believing that a new beginning is possible.', icon: 'sunRoad', amber: true },
+];
+const letter = [
+  'Throughout my life, I have seen how difficult circumstances can affect individuals and families. Financial hardship, family struggles, trauma, addiction, loneliness and difficult situations can leave people feeling abandoned and without hope.',
+  'The IICC Mission was founded on the belief that every person has dignity and purpose, and that no one should walk alone. We believe in accompaniment rather than abandonment, restoration rather than rejection, and hope rather than despair.',
+  'Today, we continue this mission by bringing together faith, compassion and practical support to help people rebuild their lives and create brighter futures for themselves, their families and their communities.',
+  'I invite you to join us on this journey. Together, we can build a more just, compassionate and hopeful world where every life matters and where restoration is possible.',
+  'Thank you for being part of this mission.',
 ];
 ---
 <Layout title="Our Story" description="Every Person Has Dignity. Every Person Deserves Hope.">
+  <style>
+    .os-min { display: grid; grid-template-columns: repeat(5, 1fr); padding-block: 1rem 0.5rem; }
+    .os-min > div { text-align: center; border-right: 1px solid rgba(27,39,81,0.15); display: flex; flex-direction: column; align-items: center; gap: 0.35rem; font-weight: 700; text-transform: uppercase; font-size: 0.8125rem; color: var(--color-navy); padding-inline: 0.5rem; }
+    .os-min > div:last-child { border-right: none; }
+    .os-title { font-family: var(--font-heading); color: #fff; font-size: clamp(2.25rem, 5vw, 3.5rem); line-height: 1.05; }
+    .os-body { display: grid; grid-template-columns: 0.75fr 1.25fr; gap: 2.5rem; padding-block: 1.75rem 1rem; }
+    .os-body figure { margin: 0; text-align: center; }
+    .os-body figure img { width: 100%; border-radius: 6px; box-shadow: 0 6px 16px rgba(18,26,56,0.12); }
+    .os-body figcaption strong { display: block; font-family: var(--font-heading); color: var(--color-navy); font-size: 1.375rem; margin-top: 0.75rem; }
+    .os-body figcaption span { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: 0.875rem; }
+    .os-letter p { font-size: 1.0625rem; line-height: 1.5; color: var(--color-navy); margin-bottom: 0.75rem; }
+    .os-letter .os-sign { font-family: var(--font-script); font-size: 2.75rem; line-height: 1; margin-block: 0.25rem; }
+    .os-letter .os-role { font-family: var(--font-heading); text-transform: uppercase; font-size: 0.9375rem; line-height: 1.35; }
+    .os-values h2 { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+    .os-values h2::after { content: ''; flex: 1; height: 1px; background: var(--color-amber); }
+    .os-values__grid { display: grid; grid-template-columns: repeat(5, 1fr); padding-block: 1rem 1.5rem; text-align: center; }
+    .os-values__grid > div { border-right: 1px solid rgba(201,160,23,0.5); padding-inline: 0.75rem; display: flex; flex-direction: column; align-items: center; gap: 0.35rem; }
+    .os-values__grid > div:last-child { border-right: none; }
+    .os-values__grid h3 { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: 1.0625rem; }
+    .os-values__grid p { font-family: var(--font-heading); color: var(--color-navy); font-size: 0.9375rem; line-height: 1.35; }
+    .os-band { position: relative; background: var(--color-navy-dark); color: #fff; display: grid; grid-template-columns: 1fr 0.9fr 0.8fr; overflow: hidden; }
+    .os-band__text { padding: 1.75rem 1.5rem 1.75rem max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem)); display: flex; flex-direction: column; gap: 0.75rem; }
+    .os-band__text h2 { font-family: var(--font-heading); text-transform: uppercase; font-size: 1.75rem; line-height: 1.15; }
+    .os-band__text p { font-family: var(--font-heading); font-size: 1rem; line-height: 1.45; }
+    .os-band > img { width: 100%; height: 100%; object-fit: cover; -webkit-mask-image: linear-gradient(90deg, transparent, #000 25%, #000 75%, transparent); mask-image: linear-gradient(90deg, transparent, #000 25%, #000 75%, transparent); }
+    .os-band blockquote { margin: 0; padding: 1.5rem max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem)) 1.5rem 1rem; font-family: var(--font-heading); font-style: italic; font-size: 1.25rem; line-height: 1.45; display: flex; flex-direction: column; justify-content: center; gap: 0.5rem; }
+    .os-band blockquote::before { content: '\201C'; color: var(--color-amber); font-size: 3rem; line-height: 0.5; font-style: normal; }
+    .os-band cite { font-style: normal; font-size: 1rem; }
+    @media (max-width: 900px) { .os-min, .os-values__grid { grid-template-columns: repeat(3, 1fr); row-gap: 1rem; } .os-body, .os-band { grid-template-columns: 1fr; } }
+  </style>
 
-  <section class="hero-full">
-    <div class="hero-full__bg"><img src="/images/about-us/story-hero.jpg" alt="St Peter's Basilica at sunset" /></div>
-    <div class="hero-full__overlay"></div>
-    <div class="hero-full__content">
-      <span class="eyebrow eyebrow--white">Our Story</span>
-      <h1 class="section-title section-title--white" style="margin-block:0.5rem; font-size:clamp(1.75rem,4vw,2.5rem);">
-        Every Person Has Dignity.<br/><span class="text-amber">Every Person Deserves Hope.</span>
-      </h1>
-      <p class="section-desc section-desc--white" style="max-width:520px;">
-        The IICC Mission exists to walk alongside individuals and families who are facing some of
-        life's most difficult challenges, offering compassion, practical support and lasting hope.
-      </p>
+  <section class="wrap os-min">
+    {ministries.map(m => <div><span style={`color:${m.color}`}><Icon name={m.icon} size={44} stroke={1.7} /></span>{m.title}</div>)}
+  </section>
+
+  <section class="hero-wave">
+    <div class="hero-wave__bg"><img src="/images/about-us/story-hero.jpg" alt="St Peter's Basilica and the Tiber at sunset" /></div>
+    <div class="hero-wave__panel">
+      <span class="eyebrow" style="font-size:1.25rem;">Our Story</span>
+      <h1 class="os-title">Every Person<br />Has Dignity.<br /><span class="text-amber">Every Person<br />Deserves Hope.</span></h1>
+      <p class="hero-wave__lead" style="font-family:var(--font-heading);">The IICC Mission exists to walk alongside individuals and families who are facing some of life’s most difficult challenges, offering compassion, practical support and lasting <span class="text-amber">hope.</span></p>
     </div>
   </section>
 
-  <section class="section section--white">
-    <div class="wrap cols-2">
-      <div style="text-align:center;">
-        <img src="/images/about-us/story-founder.jpg" alt="Antonio G. Dattilo" style="border-radius:2px; width:100%; max-width:320px; margin-inline:auto;" />
-        <p style="font-family:var(--font-heading); font-weight:700; font-size:1.125rem; color:var(--color-navy); margin-top:1rem;">Antonio G. Dattilo</p>
-        <p style="font-size:0.75rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--color-amber);">Ambassador &amp; Founder, IICC Mission</p>
-      </div>
-      <div>
-        <span class="eyebrow">A Message From Our Founder</span>
-        <p class="section-desc" style="max-width:none; margin-top:0.75rem; margin-bottom:1rem;">
-          Throughout my life, I have seen how difficult circumstances can affect individuals and
-          families. Financial hardship, family struggles, trauma, addiction, loneliness and
-          difficult situations can leave people feeling abandoned and without hope.
-        </p>
-        <p class="section-desc" style="max-width:none; margin-bottom:1rem;">
-          The IICC Mission was founded on the belief that every person has dignity and purpose,
-          and that no one should walk alone. We believe in accompaniment rather than abandonment,
-          restoration rather than rejection, and hope rather than despair.
-        </p>
-        <p class="section-desc" style="max-width:none; margin-bottom:1rem;">
-          Today, we continue this mission by bringing together faith, compassion and practical
-          support to help people rebuild their lives and create brighter futures for themselves,
-          their families and their communities.
-        </p>
-        <p class="section-desc" style="max-width:none;">
-          I invite you to join us on this journey. Together, we can build a more just,
-          compassionate and hopeful world where every life matters and where restoration is
-          possible. Thank you for being part of this mission.
-        </p>
-        <p style="font-family:var(--font-heading); font-style:italic; color:var(--color-navy); margin-top:1rem;">With gratitude, Antonio G. Dattilo</p>
-      </div>
+  <section class="wrap os-body">
+    <figure>
+      <img src="/images/about-us/story-founder.jpg" alt="Antonio G. Dattilo, Ambassador & Founder" />
+      <figcaption><strong>Antonio G. Dattilo</strong><span>Ambassador &amp; Founder<br />IICC Mission</span></figcaption>
+    </figure>
+    <div class="os-letter">
+      <span class="eyebrow">A Message From Our Founder</span>
+      {letter.map(t => <p>{t}</p>)}
+      <p>With gratitude,</p>
+      <p class="os-sign">Antonio G. Dattilo</p>
+      <p class="os-role">Antonio G. Dattilo<br />Ambassador &amp; Founder<br />IICC Mission</p>
     </div>
   </section>
 
-  <section class="section section--offwhite">
-    <div class="wrap">
-      <div class="section-head"><h2 class="section-title">Our Values</h2></div>
-      <div class="pillars">
-        {values.map(v => (
-          <div class="pillar">
-            <div class={`pillar__icon-wrap ${v.color === 'amber' ? 'pillar__icon-wrap--filled' : ''}`} style={v.color==='navy' ? 'border-color:var(--color-navy); color:var(--color-navy);' : ''}>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d={v.icon}/></svg>
-            </div>
-            <span class="pillar__label">{v.title}</span>
-            <p class="pillar__desc">{v.desc}</p>
-          </div>
-        ))}
-      </div>
+  <section class="wrap os-values">
+    <h2>Our Values</h2>
+    <div class="os-values__grid">
+      {values.map(v => <div><span style={`color:${v.amber ? 'var(--color-amber)' : 'var(--color-navy)'}`}><Icon name={v.icon} size={54} stroke={1.7} /></span><h3>{v.title}</h3><p>{v.text}</p></div>)}
     </div>
   </section>
 
-  <section class="photo-band" style="min-height:260px;">
-    <div class="photo-band__bg"><img src="/images/about-us/story-family.jpg" alt="A family looking over Rome at sunset" /></div>
-    <div class="photo-band__text" style="width:min(420px,42%);">
-      <span class="eyebrow eyebrow--white">A Brighter Tomorrow</span>
-      <h2 class="section-title section-title--white" style="font-size:clamp(1.25rem,3vw,1.75rem);">For Every Life</h2>
-      <p class="section-desc section-desc--white" style="max-width:320px;">
-        IICC Mission is a Catholic global mission sharing Christ's love, mercy and hope with
-        incarcerated individuals, people in Immigration Detention, their families and all who
-        are experiencing hardship.
-      </p>
+  <section class="os-band">
+    <div class="os-band__text">
+      <h2>A Brighter <span class="text-amber">Tomorrow</span><br />for Every Life</h2>
+      <span style="width:10rem; height:2px; background:var(--color-amber);"></span>
+      <p>The IICC Mission is a Catholic global mission sharing Christ’s love, mercy and hope with incarcerated individuals, people in Immigration Detention, their families and all who are experiencing hardship.</p>
       <a href="/get-involved" class="btn btn--amber" style="align-self:flex-start;">Get Involved &gt;</a>
     </div>
-    <div class="photo-band__aside" style="width:min(300px,32%); border-left:none;">
-      <span style="font-family:var(--font-heading); font-size:2rem; color:var(--color-amber); opacity:0.5; line-height:0.6;">&ldquo;</span>
-      <p style="font-family:var(--font-heading); font-style:italic; color:#fff; font-size:0.9375rem; line-height:1.6;">
-        For I know the plans I have for you, plans to prosper you and not to harm you, plans to
-        give you hope and a future.
-      </p>
-      <span style="font-size:0.75rem; font-weight:700; color:var(--color-amber); text-transform:uppercase; letter-spacing:0.06em;">— Jeremiah 29:11</span>
-    </div>
+    <img src="/images/about-us/story-family.jpg" alt="A family looking out over Rome at sunset" />
+    <blockquote>For I know the plans I have for you, plans to prosper you and not to harm you, plans to give you hope and a future.<cite>— Jeremiah 29:11</cite></blockquote>
   </section>
 </Layout>

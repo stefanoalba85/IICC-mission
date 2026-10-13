@@ -1,6 +1,25 @@
 ---
-import { icons, type IconName } from '../lib/icons';
+import type { IconName } from '../lib/icons';
+import {
+  faHandsPraying, faPeopleGroup, faUser, faScaleBalanced, faHandHoldingHeart, faHeart, faMountainSun,
+  faCross, faDove, faGlobe, faHandshake, faBookOpen, faChurch, faHouse, faBuildingLock, faBullhorn,
+  faCalendarDays, faEnvelope, faPhone, faLocationDot, faEarListen, faSignsPost, faShieldHalved, faStar,
+  faShare, faBreadSlice, faAward, faClapperboard,
+} from '@fortawesome/free-solid-svg-icons';
+import type { IconDefinition } from '@fortawesome/free-solid-svg-icons';
+
+const map: Record<IconName, IconDefinition> = {
+  pray: faHandsPraying, people: faPeopleGroup, person: faUser, scales: faScaleBalanced, heartHand: faHandHoldingHeart,
+  heart: faHeart, sunRoad: faMountainSun, cross: faCross, dove: faDove, globe: faGlobe, handshake: faHandshake,
+  book: faBookOpen, church: faChurch, home: faHouse, bars: faBuildingLock, megaphone: faBullhorn, calendar: faCalendarDays,
+  mail: faEnvelope, phone: faPhone, pin: faLocationDot, ear: faEarListen, signpost: faSignsPost, shield: faShieldHalved,
+  star: faStar, share: faShare, bread: faBreadSlice, medal: faAward, video: faClapperboard,
+};
+
 interface Props { name: IconName; size?: number; stroke?: number; class?: string; fill?: boolean; }
-const { name, size = 24, stroke = 2, class: cls, fill = false } = Astro.props;
+const { name, size = 24, class: cls } = Astro.props;
+const [w, h, , , path] = map[name].icon;
+const d = Array.isArray(path) ? path.join(' ') : path;
+const box = Math.max(w, h);
 ---
-<svg class={cls} width={size} height={size} viewBox="0 0 24 24" fill={fill ? "currentColor" : "none"} stroke="currentColor" stroke-width={stroke} stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={icons[name]} /></svg>
+<svg class={cls} width={size} height={size} viewBox={`${(w - box) / 2} ${(h - box) / 2} ${box} ${box}`} fill="currentColor" aria-hidden="true"><path d={d} /></svg>

@@ -1,0 +1,195 @@
+---
+import Icon from './Icon.astro';
+import type { IconName } from '../lib/icons';
+
+interface Props {
+  heroImg: string;
+  heroAlt: string;
+  storyImg: string;
+  storyAlt: string;
+  storyEyebrow: string;
+  storyTitle: string;
+  storyParas: string[];
+  portrait?: boolean;
+  variant: 'about' | 'mission';
+  bandImg: string;
+  bandAlt: string;
+}
+const p = Astro.props;
+const values: { title: string; text: string; icon: IconName }[] = [
+  { title: 'Faith', text: 'We are grounded in Christian faith and guided by God’s love.', icon: 'pray' },
+  { title: 'Hope', text: 'We bring hope to the hopeless and light to dark places.', icon: 'heart' },
+  { title: 'Justice', text: 'We advocate for dignity, fairness and the rights of every individual.', icon: 'scales' },
+  { title: 'Restoration', text: 'We empower people to heal, rebuild and thrive in community.', icon: 'people' },
+];
+const core: { title: string; text: string; icon: IconName }[] = [
+  { title: 'Faith', text: 'Guided by the Gospel and Catholic values.', icon: 'pray' },
+  { title: 'Compassion', text: 'Serving every person with love and respect.', icon: 'heart' },
+  { title: 'Dignity', text: 'Recognising the value of every human being.', icon: 'people' },
+  { title: 'Justice', text: 'Working for fairness, reconciliation and mercy.', icon: 'scales' },
+  { title: 'Hope', text: 'Believing in new beginnings and brighter futures.', icon: 'dove' },
+];
+const exist: { text: string; icon: IconName }[] = [
+  { text: 'Support individuals and families in crisis.', icon: 'person' },
+  { text: 'Provide practical, emotional and spiritual care.', icon: 'book' },
+  { text: 'Empower through education, advocacy and community programs.', icon: 'heartHand' },
+  { text: 'Partner with churches, organisations and communities to create lasting impact.', icon: 'church' },
+];
+const stats: { num: string; label: string; icon: IconName }[] = [
+  { num: '25,000+', label: 'Lives supported across communities', icon: 'people' },
+  { num: '120+', label: 'Community programs and initiatives', icon: 'heart' },
+  { num: '15+', label: 'Years of service and impact', icon: 'globe' },
+  { num: '100+', label: 'Partners and volunteers', icon: 'handshake' },
+];
+---
+<style>
+  .at-hero { position: relative; background: var(--color-navy-dark); color: #fff; overflow: hidden; }
+  .at-hero::before { content: ''; position: absolute; inset: 0 0 auto 0; height: 34px; z-index: 3; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 34' preserveAspectRatio='none'%3E%3Cpath d='M0 0H1000V0C700 4 360 14 0 34Z' fill='%23fff'/%3E%3C/svg%3E") top / 100% 100% no-repeat; }
+  .at-hero__bg { position: absolute; inset: 0 0 0 40%; }
+  .at-hero__bg img { width: 100%; height: 100%; object-fit: cover; -webkit-mask-image: linear-gradient(90deg, transparent, #000 25%); mask-image: linear-gradient(90deg, transparent, #000 25%); }
+  .at-hero .wrap { position: relative; min-height: 420px; padding-block: 3rem 2.25rem; display: flex; flex-direction: column; justify-content: center; gap: 1rem; }
+  .at-hero h1 { font-family: var(--font-heading); font-size: clamp(2.25rem, 4.5vw, 3.25rem); line-height: 1.1; max-width: 600px; }
+  .at-hero .lead { font-size: 1.25rem; line-height: 1.4; max-width: 520px; }
+  .at-hero p { font-size: 1rem; line-height: 1.5; max-width: 520px; }
+  .at-story { display: grid; grid-template-columns: 0.75fr 1.25fr; gap: 2.25rem; padding-block: 1.5rem; align-items: center; }
+  .at-story > img { width: 100%; border-radius: 6px; box-shadow: 0 6px 16px rgba(18,26,56,0.12); }
+  .at-story h2 { font-family: var(--font-heading); color: var(--color-navy); font-size: clamp(1.5rem, 2.8vw, 2.125rem); }
+  .at-story p { font-size: 1rem; line-height: 1.5; color: var(--color-navy); margin-top: 0.75rem; }
+  .at-story .at-sign { font-family: var(--font-script); color: var(--color-navy); font-size: 2.5rem; margin-top: 0.5rem; }
+  .at-story .at-role { font-size: 0.8125rem; color: var(--color-muted); text-transform: uppercase; line-height: 1.4; }
+  .at-who { display: grid; grid-template-columns: 1fr 1.25fr; gap: 1.5rem; padding-block: 1rem 1.25rem; align-items: center; }
+  .at-h { font-family: var(--font-heading); color: var(--color-navy); font-size: clamp(1.5rem, 2.8vw, 2rem); }
+  .at-who p, .at-why p { font-size: 0.9375rem; line-height: 1.5; color: var(--color-navy); margin-top: 0.5rem; }
+  .at-vals { background: #f3f3f1; border-radius: 6px; display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; padding: 1.25rem; }
+  .at-val { display: grid; grid-template-columns: 4rem 1fr; gap: 0.875rem; align-items: center; }
+  .at-val i { width: 4rem; height: 4rem; border-radius: 50%; background: var(--color-navy-dark); color: var(--color-amber); display: flex; align-items: center; justify-content: center; }
+  .at-val h3 { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: 1rem; }
+  .at-val p { font-size: 0.875rem; line-height: 1.4; color: var(--color-navy); }
+  .at-core { background: var(--color-navy-dark); color: #fff; padding-block: 1rem 1.25rem; }
+  .at-core .eyebrow { margin-bottom: 0.75rem; font-size: 1.125rem; }
+  .at-core__grid { display: grid; grid-template-columns: repeat(5, 1fr); text-align: center; }
+  .at-core__grid > div { border-right: 1px solid rgba(255,255,255,0.15); display: flex; flex-direction: column; align-items: center; gap: 0.35rem; padding-inline: 0.75rem; }
+  .at-core__grid > div:last-child { border-right: none; }
+  .at-core__grid i { width: 4.75rem; height: 4.75rem; border-radius: 50%; border: 2px solid var(--color-amber); color: var(--color-amber); display: flex; align-items: center; justify-content: center; margin-bottom: 0.25rem; }
+  .at-core__grid strong { text-transform: uppercase; font-size: 1rem; }
+  .at-core__grid span { font-size: 0.875rem; line-height: 1.35; color: rgba(255,255,255,0.9); }
+  .at-why { display: grid; grid-template-columns: 1fr 1.4fr; gap: 1.5rem; padding-block: 1rem; border-top: 1px solid rgba(27,39,81,0.08); }
+  .at-why__grid { display: grid; grid-template-columns: repeat(4, 1fr); text-align: center; }
+  .at-why__grid > div { border-left: 1px solid rgba(27,39,81,0.12); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding-inline: 0.5rem; color: var(--color-amber); }
+  .at-why__grid span { font-size: 0.8125rem; line-height: 1.35; color: var(--color-navy); }
+  .at-band { position: relative; background: var(--color-navy-dark); color: #fff; overflow: hidden; }
+  .at-band__bg { position: absolute; inset: 0 0 0 48%; }
+  .at-band__bg img { width: 100%; height: 100%; object-fit: cover; -webkit-mask-image: linear-gradient(90deg, transparent, #000 25%); mask-image: linear-gradient(90deg, transparent, #000 25%); }
+  .at-band .wrap { position: relative; padding-block: 1rem 1.25rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: center; }
+  .at-band h2 { font-family: var(--font-heading); text-transform: uppercase; font-size: 1.25rem; margin-bottom: 0.75rem; }
+  .at-stats { display: grid; grid-template-columns: repeat(4, 1fr); text-align: center; }
+  .at-stats > div { border-right: 1px solid rgba(255,255,255,0.15); display: flex; flex-direction: column; align-items: center; gap: 0.15rem; padding-inline: 0.4rem; }
+  .at-stats > div:last-child { border-right: none; }
+  .at-stats svg { color: var(--color-amber); }
+  .at-stats strong { color: var(--color-amber); font-size: 1.5rem; font-family: var(--font-heading); }
+  .at-stats span { font-size: 0.75rem; line-height: 1.3; }
+  .at-ctas { display: flex; flex-direction: column; gap: 0.5rem; justify-self: end; width: min(280px, 100%); }
+  .at-ctabox { border-radius: 6px; padding: 0.875rem 1rem; display: grid; grid-template-columns: 3rem 1fr; gap: 0.75rem; align-items: center; }
+  .at-ctabox h3 { font-family: var(--font-body); text-transform: uppercase; font-size: 0.875rem; }
+  .at-ctabox p { font-size: 0.75rem; line-height: 1.35; margin-block: 0.15rem 0.5rem; }
+  .at-ctabox a { border: 1.5px solid #fff; border-radius: 4px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; padding: 0.3rem 0.75rem; display: inline-block; }
+  .at-bottom { display: grid; grid-template-columns: 1fr 1fr; padding-block: 1.25rem; }
+  .at-bottom > div { display: grid; grid-template-columns: 5.5rem 1fr; gap: 1.25rem; align-items: center; padding-inline: 1.5rem; }
+  .at-bottom > div:first-child { border-right: 1px solid rgba(27,39,81,0.12); }
+  .at-bottom i { width: 5.5rem; height: 5.5rem; border-radius: 50%; background: var(--color-navy-dark); color: var(--color-amber); display: flex; align-items: center; justify-content: center; }
+  .at-bottom h3 { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: 1.125rem; }
+  .at-bottom p { font-family: var(--font-heading); font-size: 1rem; line-height: 1.4; color: var(--color-navy); margin-block: 0.25rem 0.6rem; }
+  @media (max-width: 900px) {
+    .at-hero__bg, .at-band__bg { inset: 0; opacity: 0.35; }
+    .at-story, .at-who, .at-why, .at-band .wrap, .at-bottom { grid-template-columns: 1fr; }
+    .at-core__grid { grid-template-columns: repeat(3, 1fr); row-gap: 1rem; }
+    .at-why__grid, .at-stats { grid-template-columns: 1fr 1fr; row-gap: 1rem; }
+    .at-ctas { justify-self: stretch; width: 100%; }
+  }
+</style>
+
+<section class="at-hero">
+  <div class="at-hero__bg"><img src={p.heroImg} alt={p.heroAlt} /></div>
+  <div class="wrap">
+    <span class="eyebrow" style="font-size:1.125rem;">About Us</span>
+    <h1>A Mission of Hope,<br />Justice and <span class="text-amber">Restoration</span></h1>
+    <p class="lead">Accompanying individuals and families in their journey toward healing, empowerment and a restored future.</p>
+    <p>IICC Mission is a Catholic global mission sharing Christ’s love, mercy and hope with incarcerated individuals, people in Immigration Detention, their families and all who are experiencing hardship.</p>
+    <a href="/about-us/our-mission" class="btn btn--amber" style="align-self:flex-start;">Our Mission &gt;</a>
+  </div>
+</section>
+
+<section class="wrap at-story">
+  <img src={p.storyImg} alt={p.storyAlt} style={p.portrait ? 'aspect-ratio:1; object-fit:cover; object-position:top;' : ''} />
+  <div>
+    <span class="eyebrow">{p.storyEyebrow}</span>
+    <h2>{p.storyTitle}</h2>
+    <span class="heart-rule" style="max-width:240px; margin-top:0.25rem;">♥</span>
+    {p.storyParas.map(t => <p set:html={t} />)}
+    <p class="at-sign">Antonio G. Dattilo</p>
+    <p class="at-role">Antonio Gianluca Dattilo<br />Ambassador &amp; Founder<br />IICC Mission</p>
+  </div>
+</section>
+
+{p.variant === 'about' ? (
+  <section class="wrap at-who">
+    <div>
+      <span class="eyebrow">Who We Are</span>
+      <h2 class="at-h">A Global Catholic Mission</h2>
+      <span class="heart-rule" style="max-width:240px;">♥</span>
+      <p>We are a team of compassionate leaders, volunteers and partners working together to bring hope, promote justice and restore lives through faith-driven action.</p>
+      <p>We serve individuals and families impacted by hardship, disadvantage, injustice and vulnerability—empowering them to rebuild their lives with dignity and hope.</p>
+      <a href="/about-us/our-leadership" class="btn btn--navy" style="margin-top:1rem;">Meet Our Leadership &gt;</a>
+    </div>
+    <div class="at-vals">
+      {values.map(v => <div class="at-val"><i><Icon name={v.icon} size={30} /></i><div><h3>{v.title}</h3><p>{v.text}</p></div></div>)}
+    </div>
+  </section>
+) : (
+  <section class="at-core">
+    <div class="wrap">
+      <span class="eyebrow">Our Core Values</span>
+      <div class="at-core__grid">
+        {core.map(c => <div><i><Icon name={c.icon} size={36} /></i><strong>{c.title}</strong><span>{c.text}</span></div>)}
+      </div>
+    </div>
+  </section>
+)}
+
+<section class="wrap at-why">
+  <div>
+    <span class="eyebrow">Why We Exist</span>
+    <h2 class="at-h">Because Every Life Matters</h2>
+    <span class="heart-rule" style="max-width:240px;">♥</span>
+    <p>We believe no one should walk alone through life’s challenges. Our mission is to stand in the gap with compassion, practical support and the love of Christ—helping restore lives and rebuild communities for a better tomorrow.</p>
+    {p.variant === 'mission' && <a href="/about-us/our-leadership" class="btn btn--amber" style="margin-top:0.75rem;">Meet Our Leadership &gt;</a>}
+  </div>
+  <div class="at-why__grid">
+    {exist.map(e => <div><Icon name={e.icon} size={48} stroke={1.6} /><span>{e.text}</span></div>)}
+  </div>
+</section>
+
+<section class="at-band">
+  <div class="at-band__bg"><img src={p.bandImg} alt={p.bandAlt} /></div>
+  <div class="wrap">
+    <div>
+      <h2>Together, We Create Lasting Impact</h2>
+      <div class="at-stats">
+        {stats.map(s => <div><Icon name={s.icon} size={32} /><strong>{s.num}</strong><span>{s.label}</span></div>)}
+      </div>
+    </div>
+    {p.variant === 'mission' && (
+      <div class="at-ctas">
+        <div class="at-ctabox" style="background:var(--color-navy-dark); border:1px solid rgba(255,255,255,0.3);"><span class="text-amber"><Icon name="heartHand" size={40} /></span><div><h3>Get Involved</h3><p>Join us in bringing hope, justice and restoration to those who need it most.</p><a href="/get-involved">Volunteer With Us &gt;</a></div></div>
+        <div class="at-ctabox" style="background:var(--color-amber-dark);"><Icon name="heart" size={40} /><div><h3>Support the Mission</h3><p>Your support helps us continue our work and transform more lives.</p><a href="/donate">Donate Now &gt;</a></div></div>
+      </div>
+    )}
+  </div>
+</section>
+
+{p.variant === 'about' && (
+  <section class="wrap at-bottom">
+    <div><i><Icon name="heartHand" size={44} /></i><div><h3>Get Involved</h3><p>Join us in bringing hope, justice and restoration to those who need it most.</p><a href="/get-involved" class="btn btn--navy">Volunteer With Us &gt;</a></div></div>
+    <div><i><Icon name="heartHand" size={44} /></i><div><h3>Support the Mission</h3><p>Your support helps us continue our work and transform more lives.</p><a href="/donate" class="btn btn--amber">Donate Now &gt;</a></div></div>
+  </section>
+)}

@@ -1,53 +1,22 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-
-const areas = [
-  { title: 'Spiritual & Pastoral Care', desc: 'Supporting people through faith, prayer and guidance.', icon: 'M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm0 2c-4 0-6 2-6 4v2h12v-2c0-2-2-4-6-4Zm9-9v6m-3-3h6' },
-  { title: 'Justice & Advocacy', desc: 'Promoting dignity, fairness and support.', icon: 'M12 2v2M4 6l8-2 8 2M4 6l-2 6h6L6 6Zm16 0-2 6h6l-2-6ZM4 12a3 3 0 0 0 6 0M14 12a3 3 0 0 0 6 0M12 4v15m-5 0h10' },
-  { title: 'Prisoner & Former Prisoner Support', desc: 'Helping people rebuild and reintegrate into the community.', icon: 'M4 21V8l8-5 8 5v13M8 21v-6h2v6m4 0v-6h2v6M4 10h16' },
-  { title: 'Immigration Detainee Support', desc: 'Standing alongside people during uncertain times.', icon: 'M3 21h7v-6a2 2 0 0 1 4 0v6h7M5 21V10l7-6 7 6v11' },
-  { title: 'Family Support', desc: 'Strengthening families affected by hardship and challenges.', icon: 'M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm8 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM2 20c0-3 2.7-5 6-5s6 2 6 5v1H2v-1Zm12.3-4.6c2.1.5 3.7 2.2 3.7 4.6v1h4v-1c0-2.8-2.3-4.9-5.1-4.9-.9 0-1.8.1-2.6.3Z' },
-  { title: 'Healing & Reintegration', desc: 'Creating pathways toward healing, restoration and hope.', icon: 'M12 21s-7-4.3-9-8.3C1.3 9.2 3 6 6.2 5.4c1.8-.4 3.6.4 4.5 1.9a4.3 4.3 0 0 1 4.5-1.9C18.4 6 20 9.2 18.3 12.7 16 16.7 12 21 12 21Z' },
-];
+import AboutTemplate from '../../components/AboutTemplate.astro';
 ---
-<Layout title="Our Mission" description="To accompany, empower and restore hope.">
-
-  <section class="hero-full">
-    <div class="hero-full__bg">
-      <img src="/images/about-us/mission-hero.jpg" alt="St Peter's Basilica at sunset" />
-    </div>
-    <div class="hero-full__overlay"></div>
-    <div class="hero-full__content">
-      <span class="eyebrow eyebrow--white">Our Mission</span>
-      <h1 class="section-title section-title--white" style="margin-block:0.5rem;">To accompany, empower and restore <span class="text-amber">hope.</span></h1>
-    </div>
-  </section>
-
-  <section class="section section--white">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">What We Focus On</span>
-        <h2 class="section-title">Our Mission Areas</h2>
-      </div>
-      <div class="grid-3">
-        {areas.map(a => (
-          <div class="card">
-            <div class="card__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d={a.icon}/></svg></div>
-            <span class="card__title">{a.title}</span>
-            <p class="card__body">{a.desc}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <div class="cta-band">
-    <div class="wrap cta-band__inner">
-      <div class="cta-band__text">
-        <h2 class="section-title section-title--white">Our Vision Guides Every Step</h2>
-        <p class="section-desc section-desc--white">Discover the brighter tomorrow we are working to build for every life.</p>
-      </div>
-      <a href="/about-us/our-vision" class="btn btn--amber">Our Vision &gt;</a>
-    </div>
-  </div>
+<Layout title="Our Mission" description="A Faithful Journey of Hope — accompanying, empowering and restoring hope.">
+  <AboutTemplate
+    variant="mission"
+    heroImg="/images/about-us/mission-hero.jpg"
+    heroAlt="St Peter's Basilica at sunset"
+    storyImg="/images/about-us/mission-founder.jpg"
+    storyAlt="Antonio G. Dattilo, Ambassador & Founder"
+    portrait
+    storyEyebrow="Message From Our Founder"
+    storyTitle="Driven by Faith. Inspired by People."
+    storyParas={[
+      'Throughout my life, I have seen how <strong>difficult circumstances</strong> can affect individuals and families. Financial hardship, trauma, addiction, loneliness and rejection can leave people feeling abandoned and without hope.',
+      'The <strong>IICC Mission</strong> was founded on the belief that every person has dignity and purpose, and that no one should walk alone. We believe in accompaniment rather than abandonment, restoration rather than rejection, and hope rather than despair.',
+    ]}
+    bandImg="/images/about-us/mission-band.jpg"
+    bandAlt="A family looking towards St Peter's Basilica at sunset"
+  />
 </Layout>
