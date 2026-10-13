@@ -1,193 +1,197 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import type { IconName } from '../lib/icons';
 
-const pillars = [
-  { title: 'Faith', desc: 'Guided by the Gospel and Catholic values.', icon: 'M11 2h2v7h7v2h-7v11h-2V11H4V9h7V2Z' },
-  { title: 'Compassion', desc: 'Serving every person with love and respect.', icon: 'M12 21s-7-4.3-9-8.3C1.3 9.2 3 6 6.2 5.4c1.8-.4 3.6.4 4.5 1.9a4.3 4.3 0 0 1 4.5-1.9C18.4 6 20 9.2 18.3 12.7 16 16.7 12 21 12 21Z' },
-  { title: 'Dignity', desc: 'Recognising the value of every human being.', icon: 'M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm8 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM2 20c0-3 2.7-5 6-5s6 2 6 5v1H2v-1Zm12.3-4.6c2.1.5 3.7 2.2 3.7 4.6v1h4v-1c0-2.8-2.3-4.9-5.1-4.9-.9 0-1.8.1-2.6.3Z' },
-  { title: 'Justice', desc: 'Working for fairness, reconciliation and mercy.', icon: 'M12 2v2M4 6l8-2 8 2M4 6l-2 6h6L6 6Zm16 0-2 6h6l-2-6ZM4 12a3 3 0 0 0 6 0M14 12a3 3 0 0 0 6 0M12 4v15m-5 0h10' },
-  { title: 'Hope', desc: 'Believing in new beginnings and brighter futures.', icon: 'M3 15c3-5 9-7 14-4-3 0-5 1-6 3 3 0 5-1 7-3-1 4-5 6-9 6-2 0-4-1-6-2Z' },
+const values: { title: string; text: string; icon: IconName }[] = [
+  { title: 'Faith', text: 'Guided by the Gospel and Catholic values.', icon: 'cross' },
+  { title: 'Compassion', text: 'Serving every person with love and respect.', icon: 'heart' },
+  { title: 'Dignity', text: 'Recognising the value of every human being.', icon: 'people' },
+  { title: 'Justice', text: 'Working for fairness, reconciliation and mercy.', icon: 'scales' },
+  { title: 'Hope', text: 'Believing in new beginnings and brighter futures.', icon: 'dove' },
 ];
-
-const founderStats = [
-  { label: '8+ Years', sub: 'Prison & Immigration Detention Experience', icon: 'M7 2v3M17 2v3M3 9h18M5 5h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z' },
-  { label: 'People & Purpose', sub: 'Skills, Hope & Reintegration', icon: 'M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm8 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM2 20c0-3 2.7-5 6-5s6 2 6 5v1H2v-1Zm12.3-4.6c2.1.5 3.7 2.2 3.7 4.6v1h4v-1c0-2.8-2.3-4.9-5.1-4.9-.9 0-1.8.1-2.6.3Z' },
-  { label: 'Faith & Hope', sub: "Christ's Love Never Gives Up", icon: 'M12 21s-7-4.3-9-8.3C1.3 9.2 3 6 6.2 5.4c1.8-.4 3.6.4 4.5 1.9a4.3 4.3 0 0 1 4.5-1.9C18.4 6 20 9.2 18.3 12.7 16 16.7 12 21 12 21Z' },
-  { label: 'Global Mission', sub: 'Bringing Hope Worldwide', icon: 'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 0c2.2 2.4 2.2 15.6 0 20M12 2c-2.2 2.4-2.2 15.6 0 20M2.5 9h19M2.5 15h19' },
+const stats: { title: string; text: string; icon: IconName; color?: string }[] = [
+  { title: '8+ Years', text: 'Prison & Immigration Detention Experience', icon: 'calendar' },
+  { title: 'People & Purpose', text: 'Skills, Hope & Reintegration', icon: 'people' },
+  { title: 'Faith & Hope', text: 'Christ’s Love Never Gives Up', icon: 'cross', color: 'var(--color-navy)' },
+  { title: 'Global Mission', text: 'Bringing Hope Worldwide', icon: 'globe', color: 'var(--color-navy)' },
 ];
-
-const services = [
-  { title: 'Prison Ministry', desc: 'Bringing hope, support and human connection behind the walls.', href: '/our-services/prison-ministry', color: '#1B2751', icon: 'M4 21V8l8-5 8 5v13M8 21v-6h2v6m4 0v-6h2v6M4 10h16' },
-  { title: 'Immigration Detention Ministry', desc: 'Compassionate support for people in immigration detention.', href: '/our-services/immigration-detention', color: '#1d6fa5', icon: 'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 0c2.2 2.4 2.2 15.6 0 20M12 2c-2.2 2.4-2.2 15.6 0 20M2.5 9h19M2.5 15h19' },
-  { title: 'Abuse & Domestic Violence Support', desc: 'Helping those who suffer in silence find safety, healing and hope.', href: '/our-services/who-we-serve', color: '#6b3fa0', icon: 'M12 21s-7-4.3-9-8.3C1.3 9.2 3 6 6.2 5.4c1.8-.4 3.6.4 4.5 1.9a4.3 4.3 0 0 1 4.5-1.9C18.4 6 20 9.2 18.3 12.7 16 16.7 12 21 12 21Z' },
-  { title: 'Mental Health & Wellbeing', desc: 'Supporting the mind, heart and spirit through care and referrals.', href: '/our-services/mental-health', color: '#2f8f5b', icon: 'M3 12h4l2-7 4 14 2-7h6' },
-  { title: 'Advocacy', desc: 'Giving a voice to the voiceless and raising awareness for change.', href: '/our-services/advocacy', color: '#d9790c', icon: 'M3 11v2a2 2 0 0 0 2 2h1l5 4v-5M3 11l8-4v10l-8-4v-2Zm13-5a6 6 0 0 1 0 10' },
+const services: { title: string; text: string; href: string; icon: IconName; bg: string }[] = [
+  { title: 'Prison Ministry', text: 'Bringing hope, support and human connection behind the walls.', href: '/our-services/prison-ministry', icon: 'bars', bg: '#1b2751' },
+  { title: 'Immigration Detention Ministry', text: 'Compassionate support for people in immigration detention.', href: '/our-services/immigration-detention', icon: 'globe', bg: '#1d5fa5' },
+  { title: 'Abuse & Domestic Violence Support', text: 'Helping those who suffer in silence find safety, healing and hope.', href: '/our-services/who-we-serve', icon: 'heartHand', bg: '#7a3fa8' },
+  { title: 'Mental Health & Wellbeing', text: 'Supporting the mind, heart and spirit through care and referrals.', href: '/our-services/mental-health', icon: 'heart', bg: '#3c8f4a' },
+  { title: 'Advocacy', text: 'Giving a voice to the voiceless and raising awareness for change.', href: '/our-services/advocacy', icon: 'megaphone', bg: '#e2621b' },
+];
+const mission: { title: string; text: string }[] = [
+  { title: 'Head Office', text: 'Via delle Milizie 34<br/>Rome, Italy' },
+  { title: 'National Missions', text: 'Italy - Australia - USA - Canada<br/>San Marino - Monaco' },
+  { title: 'State Missions', text: 'Serving states and provinces' },
+  { title: 'Regional Missions', text: 'Bringing the mission closer<br/>to local communities' },
+];
+const locations: { flag: string; country: string; cities: string }[] = [
+  { flag: '🇮🇹', country: 'Italy', cities: 'Rome - Milan - Lamezia Terme' },
+  { flag: '🇦🇺', country: 'Australia', cities: 'Melbourne - Sydney - Perth - Adelaide<br/>Brisbane - Hobart - Darwin' },
+  { flag: '🇺🇸', country: 'United States', cities: 'Dallas - Minneapolis' },
+  { flag: '🇨🇦', country: 'Canada', cities: 'Vancouver - Montreal - Alberta' },
+  { flag: '🇸🇲', country: 'San Marino', cities: 'National Mission' },
+  { flag: '🇲🇨', country: 'Monaco', cities: 'National Mission' },
 ];
 ---
-<Layout
-  title="Bringing Hope Worldwide"
-  description="A Catholic global mission sharing Christ's love, mercy and hope with incarcerated individuals, people in Immigration Detention, their families and all who are experiencing hardship."
->
-  <!-- HERO -->
-  <section class="hero-full">
-    <div class="hero-full__bg">
-      <img src="/images/home/hero.jpg" alt="St Peter's Basilica, Rome, at sunset" style="object-position:right center;" />
-    </div>
-    <div class="hero-full__overlay"></div>
-    <div class="hero-full__content">
-      <h1 class="section-title section-title--white" style="font-size:clamp(2rem,5vw,3rem); max-width:620px; margin-block:0;">
-        IICC MISSION<br/>
-        <span class="text-amber">Bringing Hope</span><br/>
-        to those in need.
-      </h1>
-      <p class="section-desc section-desc--white" style="max-width:520px; margin-top:1rem;">
-        A Catholic global mission sharing Christ's love, mercy and hope with incarcerated
-        individuals, people in Immigration Detention, their families and all who are
-        experiencing hardship.
-      </p>
-      <div style="display:flex; flex-wrap:wrap; gap:1rem; margin-top:1.5rem;">
-        <a href="/donate" class="btn btn--amber">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-10-9.3C.3 8.4 2 4.8 5.6 4.1c2-.4 4 .5 5 2.1a4.8 4.8 0 0 1 5-2.1c3.6.7 5.3 4.3 3.6 7.6C19.5 16.4 12 21 12 21Z"/></svg>
-          Support the Mission
-        </a>
-        <a href="/get-involved/ambassador-program" class="btn btn--outline-white">★ Become an Ambassador</a>
+<Layout title="Bringing Hope Worldwide" description="A Catholic global mission sharing Christ's love, mercy and hope with incarcerated individuals, people in Immigration Detention, their families and all who are experiencing hardship.">
+  <style>
+    .hp-hero { position: relative; background: var(--color-navy-dark); color: #fff; overflow: hidden; }
+    .hp-hero__bg { position: absolute; inset: 0 0 0 36%; }
+    .hp-hero__bg img { width: 100%; height: 100%; object-fit: cover; -webkit-mask-image: linear-gradient(90deg, transparent, #000 22%); mask-image: linear-gradient(90deg, transparent, #000 22%); }
+    .hp-hero__inner { position: relative; min-height: 400px; padding-block: 2.25rem 6.5rem; display: flex; flex-direction: column; gap: 1.1rem; }
+    .hp-hero h1 { font-family: var(--font-heading); font-size: clamp(2.25rem, 4.6vw, 3.4rem); line-height: 1.12; max-width: 560px; }
+    .hp-hero p { font-size: 1.0625rem; line-height: 1.5; max-width: 520px; }
+    .hp-hero__btns { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .hp-office { position: absolute; right: 1.5rem; bottom: 6rem; width: 230px; background: rgba(18,26,56,0.92); border-radius: 6px; padding: 1rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.25rem; font-size: 0.875rem; }
+    .hp-office svg { color: var(--color-amber); }
+    .hp-office strong { font-size: 0.875rem; text-transform: uppercase; }
+    .hp-office b { font-size: 1rem; }
+    .hp-values { position: relative; margin-top: -4.5rem; z-index: 2; }
+    .hp-values__box { background: var(--color-navy-dark); border-radius: 6px; display: grid; grid-template-columns: repeat(5, 1fr); padding-block: 1.1rem; color: #fff; text-align: center; box-shadow: 0 10px 24px rgba(18,26,56,0.25); }
+    .hp-values__box > div { padding-inline: 0.75rem; border-right: 1px solid rgba(255,255,255,0.12); display: flex; flex-direction: column; align-items: center; gap: 0.35rem; }
+    .hp-values__box > div:last-child { border-right: none; }
+    .hp-values__box svg { color: var(--color-amber); }
+    .hp-values__box strong { font-size: 0.9375rem; text-transform: uppercase; }
+    .hp-values__box span { font-size: 0.8125rem; color: rgba(255,255,255,0.85); line-height: 1.35; }
+    .hp-founder { display: grid; grid-template-columns: 0.95fr 1.85fr; gap: 1.75rem; padding-block: 1.25rem 1rem; }
+    .hp-founder > img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; }
+    .hp-founder h2 { font-family: var(--font-body); color: var(--color-navy); font-size: 1.5rem; }
+    .hp-founder .q { font-style: italic; font-weight: 700; color: var(--color-amber); font-size: 1.375rem; }
+    .hp-founder p { font-size: 0.9375rem; line-height: 1.45; color: var(--color-text); margin-top: 0.6rem; }
+    .hp-stats { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 1.25rem; text-align: center; }
+    .hp-stats > div { border-right: 1px solid rgba(27,39,81,0.12); display: flex; flex-direction: column; align-items: center; gap: 0.25rem; padding-inline: 0.5rem; }
+    .hp-stats > div:last-child { border-right: none; }
+    .hp-stats strong { font-size: 0.8125rem; text-transform: uppercase; color: var(--color-navy); }
+    .hp-stats span { font-size: 0.75rem; color: var(--color-text); line-height: 1.35; }
+    .hp-h { text-align: center; font-family: var(--font-body); font-weight: 700; color: var(--color-amber); font-size: 1.5rem; text-transform: uppercase; border-top: 1px solid rgba(27,39,81,0.08); padding-top: 0.75rem; }
+    .hp-services { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.6rem; margin-top: 0.75rem; }
+    .hp-svc { border: 1px solid rgba(27,39,81,0.1); border-radius: 4px; padding: 0.9rem 0.75rem; display: grid; grid-template-columns: 2.75rem 1fr; gap: 0.6rem; box-shadow: 0 2px 6px rgba(18,26,56,0.05); }
+    .hp-svc i { width: 2.75rem; height: 2.75rem; border-radius: 50%; color: #fff; display: flex; align-items: center; justify-content: center; }
+    .hp-svc h3 { font-family: var(--font-body); color: var(--color-navy); font-size: 0.8125rem; text-transform: uppercase; line-height: 1.2; }
+    .hp-svc p { font-size: 0.78rem; line-height: 1.35; color: var(--color-text); margin-block: 0.25rem 0.5rem; }
+    .hp-svc a { font-size: 0.75rem; font-weight: 700; color: var(--color-navy); text-transform: uppercase; }
+    .hp-svc a span { color: var(--color-amber); }
+    .hp-global { display: grid; grid-template-columns: 0.85fr 2fr 0.95fr; gap: 0.6rem; margin-top: 1.25rem; }
+    .hp-panel { background: #f4f4f2; border-radius: 4px; padding: 0.9rem; display: flex; flex-direction: column; gap: 0.75rem; }
+    .hp-panel h3 { font-family: var(--font-body); font-size: 0.8125rem; text-transform: uppercase; color: var(--color-navy); }
+    .hp-panel__row { display: grid; grid-template-columns: 1.75rem 1fr; gap: 0.6rem; align-items: start; font-size: 0.75rem; line-height: 1.35; color: var(--color-text); }
+    .hp-panel__row strong { display: block; color: var(--color-navy); text-transform: uppercase; font-size: 0.75rem; }
+    .hp-panel__row svg { color: var(--color-amber); }
+    .hp-flag { font-size: 1.25rem; line-height: 1; }
+    .hp-map { display: flex; align-items: center; }
+    .hp-map img { width: 100%; }
+    .hp-media { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.4rem; margin-top: 0.5rem; }
+    .hp-mcard { background: var(--color-navy-dark); color: #fff; border-radius: 4px; overflow: hidden; display: grid; grid-template-columns: 0.85fr 1.15fr; min-height: 112px; }
+    .hp-mcard img { width: 100%; height: 100%; object-fit: cover; }
+    .hp-mcard > div { padding: 0.9rem 0.9rem 0.9rem 0.75rem; display: flex; flex-direction: column; gap: 0.35rem; }
+    .hp-mcard h3 { font-family: var(--font-body); color: var(--color-amber); font-size: 0.875rem; text-transform: uppercase; }
+    .hp-mcard p { font-size: 0.78rem; line-height: 1.35; }
+    .hp-mcard a { font-size: 0.78rem; font-weight: 700; color: var(--color-amber); text-transform: uppercase; margin-top: auto; }
+    .hp-cta { background: var(--color-navy-dark); color: #fff; margin-top: 0; }
+    .hp-cta .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; padding-block: 1.1rem; }
+    .hp-cta h2 { font-family: var(--font-body); text-transform: uppercase; font-size: 1.375rem; }
+    .hp-cta p { font-size: 0.9375rem; font-weight: 600; }
+    @media (max-width: 960px) {
+      .hp-hero__bg { inset: 0; opacity: 0.35; } .hp-office { display: none; }
+      .hp-values__box { grid-template-columns: repeat(3, 1fr); row-gap: 1rem; }
+      .hp-founder, .hp-global, .hp-media { grid-template-columns: 1fr; }
+      .hp-services { grid-template-columns: 1fr 1fr; }
+      .hp-stats { grid-template-columns: 1fr 1fr; row-gap: 1rem; }
+    }
+  </style>
+
+  <section class="hp-hero">
+    <div class="hp-hero__bg"><img src="/images/home/hero.jpg" alt="St Peter's Basilica and the Tiber at dusk" /></div>
+    <div class="wrap hp-hero__inner">
+      <h1>IICC MISSION<br /><span class="text-amber">Bringing Hope</span><br />to those in need.</h1>
+      <p>A Catholic global mission sharing Christ’s love, mercy and hope with incarcerated individuals, people in Immigration Detention, their families and all who are experiencing hardship.</p>
+      <div class="hp-hero__btns">
+        <a href="/donate" class="btn btn--amber"><Icon name="heart" size={16} /> Support the Mission</a>
+        <a href="/get-involved/ambassador-program" class="btn btn--outline-white"><Icon name="star" size={16} /> Become an Ambassador</a>
+      </div>
+      <div class="hp-office">
+        <Icon name="pin" size={26} />
+        <strong>Head Office</strong>
+        <b>Via delle Milizie 34<br />Rome, Italy</b>
+        <span>The global mission centre coordinating our work worldwide.</span>
       </div>
     </div>
   </section>
 
-  <!-- CORE VALUES STRIP -->
-  <div class="value-strip">
-    <div class="wrap value-strip__inner">
-      {pillars.map(p => (
-        <div class="value-strip__item">
-          <svg class="value-strip__icon" width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d={p.icon}/></svg>
-          <span class="value-strip__title">{p.title}</span>
-          <span class="value-strip__desc">{p.desc}</span>
-        </div>
+  <section class="wrap hp-values">
+    <div class="hp-values__box">
+      {values.map(v => <div><Icon name={v.icon} size={36} fill={v.icon !== 'scales'} /><strong>{v.title}</strong><span>{v.text}</span></div>)}
+    </div>
+  </section>
+
+  <section class="wrap hp-founder">
+    <img src="/images/home/founder.jpg" alt="Antonio G. Dattilo, Ambassador & Founder" />
+    <div>
+      <span class="eyebrow" style="font-size:1.125rem;">Our Founder</span>
+      <h2>Ambassador &amp; Founder – IICC Mission</h2>
+      <p class="q">“Prison didn’t break me.”</p>
+      <p>My name is Antonio G. Dattilo, Ambassador and Founder of IICC Mission.</p>
+      <p>My journey has taken me through more than eight years between prison and Immigration Detention Centre. During this time, I experienced hardship, isolation and uncertainty, but I also discovered faith, resilience and the power of hope.</p>
+      <p>While incarcerated, I worked in the prison bakery, where I discovered purpose through discipline, learning new skills and supporting others around me.</p>
+      <p>These experiences inspired the creation of IICC Mission – a global Catholic mission dedicated to bringing Christ’s love, mercy and hope to incarcerated individuals, people in Immigration Detention, their families and those experiencing hardship.</p>
+      <div class="hp-stats">
+        {stats.map(s => <div><span style={`color:${s.color ?? 'var(--color-amber)'}`}><Icon name={s.icon} size={34} /></span><strong>{s.title}</strong><span>{s.text}</span></div>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-bottom:1rem;">
+    <h2 class="hp-h">Our Services</h2>
+    <div class="hp-services">
+      {services.map(s => (
+        <article class="hp-svc">
+          <i style={`background:${s.bg}`}><Icon name={s.icon} size={22} /></i>
+          <div><h3>{s.title}</h3><p>{s.text}</p><a href={s.href}>Learn More <span>→</span></a></div>
+        </article>
       ))}
     </div>
-  </div>
 
-  <!-- FOUNDER -->
-  <section class="section section--white">
-    <div class="wrap cols-2">
-      <img src="/images/home/founder.jpg" alt="Antonio G. Dattilo, Ambassador & Founder" style="border-radius:2px; width:100%; object-fit:cover;" />
-      <div>
-        <span class="eyebrow">Our Founder</span>
-        <h2 class="section-title" style="margin-block:0.5rem;">Ambassador &amp; Founder — IICC Mission</h2>
-        <p style="font-family:var(--font-heading); font-style:italic; color:var(--color-amber); font-size:1.125rem; margin-bottom:1rem;">"Prison didn't break me."</p>
-        <p class="section-desc" style="margin-bottom:1rem; max-width:none;">
-          My name is Antonio G. Dattilo, Ambassador and Founder of IICC Mission. My journey has
-          taken me through more than eight years between prison and Immigration Detention Centre.
-          During this time, I experienced hardship, isolation and uncertainty, but I also
-          discovered faith, resilience and the power of hope.
-        </p>
-        <p class="section-desc" style="max-width:none; margin-bottom:1.5rem;">
-          While incarcerated, I worked in the prison bakery, where I discovered purpose through
-          discipline, learning new skills and supporting others around me. These experiences
-          inspired the creation of IICC Mission.
-        </p>
-        <div class="grid-2" style="grid-template-columns:repeat(2,1fr); gap:1rem;">
-          {founderStats.map(s => (
-            <div style="display:flex; gap:0.625rem; align-items:flex-start;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-amber)" stroke-width="1.6" style="flex-shrink:0; margin-top:0.1rem;"><path d={s.icon}/></svg>
-              <div>
-                <p style="font-weight:700; font-size:0.8125rem; color:var(--color-navy);">{s.label}</p>
-                <p style="font-size:0.75rem; color:var(--color-muted);">{s.sub}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+    <div class="hp-global">
+      <div class="hp-panel">
+        <h3>Our Global Mission</h3>
+        {mission.map((m, i) => <div class="hp-panel__row"><Icon name={i === 0 ? 'pin' : 'people'} size={24} /><div><strong>{m.title}</strong><span set:html={m.text} /></div></div>)}
       </div>
+      <div class="hp-map"><img src="/images/home/map.jpg" alt="World map of IICC Mission locations: Italy, Australia, USA and Canada" /></div>
+      <div class="hp-panel">
+        <h3>Our Locations</h3>
+        {locations.map(l => <div class="hp-panel__row"><span class="hp-flag">{l.flag}</span><div><strong>{l.country}</strong><span set:html={l.cities} /></div></div>)}
+      </div>
+    </div>
+
+    <h2 style="text-align:center; font-family:var(--font-body); color:var(--color-navy); font-size:1.125rem; text-transform:uppercase; margin-top:1rem;">Hope Media Channel &amp; Mission Projects</h2>
+    <div class="hp-media">
+      <article class="hp-mcard" style="grid-template-columns:3.5rem 1fr; padding-left:0.9rem; align-items:start;">
+        <span class="text-amber" style="padding-top:1rem;"><Icon name="video" size={48} /></span>
+        <div><h3>Hope Media Channel</h3><p>Daily messages of faith, encouragement and hope for inmates, detainees, families and our global community.</p><a href="/resources">Watch Now →</a></div>
+      </article>
+      <article class="hp-mcard">
+        <img src="/images/home/stories.jpg" alt="Hands raised towards a cross at sunset" />
+        <div><h3>Stories of Hope</h3><p>Real stories of faith, resilience and new beginnings from around the world.</p><a href="/programs/hope-companion/stories">Discover More →</a></div>
+      </article>
+      <article class="hp-mcard">
+        <img src="/images/home/ambassadors.jpg" alt="A family silhouetted against the sunset" />
+        <div><h3>Mission Ambassadors</h3><p>People bringing awareness, support and hope to communities around the world.</p><a href="/get-involved/ambassador-program">Join the Mission →</a></div>
+      </article>
     </div>
   </section>
 
-  <!-- OUR SERVICES -->
-  <section class="section section--offwhite">
+  <section class="hp-cta">
     <div class="wrap">
-      <div class="section-head"><h2 class="section-title">Our Services</h2></div>
-      <div class="grid-4">
-        {services.map(s => (
-          <div class="card">
-            <div style={`width:2.75rem;height:2.75rem;border-radius:50%;display:flex;align-items:center;justify-content:center;background:${s.color};color:#fff;`}>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d={s.icon}/></svg>
-            </div>
-            <span class="card__title">{s.title}</span>
-            <p class="card__body">{s.desc}</p>
-            <a href={s.href} class="photo-card__link">Learn More →</a>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- GLOBAL MISSION -->
-  <section class="section section--white">
-    <div class="wrap">
-      <div class="cols-60-40" style="grid-template-columns:1fr 1.6fr 1fr;">
-        <div class="checklist">
-          <li><strong>Head Office</strong> — Via delle Milizie 34, Rome, Italy</li>
-          <li><strong>National Missions</strong> — Italy, Australia, USA, Canada, San Marino, Monaco</li>
-          <li><strong>State Missions</strong> — Serving states and provinces</li>
-          <li><strong>Regional Missions</strong> — Bringing the mission closer to local communities</li>
-        </div>
-        <img src="/images/home/map.jpg" alt="World map highlighting IICC Mission locations" style="width:100%; align-self:center;" />
-        <div class="card--dark" style="background:var(--color-navy);">
-          <span class="card__title" style="color:#fff;">Our Locations</span>
-          <p class="card__body" style="color:rgba(255,255,255,0.7); font-size:0.8125rem; line-height:1.9;">
-            🇮🇹 Italy — Rome · Milan · Lamezia Terme<br />
-            🇦🇺 Australia — Melbourne · Sydney · Perth · Adelaide · Brisbane · Hobart · Darwin<br />
-            🇺🇸 United States — Dallas · Minneapolis<br />
-            🇨🇦 Canada — Vancouver · Montreal · Alberta<br />
-            San Marino &amp; Monaco — National Missions
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOPE MEDIA -->
-  <section class="section section--offwhite section--sm">
-    <div class="wrap">
-      <div class="section-head"><h2 class="section-title">Hope Media Channel &amp; Mission Projects</h2></div>
-      <div class="grid-3">
-        <div class="card--dark" style="background:var(--color-navy);">
-          <div class="card__icon card__icon--filled">▶</div>
-          <span class="card__title" style="color:#fff;">Hope Media Channel</span>
-          <p class="card__body" style="color:rgba(255,255,255,0.65);">Daily messages of faith, encouragement and hope for inmates, detainees, families and our global community.</p>
-          <a href="/resources" class="photo-card__link">Watch Now →</a>
-        </div>
-        <div class="photo-card" style="flex-direction:row;">
-          <img src="/images/home/stories.jpg" alt="Hands in prayer" style="width:40%; height:auto; align-self:stretch; object-fit:cover;" />
-          <div class="photo-card__body">
-            <span class="photo-card__title">Stories of Hope</span>
-            <p class="photo-card__desc">Real stories of faith, resilience and new beginnings from around the world.</p>
-            <a href="/programs/hope-companion/stories" class="photo-card__link">Discover More →</a>
-          </div>
-        </div>
-        <div class="photo-card" style="flex-direction:row;">
-          <img src="/images/home/ambassadors.jpg" alt="Family silhouette at sunset" style="width:40%; height:auto; align-self:stretch; object-fit:cover;" />
-          <div class="photo-card__body">
-            <span class="photo-card__title">Mission Ambassadors</span>
-            <p class="photo-card__desc">People bringing awareness, support and hope to communities around the world.</p>
-            <a href="/get-involved/ambassador-program" class="photo-card__link">Join the Mission →</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <div class="cta-band">
-    <div class="wrap cta-band__inner">
-      <div class="cta-band__text">
-        <h2 class="section-title section-title--white">Together We Can Bring Hope to Those in Need.</h2>
-        <p class="section-desc section-desc--white">Every prayer, every act of kindness and every person can make a difference.</p>
-      </div>
+      <div><h2>Together We Can Bring Hope to Those in Need</h2><p>Every prayer, every act of kindness and every person can make a difference.</p></div>
       <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-        <a href="/donate" class="btn btn--amber">Support the Mission</a>
-        <a href="/get-involved/ambassador-program" class="btn btn--outline-white">Become an Ambassador</a>
+        <a href="/donate" class="btn btn--amber"><Icon name="heart" size={16} /> Support the Mission</a>
+        <a href="/get-involved/ambassador-program" class="btn btn--outline-white"><Icon name="star" size={16} /> Become an Ambassador</a>
       </div>
     </div>
-  </div>
+  </section>
 </Layout>

@@ -27,6 +27,7 @@ export const icons = {
   share: 'M15 4l5 5-5 5M20 9H10a6 6 0 0 0-6 6v4',
   bread: 'M4 11a8 5 0 0 1 16 0v1a2 2 0 0 1-2 2v6H6v-6a2 2 0 0 1-2-2v-1ZM9 9l1 3M13 8l1 3',
   medal: 'M12 9a6 6 0 1 0 0 12 6 6 0 0 0 0-12ZM8 3h8l-2 6h-4L8 3ZM12 12l1 2h2l-1.6 1.2.6 2-2-1.2-2 1.2.6-2L9 14h2l1-2Z',
+  video: 'M3 9h18v11H3zM3 9l2-5h16l-2 5M8 4l-2 5M13 4l-2 5M18 4l-2 5M10 12v5l4.5-2.5L10 12Z',
 } as const;
 
 export type IconName = keyof typeof icons;

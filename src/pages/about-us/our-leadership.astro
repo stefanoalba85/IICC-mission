@@ -2,51 +2,50 @@
 import Layout from '../../layouts/Layout.astro';
 
 const leaders = [
-  { name: 'Antonio G. Dattilo', role: 'Ambassador & Founder', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80' },
-  { name: 'Father John Vespa', role: 'Chief Operations Officer — Australian Branches', img: 'https://images.unsplash.com/photo-1544717305-2782549b5136?w=400&q=80' },
-  { name: 'Francesco Dattilo', role: 'President', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80' },
-  { name: 'Ilenia Dattilo', role: 'Chief Operations Officer — Italian Branches', img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80' },
+  { name: 'Antonio G. Dattilo', role: 'Ambassador & Founder', img: 'l1' },
+  { name: 'Father John Vespa', role: 'Chief Operations Officer – Australian Branches', img: 'l2' },
+  { name: 'Francesco Dattilo', role: 'President', img: 'l3' },
+  { name: 'Ilenia Dattilo', role: 'Chief Operations Officer – Italian Branches', img: 'l4' },
 ];
 ---
 <Layout title="Our Leadership" description="Guided by faith, compassion and service, we work together to bring hope, dignity and restoration.">
+  <style>
+    .ol { background: var(--color-navy-dark); color: #fff; }
+    .ol-hero { position: relative; min-height: 340px; display: flex; align-items: center; overflow: hidden; }
+    .ol-hero__bg { position: absolute; inset: 0 0 0 45%; }
+    .ol-hero__bg img { width: 100%; height: 100%; object-fit: cover; -webkit-mask-image: linear-gradient(90deg, transparent, #000 35%); mask-image: linear-gradient(90deg, transparent, #000 35%); }
+    .ol-hero__text { position: relative; display: flex; flex-direction: column; gap: 1rem; }
+    .ol-hero h1 { font-family: var(--font-heading); font-size: clamp(2.25rem, 5vw, 3.25rem); text-transform: uppercase; letter-spacing: 0.02em; }
+    .ol-hero p { font-size: 1.25rem; line-height: 1.5; max-width: 480px; }
+    .ol-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; padding-bottom: 2.5rem; }
+    .ol-card { border: 2px solid var(--color-amber); border-radius: 4px; overflow: hidden; background: #0d1530; text-align: center; }
+    .ol-card img { width: 100%; aspect-ratio: 104 / 158; object-fit: cover; }
+    .ol-card h2 { font-family: var(--font-heading); font-size: 1.25rem; margin-top: 0.875rem; }
+    .ol-card p { font-size: 0.875rem; line-height: 1.4; padding: 0.4rem 0.75rem 1.1rem; color: rgba(255,255,255,0.85); }
+    .ol-quote { text-align: center; padding-bottom: 3rem; font-family: var(--font-heading); font-style: italic; color: var(--color-amber); font-size: 1.375rem; line-height: 1.5; }
+    .ol-quote span { font-family: var(--font-heading); font-size: 2.5rem; vertical-align: -0.5rem; margin-inline: 0.5rem; }
+    @media (max-width: 860px) { .ol-grid { grid-template-columns: 1fr 1fr; } .ol-hero__bg { inset: 0; opacity: 0.45; } }
+  </style>
 
-  <section class="hero-full" style="min-height:36vh;">
-    <div class="hero-full__bg">
-      <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=1600&q=80" alt="A cross at sunrise" />
-    </div>
-    <div class="hero-full__overlay"></div>
-    <div class="hero-full__content">
-      <span class="eyebrow eyebrow--white">About Us</span>
-      <h1 class="section-title section-title--white" style="margin-block:0.5rem;">Our Leadership</h1>
-      <p class="section-desc section-desc--white" style="max-width:560px;">Guided by faith, compassion and service, we work together to bring hope, dignity and restoration.</p>
-    </div>
-  </section>
-
-  <section class="section section--white">
-    <div class="wrap grid-4">
-      {leaders.map(l => (
-        <div class="person-card">
-          <img class="person-card__photo" src={l.img} alt={l.name} />
-          <div class="person-card__body">
-            <p class="person-card__name">{l.name}</p>
-            <span class="person-card__role">{l.role}</span>
-          </div>
-        </div>
-      ))}
-    </div>
-    <div class="quote-box" style="max-width:600px; margin-inline:auto; margin-top:2.5rem;">
-      <p class="quote-box__text">"Whatever you did for one of the least of these, you did for me."</p>
-      <span class="quote-box__ref">— Matthew 25:40</span>
-    </div>
-  </section>
-
-  <div class="cta-band">
-    <div class="wrap cta-band__inner">
-      <div class="cta-band__text">
-        <h2 class="section-title section-title--white">Thank You for Being Part of Our Mission</h2>
-        <p class="section-desc section-desc--white">Together we can accompany, empower and restore hope.</p>
+  <div class="ol">
+    <section class="ol-hero">
+      <div class="ol-hero__bg"><img src="/images/our-leadership/cross.jpg" alt="A cross on a hill at sunrise" /></div>
+      <div class="wrap ol-hero__text">
+        <h1>Our Leadership</h1>
+        <p>Guided by faith, compassion and service, we work together to bring hope, dignity and restoration.</p>
       </div>
-      <a href="/about-us/our-people" class="btn btn--amber">Meet Our People &gt;</a>
-    </div>
+    </section>
+
+    <section class="wrap ol-grid">
+      {leaders.map(l => (
+        <article class="ol-card">
+          <img src={`/images/our-leadership/${l.img}.jpg`} alt={l.name} />
+          <h2>{l.name}</h2>
+          <p>{l.role}</p>
+        </article>
+      ))}
+    </section>
+
+    <p class="wrap ol-quote"><span>&ldquo;</span>Whatever you did for one of the least of these, you did for me.<span>&rdquo;</span><br /><small style="font-size:1rem;">— Matthew 25:40</small></p>
   </div>
 </Layout>

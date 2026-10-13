@@ -1,71 +1,93 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import type { IconName } from '../lib/icons';
+
+const info: { title: string; lines: string[]; icon: IconName }[] = [
+  { title: 'Mailing Address', lines: ['PO Box 341', 'North Sydney NSW 2059', 'Australia'], icon: 'pin' },
+  { title: 'Phone', lines: ['+61 2 8732 4555'], icon: 'phone' },
+  { title: 'Email', lines: ['info@iiccmission.org'], icon: 'mail' },
+  { title: 'Website', lines: ['www.iiccmission.org'], icon: 'globe' },
+  { title: 'Support Line', lines: ['Need to talk?', 'We’re here to listen.', '+61 411 209 066'], icon: 'heartHand' },
+];
 ---
 <Layout title="Contact Us" description="We would love to hear from you.">
+  <style>
+    .ct-hero__title { font-family: var(--font-heading); color: #fff; font-size: clamp(2.25rem, 5vw, 3.5rem); line-height: 1.08; }
+    .ct-body { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 3rem; padding-block: 2rem 2.5rem; }
+    .ct-h { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: 1.625rem; display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; }
+    .ct-h--rule::after { content: ''; flex: 1; height: 1.5px; background: var(--color-amber); }
+    .ct-info { display: flex; flex-direction: column; gap: 1.1rem; border-right: 1.5px solid var(--color-amber); padding-right: 2rem; }
+    .ct-item { display: grid; grid-template-columns: 3.75rem 1fr; gap: 1.25rem; align-items: center; }
+    .ct-item i { width: 3.75rem; height: 3.75rem; border-radius: 50%; background: var(--color-navy-dark); color: var(--color-amber); display: flex; align-items: center; justify-content: center; }
+    .ct-item strong { display: block; font-size: 0.9375rem; text-transform: uppercase; color: var(--color-navy); letter-spacing: 0.02em; }
+    .ct-item span { font-family: var(--font-heading); color: var(--color-navy); font-size: 1.125rem; line-height: 1.3; display: block; }
+    .ct-form { display: grid; grid-template-columns: 1fr 1fr; gap: 0.875rem; }
+    .ct-form .form-input { padding: 0.8rem 1rem; border-radius: 4px; }
+    .ct-form .full { grid-column: 1 / -1; }
+    .ct-send { width: 100%; justify-content: center; font-size: 1.0625rem; padding-block: 0.9rem; border-radius: 4px; background: #e2a93b; }
+    .ct-privacy { display: flex; align-items: center; justify-content: center; gap: 0.6rem; font-family: var(--font-heading); color: var(--color-navy); }
+    .ct-privacy svg { color: var(--color-amber); }
+    .ct-band { display: grid; grid-template-columns: 1fr 1.2fr; }
+    .ct-hours { background: #f7f6f3; padding: 1.75rem 2rem 1.75rem max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem)); display: grid; grid-template-columns: 6rem 1fr; gap: 1.75rem; align-items: center; }
+    .ct-hours h2 { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: 1.25rem; border-bottom: 1.5px solid var(--color-amber); padding-bottom: 0.5rem; margin-bottom: 0.75rem; }
+    .ct-hours p { font-family: var(--font-heading); color: var(--color-navy); font-size: 1.125rem; line-height: 1.35; }
+    .ct-quote { position: relative; background: var(--color-navy-dark); color: #fff; display: grid; grid-template-columns: 1.1fr 1fr; overflow: hidden; }
+    .ct-quote img { width: 100%; height: 100%; object-fit: cover; -webkit-mask-image: linear-gradient(90deg, transparent, #000 35%); mask-image: linear-gradient(90deg, transparent, #000 35%); }
+    .ct-quote blockquote { margin: 0; padding: 1.5rem 1rem 1.5rem 2.5rem; font-family: var(--font-heading); font-style: italic; font-size: 1.3125rem; line-height: 1.45; display: flex; flex-direction: column; justify-content: center; gap: 0.75rem; }
+    .ct-quote blockquote::before { content: '\201C'; color: var(--color-amber); font-size: 3.5rem; line-height: 0.5; font-style: normal; }
+    .ct-quote cite { color: var(--color-amber); font-style: normal; font-family: var(--font-body); text-transform: uppercase; display: flex; align-items: center; gap: 0.75rem; }
+    .ct-quote cite::before { content: ''; width: 2.5rem; height: 1.5px; background: var(--color-amber); }
+    @media (max-width: 860px) { .ct-body, .ct-band, .ct-quote { grid-template-columns: 1fr; } .ct-info { border-right: none; padding-right: 0; } .ct-form { grid-template-columns: 1fr; } }
+  </style>
 
-  <section class="hero-split">
-    <div class="hero-split__text" style="background:var(--color-navy);">
-      <span class="eyebrow eyebrow--white">Contact Us</span>
-      <h1 class="section-title section-title--white" style="margin-block:0.5rem;">We Would Love <span class="text-amber">to Hear from You.</span></h1>
-      <p class="section-desc section-desc--white" style="max-width:none;">
-        Whether you have a question, want to get involved, or are seeking support, our team is
-        here for you. Please reach out using any of the options below.
-      </p>
-      <p style="font-style:italic; color:rgba(255,255,255,0.75);">
-        Together, we can bring hope, justice and restoration to individuals and communities in need.
-      </p>
-    </div>
-    <div class="hero-split__photo">
-      <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1000&q=80" alt="Hands holding a heart-shaped stone" />
-    </div>
-  </section>
-
-  <section class="section section--white">
-    <div class="wrap cols-60-40">
-      <div>
-        <span class="eyebrow">Send Us a Message</span>
-        <h2 class="section-title" style="margin-bottom:1rem;">Get In Touch</h2>
-        <form class="grid-2" style="display:grid; gap:1.25rem;">
-          <div class="form-field"><label>First Name <span class="required">*</span></label><input class="form-input" type="text" name="first-name" required /></div>
-          <div class="form-field"><label>Last Name <span class="required">*</span></label><input class="form-input" type="text" name="last-name" required /></div>
-          <div class="form-field" style="grid-column:1/-1;"><label>Email Address <span class="required">*</span></label><input class="form-input" type="email" name="email" required /></div>
-          <div class="form-field" style="grid-column:1/-1;"><label>Subject <span class="required">*</span></label><input class="form-input" type="text" name="subject" required /></div>
-          <div class="form-field" style="grid-column:1/-1;"><label>Your Message <span class="required">*</span></label><textarea class="form-input form-input--textarea" name="message" required></textarea></div>
-          <div style="grid-column:1/-1;">
-            <button type="submit" class="btn btn--amber" style="width:100%; justify-content:center;">Send Message</button>
-            <p class="form-hint" style="margin-top:0.5rem;">🔒 We respect your privacy. Your information will never be shared.</p>
-          </div>
-        </form>
-      </div>
-      <div>
-        <span class="eyebrow">Contact Information</span>
-        <div class="checklist" style="margin-top:1rem;">
-          <li><strong>Head Office</strong><br />Via delle Milizie 34<br />Rome, Italy 00192</li>
-          <li><strong>Email</strong><br />info@iiccmission.org</li>
-          <li><strong>Phone</strong><br />+39 349 303 6235</li>
-          <li><strong>Website</strong><br />www.iiccmission.org</li>
-        </div>
-        <div class="card" style="margin-top:1.5rem;">
-          <span class="card__title">Office Hours</span>
-          <p class="card__body">Monday – Friday, 9:00am – 5:00pm (CET)<br />Closed on weekends and public holidays.</p>
-        </div>
-      </div>
+  <section class="hero-wave">
+    <div class="hero-wave__bg"><img src="/images/contact/hero.jpg" alt="Hands holding a heart-shaped stone with a cross at sunset behind" style="object-position:right center;" /></div>
+    <div class="hero-wave__panel">
+      <span class="eyebrow" style="font-size:1.125rem;">Contact Us</span>
+      <h1 class="ct-hero__title">We Would Love<br /><span class="text-amber">to Hear from You.</span></h1>
+      <p class="hero-wave__lead" style="font-family:var(--font-heading); font-size:1.25rem;">Whether you have a question, want to get involved, or are seeking support, our team is here for you. Please reach out using any of the options below.</p>
+      <span style="width:5rem; height:2px; background:var(--color-amber);"></span>
+      <p class="hero-wave__lead" style="font-family:var(--font-heading); font-style:italic;">Together, we can bring hope, justice and restoration to individuals and communities in need.</p>
     </div>
   </section>
 
-  <div class="quote-box" style="max-width:640px; margin-inline:auto; margin-bottom:3rem;">
-    <span class="quote-box__mark">&ldquo;</span>
-    <p class="quote-box__text">"Where two or three are gathered in my name, there am I among them."</p>
-    <span class="quote-box__ref">— Matthew 18:20</span>
-  </div>
-
-  <div class="cta-band">
-    <div class="wrap cta-band__inner">
-      <div class="cta-band__text">
-        <h2 class="section-title section-title--white">Make a Difference</h2>
-        <p class="section-desc section-desc--white">Together, we can bring hope, restore dignity, and build stronger communities.</p>
+  <section class="wrap ct-body">
+    <div>
+      <h2 class="ct-h">Contact Information</h2>
+      <div class="ct-info">
+        {info.map(i => (
+          <div class="ct-item"><i><Icon name={i.icon} size={28} /></i><div><strong>{i.title}</strong>{i.lines.map(l => <span>{l}</span>)}</div></div>
+        ))}
       </div>
-      <a href="/donate" class="btn btn--amber">Donate Now &gt;</a>
     </div>
-  </div>
+    <div>
+      <h2 class="ct-h ct-h--rule">Send Us a Message</h2>
+      <form class="ct-form" onsubmit="event.preventDefault(); this.querySelector('.ct-done').hidden = false;">
+        <input class="form-input" name="first-name" placeholder="First Name *" aria-label="First name" required />
+        <input class="form-input" name="last-name" placeholder="Last Name *" aria-label="Last name" required />
+        <input class="form-input full" type="email" name="email" placeholder="Email Address *" aria-label="Email address" required />
+        <input class="form-input full" name="subject" placeholder="Subject *" aria-label="Subject" required />
+        <textarea class="form-input form-input--textarea full" name="message" placeholder="Your Message *" aria-label="Your message" required></textarea>
+        <button type="submit" class="btn btn--amber ct-send full">Send Message <Icon name="share" size={20} /></button>
+        <p class="ct-done full" hidden style="text-align:center; color:var(--color-navy); font-weight:700;">Message received. We will reply within two working days.</p>
+        <p class="ct-privacy full"><Icon name="shield" size={20} /> We respect your privacy. Your information will never be shared.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="ct-band">
+    <div class="ct-hours">
+      <span style="color:var(--color-amber);"><Icon name="calendar" size={96} stroke={1.4} /></span>
+      <div>
+        <h2>Office Hours</h2>
+        <p>Monday – Friday<br />9:00am – 5:00pm (AEST)</p>
+        <p style="font-size:1rem; margin-top:0.6rem;">We are closed on weekends and public holidays.</p>
+      </div>
+    </div>
+    <div class="ct-quote">
+      <blockquote>Where two or three are gathered in my name, there am I among them.”<cite>Matthew 18:20</cite></blockquote>
+      <img src="/images/contact/cross.jpg" alt="A cross at sunrise on a rocky hill" />
+    </div>
+  </section>
 </Layout>
