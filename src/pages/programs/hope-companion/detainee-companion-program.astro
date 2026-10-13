@@ -1,0 +1,38 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import HcHero from '../../../components/HcHero.astro';
+import HcOr from '../../../components/HcOr.astro';
+import HcStart from '../../../components/HcStart.astro';
+import HcIcons from '../../../components/HcIcons.astro';
+import HcWho from '../../../components/HcWho.astro';
+import HcJourneys from '../../../components/HcJourneys.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/hope-companion/${n}.jpg`;
+const Q = 'I was in prison and you visited me. I was in detention and you came to me. Thank you for bringing hope.';
+const doItems = [
+  { icon: 'hands-praying', title: 'Pray', text: 'Pray regularly for your companion and their family.' },
+  { icon: 'phone', title: 'Talk', text: 'Make phone calls where permitted to encourage and listen.' },
+  { icon: 'envelope', title: 'Write', text: 'Send letters and messages of hope and encouragement.' },
+  { icon: 'people-group', title: 'Visit', text: 'Visit in person periodically where permitted.' },
+  { icon: 'book-bible', title: 'Encourage', text: 'Share faith, send books and spiritual resources.' },
+  { icon: 'people-roof', title: 'Support', text: 'Uphold family connections and provide support.' },
+  { icon: 'heart', title: 'Restore Hope', text: 'Be a sign of hope, dignity and God’s unconditional love.' },
+];
+const who = ['Priests, Deacons and Religious','Chaplaincy Teams and Pastoral Workers','Trained and Approved Volunteers','People with a heart to serve and listen'];
+const receive = ['Full training and preparation','Ongoing support and supervision','Guidelines and resources','A community of fellow companions'];
+---
+<Layout title="Detainee Companion Program" description="Friendship in detention. Hope that crosses borders.">
+  <HcHero title="Detainee<br/><span>Companion</span><br/>Program" sub="Friendship in detention. Hope that crosses borders."
+    text={['The Detainee Companion Program connects immigration detainees with trained volunteers who walk with them through prayer, encouragement, phone calls, letters and visits.', 'Your friendship can bring hope, restore dignity and remind them they are not forgotten.']}
+    accent="Be the light. Be the hope. Be a Detainee Companion."
+    buttons={[{ label: 'Become a Detainee Companion', href: '/programs/hope-companion/become-a-companion' }, { label: 'Download Application', href: '/resources/download-guides', outline: true }]}
+    img={img('det-hero')} alt="An IICC Mission companion speaking by phone with a detainee" quote={Q} quoteRef="Matthew 25:36" />
+  <HcIcons title="What Detainee Companions Do" items={doItems} />
+  <HcWho leftTitle="Who Can Become a Detainee Companion?" left={who} leftNote="All companions receive training and ongoing support." img={img('det-who')} rightTitle="You Will Receive" right={receive} rightNote="You won’t walk this journey alone.<br/>We are with you every step of the way." />
+  <section class="wrap" style="padding-bottom:1rem;"><div style="display:grid; grid-template-columns:repeat(3,1fr); background:#f8f8f8; border-radius:4px; padding:1.25rem;" class="camp-grid">
+    {[['hand-holding-heart','Bringing Hope into Uncertain Places','Your friendship can be the turning point that helps a detainee believe in themselves, in others and in God once again.','#16224a'],['globe','Restoring Dignity and Purpose','Every person is more than their situation. Through companionship, we help restore dignity, purpose and a future filled with hope.','#b97a14'],['dove','Building Bridges That Transform Lives','Compassion crosses borders. Friendship builds trust. Hope opens the door to change.','#16224a']].map(([i,t,d,c]) => <div style="display:grid; grid-template-columns:4.5rem 1fr; gap:1rem; padding-inline:1rem; border-left:1px solid rgba(201,150,42,0.4);"><span style={`width:4.5rem; height:4.5rem; border-radius:50%; background:${c}; color:#fff; display:flex; align-items:center; justify-content:center;`}><Icon name={i} size={34} /></span><div><h3 class="im-h" style="font-size:1rem;">{t}</h3><p class="im-p" style="font-size:0.875rem; margin-top:0.3rem;">{d}</p></div></div>)}
+  </div></section>
+  <HcOr leftTitle="Become a Detainee Companion" leftText="Give the gift of your time, friendship and faith. Walk alongside an immigration detainee and be the reason someone finds hope again." rightTitle="Donate to Support<br/>Detainee Companions" rightText="Your donation helps provide phone calls, travel for visits, training, books, letters and resources that bring hope and dignity." />
+  <HcJourneys items={[['My companion’s letters gave me strength when I felt invisible. I knew someone cared and was praying for me.','Detainee'],['Our phone calls helped me stay positive and not give up. She became like family to me.','Detainee'],['I was losing hope, but my companion reminded me that my life has purpose.','Detainee'],['Through their kindness, I found the courage to keep believing in a better future.','Detainee']]} />
+  <HcStart first="Become a Detainee Companion" />
+</Layout>

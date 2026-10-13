@@ -1,0 +1,11 @@
+---
+interface Props { leftTitle: string; left: string[]; leftNote: string; img: string; rightTitle?: string; right?: string[]; rightNote?: string; slotRight?: boolean; }
+const p = Astro.props;
+---
+<section class="wrap" style="padding-bottom:1rem;">
+  <div style="display:grid; grid-template-columns:1.05fr 0.85fr 1.05fr; background:#f8f8f8; border-radius:4px; overflow:hidden; align-items:stretch;" class="camp-grid">
+    <div style="padding:1.25rem;"><h2 class="im-h" style="font-size:1.125rem;">{p.leftTitle}</h2><span style="color:#c9962a;">♡</span><ul class="check" style="margin-block:0.5rem 0.9rem;">{p.left.map(l => <li>{l}</li>)}</ul><p class="im-p" style="font-size:0.9375rem;">{p.leftNote}</p></div>
+    <img src={p.img} alt="" style="width:100%; height:100%; object-fit:cover; -webkit-mask-image:linear-gradient(90deg,transparent,#000 25%,#000 75%,transparent); mask-image:linear-gradient(90deg,transparent,#000 25%,#000 75%,transparent);" />
+    <div style="padding:1.25rem;"><slot>{p.rightTitle && <><h2 class="im-h" style="font-size:1.125rem;">{p.rightTitle}</h2><ul class="check" style="margin-block:0.75rem;">{p.right!.map(l => <li>{l}</li>)}</ul>{p.rightNote && <p class="im-p" style="font-size:0.9375rem;" set:html={p.rightNote} />}</>}</slot></div>
+  </div>
+</section>

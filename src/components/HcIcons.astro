@@ -1,0 +1,14 @@
+---
+import Icon from './Icon.astro';
+interface Props { title: string; items: { icon: string; title: string; text: string; color?: string }[]; filled?: boolean; }
+const p = Astro.props;
+const cols = ['#16224a', '#b97a14', '#1f5a2e', '#4b2a86', '#16224a', '#b97a14', '#1f5a2e'];
+---
+<section class="wrap" style="padding-block:1rem;">
+  <div style="background:#f8f8f8; border-radius:4px; padding:1rem;">
+    <h2 class="camp-h">{p.title}</h2>
+    <div class="camp-trio" style="margin-top:0.75rem; align-items:flex-start;">
+      {p.items.map((i, k) => <div style="gap:0.4rem;">{p.filled ? <span style={`width:4rem; height:4rem; border-radius:50%; background:${i.color ?? cols[k]}; color:#fff; display:flex; align-items:center; justify-content:center;`}><Icon name={i.icon} size={30} /></span> : <span style="color:var(--color-navy);"><Icon name={i.icon} size={48} /></span>}<strong style="font-size:0.9375rem; color:var(--color-navy);">{i.title}</strong><span style="font-size:0.8125rem; line-height:1.45; color:var(--color-text);">{i.text}</span></div>)}
+    </div>
+  </div>
+</section>

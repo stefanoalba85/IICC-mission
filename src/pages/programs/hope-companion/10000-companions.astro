@@ -1,0 +1,35 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import HcHero from '../../../components/HcHero.astro';
+import HcOr from '../../../components/HcOr.astro';
+import HcStart from '../../../components/HcStart.astro';
+import HcIcons from '../../../components/HcIcons.astro';
+import HcWho from '../../../components/HcWho.astro';
+import HcJourneys from '../../../components/HcJourneys.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/hope-companion/${n}.jpg`;
+const Q = 'I was in prison and you visited me. I was in detention and you came to me. Thank you for bringing hope.';
+const doItems = [
+  { icon: 'hands-praying', title: 'Pray', text: 'Pray regularly for your companion and their family.' },
+  { icon: 'phone', title: 'Talk', text: 'Make phone calls where permitted to encourage and listen.' },
+  { icon: 'envelope', title: 'Write', text: 'Send letters and messages of hope and encouragement.' },
+  { icon: 'people-group', title: 'Visit', text: 'Visit in person periodically where permitted.' },
+  { icon: 'book-bible', title: 'Encourage', text: 'Share faith, send books and spiritual resources.' },
+  { icon: 'people-roof', title: 'Support', text: 'Uphold family connections and provide support.' },
+  { icon: 'heart', title: 'Restore Hope', text: 'Be a sign of hope, dignity and God’s unconditional love.' },
+];
+const who = ['Priests, Deacons and Religious','Chaplaincy Teams and Pastoral Workers','Trained and Approved Volunteers','People with a heart to serve and listen'];
+const receive = ['Full training and preparation','Ongoing support and supervision','Guidelines and resources','A community of fellow companions'];
+---
+<Layout title="10,000 Hope Companions Campaign" description="10,000 Companions. One Mission. Many hearts. One purpose.">
+  <HcHero title="10,000<br/>Companions<br/><span>One Mission</span>" sub="Many hearts. One purpose.<br/>Together, we change lives."
+    text={['Our vision is simple yet powerful: 10,000 Hope Companions walking alongside those in prison and immigration detention, offering friendship, faith and hope.']}
+    accent="Be one of the 10,000.<br/>Be the reason someone finds hope."
+    img={img('tk-hero')} alt="A group of IICC Mission companions with a priest" quote={Q} quoteRef="Matthew 25:36" />
+  <HcIcons filled title="The Power of 10,000 Companions" items={[{ icon: 'hand-holding-heart', title: '10,000 Hearts', text: 'A movement of compassion that reaches the forgotten.' },{ icon: 'people-group', title: '10,000 Connections', text: 'Building relationships that restore dignity and trust.' },{ icon: 'dove', title: '10,000 Acts of Hope', text: 'Small acts that bring encouragement, faith and strength.' },{ icon: 'cross', title: '10,000 Stories of Change', text: 'Real lives transformed through friendship and support.' },{ icon: 'globe', title: 'One Global Mission', text: 'Uniting communities across nations for justice and restoration.' },{ icon: 'hand-holding-heart', title: 'One Brighter Future', text: 'A world where no one walks their journey alone.' }]} />
+  <section class="wrap" style="padding-bottom:1rem;"><div style="background:#f8f8f8; border-radius:4px; padding:1.25rem; display:grid; grid-template-columns:0.6fr 2fr; gap:1.5rem; align-items:center;" class="camp-grid"><span style="color:var(--color-navy); justify-self:center;"><Icon name="shield-halved" size={110} /></span><div><h2 class="camp-h">Our Promise</h2><ul class="check" style="columns:2; column-gap:2rem; margin-top:0.75rem;">{['We will walk with those who feel forgotten.','We will listen, encourage and pray.','We will protect dignity and respect at every step.','We will provide training, guidance and support.','We will stand for justice, mercy and hope.','We will never give up on those we accompany.'].map(t => <li style="break-inside:avoid; margin-bottom:0.6rem;">{t}</li>)}</ul></div></div></section>
+  <section class="wrap" style="padding-bottom:1rem;"><div style="background:#f8f8f8; border-radius:4px; padding:1rem;"><h2 class="camp-h">Our Impact Together</h2><div class="camp-trio" style="margin-top:0.75rem;">{[['people-group','10,000','Hope Companions (Our Goal)','#16224a'],['hand-holding-heart','100,000+','Lives Impacted','#b97a14'],['phone','500,000+','Calls, Letters & Visits','#1f5a2e'],['church','500+','Parishes & Communities','#4b2a86'],['globe','20+','Countries Reached','#16224a'],['person-walking','∞','Endless Hope. One Mission. Together.','#b97a14']].map(([i,n,t,c]) => <div><span style={`width:3.75rem; height:3.75rem; border-radius:50%; background:${c}; color:#fff; display:flex; align-items:center; justify-content:center;`}><Icon name={i} size={28} /></span><strong style="font-size:1.375rem; text-transform:none;">{n}</strong><span>{t}</span></div>)}</div></div></section>
+  <section class="wrap" style="padding-bottom:1rem;"><h2 class="camp-h">How You Can Be One</h2><div style="display:grid; grid-template-columns:repeat(5,1fr); gap:0.75rem; margin-top:0.75rem;" class="camp-grid">{[['people-group','Become a Companion','Walk alongside a prisoner or detainee. Your presence can change everything.','Apply Now','#16224a','/programs/hope-companion/become-a-companion'],['hand-holding-heart','Volunteer Your Time','Share your time and talents in ways that bring hope.','Volunteer','#b97a14','/get-involved/volunteer-program'],['gift','Donate & Support','Your generosity provides resources, care and opportunities.','Donate Now','#1f5a2e','/donate'],['bullhorn','Spread the Word','Help us raise awareness and inspire others to join the mission.','Share Our Mission','#4b2a86','/contact'],['hands-praying','Pray for Our Mission','Your prayers strengthen our mission and those we serve.','Pray With Us','#b97a14','/get-involved/prayer-request']].map(([i,t,d,c,col,h]) => <div style="display:flex; flex-direction:column; gap:0.5rem;"><div style="display:grid; grid-template-columns:3.25rem 1fr; gap:0.6rem; align-items:center;"><span style={`width:3.25rem; height:3.25rem; border-radius:50%; background:${col}; color:#fff; display:flex; align-items:center; justify-content:center;`}><Icon name={i} size={24} /></span><strong style="font-family:var(--font-heading); color:var(--color-navy); text-transform:uppercase; font-weight:400; font-size:0.8125rem;">{t}</strong></div><p style="font-size:0.8125rem; line-height:1.45; color:var(--color-navy); flex:1;">{d}</p><a href={h} style={`background:${col}; color:#fff; border-radius:4px; padding:0.45rem; text-align:center; font-size:0.75rem; font-weight:700; text-transform:uppercase;`}>{c} ›</a></div>)}</div></section>
+  <HcOr leftTitle="Be Part of the 10,000" leftText="Join a global community of Hope Companions making a difference—one life, one journey, one act of love at a time." leftCta="Become a Companion" rightTitle="Donate to Reach<br/>More Companions" rightText="Help us reach our goal of 10,000 companions and change even more lives." />
+  <HcStart />
+</Layout>

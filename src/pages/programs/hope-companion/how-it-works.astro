@@ -1,0 +1,38 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import HcHero from '../../../components/HcHero.astro';
+import HcOr from '../../../components/HcOr.astro';
+import HcStart from '../../../components/HcStart.astro';
+import HcIcons from '../../../components/HcIcons.astro';
+import HcWho from '../../../components/HcWho.astro';
+import HcJourneys from '../../../components/HcJourneys.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/hope-companion/${n}.jpg`;
+const Q = 'I was in prison and you visited me. I was in detention and you came to me. Thank you for bringing hope.';
+const doItems = [
+  { icon: 'hands-praying', title: 'Pray', text: 'Pray regularly for your companion and their family.' },
+  { icon: 'phone', title: 'Talk', text: 'Make phone calls where permitted to encourage and listen.' },
+  { icon: 'envelope', title: 'Write', text: 'Send letters and messages of hope and encouragement.' },
+  { icon: 'people-group', title: 'Visit', text: 'Visit in person periodically where permitted.' },
+  { icon: 'book-bible', title: 'Encourage', text: 'Share faith, send books and spiritual resources.' },
+  { icon: 'people-roof', title: 'Support', text: 'Uphold family connections and provide support.' },
+  { icon: 'heart', title: 'Restore Hope', text: 'Be a sign of hope, dignity and God’s unconditional love.' },
+];
+const who = ['Priests, Deacons and Religious','Chaplaincy Teams and Pastoral Workers','Trained and Approved Volunteers','People with a heart to serve and listen'];
+const receive = ['Full training and preparation','Ongoing support and supervision','Guidelines and resources','A community of fellow companions'];
+const steps = [['file-pen','Apply','Complete the online application and tell us about your heart to serve and accompany.'],['people-group','Screening','We conduct reference checks, interviews and background screening to ensure safety.'],['chalkboard-user','Training','Complete orientation and training on companionship, trauma awareness, and safety.'],['handshake','Matching','We carefully match you with a prisoner or detainee based on needs and location.'],['envelope','Companionship Begins','Start your journey through letters, phone calls, prayer and encouragement.'],['people-group','Ongoing Support','We provide ongoing support, supervision and resources for every companion.'],['cross','Transformation & Hope','Lives are restored. Families are reunited. Hope is renewed for the future.']];
+---
+<Layout title="How the Program Works" description="Simple steps. Lasting impact.">
+  <HcHero title="How the<br/><span>Program</span><br/>Works" sub="- Simple steps. Lasting impact."
+    text={['Our Hope Companion Program connects compassionate people with those in prison and immigration detention, creating relationships built on faith, trust and hope.']}
+    accent="Together, we walk the journey<br/>from isolation to hope."
+    img={img('how-hero')} alt="An IICC Mission companion smiling at an inmate across a table" quote={Q} quoteRef="Matthew 25:36" />
+  <section class="wrap" style="padding-block:1rem;"><div style="background:#f8f8f8; border-radius:4px; padding:1.25rem;">
+    <h2 class="camp-h">The Journey of Companionship</h2><p class="im-p" style="text-align:center;">Every relationship begins with a step of faith and grows through presence, care and prayer.</p>
+    <div style="display:grid; grid-template-columns:repeat(7,1fr); gap:0.5rem; margin-top:1rem; text-align:center;" class="camp-grid">{steps.map(([i,t,d],k) => <div style="display:flex; flex-direction:column; align-items:center; gap:0.4rem;"><span style={`width:2rem; height:2rem; border-radius:50%; background:${['#16224a','#b97a14','#1f5a2e','#4b2a86','#16224a','#b97a14','#1f5a2e'][k]}; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700;`}>{k+1}</span><span style="width:5rem; height:5rem; border-radius:50%; border:1.5px solid #e0c08a; color:var(--color-navy); display:flex; align-items:center; justify-content:center;"><Icon name={i} size={36} /></span><strong style="font-family:var(--font-heading); color:var(--color-navy); text-transform:uppercase; font-weight:400; font-size:0.875rem;">{t}</strong><span style="font-size:0.75rem; line-height:1.45;">{d}</span></div>)}</div>
+  </div></section>
+  <HcWho leftTitle="We Walk Together" left={['You are never alone in this journey.','Your compassion makes a difference.','Your presence brings hope.','Your faith changes lives.','Your friendship restores dignity.']} leftNote="" img={img('how-walk')} rightTitle="Our Commitment to You" right={['We provide quality training and resources.','We ensure your safety and wellbeing.','We support you at every step.','We respect your time and circumstances.','We celebrate the impact you make.']} />
+  <HcIcons filled title="Our Promise to Those We Serve" items={[{ icon: 'user-shield', title: 'Dignity', text: 'We treat every person with dignity and respect.' },{ icon: 'lock', title: 'Confidentiality', text: 'We protect privacy and personal information.' },{ icon: 'hand-holding-heart', title: 'Compassion', text: 'We listen with love and respond with understanding.' },{ icon: 'hands-praying', title: 'Faith & Hope', text: 'We share hope through faith, encouragement and prayer.' },{ icon: 'people-group', title: 'Restoration', text: 'We believe in second chances and brighter futures.' }]} />
+  <HcOr leftTitle="Become a Companion" leftText="Give the gift of your time, friendship and faith. Walk alongside someone and be the reason someone finds hope again." rightTitle="Donate to Support<br/>the Program" rightText="Your donation helps provide phone calls, travel for visits, resources and support that make companionship possible." />
+  <HcStart />
+</Layout>

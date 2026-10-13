@@ -1,0 +1,18 @@
+---
+import Icon from './Icon.astro';
+interface Props { title?: string; first?: string; }
+const p = Astro.props;
+const cards = [
+  { bg: '#16224a', icon: 'people-group', t: p.first ?? 'Become a Hope Companion', d: 'Fill out our online application and start your journey.', c: 'Apply Now', h: '/programs/hope-companion/become-a-companion' },
+  { bg: '#b97a14', icon: 'hand-holding-heart', t: 'Donate Online', d: 'Your generosity helps bring hope and change lives.', c: 'Donate Now', h: '/donate' },
+  { bg: '#1f5a2e', icon: 'people-group', t: 'Support on GoFundMe', d: 'Support our mission through our active GoFundMe campaigns.', c: 'View Campaigns', h: 'https://www.gofundme.com' },
+  { bg: '#4b2a86', icon: 'hands-praying', t: 'Pray for Our Mission', d: 'Join us in prayer for prisoners, detainees and their families.', c: 'Pray With Us', h: '/get-involved/prayer-request' },
+  { bg: '#145a66', icon: 'hand-holding-heart', t: 'Volunteer', d: 'Share your time and skills in other meaningful ways.', c: 'Volunteer Now', h: '/get-involved/volunteer-program' },
+];
+---
+<section class="wrap" style="padding-bottom:1.25rem;">
+  {p.title && <h2 class="camp-h">{p.title}</h2>}
+  <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:0.6rem; margin-top:0.6rem;" class="camp-grid">
+    {cards.map(c => <a href={c.h} style={`background:${c.bg}; color:#fff; border-radius:6px; padding:1rem; display:flex; flex-direction:column; gap:0.5rem;`}><div style="display:grid; grid-template-columns:2.75rem 1fr; gap:0.6rem; align-items:center;"><Icon name={c.icon} size={36} /><strong style="font-family:var(--font-heading); text-transform:uppercase; font-weight:400; font-size:0.9375rem; line-height:1.2;">{c.t}</strong></div><span style="font-size:0.8125rem; line-height:1.45; flex:1;">{c.d}</span><span style="align-self:flex-start; background:#fff; color:var(--color-navy); border-radius:4px; padding:0.35rem 0.75rem; font-size:0.7rem; font-weight:700; text-transform:uppercase;">{c.c} ›</span></a>)}
+  </div>
+</section>

@@ -1,0 +1,40 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import HcHero from '../../../components/HcHero.astro';
+import HcOr from '../../../components/HcOr.astro';
+import HcStart from '../../../components/HcStart.astro';
+import HcIcons from '../../../components/HcIcons.astro';
+import HcWho from '../../../components/HcWho.astro';
+import HcJourneys from '../../../components/HcJourneys.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/hope-companion/${n}.jpg`;
+const Q = 'I was in prison and you visited me. I was in detention and you came to me. Thank you for bringing hope.';
+const doItems = [
+  { icon: 'hands-praying', title: 'Pray', text: 'Pray regularly for your companion and their family.' },
+  { icon: 'phone', title: 'Talk', text: 'Make phone calls where permitted to encourage and listen.' },
+  { icon: 'envelope', title: 'Write', text: 'Send letters and messages of hope and encouragement.' },
+  { icon: 'people-group', title: 'Visit', text: 'Visit in person periodically where permitted.' },
+  { icon: 'book-bible', title: 'Encourage', text: 'Share faith, send books and spiritual resources.' },
+  { icon: 'people-roof', title: 'Support', text: 'Uphold family connections and provide support.' },
+  { icon: 'heart', title: 'Restore Hope', text: 'Be a sign of hope, dignity and God’s unconditional love.' },
+];
+const who = ['Priests, Deacons and Religious','Chaplaincy Teams and Pastoral Workers','Trained and Approved Volunteers','People with a heart to serve and listen'];
+const receive = ['Full training and preparation','Ongoing support and supervision','Guidelines and resources','A community of fellow companions'];
+const steps = [['file-pen','Enroll','Complete the online application and express your interest in becoming a companion.'],['list-check','Screening','References, background checks and interviews to ensure we place the right people in this important role.'],['graduation-cap','Training','Complete the required training modules and safeguarding education (online and in-person).'],['people-group','Commissioning','Receive your companion welcome pack and be commissioned for the mission.'],['handshake','Ongoing Support','Access ongoing training, supervision, resources and a supportive community.'],['cross','Walking in Hope','Begin your journey as a Hope Companion and make a real difference.']];
+---
+<Layout title="Training & Safeguarding" description="Equipping hearts. Protecting dignity. Building trust.">
+  <HcHero title="Training &amp;<br/><span>Safeguarding</span>" sub="Equipping hearts. Protecting dignity.<br/>Building trust."
+    text={['All Hope Companions are equipped with the knowledge, skills and support they need to walk alongside prisoners and immigration detainees in a safe, respectful and compassionate way.']}
+    accent="We are committed to the highest standards of training, safeguarding and care."
+    img={img('tr-hero')} alt="An IICC Mission companion taking notes with a detainee" quote="I was a stranger and you welcomed me. I was in detention and you came to me. Thank you for bringing hope." quoteRef="Matthew 25:35" />
+  <HcIcons filled title="Training You Can Trust" items={[{ icon: 'book-open', title: 'Understand', text: 'Learn about the immigration detention system, the challenges people face and how to respond with empathy and respect.' },{ icon: 'hand-holding-heart', title: 'Communicate', text: 'Build skills in active listening, respectful communication and encouraging positive conversations.' },{ icon: 'shield-halved', title: 'Safety First', text: 'Learn how to maintain boundaries, protect yourself and others and follow all safeguarding standards.' },{ icon: 'brain', title: 'Trauma Aware', text: 'Understand the impact of trauma, mental health and crisis situations and how to respond appropriately.' },{ icon: 'scale-balanced', title: 'Ethics & Dignity', text: 'Uphold the dignity of every person, respect confidentiality and act with integrity in every interaction.' },{ icon: 'cross', title: 'Faith in Action', text: 'Be grounded in faith, prayer and the values that inspire our mission of hope, justice and restoration.' }]} />
+  <section class="wrap" style="padding-bottom:1rem;"><div style="display:grid; grid-template-columns:0.6fr 1fr 1fr 0.7fr; gap:1.25rem; align-items:center;" class="camp-grid">
+    <span style="color:var(--color-navy); justify-self:center;"><Icon name="shield-halved" size={130} /></span>
+    <div><h2 class="camp-h" style="text-align:left;">Our Safeguarding Commitment</h2><p style="font-family:var(--font-heading); color:var(--color-navy); font-size:1.125rem; line-height:1.4;">The safety, dignity and wellbeing of every person we accompany is at the heart of everything we do.</p><p class="im-p" style="font-size:0.9375rem; margin-top:0.5rem;">We follow strict safeguarding policies and procedures that meet best-practice standards. All companions are required to:</p></div>
+    <ul class="check">{['Complete mandatory training before starting','Agree to our Code of Conduct','Undergo reference and background checks','Follow confidentiality and privacy guidelines','Report any concerns immediately'].map(t => <li>{t}</li>)}</ul>
+    <div style="background:#f7f1e6; border-radius:4px; padding:1rem; display:grid; grid-template-columns:3rem 1fr; gap:0.75rem; align-items:center; font-family:var(--font-heading); color:var(--color-navy); font-size:0.9375rem;"><span style="color:#c9962a;"><Icon name="hand-holding-heart" size={40} /></span>We are committed to creating safe, respectful and welcoming spaces for all.</div>
+  </div></section>
+  <section class="wrap" style="padding-bottom:1rem;"><h2 class="camp-h">Your Training Journey</h2><div style="display:grid; grid-template-columns:repeat(6,1fr); gap:0.6rem; margin-top:0.75rem; text-align:center;" class="camp-grid">{steps.map(([i,t,d],k) => <div style="display:flex; flex-direction:column; align-items:center; gap:0.4rem;"><span style="width:1.9rem; height:1.9rem; border-radius:50%; background:var(--color-navy-dark); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700;">{k+1}</span><span style="width:5rem; height:5rem; border-radius:50%; border:1.5px solid #e0c08a; color:var(--color-navy); display:flex; align-items:center; justify-content:center;"><Icon name={i} size={36} /></span><strong style="font-family:var(--font-heading); color:var(--color-navy); text-transform:uppercase; font-weight:400; font-size:0.9375rem;">{t}</strong><span style="font-size:0.8125rem; line-height:1.4;">{d}</span></div>)}</div></section>
+  <HcOr leftTitle="Become a Hope Companion" leftText="Get the training, support and resources you need to walk alongside someone and bring hope into their journey." rightTitle="Donate to Support<br/>Training &amp; Safeguarding" rightText="Your donation helps us provide quality training, safeguarding resources and ongoing support for our companions." />
+  <HcStart first="Become a Companion" />
+</Layout>

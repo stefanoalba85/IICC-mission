@@ -1,0 +1,46 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import HcHero from '../../../components/HcHero.astro';
+import HcOr from '../../../components/HcOr.astro';
+import HcStart from '../../../components/HcStart.astro';
+import HcIcons from '../../../components/HcIcons.astro';
+import HcWho from '../../../components/HcWho.astro';
+import HcJourneys from '../../../components/HcJourneys.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/hope-companion/${n}.jpg`;
+const Q = 'I was in prison and you visited me. I was in detention and you came to me. Thank you for bringing hope.';
+const doItems = [
+  { icon: 'hands-praying', title: 'Pray', text: 'Pray regularly for your companion and their family.' },
+  { icon: 'phone', title: 'Talk', text: 'Make phone calls where permitted to encourage and listen.' },
+  { icon: 'envelope', title: 'Write', text: 'Send letters and messages of hope and encouragement.' },
+  { icon: 'people-group', title: 'Visit', text: 'Visit in person periodically where permitted.' },
+  { icon: 'book-bible', title: 'Encourage', text: 'Share faith, send books and spiritual resources.' },
+  { icon: 'people-roof', title: 'Support', text: 'Uphold family connections and provide support.' },
+  { icon: 'heart', title: 'Restore Hope', text: 'Be a sign of hope, dignity and God’s unconditional love.' },
+];
+const who = ['Priests, Deacons and Religious','Chaplaincy Teams and Pastoral Workers','Trained and Approved Volunteers','People with a heart to serve and listen'];
+const receive = ['Full training and preparation','Ongoing support and supervision','Guidelines and resources','A community of fellow companions'];
+const stories = [
+  ['st-1','user','#16224a','From Broken to Hopeful','After years of making wrong choices, I lost everything. Through the Hope Companion Program, I found someone who believed in me, listened to me and showed me I was still worth something.','Michael, Prisoner','Read Michael’s Story'],
+  ['st-2','hand-holding-heart','#b97a14','A New Start After Detention','I was afraid, alone and didn’t know what the future held. My Hope Companion walked with me, helped me find resources and reminded me that I am not forgotten.','Ana, Detainee','Read Ana’s Story'],
+  ['st-3','seedling','#1f5a2e','Faith, Friendship and a Second Chance','A kind letter. A phone call. A visit. These small acts of kindness gave me the strength to change my life. Today, I mentor others.','James, Former Prisoner','Read James’ Story'],
+  ['st-4','people-roof','#4b2a86','Healing for the Whole Family','The Hope Companion Program didn’t just help my brother in prison, it helped our whole family heal, connect and believe in a better future.','Sofia, Family Member','Read Sofia’s Story'],
+];
+---
+<Layout title="Hope Companion Stories" description="Real lives. Real journeys. Real transformation.">
+  <HcHero title="Stories of<br/><span>Hope</span>" sub="Real lives. Real journeys.<br/>Real transformation."
+    text={['Behind every life is a story. These are stories of prisoners and immigration detainees who found hope, support and a second chance through the compassion of our Hope Companions.']}
+    accent="Hope is real. Change is possible.<br/>You can be part of the story."
+    img={img('st-hero')} alt="An IICC Mission companion smiling at an inmate" quote={Q} quoteRef="Matthew 25:36" />
+  <section class="wrap" style="padding-block:1rem;"><h2 class="camp-h">Journeys of Transformation</h2><div style="display:grid; grid-template-columns:repeat(4,1fr); gap:0.75rem; margin-top:0.75rem;" class="camp-grid">
+    {stories.map(([p,i,c,t,d,by,cta]) => <article style="border:1px solid #e3e3ea; border-radius:6px; padding:0.75rem; text-align:center; display:flex; flex-direction:column; gap:0.5rem;"><div style="position:relative;"><img src={img(p)} alt="" style="width:100%; aspect-ratio:208/105; object-fit:cover; border-radius:2px;" /><span style={`position:absolute; left:50%; bottom:-1.6rem; transform:translateX(-50%); width:3.25rem; height:3.25rem; border-radius:50%; background:${c}; color:#fff; border:2px solid #fff; display:flex; align-items:center; justify-content:center;`}><Icon name={i} size={24} /></span></div><h3 class="im-h" style="margin-top:1.75rem; font-size:1rem;">{t}</h3><p style="font-size:0.8125rem; line-height:1.5; color:var(--color-navy); flex:1;">{d}</p><span style="color:#b8892b; font-family:var(--font-heading);">– {by}</span><a href="/get-involved/submit-your-story" style={`background:${c}; color:#fff; border-radius:4px; padding:0.5rem; font-size:0.8125rem; text-transform:uppercase; font-weight:700;`}>{cta} ›</a></article>)}
+  </div></section>
+  <section class="wrap" style="padding-bottom:1rem;"><div style="background:#f8f8f8; border-radius:4px; padding:1rem;"><h2 class="camp-h">Our Impact Together</h2><div class="camp-trio" style="margin-top:0.75rem;">{[['people-group','1,000+','Companions trained','#16224a'],['hand-holding-heart','5,000+','Lives impacted','#b97a14'],['phone','25,000+','Calls, letters and visits','#1f5a2e'],['church','150+','Parishes and communities involved','#4b2a86'],['globe','6','Countries reached','#16224a'],['person-walking','∞','Countless stories. One mission: restoring hope.','#b97a14']].map(([i,n,t,c]) => <div><span style={`width:3.75rem; height:3.75rem; border-radius:50%; background:${c}; color:#fff; display:flex; align-items:center; justify-content:center;`}><Icon name={i} size={28} /></span><strong style="font-size:1.375rem; text-transform:none;">{n}</strong><span>{t}</span></div>)}</div></div></section>
+  <section class="wrap" style="padding-bottom:1rem;"><div style="background:var(--color-navy-dark); color:#fff; border-radius:6px; display:grid; grid-template-columns:1.3fr 0.6fr 1.2fr; align-items:center; overflow:hidden;" class="camp-grid">
+    <p style="padding:1.25rem 1.5rem; font-family:var(--font-heading); font-size:1.125rem; line-height:1.45;"><span style="color:#d9a540; font-size:2.5rem; line-height:0.5;">&ldquo;</span> Knowing someone cared enough to reach out gave me the courage to keep going.<span style="display:block; color:#d9a540; margin-top:0.4rem;">– Story shared by a participant</span></p>
+    <img src={img('st-candle')} alt="Hands holding a lit candle" style="width:100%; height:100%; object-fit:cover; -webkit-mask-image:linear-gradient(90deg,transparent,#000 30%,#000 70%,transparent); mask-image:linear-gradient(90deg,transparent,#000 30%,#000 70%,transparent);" />
+    <p style="padding:1.25rem 1.5rem; font-family:var(--font-heading); font-size:1.1875rem; line-height:1.45;">Every story of hope begins with someone who chooses to care.<span style="display:block; color:#d9a540; font-size:1.375rem;">Will you be that someone?</span></p>
+  </div></section>
+  <HcOr leftTitle="Become a Hope Companion" leftText="Be the reason someone finds hope. Your time, your compassion, your presence can change a life." rightTitle="Donate to Support<br/>More Stories of Hope" rightText="Your donation helps us reach more people, provide support and restore lives." />
+  <HcStart />
+</Layout>

@@ -1,0 +1,41 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import HcHero from '../../../components/HcHero.astro';
+import HcOr from '../../../components/HcOr.astro';
+import HcStart from '../../../components/HcStart.astro';
+import HcIcons from '../../../components/HcIcons.astro';
+import HcWho from '../../../components/HcWho.astro';
+import HcJourneys from '../../../components/HcJourneys.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/hope-companion/${n}.jpg`;
+const Q = 'I was in prison and you visited me. I was in detention and you came to me. Thank you for bringing hope.';
+const doItems = [
+  { icon: 'hands-praying', title: 'Pray', text: 'Pray regularly for your companion and their family.' },
+  { icon: 'phone', title: 'Talk', text: 'Make phone calls where permitted to encourage and listen.' },
+  { icon: 'envelope', title: 'Write', text: 'Send letters and messages of hope and encouragement.' },
+  { icon: 'people-group', title: 'Visit', text: 'Visit in person periodically where permitted.' },
+  { icon: 'book-bible', title: 'Encourage', text: 'Share faith, send books and spiritual resources.' },
+  { icon: 'people-roof', title: 'Support', text: 'Uphold family connections and provide support.' },
+  { icon: 'heart', title: 'Restore Hope', text: 'Be a sign of hope, dignity and God’s unconditional love.' },
+];
+const who = ['Priests, Deacons and Religious','Chaplaincy Teams and Pastoral Workers','Trained and Approved Volunteers','People with a heart to serve and listen'];
+const receive = ['Full training and preparation','Ongoing support and supervision','Guidelines and resources','A community of fellow companions'];
+---
+<Layout title="Hope Companion Program" description="Building a future of hope. No one should face their journey alone.">
+  <HcHero title="Building a<br/>Future of<br/><span style='font-size:1.35em'>Hope</span>" sub="No one should face their journey alone. Together, we can bring hope, dignity and restoration."
+    text={['Through friendship, prayer, phone calls and visits, our Hope Companions walk alongside prisoners and immigration detainees, reminding them that they are valued, loved and never forgotten.']}
+    img={img('main-hero')} alt="A priest smiling across a table at an inmate" quote={Q} quoteRef="Matthew 25:36" />
+  <HcOr leftTitle="Become a<br/>Hope Companion" leftText="Give the gift of your time, friendship and faith. Walk alongside a prisoner or detainee through prayer, phone calls, letters and visits." leftCta="Become a Companion" rightTitle="Donate to<br/>Support the Program" rightText="Your donation helps us provide phone calls, travel for visits, training, books, letters, support packs and resources that bring hope and dignity." />
+  <HcIcons title="What Hope Companions Do" items={doItems} />
+  <HcWho leftTitle="Who Can Be a Companion?" left={who} leftNote="Full training and safeguarding provided." img={img('main-who')}>
+    <h2 class="im-h" style="font-size:1.125rem;">Our Impact</h2>
+    <div class="camp-trio" style="margin-top:0.75rem;">{[['people-group','Lives Touched','Every day','#16224a'],['heart','Hope Restored','One person at a time','#b97a14'],['globe','Communities Strengthened','Together','#16224a'],['cross','Futures Transformed','Through love and faith','#1f5a2e']].map(([i,t,d,c]) => <div><span style={`width:3.5rem; height:3.5rem; border-radius:50%; background:${c}; color:#fff; display:flex; align-items:center; justify-content:center;`}><Icon name={i} size={26} /></span><strong style="text-transform:none; font-size:0.875rem;">{t}</strong><span>{d}</span></div>)}</div>
+  </HcWho>
+  <section class="wrap" style="padding-bottom:1rem;"><div style="background:var(--color-navy-dark); color:#fff; border-radius:6px; display:grid; grid-template-columns:5rem 1.6fr 1fr 5rem; gap:1.25rem; align-items:center; padding:1.1rem 1.5rem;" class="camp-grid">
+    <span style="color:#d9a540;"><Icon name="cross" size={56} /></span>
+    <p style="font-family:var(--font-heading); font-style:italic; font-size:1.125rem; line-height:1.45;">Truly I tell you, whatever you did for one of the least of these brothers and sisters of mine, you did for me.<span style="display:block; color:#d9a540; font-style:normal;">– Matthew 25:40</span></p>
+    <p style="font-family:var(--font-heading); font-style:italic; font-size:1.125rem; line-height:1.5; border-left:1px solid rgba(255,255,255,0.3); padding-left:1.25rem;">Accompanying.<br />Empowering.<br />Restoring Hope.</p>
+    <span><Icon name="dove" size={60} /></span>
+  </div></section>
+  <HcStart title="Get Started Today" />
+</Layout>

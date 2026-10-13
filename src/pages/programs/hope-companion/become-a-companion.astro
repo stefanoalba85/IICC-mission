@@ -1,0 +1,38 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import HcHero from '../../../components/HcHero.astro';
+import HcOr from '../../../components/HcOr.astro';
+import HcStart from '../../../components/HcStart.astro';
+import HcIcons from '../../../components/HcIcons.astro';
+import HcWho from '../../../components/HcWho.astro';
+import HcJourneys from '../../../components/HcJourneys.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/hope-companion/${n}.jpg`;
+const Q = 'I was in prison and you visited me. I was in detention and you came to me. Thank you for bringing hope.';
+const doItems = [
+  { icon: 'hands-praying', title: 'Pray', text: 'Pray regularly for your companion and their family.' },
+  { icon: 'phone', title: 'Talk', text: 'Make phone calls where permitted to encourage and listen.' },
+  { icon: 'envelope', title: 'Write', text: 'Send letters and messages of hope and encouragement.' },
+  { icon: 'people-group', title: 'Visit', text: 'Visit in person periodically where permitted.' },
+  { icon: 'book-bible', title: 'Encourage', text: 'Share faith, send books and spiritual resources.' },
+  { icon: 'people-roof', title: 'Support', text: 'Uphold family connections and provide support.' },
+  { icon: 'heart', title: 'Restore Hope', text: 'Be a sign of hope, dignity and God’s unconditional love.' },
+];
+const who = ['Priests, Deacons and Religious','Chaplaincy Teams and Pastoral Workers','Trained and Approved Volunteers','People with a heart to serve and listen'];
+const receive = ['Full training and preparation','Ongoing support and supervision','Guidelines and resources','A community of fellow companions'];
+---
+<Layout title="Become a Hope Companion" description="One person. One friendship. One life changed.">
+  <HcHero title="Become a<br/><span>Hope Companion</span>" sub="One person. One friendship.<br/>One life changed."
+    text={['As a Hope Companion, you will walk alongside a prisoner or immigration detainee, offering friendship, faith and encouragement. Your presence can bring hope, restore dignity and remind them they are not forgotten.']}
+    accent="Be the reason someone believes in hope again."
+    buttons={[{ label: 'Apply Now', href: '/get-involved/volunteer-application' }, { label: 'Download Application', href: '/resources/download-guides', outline: true }]}
+    img={img('bec-hero')} alt="A priest speaking by phone with an inmate through the glass" quote={Q} quoteRef="Matthew 25:36" />
+  <HcIcons title="What Does a Hope Companion Do?" items={doItems} />
+  <HcWho leftTitle="Who Can Become a Hope Companion?" left={who} leftNote="No special qualifications are needed—just a compassionate heart and a willingness to be present." img={img('bec-who')} rightTitle="You Will Receive" right={receive} rightNote="You won’t walk this journey alone.<br/>We are with you every step of the way." />
+  <section class="wrap" style="padding-bottom:1rem;"><div style="display:grid; grid-template-columns:repeat(3,1fr); background:#f8f8f8; border-radius:4px; padding:1.25rem;" class="camp-grid">
+    {[['calendar-check','The Commitment','We ask for a minimum commitment of 6 months, with regular contact through prayer, calls, letters and visits (where permitted).','#16224a'],['heart','You Can Make a Difference','Your time, presence and friendship can bring light into the darkest places and help transform lives.','#b97a14'],['shield-halved','Safety & Integrity','All companions are required to complete training, screening and follow safeguarding and institutional policies at all times.','#16224a']].map(([i,t,d,c]) => <div style="display:grid; grid-template-columns:4.5rem 1fr; gap:1rem; padding-inline:1rem; border-left:1px solid rgba(201,150,42,0.4);"><span style={`width:4.5rem; height:4.5rem; border-radius:50%; background:${c}; color:#fff; display:flex; align-items:center; justify-content:center;`}><Icon name={i} size={34} /></span><div><h3 class="im-h" style="font-size:1rem;">{t}</h3><p class="im-p" style="font-size:0.875rem; margin-top:0.3rem;">{d}</p></div></div>)}
+  </div></section>
+  <HcOr leftTitle="Become a Hope Companion" leftText="Give the gift of your time, friendship and faith. Walk alongside a prisoner or detainee and bring hope." rightTitle="Donate to<br/>Support Companions" rightText="Your donation helps provide phone calls, travel for visits, training, books, letters and resources that bring hope." />
+  <HcJourneys items={[['My companion showed me I was not forgotten. His letters gave me strength every day.','Prisoner'],['The calls with my companion help me stay positive and closer to my family.','Detainee'],['This ministry changed my life too. I’ve found purpose in serving others.','Volunteer Companion'],['Hope is not just a feeling. It’s knowing someone believes in you.','Prisoner']]} />
+  <HcStart />
+</Layout>
