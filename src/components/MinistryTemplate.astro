@@ -123,7 +123,7 @@ const img = (n: string) => `/images/prison-ministry/${p.dir}/${n}.jpg`;
         <img src="/IICC_Logo_main.png" alt="IICC Mission" />
         <div>
           {p.kicker && <p class="pm-kicker" set:html={p.kicker} />}
-          <h1 class="pm-title"><Fragment set:html={p.title} /><span set:html={p.titleAccent} /></h1>
+          <h1 class="pm-title">{p.title && <Fragment set:html={p.title} />}<span set:html={p.titleAccent} /></h1>
           <p class="pm-sub">{p.subtitle}</p>
         </div>
       </div>

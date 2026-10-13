@@ -1,0 +1,52 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import MinistryTemplate from '../../../components/MinistryTemplate.astro';
+---
+<Layout title="Immigration Detention Resources" description="Information. Support. Hope for a Brighter Tomorrow.">
+  <MinistryTemplate
+    dir="imm-resources"
+    kicker="Immigration Detention Ministry"
+    title="" titleAccent="Resources"
+    subtitle="Information. Support. Hope for a Brighter Tomorrow."
+    intro={['The IICC Mission provides practical resources to help individuals in immigration detention and their families understand their rights, access support services, and navigate the challenges of the detention system with dignity, hope and informed decision-making.']}
+    heroQuote="I was a stranger and you welcomed me." heroQuoteRef="Matthew 25:35"
+    heroAlt="A priest taking notes with an immigration detainee"
+    bandTitle="Key Resources We Provide"
+    bandIntro="We offer clear, reliable and easy-to-understand resources to help individuals and families during the immigration detention process."
+    band={[
+      { icon: 'file-lines', title: 'Know Your Rights', text: 'Information on your rights while in detention and during the immigration process.' },
+      { icon: 'people-group', title: 'Support Services', text: 'Links to legal aid, community organisations, healthcare, mental health support and other essential services.' },
+      { icon: 'book-open', title: 'Educational Materials', text: 'Guides and resources in simple language to help you understand procedures, timelines and options.' },
+      { icon: 'comments', title: 'Multilingual Resources', text: 'Information and materials in multiple languages to ensure accessibility for all.' },
+      { icon: 'laptop', title: 'Helpful Links', text: 'A curated list of trusted organisations, hotlines and official information sources.' },
+    ]}
+    leftTitle="What We Offer"
+    left={[
+      { icon: 'book-open', title: 'Information Guides', text: 'Easy-to-read resources on detention, visa processes, appeals and release options.' },
+      { icon: 'gavel', title: 'Legal Referrals', text: 'Connection to trusted legal professionals and migration support services.' },
+      { icon: 'heart', title: 'Mental Health Resources', text: 'Information on counselling, wellbeing and emotional support while in detention.' },
+      { icon: 'people-roof', title: 'Family Support', text: 'Guidance and resources for family members to stay connected and support their loved ones.' },
+      { icon: 'globe', title: 'Multiple Languages', text: 'Resources available in different languages to ensure everyone can access the information they need.' },
+    ]}
+    centerQuote="Knowledge gives courage. Information gives hope. Support creates change." centerRef="IICC Mission"
+    rightTitle="You Are Not Alone"
+    right={[
+      { icon: 'heart', title: 'We Listen', text: 'Your story matters.' },
+      { icon: 'people-group', title: 'We Inform', text: 'We provide clear and reliable information.' },
+      { icon: 'cross', title: 'We Support', text: 'We walk with you on your journey.' },
+      { icon: 'book-open', title: 'We Empower', text: 'Knowledge helps you make informed decisions.' },
+      { icon: 'dove', title: 'We Believe', text: 'Every person has dignity, rights and a brighter future.' },
+    ]}
+    box={['Information today.', 'Greater hope tomorrow.']} boxAccent="Together, we can build brighter futures."
+    stripTitle="Real Resources. Real Impact."
+    strip={[
+      { title: 'Greater Understanding', text: 'Clear information reduces fear and confusion.' },
+      { title: 'Better Decisions', text: 'Knowledge helps individuals and families make informed choices.' },
+      { title: 'Stronger Families', text: 'Resources help families stay connected and supported.' },
+      { title: 'More Access', text: 'Linking to essential services and trusted professionals.' },
+      { title: 'A Brighter Tomorrow', text: 'Information, support and compassion create new opportunities.' },
+    ]}
+    supportTitle="Help us provide resources, support and hope." supportText="Together, we can accompany more people toward a brighter tomorrow."
+    supportCta="Get Involved Today"
+  />
+</Layout>

@@ -1,0 +1,63 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import MinHero from '../../../components/MinHero.astro';
+import MinBand from '../../../components/MinBand.astro';
+import ImQuoteCta from '../../../components/ImQuoteCta.astro';
+import ImStrip from '../../../components/ImStrip.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/immigration/faith/${n}.jpg`;
+const cols = [
+  { t: 'We Bring Christ to You', d: 'Through visits, letters, phone calls, and spiritual resources, we remind you that you are loved by God and never forgotten.' },
+  { t: 'A Faith That Gives Strength', d: 'Our faith helps us find peace in difficult times, forgiveness in our hearts, and the courage to hope for a new beginning.' },
+  { t: 'Together in Prayer', d: 'We pray for you, your families, and all those walking the path of healing, restoration, and reintegration.' },
+];
+const approach = [
+  { icon: 'user', t: 'We respect every person’s dignity as a child of God.' },
+  { icon: 'heart', t: 'We listen with compassion and without judgment.' },
+  { icon: 'cross', t: 'We accompany you on your journey of faith and healing.' },
+  { icon: 'dove', t: 'We promote hope, forgiveness, and reconciliation.' },
+  { icon: 'hand-holding-heart', t: 'We believe in second chances and the power of God’s love.' },
+];
+const offer = [
+  { icon: 'book-bible', t: 'Daily prayers and reflections' }, { icon: 'book-bible', t: 'Catholic Bibles and spiritual books' },
+  { icon: 'cross', t: 'Rosaries, prayer cards, and devotionals' }, { icon: 'envelope', t: 'Pastoral letters and messages' },
+  { icon: 'phone', t: 'Phone calls and video messages of encouragement' }, { icon: 'wine-glass', t: 'Mass intentions for you and your loved ones' },
+];
+const sacr = [
+  { icon: 'church', t: 'Holy Mass' }, { icon: 'people-arrows', t: 'Confession (Reconciliation)' }, { icon: 'wine-glass', t: 'Holy Communion' },
+  { icon: 'hand-holding-medical', t: 'Anointing of the Sick' }, { icon: 'droplet', t: 'Baptism (where possible)' }, { icon: 'dove', t: 'Confirmation preparation' }, { icon: 'user', t: 'Spiritual guidance and counsel' },
+];
+---
+<Layout title="Faith & Pastoral Care in Detention" description="Encounter Christ. Experience Hope.">
+  <MinHero title="Faith &amp;<br/><span>Pastoral<br/>Care</span>" subtitle="Encounter Christ.<br/>Experience Hope."
+    intro={['We provide spiritual care, pastoral accompaniment, and opportunities to grow in faith for inmates, detainees, and their families.']}
+    img={img('hero')} alt="Priests offering pastoral care to a young woman"
+    quote="I was in prison and you visited me… Whatever you did for one of the least of these brothers and sisters of mine, you did for me." quoteRef="Matthew 25:36, 40" />
+  <MinBand title="We Are Here to Walk With You in Faith"
+    intro="Our pastoral care is rooted in the love of Christ and the teachings of the Catholic Church. We are here to listen, pray, encourage, and support you on your faith journey."
+    items={[
+      { icon: 'hands-praying', title: 'Spiritual Accompaniment', text: 'One-on-one pastoral support to help you grow in faith, find hope, and face life’s challenges.' },
+      { icon: 'book-bible', title: 'Scripture & Reflection', text: 'We share the Word of God and help you reflect on Scripture and its meaning in your life.' },
+      { icon: 'church', title: 'Sacraments & Prayer', text: 'Access to the Sacraments, prayer, Holy Mass, Eucharistic Adoration, and the healing power of God’s grace.' },
+      { icon: 'people-group', title: 'Pastoral Visits', text: 'We visit inmates and detainees, listen with compassion, and bring the presence of Christ to you.' },
+      { icon: 'hand-holding-heart', title: 'Faith Formation', text: 'Programs and materials to help you deepen your understanding of the Catholic faith.' },
+      { icon: 'people-roof', title: 'Family Ministry', text: 'We support families with prayer, encouragement, and spiritual resources to stay strong in faith together.' },
+    ]} />
+  <section class="im-cols">{cols.map((c, i) => <div><h2 class="im-h">{c.t}</h2><img src={img(`c${i + 1}`)} alt="" /><p class="im-p">{c.d}</p></div>)}</section>
+  <section class="wrap im-panels im-panels--4">
+    <div class="im-panel"><h2 class="im-h im-h--center">Our Pastoral Approach</h2>{approach.map(r => <div class="im-row" style="align-items:center;"><i><Icon name={r.icon} size={20} /></i><p>{r.t}</p></div>)}</div>
+    <div class="im-panel"><h2 class="im-h im-h--center">We Offer</h2>{offer.map(r => <div class="im-row" style="grid-template-columns:2.25rem 1fr; align-items:center;"><i style="width:2.25rem; height:2.25rem;"><Icon name={r.icon} size={16} /></i><p>{r.t}</p></div>)}</div>
+    <div class="im-panel"><h2 class="im-h im-h--center">Sacraments &amp; Spiritual Support</h2>{sacr.map(r => <div class="im-row" style="grid-template-columns:2.25rem 1fr; align-items:center; margin-top:0.5rem;"><i style="width:2.25rem; height:2.25rem;"><Icon name={r.icon} size={16} /></i><p>{r.t}</p></div>)}</div>
+    <div class="im-panel"><h2 class="im-h im-h--center">You Are Not Alone</h2><p class="im-p" style="margin-top:0.5rem;">No matter where you are on your journey, God is with you. We are here to remind you of His love and mercy.</p>
+      <div class="im-note" style="background:#efe6d4; border:none;"><span style="color:var(--color-navy);"><Icon name="cross" size={40} /></span><span style="font-size:0.9375rem;">The Lord is close to the brokenhearted and saves those who are crushed in spirit.<br /><span style="color:#b8892b;">– Psalm 34:18</span></span></div>
+      <p class="im-p" style="margin-top:0.75rem;">We walk with you in faith, hope, and love.</p></div>
+  </section>
+  <ImQuoteCta quote="I can do all things through him who strengthens me." ref="Philippians 4:13" cta="Let Christ Be Your Hope Today" sub="We are here to pray with you and for you." href="/get-involved/prayer-request" />
+  <ImStrip items={[
+    { icon: 'hand-holding-heart', title: 'We Pray for You', text: 'You are always in our prayers.' },
+    { icon: 'comment-dots', title: 'We Listen to You', text: 'Your story matters. We are here to hear you.' },
+    { icon: 'people-arrows', title: 'We Walk With You', text: 'You are not alone. We are with you.' },
+    { icon: 'dove', title: 'We Bring Hope', text: 'There is hope in Christ. There is a future.' },
+    { icon: 'hand-holding-heart', title: 'Together in Christ', text: 'We are one family in faith and love.' },
+  ]} />
+</Layout>

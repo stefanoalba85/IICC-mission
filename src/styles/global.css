@@ -607,6 +607,13 @@
     .im-strip .wrap > div { border-right: none; }
   }
 
+  .im-cols { display: grid; grid-template-columns: repeat(3, 1fr); background: #f6f4ef; }
+  .im-cols > div { padding: 1rem 1.25rem; border-right: 1px solid rgba(184,137,43,0.4); text-align: center; display: flex; flex-direction: column; gap: 0.6rem; }
+  .im-cols > div:last-child { border-right: none; }
+  .im-cols img { width: 100%; aspect-ratio: 300 / 195; object-fit: cover; border-radius: 6px; }
+  .im-panels--4 { grid-template-columns: repeat(4, 1fr); }
+  @media (max-width: 900px) { .im-cols, .im-panels--4 { grid-template-columns: 1fr; } .im-cols > div { border-right: none; } }
+
   /* ─── CARDS ──────────────────────────────── */
   .card {
     background: #fff;

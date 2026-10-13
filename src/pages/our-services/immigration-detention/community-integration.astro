@@ -1,0 +1,57 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import MinHero from '../../../components/MinHero.astro';
+import MinBand from '../../../components/MinBand.astro';
+import ImQuoteCta from '../../../components/ImQuoteCta.astro';
+import ImStrip from '../../../components/ImStrip.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/immigration/community/${n}.jpg`;
+const supportTo = [
+  { icon: 'heart', t: 'Rebuild your life with purpose' }, { icon: 'briefcase', t: 'Find meaningful employment' },
+  { icon: 'people-roof', t: 'Strengthen family relationships' }, { icon: 'cross', t: 'Grow in faith and hope' }, { icon: 'hand-holding-heart', t: 'Give back and inspire others' },
+];
+const partners = [
+  { icon: 'church', t: 'Catholic Parishes & Ministries' }, { icon: 'briefcase', t: 'Employers & Training Partners' }, { icon: 'house', t: 'Housing & Social Services' },
+  { icon: 'people-group', t: 'Counselors & Support Groups' }, { icon: 'heart-pulse', t: 'Health & Wellness Providers' },
+];
+const make = [
+  { icon: 'people-group', t: 'Volunteer your time' }, { icon: 'handshake', t: 'Mentor and encourage' }, { icon: 'briefcase', t: 'Provide job opportunities' },
+  { icon: 'heart', t: 'Donate to support programs' }, { icon: 'hands-praying', t: 'Pray for our mission' },
+];
+---
+<Layout title="Community Integration" description="New Beginnings. Stronger Together. Building a Better Future.">
+  <MinHero title="Community<br/><span>Integration</span>" subtitle="New Beginnings.<br/>Stronger Together.<br/>Building a Better Future."
+    intro={['We walk alongside inmates and detainees as they return to their communities—offering support, opportunities, and hope for a life of purpose, dignity, and belonging.']}
+    img={img('hero')} alt="A priest shaking hands with a young man outside a community centre"
+    quote="Therefore, if anyone is in Christ, the new creation has come: The old has gone, the new is here!" quoteRef="2 Corinthians 5:17" />
+  <MinBand title="We Are Here to Help You Rebuild and Thrive"
+    intro="Our community integration programs provide guidance, resources, and encouragement to help you successfully reintegrate, reconnect, and reach your full potential."
+    items={[
+      { icon: 'handshake', title: 'Welcome & Support', text: 'A caring welcome, personal support, and a safe place to start again.' },
+      { icon: 'stairs', title: 'Life Skills & Guidance', text: 'Practical life skills, mentoring, and coaching to help you move forward with confidence.' },
+      { icon: 'briefcase', title: 'Employment & Education', text: 'Job readiness, training, education, and career support to build a brighter future.' },
+      { icon: 'house', title: 'Housing Assistance', text: 'Help in finding safe, stable housing and support for independent living.' },
+      { icon: 'hand-holding-heart', title: 'Mental Health & Wellbeing', text: 'Counseling, support groups, and holistic care for emotional healing and wellbeing.' },
+      { icon: 'people-roof', title: 'Community Connection', text: 'Building positive relationships and reconnecting you with your community and faith.' },
+    ]} />
+  <section class="im-cols">
+    <div><h2 class="im-h">We Walk With You Every Step</h2><img src={img('c1')} alt="" /><p class="im-p">You are not defined by your past. You are defined by your future. Together, we build new beginnings.</p></div>
+    <div style="text-align:left;"><h2 class="im-h im-h--center">Our Support Includes</h2><ul class="im-check">
+      <li>Personal case management</li><li>Individual reintegration plans</li><li>Budgeting and financial literacy</li><li>Identification &amp; documentation support</li><li>Transportation assistance</li><li>Family reunification support</li><li>Health and wellness referrals</li><li>Ongoing mentorship and encouragement</li><li>Connection to faith communities</li><li>Advocacy and rights education</li></ul></div>
+    <div><h2 class="im-h">A New Chapter, A New Purpose</h2><img src={img('c3')} alt="" /><p class="im-p">With support, opportunity, and faith, transformation is possible. You can rebuild. You can belong. You can thrive.</p></div>
+  </section>
+  <section class="wrap im-panels im-panels--4">
+    <div class="im-panel"><h2 class="im-h im-h--center">We Support You To</h2>{supportTo.map(r => <div class="im-row" style="grid-template-columns:2.25rem 1fr; align-items:center;"><i style="width:2.25rem; height:2.25rem;"><Icon name={r.icon} size={16} /></i><p>{r.t}</p></div>)}<p class="im-p" style="text-align:center; margin-top:0.75rem;">You have gifts. You have purpose. Your community needs you.</p></div>
+    <div class="im-panel"><h2 class="im-h im-h--center">Partners in Your Journey</h2><p class="im-p" style="margin-top:0.5rem; font-size:0.9375rem;">We collaborate with local parishes, agencies, employers, and organizations to create pathways to lasting change.</p>{partners.map(r => <div class="im-row" style="grid-template-columns:1.75rem 1fr; align-items:center; margin-top:0.5rem;"><span style="color:var(--color-navy);"><Icon name={r.icon} size={18} /></span><p>{r.t}</p></div>)}</div>
+    <div class="im-panel" style="text-align:center;"><h2 class="im-h">Stories of Hope</h2><p class="im-p" style="margin-top:0.5rem;">“The IICC Mission believed in me when I didn’t believe in myself. They helped me find a job, reconnect with my family, and most importantly, find my faith again. Today, I give back and help others on their journey.”</p><p class="im-p" style="margin-top:0.5rem;">– A Community Member</p></div>
+    <div class="im-panel"><h2 class="im-h im-h--center">You Can Make a Difference</h2><p class="im-p" style="margin-top:0.5rem; font-size:0.9375rem;">Your support helps provide the resources, programs, and opportunities that change lives.</p>{make.map(r => <div class="im-row" style="grid-template-columns:1.75rem 1fr; align-items:center; margin-top:0.5rem;"><span style="color:var(--color-navy);"><Icon name={r.icon} size={18} /></span><p>{r.t}</p></div>)}</div>
+  </section>
+  <ImQuoteCta quote="Do not conform to the pattern of this world, but be transformed by the renewing of your mind." ref="Romans 12:2" cta="A New Beginning Starts Today" sub="Let us walk with you. You are not alone." />
+  <ImStrip items={[
+    { icon: 'people-group', title: 'We Believe', text: 'Everyone deserves a second chance.' },
+    { icon: 'heart', title: 'We Empower', text: 'We provide the tools to build a better future.' },
+    { icon: 'people-arrows', title: 'We Walk Together', text: 'We journey with you every step of the way.' },
+    { icon: 'dove', title: 'We Bring Hope', text: 'Hope restores. Hope transforms.' },
+    { icon: 'hand-holding-heart', title: 'We Build Communities', text: 'Stronger communities change lives.' },
+  ]} />
+</Layout>
