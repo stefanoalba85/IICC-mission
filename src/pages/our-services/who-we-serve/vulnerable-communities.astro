@@ -1,0 +1,27 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import ServeTemplate from '../../../components/ServeTemplate.astro';
+const img = (n: string) => `/images/who-we-serve/${n}.jpg`;
+---
+<Layout title="Vulnerable Communities" description="Standing with those on the margins of our society.">
+  <ServeTemplate
+    title="Vulnerable" titleAccent="Communities"
+    lead="Standing with those on the margins of our society."
+    text="The IICC Mission supports people and communities experiencing social, economic and personal vulnerability, offering practical assistance, compassion and pathways toward greater stability, dignity and hope."
+    heroImg={img('vul-hero')} heroAlt="A volunteer offering a hot drink to a homeless man"
+    reality="Vulnerable communities include individuals and families facing homelessness, poverty, social isolation, migration challenges, mental health struggles, addiction, or other difficult life circumstances. They often experience exclusion and lack access to basic support and opportunities."
+    quote="Whatever you did for one of the least of these brothers and sisters of mine, you did for me." quoteRef="Matthew 25:40" realityImg={img('vul-reality')}
+    supportIntro="Through compassion, practical assistance and partnership, the IICC Mission provides:"
+    support={[
+      { title: 'Basic Needs Support', icon: 'people', items: ['Food and essential items', 'Clothing and personal care', 'Emergency assistance', 'Connection to local services', 'Support during crises'] },
+      { title: 'Safe Spaces & Connection', icon: 'home', items: ['A welcoming presence', 'Building community', 'Reducing isolation', 'Support networks', 'Links to trusted services'] },
+      { title: 'Education & Opportunities', icon: 'heartHand', items: ['Life skills development', 'Training and education', 'Employment pathways', 'Mentoring and guidance', 'Supporting long-term independence'] },
+      { title: 'Mental Health & Wellbeing', icon: 'heart-pulse', items: ['Compassion and listening', 'Awareness and education', 'Referral to professional services', 'Support for addiction recovery', 'Encouragement and hope'] },
+      { title: 'Partnerships & Advocacy', icon: 'handshake', items: ['Working with local NGOs', 'Connecting to support services', 'Raising awareness', 'Advocating for inclusion', 'Building stronger communities'] },
+    ]}
+    bandImg={img('vul-band')}
+    bandQuote="Stronger communities are built when we see the dignity in every person, reach out with compassion, and create opportunities for a brighter future."
+    ctaTitle="Building More Inclusive Communities"
+    ctaText="We believe that no one should be forgotten or left behind. By walking alongside vulnerable individuals and communities, we help create a more compassionate, inclusive and just society where everyone has the opportunity to rebuild their lives and contribute to a brighter future."
+  />
+</Layout>

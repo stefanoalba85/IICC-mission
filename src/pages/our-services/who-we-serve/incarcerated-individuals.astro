@@ -1,56 +1,27 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
-import Icon from '../../../components/Icon.astro';
-
+import ServeTemplate from '../../../components/ServeTemplate.astro';
 const img = (n: string) => `/images/who-we-serve/${n}.jpg`;
-const support = [
-  { title: 'Spiritual & Pastoral Care', icon: 'pray', items: ['Chaplaincy support', 'Prayer and guidance', 'Pastoral visits', 'A message of hope'] },
-  { title: 'Letters & Encouragement', icon: 'mail', items: ['Regular communication', 'Positive reinforcement', 'Building connection', 'Reducing isolation'] },
-  { title: 'Hope & Connection', icon: 'people', items: ['A listening ear', 'Human connection', 'Support networks', 'Reminding them they are not forgotten'] },
-  { title: 'Education & Skills', icon: 'book', items: ['Access to educational resources', 'Life skills development', 'Personal growth', 'Opportunities for a better future'] },
-  { title: 'Pathways to Restoration', icon: 'road', items: ['Rehabilitation support', 'Reintegration pathways', 'Employment opportunities', 'Preparing for a fresh start in the community'] },
-];
 ---
 <Layout title="Incarcerated Individuals" description="Every person, regardless of their past, has inherent dignity and deserves hope, compassion and a second chance.">
-  <section class="hero-wave">
-    <div class="hero-wave__bg"><img src={img('inc-hero')} alt="A man praying in a prison cell lit by the window" /></div>
-    <div class="hero-wave__panel">
-      <span class="eyebrow" style="font-size:1.25rem;">Who We Serve</span>
-      <h1 class="hw-title">Incarcerated<br /><span class="text-amber">Individuals</span></h1>
-      <p class="hw-lead">Every person, regardless of their past, has inherent dignity and deserves hope, compassion and a second chance.</p>
-      <p class="hw-text">The IICC Mission stands alongside men and women in prisons, offering spiritual, emotional and practical support, and helping to build pathways toward rehabilitation, restoration and a brighter future.</p>
-    </div>
-  </section>
-
-  <section class="split-quote">
-    <div>
-      <h2 class="sec-h">Their Reality</h2>
-      <p>Incarcerated individuals often face isolation, uncertainty and significant personal challenges. Many carry feelings of shame, rejection and hopelessness, yet each person has a story, a family, and the potential for a new beginning.</p>
-    </div>
-    <blockquote>“I was in prison and you visited me.”<cite>Matthew 25:36</cite></blockquote>
-    <img src={img('inc-reality')} alt="A cross on a prison wall in window light" />
-  </section>
-
-  <section class="wrap" style="padding-block:1.5rem;">
-    <div style="display:flex; align-items:baseline; gap:1.5rem; flex-wrap:wrap; margin-bottom:1.25rem;">
-      <h2 class="sec-h">How We Support</h2>
-      <p class="sec-sub" style="font-style:italic;">Through faith, compassion and practical assistance, the IICC Mission provides:</p>
-    </div>
-    <div class="icol">
-      {support.map(s => <div><span class="ring-icon"><Icon name={s.icon} size={36} /></span><h3>{s.title}</h3><ul class="check">{s.items.map(i => <li>{i}</li>)}</ul></div>)}
-    </div>
-  </section>
-
-  <section class="qband">
-    <img src={img('inc-band')} alt="Two hands clasped through prison bars" />
-    <blockquote>No one is beyond hope. With support, encouragement and the right opportunities, lives can change and new beginnings are possible.</blockquote>
-  </section>
-
-  <section class="wrap ctarow">
-    <div><h2>Building a Brighter Tomorrow</h2><p>We believe in the potential for change. With the right support, encouragement and opportunities, incarcerated individuals can rebuild their lives, restore relationships and contribute positively to their families and communities.</p></div>
-    <div class="ctarow__btns">
-      <a href="/get-involved" class="btn btn--amber"><Icon name="people" size={18} /> Get Involved →</a>
-      <a href="/donate" class="btn btn--navy"><Icon name="heart" size={18} /> Support Our Mission →</a>
-    </div>
-  </section>
+  <ServeTemplate
+    title="Incarcerated" titleAccent="Individuals"
+    lead="Every person, regardless of their past, has inherent dignity and deserves hope, compassion and a second chance."
+    text="The IICC Mission stands alongside men and women in prisons, offering spiritual, emotional and practical support, and helping to build pathways toward rehabilitation, restoration and a brighter future."
+    heroImg={img('inc-hero')} heroAlt="A man praying in a prison cell lit by the window"
+    reality="Incarcerated individuals often face isolation, uncertainty and significant personal challenges. Many carry feelings of shame, rejection and hopelessness, yet each person has a story, a family, and the potential for a new beginning."
+    quote="I was in prison and you visited me." quoteRef="Matthew 25:36" realityImg={img('inc-reality')}
+    supportIntro="Through faith, compassion and practical assistance, the IICC Mission provides:"
+    support={[
+      { title: 'Spiritual & Pastoral Care', icon: 'pray', items: ['Chaplaincy support', 'Prayer and guidance', 'Pastoral visits', 'A message of hope'] },
+      { title: 'Letters & Encouragement', icon: 'mail', items: ['Regular communication', 'Positive reinforcement', 'Building connection', 'Reducing isolation'] },
+      { title: 'Hope & Connection', icon: 'people', items: ['A listening ear', 'Human connection', 'Support networks', 'Reminding them they are not forgotten'] },
+      { title: 'Education & Skills', icon: 'book', items: ['Access to educational resources', 'Life skills development', 'Personal growth', 'Opportunities for a better future'] },
+      { title: 'Pathways to Restoration', icon: 'road', items: ['Rehabilitation support', 'Reintegration pathways', 'Employment opportunities', 'Preparing for a fresh start in the community'] },
+    ]}
+    bandImg={img('inc-band')}
+    bandQuote="No one is beyond hope. With support, encouragement and the right opportunities, lives can change and new beginnings are possible."
+    ctaTitle="Building a Brighter Tomorrow"
+    ctaText="We believe in the potential for change. With the right support, encouragement and opportunities, incarcerated individuals can rebuild their lives, restore relationships and contribute positively to their families and communities."
+  />
 </Layout>

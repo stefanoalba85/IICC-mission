@@ -1,0 +1,27 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import ServeTemplate from '../../../components/ServeTemplate.astro';
+const img = (n: string) => `/images/who-we-serve/${n}.jpg`;
+---
+<Layout title="Families Affected by Detention" description="When a loved one is in detention, the impact is felt by the whole family.">
+  <ServeTemplate
+    title="Families Affected" titleAccent="by Detention"
+    lead="When a loved one is in detention, the impact is felt by the whole family."
+    text="The IICC Mission supports families who are separated from loved ones due to immigration detention, providing emotional, practical and spiritual support, and helping them navigate a difficult and uncertain time."
+    heroImg={img('fam-hero')} heroAlt="A mother and her children looking towards a detention fence at sunset"
+    reality="Families affected by detention often face deep emotional distress, uncertainty and separation. They may struggle with financial hardship, lack of information, mental health challenges and the stress of not knowing when they will be reunited with their loved one."
+    quote="Even in the darkest moments, families are not alone." quoteRef="Romans 12:12" realityImg={img('fam-reality')}
+    supportIntro="Through compassion, practical assistance and connection, the IICC Mission provides:"
+    support={[
+      { title: 'Emotional Support', icon: 'people', items: ['A listening ear', 'Counselling referrals', 'Support groups', 'Help during difficult times'] },
+      { title: 'Family Connection', icon: 'people-roof', items: ['Facilitating safe communication', 'Guidance on visits, letters and calls', 'Keeping families informed'] },
+      { title: 'Practical Assistance', icon: 'file-pen', items: ['Information and guidance', 'Referral to services', 'Help with documentation', 'Support with financial and social challenges'] },
+      { title: 'Spiritual Care', icon: 'heartHand', items: ['Prayer and encouragement', 'Connection with chaplains', 'Faith-based support', 'Hope for the future'] },
+      { title: 'Navigation & Advocacy', icon: 'signpost', items: ['Understanding procedures', 'Referral to trusted partners', 'Advocacy for fair treatment', 'Helping families find the right support'] },
+    ]}
+    bandImg={img('fam-band')}
+    bandQuote="Families are the heart of our communities. When a family suffers, we all suffer. Together, we can bring hope, strength and a brighter tomorrow."
+    ctaTitle="Building Stronger Families"
+    ctaText="We stand alongside families affected by detention, offering support, guidance and hope. By walking with families through their challenges, we help them stay strong, connected and resilient."
+  />
+</Layout>

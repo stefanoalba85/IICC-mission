@@ -1,0 +1,27 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import ServeTemplate from '../../../components/ServeTemplate.astro';
+const img = (n: string) => `/images/who-we-serve/${n}.jpg`;
+---
+<Layout title="Immigration Detainees" description="People are not defined by their immigration status. Every person deserves dignity, compassion and hope.">
+  <ServeTemplate
+    title="Immigration" titleAccent="Detainees"
+    lead="People are not defined by their immigration status. Every person deserves dignity, compassion and hope."
+    text="The IICC Mission walks alongside individuals and families in immigration detention, offering spiritual, emotional and practical support, and helping them navigate a challenging and uncertain time."
+    heroImg={img('imm-hero')} heroAlt="A mother holding her child beside a detention fence"
+    reality="Immigration detainees often face uncertainty, separation from family, isolation and significant emotional distress. Many are far from their support networks, navigating complex legal processes and an unknown future."
+    quote="I was a stranger and you welcomed me." quoteRef="Matthew 25:35" realityImg={img('imm-reality')}
+    supportIntro="Through compassion, pastoral care and practical assistance, the IICC Mission provides:"
+    support={[
+      { title: 'Compassionate Support', icon: 'pray', items: ['A listening ear', 'Emotional support', 'Human connection', 'Respect and dignity', 'A message of hope'] },
+      { title: 'Human Connection', icon: 'people', items: ['Regular communication', 'Letters and messages', 'Pastoral care', 'A sense of community', 'You are not alone'] },
+      { title: 'Legal Assistance & Referral', icon: 'scales', items: ['Guidance and information', 'Referral to trusted partners', 'Understanding procedures', 'Access to support services', 'Advocacy for fair treatment'] },
+      { title: 'Pastoral Care', icon: 'heartHand', items: ['Spiritual support', 'Prayer and encouragement', 'Connection with chaplains', 'Faith-based guidance', 'Hope in difficult times'] },
+      { title: 'Family Support', icon: 'people-roof', items: ['Supporting family communication', 'Strengthening family bonds', 'Practical information and referrals', 'Helping families stay connected'] },
+    ]}
+    bandImg={img('imm-band')}
+    bandQuote="Whatever you did for one of the least of these brothers and sisters of mine, you did for me." bandQuoteRef="Matthew 25:40"
+    ctaTitle="Building a Brighter Tomorrow"
+    ctaText="We believe in a fair, compassionate and humane approach to immigration detention. Through support, advocacy and partnerships, we work to protect human dignity and help individuals and families move towards a more hopeful future."
+  />
+</Layout>

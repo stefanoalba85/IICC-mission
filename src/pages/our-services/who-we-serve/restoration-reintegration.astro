@@ -1,0 +1,27 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import ServeTemplate from '../../../components/ServeTemplate.astro';
+const img = (n: string) => `/images/who-we-serve/${n}.jpg`;
+---
+<Layout title="People Seeking Restoration & Reintegration" description="New beginnings are possible.">
+  <ServeTemplate
+    title="People Seeking" titleAccent="Restoration &amp;<br/>Reintegration"
+    lead="New beginnings are possible."
+    text="The IICC Mission supports individuals who are seeking to rebuild their lives after incarceration or immigration detention, offering practical assistance, guidance, and a supportive community to help them move forward with dignity, purpose and hope."
+    heroImg={img('rr-hero')} heroAlt="A man looking out over Rome from a terrace"
+    reality="People seeking restoration and reintegration often face significant challenges, including stigma, limited employment opportunities, housing difficulties, fractured family relationships and a lack of support networks. Many are determined to make positive changes but need guidance, opportunities and a community that believes in them."
+    quote="For I know the plans I have for you, plans to give you hope and a future." quoteRef="Jeremiah 29:11" realityImg={img('rr-reality')}
+    supportIntro="Through practical assistance, guidance and community, the IICC Mission provides:"
+    support={[
+      { title: 'Personalised Support', icon: 'heartHand', items: ['Individual guidance and mentoring', 'Goal setting and planning', 'Ongoing encouragement', 'Support with challenges and setbacks', 'A compassionate and non-judgmental approach'] },
+      { title: 'Employment & Skills', icon: 'briefcase', items: ['Job readiness programs', 'Training and education', 'Skills development', 'Links to employers and social enterprises', 'Support with microcredit and entrepreneurship'] },
+      { title: 'Housing Support', icon: 'home', items: ['Referral to housing services', 'Support with applications', 'Assistance in finding stable accommodation', 'Links to trusted partners', 'Support with transition to independent living'] },
+      { title: 'Family Reconnection', icon: 'people', items: ['Support to rebuild family relationships', 'Mediation and guidance', 'Communication support', 'Strengthening family bonds', 'A focus on healing and reconciliation'] },
+      { title: 'Ongoing Community Support', icon: 'seedling', items: ['Peer support networks', 'Faith-based guidance', 'Community programs and activities', 'Long-term follow-up', 'A sense of belonging and purpose'] },
+    ]}
+    bandImg={img('rr-band')}
+    bandQuote="Restoration is not about forgetting the past, but about building a stronger, better future with hope, dignity and purpose."
+    ctaTitle="Building Brighter Futures"
+    ctaText="We walk alongside individuals as they take steps toward a new chapter in life. Through practical support, education, employment opportunities, housing assistance and a strong community, we help people seeking restoration and reintegration build brighter, more fulfilling futures."
+  />
+</Layout>

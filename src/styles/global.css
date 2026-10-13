@@ -520,9 +520,9 @@
   .sec-sub { font-family: var(--font-heading); font-size: 1.0625rem; color: var(--color-navy); }
   .hw-title { font-family: var(--font-heading); color: #fff; font-size: clamp(2.25rem, 5vw, 3.6rem); line-height: 1.05; }
   .hw-lead { font-family: var(--font-heading); color: #fff; font-size: 1.3125rem; line-height: 1.4; }
-  .hw-text { font-family: var(--font-heading); color: rgba(255,255,255,0.92); font-size: 1rem; line-height: 1.5; }
+  .hw-text { font-family: var(--font-heading); color: rgba(255,255,255,0.92); font-size: 1.0625rem; line-height: 1.5; }
   .check { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.3rem; }
-  .check li { position: relative; padding-left: 1.6rem; font-family: var(--font-heading); font-size: 0.9375rem; line-height: 1.35; color: var(--color-navy); }
+  .check li { position: relative; padding-left: 1.6rem; font-family: var(--font-heading); font-size: 1rem; line-height: 1.35; color: var(--color-navy); }
   .check li::before { content: '✓'; position: absolute; left: 0; top: 0.15em; width: 1.1rem; height: 1.1rem; border-radius: 50%; background: var(--color-amber); color: #fff; font-size: 0.65rem; display: flex; align-items: center; justify-content: center; font-family: var(--font-body); font-weight: 700; }
   .ring-icon { width: 5rem; height: 5rem; border-radius: 50%; background: var(--color-navy-dark); color: var(--color-amber); border: 3px solid var(--color-amber); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
   .ring-icon svg { width: 56%; height: 56%; }
@@ -549,7 +549,7 @@
   .ctarow .btn { padding: 0.9rem 1.5rem; font-size: 0.875rem; border-radius: 4px; }
   .split-quote { display: grid; grid-template-columns: 1.1fr 1fr 0.7fr; align-items: stretch; background: #fbf9f5; }
   .split-quote > div:first-child { padding: 1.75rem 1.75rem 1.75rem max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem)); border-right: 1.5px solid var(--color-amber); }
-  .split-quote p { font-family: var(--font-heading); color: var(--color-navy); font-size: 1rem; line-height: 1.45; margin-top: 0.75rem; }
+  .split-quote p { font-family: var(--font-heading); color: var(--color-navy); font-size: 1.0625rem; line-height: 1.45; margin-top: 0.75rem; }
   .split-quote blockquote { margin: 0; padding: 1.75rem 1.75rem; font-family: var(--font-heading); font-style: italic; color: var(--color-navy); font-size: 1.375rem; line-height: 1.4; display: flex; flex-direction: column; justify-content: center; gap: 0.5rem; }
   .split-quote blockquote::before { content: '\201C'; color: var(--color-amber); font-size: 4rem; line-height: 0.5; font-style: normal; }
   .split-quote cite { font-style: normal; color: var(--color-amber); font-size: 1rem; text-transform: uppercase; }

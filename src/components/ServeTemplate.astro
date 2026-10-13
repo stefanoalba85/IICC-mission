@@ -1,0 +1,67 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  titleAccent: string;
+  lead: string;
+  text: string;
+  heroImg: string;
+  heroAlt: string;
+  reality: string;
+  realityTitle?: string;
+  quote: string;
+  quoteRef: string;
+  realityImg: string;
+  supportIntro: string;
+  support: { title: string; icon: string; items: string[] }[];
+  bandImg: string;
+  bandQuote: string;
+  bandQuoteRef?: string;
+  ctaTitle: string;
+  ctaText: string;
+}
+const p = Astro.props;
+---
+<section class="hero-wave">
+  <div class="hero-wave__bg"><img src={p.heroImg} alt={p.heroAlt} /></div>
+  <div class="hero-wave__panel">
+    <span class="eyebrow" style="font-size:1.25rem;">{p.eyebrow ?? 'Who We Serve'}</span>
+    <h1 class="hw-title"><Fragment set:html={p.title} /><br /><span class="text-amber" set:html={p.titleAccent} /></h1>
+    <p class="hw-lead">{p.lead}</p>
+    <p class="hw-text">{p.text}</p>
+  </div>
+</section>
+
+<section class="split-quote">
+  <div>
+    <h2 class="sec-h">{p.realityTitle ?? 'Their Reality'}</h2>
+    <p>{p.reality}</p>
+  </div>
+  <blockquote>“{p.quote}”<cite>{p.quoteRef}</cite></blockquote>
+  <img src={p.realityImg} alt="" />
+</section>
+
+<section class="wrap" style="padding-block:1.5rem;">
+  <div style="display:flex; align-items:baseline; gap:1.5rem; flex-wrap:wrap; margin-bottom:1.25rem;">
+    <h2 class="sec-h">How We Support</h2>
+    <p class="sec-sub" style="font-style:italic;">{p.supportIntro}</p>
+  </div>
+  <div class="icol">
+    {p.support.map(s => <div><span class="ring-icon"><Icon name={s.icon} /></span><h3>{s.title}</h3><ul class="check">{s.items.map(i => <li>{i}</li>)}</ul></div>)}
+  </div>
+</section>
+
+<section class="qband">
+  <img src={p.bandImg} alt="" />
+  <blockquote>{p.bandQuote}{p.bandQuoteRef && <cite>{p.bandQuoteRef}</cite>}</blockquote>
+</section>
+
+<section class="wrap ctarow">
+  <div><h2>{p.ctaTitle}</h2><p>{p.ctaText}</p></div>
+  <div class="ctarow__btns">
+    <a href="/get-involved" class="btn btn--amber"><Icon name="people" size={18} /> Get Involved →</a>
+    <a href="/donate" class="btn btn--navy"><Icon name="heart" size={18} /> Support Our Mission →</a>
+  </div>
+</section>

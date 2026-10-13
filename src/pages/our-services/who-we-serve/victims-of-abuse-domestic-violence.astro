@@ -1,0 +1,27 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import ServeTemplate from '../../../components/ServeTemplate.astro';
+const img = (n: string) => `/images/who-we-serve/${n}.jpg`;
+---
+<Layout title="Victims of Abuse & Domestic Violence" description="Everyone deserves to feel safe, respected and valued.">
+  <ServeTemplate
+    title="Victims of Abuse &amp;" titleAccent="Domestic Violence"
+    lead="Everyone deserves to feel safe, respected and valued."
+    text="The IICC Mission stands with individuals who have experienced abuse and domestic violence, offering compassionate support, advocacy, and pathways toward safety, healing and a brighter future."
+    heroImg={img('dv-hero')} heroAlt="A woman sitting alone with her head on her knees"
+    reality="Victims of abuse and domestic violence often face fear, manipulation, isolation and emotional distress. Many struggle to find safety, support and a way forward. Abuse can affect anyone, regardless of age, gender, background or circumstances, and the impact can be long-lasting, affecting individuals and their families."
+    quote="The Lord is close to the broken-hearted and saves those who are crushed in spirit." quoteRef="Psalm 34:18" realityImg={img('dv-reality')}
+    supportIntro="Through compassion, advocacy and practical assistance, the IICC Mission provides:"
+    support={[
+      { title: 'Safe and Compassionate Support', icon: 'heartHand', items: ['A listening ear', 'Emotional support', 'Guidance and referrals', 'A safe and non-judgmental environment'] },
+      { title: 'Advocacy & Legal Referral', icon: 'scales', items: ['Information on rights', 'Referral to legal services', 'Support in navigating complex systems', 'Advocacy for fair treatment and protection'] },
+      { title: 'Practical Assistance', icon: 'people', items: ['Access to support services', 'Help with emergency needs', 'Referral to shelters and safe accommodation', 'Support for children and family needs'] },
+      { title: 'Healing & Recovery Pathways', icon: 'cross', items: ['Pastoral care and prayer', 'Counselling referrals', 'Support groups', 'Education and awareness', 'Encouragement for a new beginning'] },
+      { title: 'Education & Awareness', icon: 'seedling', items: ['Raising awareness', 'Support for prevention', 'Resources and information', 'Community education', 'Promoting respect, dignity and healthy relationships'] },
+    ]}
+    bandImg={img('dv-band')}
+    bandQuote="You are not alone. You are not to blame. There is help, there is hope, and a brighter future is possible."
+    ctaTitle="Building Safer, Stronger Communities"
+    ctaText="We believe in a world where every individual can live in safety, dignity and freedom. By supporting victims of abuse and domestic violence, we help restore lives, strengthen families and build more compassionate communities."
+  />
+</Layout>

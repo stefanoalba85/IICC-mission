@@ -1,0 +1,27 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import ServeTemplate from '../../../components/ServeTemplate.astro';
+const img = (n: string) => `/images/who-we-serve/${n}.jpg`;
+---
+<Layout title="Former Inmates & Detainees" description="A second chance can change everything.">
+  <ServeTemplate
+    title="Former Inmates &amp;" titleAccent="Detainees"
+    lead="A second chance can change everything."
+    text="The IICC Mission supports men and women as they transition from prison or immigration detention back into society, offering practical assistance, guidance, compassion and hope for a brighter future."
+    heroImg={img('fmr-hero')} heroAlt="A man with a backpack walking towards Rome at sunrise"
+    reality="Former inmates and detainees often face significant barriers when returning to the community, including stigma, limited employment opportunities, housing challenges, weak support networks, and the risk of reoffending. Many struggle to rebuild their lives and reconnect with family and society."
+    quote="If anyone is in Christ, the new creation has come: The old has gone, the new is here." quoteRef="2 Corinthians 5:17" realityImg={img('fmr-reality')}
+    supportIntro="Through guidance, practical assistance and long-term support, the IICC Mission provides:"
+    support={[
+      { title: 'Reintegration Support', icon: 'people', items: ['Personal guidance and mentoring', 'Support with housing', 'Reconnecting with family', 'Community engagement', 'Ongoing accompaniment'] },
+      { title: 'Employment & Skills', icon: 'briefcase', items: ['Job readiness programs', 'Training and education', 'Skills development', 'Links to employers and social enterprises', 'Support with microcredit and entrepreneurship'] },
+      { title: 'Mental Health & Wellbeing', icon: 'heartHand', items: ['Counselling referrals', 'Emotional and spiritual support', 'Support for trauma and adjustment', 'Peer support networks', 'Encouragement and hope'] },
+      { title: 'Legal Assistance & Referral', icon: 'scales', items: ['Guidance on legal matters', 'Referral to trusted partners', 'Help with documentation', 'Advice on rights and obligations', 'Support to resolve practical barriers'] },
+      { title: 'A Pathway to a Brighter Future', icon: 'home', items: ['Building confidence and independence', 'Positive life choices', 'Stronger community connections', 'Faith-based support', 'A renewed sense of purpose'] },
+    ]}
+    bandImg={img('fmr-band')}
+    bandQuote="People are not defined by their past, but by their potential. With the right support, everyone can rebuild their lives and contribute to a stronger, more compassionate society."
+    ctaTitle="Building Brighter Futures"
+    ctaText="We believe in second chances. By providing practical support, guidance and opportunities, we help former inmates and detainees overcome barriers, rebuild their lives and become valued members of their families and communities."
+  />
+</Layout>
