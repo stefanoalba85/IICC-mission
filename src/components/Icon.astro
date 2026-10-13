@@ -1,24 +1,21 @@
 ---
-import type { IconName } from '../lib/icons';
-import {
-  faHandsPraying, faPeopleGroup, faUser, faScaleBalanced, faHandHoldingHeart, faHeart, faMountainSun,
-  faCross, faDove, faGlobe, faHandshake, faBookOpen, faChurch, faHouse, faBuildingLock, faBullhorn,
-  faCalendarDays, faEnvelope, faPhone, faLocationDot, faEarListen, faSignsPost, faShieldHalved, faStar,
-  faShare, faBreadSlice, faAward, faClapperboard,
-} from '@fortawesome/free-solid-svg-icons';
+import * as fa from '@fortawesome/free-solid-svg-icons';
 import type { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
-const map: Record<IconName, IconDefinition> = {
-  pray: faHandsPraying, people: faPeopleGroup, person: faUser, scales: faScaleBalanced, heartHand: faHandHoldingHeart,
-  heart: faHeart, sunRoad: faMountainSun, cross: faCross, dove: faDove, globe: faGlobe, handshake: faHandshake,
-  book: faBookOpen, church: faChurch, home: faHouse, bars: faBuildingLock, megaphone: faBullhorn, calendar: faCalendarDays,
-  mail: faEnvelope, phone: faPhone, pin: faLocationDot, ear: faEarListen, signpost: faSignsPost, shield: faShieldHalved,
-  star: faStar, share: faShare, bread: faBreadSlice, medal: faAward, video: faClapperboard,
+// Project aliases; any other Font Awesome solid icon can be used by its kebab name (e.g. "brain", "gavel").
+const alias: Record<string, string> = {
+  pray: 'hands-praying', people: 'people-group', person: 'user', scales: 'scale-balanced', heartHand: 'hand-holding-heart',
+  sunRoad: 'mountain-sun', home: 'house', bars: 'building-lock', megaphone: 'bullhorn', calendar: 'calendar-days',
+  mail: 'envelope', pin: 'location-dot', ear: 'ear-listen', signpost: 'signs-post', shield: 'shield-halved',
+  bread: 'bread-slice', medal: 'award', video: 'clapperboard', book: 'book-open',
 };
 
-interface Props { name: IconName; size?: number; stroke?: number; class?: string; fill?: boolean; }
+interface Props { name: string; size?: number; stroke?: number; class?: string; fill?: boolean; }
 const { name, size = 24, class: cls } = Astro.props;
-const [w, h, , , path] = map[name].icon;
+const key = 'fa' + (alias[name] ?? name).split('-').map(s => s[0].toUpperCase() + s.slice(1)).join('');
+const def = (fa as unknown as Record<string, IconDefinition>)[key];
+if (!def) throw new Error(`Unknown icon "${name}" (${key})`);
+const [w, h, , , path] = def.icon;
 const d = Array.isArray(path) ? path.join(' ') : path;
 const box = Math.max(w, h);
 ---

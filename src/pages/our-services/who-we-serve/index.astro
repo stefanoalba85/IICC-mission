@@ -1,0 +1,89 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Icon from '../../../components/Icon.astro';
+
+const img = (n: string) => `/images/who-we-serve/${n}.jpg`;
+const groups = [
+  { title: 'Incarcerated Individuals', text: 'People in prisons who experience isolation, hardship and uncertainty.', label: 'We provide:', items: ['Spiritual and pastoral support', 'Letters and encouragement', 'Hope and connection', 'Pathways toward rehabilitation and restoration'], icon: 'bars', photo: 'w1', href: '/our-services/who-we-serve/incarcerated-individuals' },
+  { title: 'Former Prisoners & People Seeking a Second Chance', text: 'Individuals rebuilding their lives after incarceration.', label: 'We support:', items: ['Reintegration pathways', 'Education and skills development', 'Employment opportunities', 'Second Chance initiatives'], icon: 'people', photo: 'w2', href: '/our-services/who-we-serve/former-inmates-detainees' },
+  { title: 'Immigration Detainees', text: 'People experiencing detention, separation and uncertainty.', label: 'We provide:', items: ['Compassionate support', 'Human connection', 'Pastoral care', 'Referrals and practical assistance'], icon: 'people-roof', photo: 'w3', href: '/our-services/who-we-serve/immigration-detainees' },
+  { title: 'Families Facing Hardship', text: 'Families affected by imprisonment, detention, trauma or difficult circumstances.', label: 'We support:', items: ['Emotional and practical assistance', 'Family connection', 'Referral pathways', 'Hope during challenging times'], icon: 'house-user', photo: 'w4', href: '/our-services/who-we-serve/families-affected-by-detention' },
+  { title: 'Victims of Abuse & Domestic Violence', text: 'Individuals seeking safety, healing and support.', label: 'We provide:', items: ['Advocacy', 'Referral support', 'Awareness and education', 'Pathways toward recovery'], icon: 'heartHand', photo: 'w5', href: '/our-services/who-we-serve/victims-of-abuse-domestic-violence' },
+  { title: 'People Experiencing Mental Health Challenges', text: 'Those facing loneliness, distress or emotional struggles.', label: 'We support:', items: ['Compassion', 'Awareness', 'Connection', 'Referral to appropriate services'], icon: 'brain', photo: 'w6', href: '/our-services/mental-health' },
+];
+const commitment = [
+  { title: 'Faith', text: 'Sharing God’s love through action.', icon: 'cross', color: 'var(--color-amber)' },
+  { title: 'Compassion', text: 'Walking with dignity and respect.', icon: 'people', color: 'var(--color-amber)' },
+  { title: 'Justice', text: 'Advocating for a fairer and more compassionate society.', icon: 'scales', color: 'var(--color-amber)' },
+  { title: 'Restoration', text: 'Supporting new beginnings and brighter futures.', icon: 'book-bible', color: 'var(--color-amber)' },
+  { title: 'Hope', text: 'Believing in a better tomorrow for all.', icon: 'sunRoad', color: 'var(--color-amber)' },
+];
+---
+<Layout title="Who We Serve" description="Every person has dignity. Every person has a story. Every person deserves hope.">
+  <style>
+    .ws-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 1.25rem; }
+    .ws-card { background: #fff; border: 1px solid rgba(27,39,81,0.1); border-radius: 6px; overflow: hidden; box-shadow: 0 3px 10px rgba(18,26,56,0.06); display: flex; flex-direction: column; }
+    .ws-card__photo { position: relative; }
+    .ws-card__photo img { width: 100%; aspect-ratio: 312 / 86; object-fit: cover; }
+    .ws-card__photo .ring-icon { position: absolute; left: 0.75rem; bottom: -1.75rem; width: 4rem; height: 4rem; }
+    .ws-card__body { padding: 0.75rem 1rem 1.1rem; display: flex; flex-direction: column; gap: 0.4rem; }
+    .ws-card__head { padding-left: 4.5rem; min-height: 3.25rem; }
+    .ws-card h3 { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: 0.9375rem; line-height: 1.2; }
+    .ws-card__head p { font-family: var(--font-heading); font-size: 0.875rem; color: var(--color-navy); line-height: 1.3; margin-top: 0.2rem; }
+    .ws-card strong { font-family: var(--font-heading); color: var(--color-amber); font-weight: 400; font-size: 1rem; }
+    @media (max-width: 900px) { .ws-grid { grid-template-columns: 1fr; } }
+  </style>
+
+  <section class="hero-wave">
+    <div class="hero-wave__bg"><img src={img('hero')} alt="A man reaching down to help another up a hill at sunset" /></div>
+    <div class="hero-wave__panel">
+      <span class="eyebrow" style="font-size:1.25rem;">Who We Serve</span>
+      <h1 class="hw-title" style="font-size:clamp(1.6rem,3vw,2.25rem);">Every person has dignity.<br />Every person has a story.<br /><span class="text-amber">Every person deserves hope.</span></h1>
+      <p class="hw-lead" style="font-size:1.1875rem;">The IICC Mission walks alongside individuals, families and communities experiencing hardship, uncertainty and difficult life circumstances.</p>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-block:1.75rem;">
+    <h2 class="sec-h sec-h--center">Those We Walk Alongside</h2>
+    <p class="sec-sub" style="text-align:center; margin-top:0.4rem;">We support individuals and communities in a wide range of challenging circumstances.</p>
+    <div class="ws-grid">
+      {groups.map(g => (
+        <a href={g.href} class="ws-card">
+          <div class="ws-card__photo"><img src={img(g.photo)} alt="" /><span class="ring-icon"><Icon name={g.icon} size={30} /></span></div>
+          <div class="ws-card__body">
+            <div class="ws-card__head"><h3>{g.title}</h3><p>{g.text}</p></div>
+            <strong>{g.label}</strong>
+            <ul class="check">{g.items.map(i => <li>{i}</li>)}</ul>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="qband">
+    <img src={img('hands')} alt="Hands clasped in prayer" />
+    <blockquote style="font-style:normal; font-size:1.0625rem;">
+      <span style="font-size:1.875rem;">No One Should <span class="text-amber">Walk Alone</span></span>
+      <p>The IICC Mission believes that every person, regardless of their circumstances, deserves <strong>compassion, dignity</strong> and the opportunity for a renewed future.</p>
+      <span style="font-style:italic; font-size:1.0625rem; color:rgba(255,255,255,0.9); border-left:1px solid var(--color-amber); padding-left:1rem; margin-top:0.5rem;">“Carry one another’s burdens, and in this way you will fulfil the law of Christ.” <cite style="display:block; margin-top:0.3rem;">Galatians 6:2</cite></span>
+    </blockquote>
+  </section>
+
+  <section class="wrap" style="padding-block:1.5rem;">
+    <h2 class="sec-h sec-h--center">Our Commitment</h2>
+    <p class="sec-sub" style="text-align:center; margin-block:0.4rem 1.25rem;">Guided by our values, we walk alongside those in need with action, compassion and hope.</p>
+    <div class="icol icol--plain">
+      {commitment.map(c => <div><span style={`color:${c.color}`}><Icon name={c.icon} size={56} /></span><h3>{c.title}</h3><p>{c.text}</p></div>)}
+    </div>
+  </section>
+
+  <section style="background:#f7f5f0;">
+    <div class="wrap ctarow">
+      <div><h2>Together, We Can Make <span class="text-amber">a Difference</span></h2><p>Your support helps us bring hope, justice and restoration to individuals and communities in need.</p></div>
+      <div class="ctarow__btns">
+        <a href="/get-involved" class="btn btn--amber"><Icon name="people" size={18} /> Get Involved →</a>
+        <a href="/donate" class="btn btn--navy"><Icon name="heart" size={18} /> Support Our Mission →</a>
+      </div>
+    </div>
+  </section>
+</Layout>

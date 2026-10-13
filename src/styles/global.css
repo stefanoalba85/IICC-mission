@@ -512,6 +512,56 @@
   .photo-band--fade .photo-band__text p { color: #fff; font-size: 1.0625rem; line-height: 1.5; max-width: 360px; }
   @media (max-width: 760px) { .photo-band--fade .photo-band__bg { inset: 0; } .photo-band--fade .photo-band__text { width: 100%; background: rgba(27,39,81,0.85); } }
 
+  /* ─── SERIES SECTIONS (Who We Serve / Ministries) ─── */
+  .sec-h { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: clamp(1.375rem, 2.6vw, 1.875rem); line-height: 1.15; }
+  .sec-h::after { content: ''; display: block; width: 3.5rem; height: 3px; background: var(--color-amber); margin-top: 0.5rem; }
+  .sec-h--center { text-align: center; display: flex; align-items: center; justify-content: center; gap: 1rem; }
+  .sec-h--center::before, .sec-h--center::after { content: ''; width: 6rem; height: 2px; background: var(--color-amber); margin: 0; display: block; }
+  .sec-sub { font-family: var(--font-heading); font-size: 1.0625rem; color: var(--color-navy); }
+  .hw-title { font-family: var(--font-heading); color: #fff; font-size: clamp(2.25rem, 5vw, 3.6rem); line-height: 1.05; }
+  .hw-lead { font-family: var(--font-heading); color: #fff; font-size: 1.3125rem; line-height: 1.4; }
+  .hw-text { font-family: var(--font-heading); color: rgba(255,255,255,0.92); font-size: 1rem; line-height: 1.5; }
+  .check { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.3rem; }
+  .check li { position: relative; padding-left: 1.6rem; font-family: var(--font-heading); font-size: 0.9375rem; line-height: 1.35; color: var(--color-navy); }
+  .check li::before { content: '✓'; position: absolute; left: 0; top: 0.15em; width: 1.1rem; height: 1.1rem; border-radius: 50%; background: var(--color-amber); color: #fff; font-size: 0.65rem; display: flex; align-items: center; justify-content: center; font-family: var(--font-body); font-weight: 700; }
+  .ring-icon { width: 5rem; height: 5rem; border-radius: 50%; background: var(--color-navy-dark); color: var(--color-amber); border: 3px solid var(--color-amber); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .ring-icon svg { width: 56%; height: 56%; }
+  .ring-icon--sm { width: 3.75rem; height: 3.75rem; }
+  .icol { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; }
+  .icol > div { padding-inline: 1rem; border-right: 1px solid rgba(201,160,23,0.45); display: flex; flex-direction: column; gap: 0.6rem; }
+  .icol > div:last-child { border-right: none; }
+  .icol h3 { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: 1.0625rem; line-height: 1.2; text-align: center; }
+  .icol .ring-icon { align-self: center; }
+  .icol--plain > div { align-items: center; text-align: center; }
+  .icol--plain p { font-family: var(--font-heading); color: var(--color-navy); font-size: 0.9375rem; line-height: 1.35; }
+  .qband { display: grid; grid-template-columns: 1.15fr 1fr; background: var(--color-navy-dark); color: #fff; }
+  .qband > img { width: 100%; height: 100%; object-fit: cover; min-height: 220px; }
+  .qband blockquote { margin: 0; padding: 1.75rem max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem)) 1.75rem 2.5rem; font-family: var(--font-heading); font-style: italic; font-size: 1.375rem; line-height: 1.45; display: flex; flex-direction: column; justify-content: center; gap: 0.5rem; position: relative; }
+  .qband blockquote::before { content: '\201C'; color: var(--color-amber); font-size: 4rem; line-height: 0.5; font-style: normal; }
+  .qband cite { font-style: normal; color: var(--color-amber); font-family: var(--font-body); font-size: 0.9375rem; text-transform: uppercase; }
+  .qband--reverse { grid-template-columns: 1fr 1.15fr; }
+  .qband--reverse > img { order: 2; }
+  .qband--reverse blockquote { padding: 1.75rem 2.5rem 1.75rem max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem)); }
+  .ctarow { display: grid; grid-template-columns: 1.5fr auto; gap: 2rem; align-items: center; padding-block: 1.5rem; }
+  .ctarow h2 { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: clamp(1.25rem, 2.4vw, 1.75rem); }
+  .ctarow p { font-family: var(--font-heading); color: var(--color-navy); font-size: 1rem; line-height: 1.45; margin-top: 0.4rem; }
+  .ctarow__btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .ctarow .btn { padding: 0.9rem 1.5rem; font-size: 0.875rem; border-radius: 4px; }
+  .split-quote { display: grid; grid-template-columns: 1.1fr 1fr 0.7fr; align-items: stretch; background: #fbf9f5; }
+  .split-quote > div:first-child { padding: 1.75rem 1.75rem 1.75rem max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem)); border-right: 1.5px solid var(--color-amber); }
+  .split-quote p { font-family: var(--font-heading); color: var(--color-navy); font-size: 1rem; line-height: 1.45; margin-top: 0.75rem; }
+  .split-quote blockquote { margin: 0; padding: 1.75rem 1.75rem; font-family: var(--font-heading); font-style: italic; color: var(--color-navy); font-size: 1.375rem; line-height: 1.4; display: flex; flex-direction: column; justify-content: center; gap: 0.5rem; }
+  .split-quote blockquote::before { content: '\201C'; color: var(--color-amber); font-size: 4rem; line-height: 0.5; font-style: normal; }
+  .split-quote cite { font-style: normal; color: var(--color-amber); font-size: 1rem; text-transform: uppercase; }
+  .split-quote > img { width: 100%; height: 100%; object-fit: cover; -webkit-mask-image: linear-gradient(90deg, transparent, #000 35%); mask-image: linear-gradient(90deg, transparent, #000 35%); }
+  @media (max-width: 900px) {
+    .icol { grid-auto-flow: row; grid-template-columns: 1fr 1fr; row-gap: 1.5rem; }
+    .icol > div { border-right: none; }
+    .qband, .qband--reverse, .ctarow, .split-quote { grid-template-columns: 1fr; }
+    .qband--reverse > img { order: 0; }
+    .split-quote > div:first-child { border-right: none; }
+  }
+
   /* ─── CARDS ──────────────────────────────── */
   .card {
     background: #fff;
