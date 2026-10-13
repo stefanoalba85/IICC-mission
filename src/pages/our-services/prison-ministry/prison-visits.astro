@@ -1,0 +1,54 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import MinistryTemplate from '../../../components/MinistryTemplate.astro';
+---
+<Layout title="Prison Visits" description="Bringing Christ's Love Behind Bars.">
+  <MinistryTemplate
+    dir="visits"
+    kicker="Prison Ministry"
+    title="Prison" titleAccent="Visits"
+    subtitle="Bringing Christ’s Love Behind Bars"
+    intro={['Through prison visits, we bring hope, encouragement and the love of Christ to inmates who may feel forgotten. Your visit can be the light that changes a life.']}
+    heroQuote="I was in prison and you visited me." heroQuoteRef="Matthew 25:36"
+    heroAlt="An IICC Mission volunteer visiting an inmate"
+    bandTitle="Our Purpose"
+    bandIntro="To build relationships, share God’s love, listen with compassion, and encourage inmates on their journey toward healing and restoration."
+    band={[
+      { icon: 'hand-holding-heart', title: 'Bring Hope', text: 'Every visit reminds inmates they are not forgotten.' },
+      { icon: 'book-bible', title: 'Share the Gospel', text: 'We share God’s Word and the message of salvation and second chances.' },
+      { icon: 'people-arrows', title: 'Build Relationships', text: 'We listen, encourage and build trust through genuine relationships.' },
+      { icon: 'dove', title: 'Pray Together', text: 'We lift up inmates in prayer and offer spiritual support and guidance.' },
+      { icon: 'seedling', title: 'Inspire Change', text: 'Our visits plant seeds of hope that lead to lasting transformation.' },
+      { icon: 'people-roof', title: 'Support Families', text: 'We also support families who are affected by incarceration.' },
+    ]}
+    leftTitle="What We Do"
+    left={[
+      { icon: 'people-arrows', title: 'Personal Visits', text: 'One-on-one visits to listen, encourage and offer support.' },
+      { icon: 'phone-volume', title: 'Phone Calls', text: 'Regular calls for inmates who cannot receive in-person visits.' },
+      { icon: 'envelope', title: 'Letters of Hope', text: 'Writing and sending letters of encouragement and faith.' },
+      { icon: 'people-group', title: 'Group Ministry', text: 'Leading prayer, Bible study and faith-based programs.' },
+      { icon: 'cross', title: 'Sacramental Care', text: 'Connecting inmates with priests for the sacraments.' },
+      { icon: 'handshake', title: 'Reintegration Support', text: 'Encouraging and preparing inmates for a successful return to society.' },
+    ]}
+    centerQuote="A simple visit can change the direction of someone’s life forever." centerRef="IICC Mission Staff"
+    rightTitle="How You Can Help"
+    right={[
+      { icon: 'heart', title: 'Become a Visitor', text: 'Join our team and visit inmates regularly.' },
+      { icon: 'hands-praying', title: 'Pray', text: 'Pray for inmates, their families and our ministry.' },
+      { icon: 'envelope', title: 'Write a Letter', text: 'Your words of encouragement can bring hope and joy.' },
+      { icon: 'gift', title: 'Donate', text: 'Support our ministry to help us continue visiting prisons.' },
+      { icon: 'share-nodes', title: 'Spread the Word', text: 'Help others learn about the power of prison ministry.' },
+    ]}
+    box={['Every visit.', 'Every word.', 'Every prayer.']} boxAccent="Makes a difference."
+    stripTitle="Be a Light in Someone’s Darkness"
+    strip={[
+      { title: 'We Pray', text: 'We pray before, during and after every visit.' },
+      { title: 'We Listen', text: 'We listen with compassion and without judgment.' },
+      { title: 'We Share', text: 'We share the hope found in Jesus Christ.' },
+      { title: 'We Care', text: 'We show Christ’s love through our actions.' },
+      { title: 'We Encourage', text: 'We encourage positive change and new beginnings.' },
+      { title: 'We Bring Hope', text: 'We remind every inmate that God has a plan for their life.' },
+    ]}
+    supportTitle="Your presence can be the beginning of a new story." supportText="Visit. Pray. Write. Give. Be His hands and feet."
+  />
+</Layout>

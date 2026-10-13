@@ -1,0 +1,58 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import MinistryTemplate from '../../../components/MinistryTemplate.astro';
+---
+<Layout title="Legal Assistance & Referrals" description="We believe in the dignity of every person and help inmates understand their rights and access justice.">
+  <MinistryTemplate
+    dir="legal"
+    kicker="Prison Ministry"
+    title="Legal" titleAccent="Assistance<br/><span style='color:var(--color-navy)'>&amp; Referrals</span>"
+    subtitle="Bringing Christ’s Love and Hope Behind Bars"
+    intro={['We believe in the dignity of every person. Our legal assistance and referral services help inmates understand their rights, access justice, and prepare for a better future.']}
+    heroQuote="I was in prison and you visited me. You cared for my rights." heroQuoteRef="Matthew 25:36"
+    heroAlt="An IICC Mission adviser taking notes with an inmate"
+    bandTitle="What We Offer"
+    bandIntro="We provide guidance, information and referral to help inmates navigate the legal system with dignity and hope."
+    band={[
+      { icon: 'scale-balanced', title: 'Legal Information', text: 'We provide clear information about your rights and legal options.' },
+      { icon: 'file-lines', title: 'Case Review', text: 'We review your case details to identify possible solutions and next steps.' },
+      { icon: 'user-tie', title: 'Referrals', text: 'We connect you with trusted lawyers and legal professionals specialising in your needs.' },
+      { icon: 'handshake', title: 'Advocacy', text: 'We advocate for fair treatment and access to justice for all inmates.' },
+      { icon: 'building-columns', title: 'Appeals & Applications', text: 'Assistance with appeals, parole applications, sentence reviews and other legal matters.' },
+      { icon: 'file-pen', title: 'Document Support', text: 'Help with forms, applications and legal documents.' },
+      { icon: 'people-group', title: 'Reintegration Support', text: 'Legal guidance to prepare for release and a successful return to society.' },
+    ]}
+    leftTitle="Common Areas We Assist"
+    left={[
+      { icon: 'gavel', title: 'Criminal Law Matters', text: 'Charges, trials, sentencing and appeals.' },
+      { icon: 'lock', title: 'Parole & Release', text: 'Parole hearings, reviews and release conditions.' },
+      { icon: 'user', title: 'Human Rights', text: 'Protection of your rights and dignity.' },
+      { icon: 'people-roof', title: 'Family Law Issues', text: 'Child custody, visitation and family support.' },
+      { icon: 'globe', title: 'Immigration Matters', text: 'Support for inmates who are non-citizens.' },
+      { icon: 'folder-open', title: 'Records & Documents', text: 'Access to records and helping correct legal documents.' },
+      { icon: 'ribbon', title: 'Victims of Abuse', text: 'Support and referrals for those who have experienced abuse or injustice.' },
+    ]}
+    centerQuote="Knowledge of your rights is the first step toward freedom and a new future." centerRef="IICC Mission"
+    boxUnderCenter
+    box={['You have rights.', 'You deserve justice.', 'You are not alone.']} boxAccent="We are here to help."
+    rightTitle="How We Help"
+    right={[
+      { photo: 'r1', title: 'We Listen', text: 'We hear your story and understand your situation with compassion.' },
+      { photo: 'r2', title: 'We Assess', text: 'We carefully review your case and explain your options.' },
+      { photo: 'r3', title: 'We Connect', text: 'We refer you to experienced legal professionals who can assist.' },
+      { photo: 'r4', title: 'We Support', text: 'We support you throughout the legal process and beyond, even after release.' },
+    ]}
+    stripTitle="Our Process – Every Case Matters" stripLight stripNumbered
+    strip={[
+      { title: 'You Reach Out', text: 'Submit a request or speak with our team.' },
+      { title: 'We Listen', text: 'We listen carefully to your needs and concerns.' },
+      { title: 'We Review', text: 'We review your case and gather information.' },
+      { title: 'We Refer', text: 'We refer you to the right legal professional.' },
+      { title: 'We Support', text: 'We walk with you every step of the way.' },
+      { title: 'A Better Future', text: 'We help you prepare for freedom and a new life.' },
+    ]}
+    supportIcon="hands-praying"
+    supportTitle="You have the right to hope. We have the mission to help." supportText="Let us help you find the path to justice, restoration and a better tomorrow."
+    supportCta="Request Legal Assistance"
+  />
+</Layout>

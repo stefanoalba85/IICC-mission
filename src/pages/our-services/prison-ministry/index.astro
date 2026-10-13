@@ -1,0 +1,49 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import MinistryTemplate from '../../../components/MinistryTemplate.astro';
+---
+<Layout title="Prison Ministry" description="Bringing Christ's Love and Hope Behind Bars.">
+  <MinistryTemplate
+    dir="main"
+    title="Prison" titleAccent="Ministry"
+    subtitle="Bringing Christ’s Love and Hope Behind Bars"
+    intro={['We walk with inmates on their journey of faith, healing and transformation.', 'Every person is loved. Every life has purpose. Every story can be renewed.']}
+    heroQuote="I was in prison and you visited me." heroQuoteRef="Matthew 25:36"
+    heroAlt="A priest and the IICC Mission founder holding hands across a table in prison"
+    bandTitle="Our Mission"
+    bandIntro="To share Christ’s love, mercy and hope with inmates by offering spiritual care, practical support and pathways to healing, restoration and reintegration."
+    band={[
+      { icon: 'hand-holding-heart', title: 'Spiritual Care', text: 'Bringing the hope of Christ into every heart.' },
+      { icon: 'people-group', title: 'Compassion', text: 'We listen, we care, we walk together.' },
+      { icon: 'scale-balanced', title: 'Justice', text: 'Upholding dignity and advocating for every person.' },
+      { icon: 'dove', title: 'Restoration', text: 'Supporting change, healing and a new beginning.' },
+      { icon: 'people-roof', title: 'Family Support', text: 'Strengthening bonds and supporting loved ones.' },
+    ]}
+    leftTitle="What We Do"
+    left={[
+      { icon: 'hands-praying', title: 'Spiritual & Pastoral Care', text: 'Prayer, Bible study, sacraments and faith-based support.' },
+      { icon: 'people-group', title: 'Prison Visits', text: 'Regular visits to listen, encourage and bring hope.' },
+      { icon: 'envelope', title: 'Letters & Connection', text: 'Writing letters and staying connected with inmates and their families.' },
+      { icon: 'scale-balanced', title: 'Legal Assistance & Referrals', text: 'Connecting inmates and families to legal aid and resources.' },
+      { icon: 'book-open', title: 'Education & Rehabilitation', text: 'Encouraging personal growth through education and life skills.' },
+      { icon: 'hand-holding-heart', title: 'Reintegration Support', text: 'Preparing for a successful return and a brighter future.' },
+    ]}
+    centerQuote="Prison didn’t break me. God gave me purpose. Now, I walk this journey with you." centerRef="Ambassador & Founder, IICC Mission"
+    rightTitle="You Can Make a Difference"
+    right={[
+      { icon: 'heart', title: 'Pray', text: 'Pray for inmates, their families and prison chaplains.' },
+      { icon: 'people-group', title: 'Volunteer', text: 'Join our team and be the hands and feet of Christ.' },
+      { icon: 'gift', title: 'Donate', text: 'Your support helps us continue this vital ministry.' },
+      { icon: 'envelope-open-text', title: 'Write a Letter', text: 'A simple letter can bring encouragement and hope.' },
+    ]}
+    box={['Every life matters.', 'Every soul is precious.']} boxAccent="Together, we restore hope."
+    strip={[
+      { title: 'We Pray', text: 'Bringing every need to God.' },
+      { title: 'We Visit', text: 'Showing up with love.' },
+      { title: 'We Write', text: 'Connecting hearts.' },
+      { title: 'We Restore', text: 'Building new beginnings.' },
+      { title: 'We Believe', text: 'In second chances and God’s grace.' },
+    ]}
+    supportTitle="Support Our Prison Ministry" supportText="Accompanying. Empowering. Restoring Hope." supportCta="Support This Ministry"
+  />
+</Layout>

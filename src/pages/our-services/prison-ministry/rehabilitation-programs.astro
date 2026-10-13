@@ -1,0 +1,58 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import MinistryTemplate from '../../../components/MinistryTemplate.astro';
+---
+<Layout title="Education & Rehabilitation" description="We believe in second chances and brighter futures.">
+  <MinistryTemplate
+    dir="education"
+    kicker="Prison Ministry"
+    title="Education" titleAccent="&amp; Rehabilitation"
+    subtitle="Bringing Christ’s Love and Hope Behind Bars"
+    intro={['We believe in second chances and brighter futures. Through education, skills training, and personal development, we help inmates discover their potential, build confidence, and prepare for successful reintegration into society.']}
+    heroQuote="I can do all things through Christ who strengthens me." heroQuoteRef="Philippians 4:13"
+    heroAlt="An IICC Mission teacher with inmates in a prison classroom"
+    bandTitle="Our Goal"
+    bandIntro="To equip inmates with knowledge, skills, and values that transform lives and create pathways to a better future."
+    band={[
+      { icon: 'book-open', title: 'Empower Minds', text: 'Provide education that builds confidence, critical thinking, and a love for learning.' },
+      { icon: 'screwdriver-wrench', title: 'Build Skills', text: 'Offer vocational and life skills training for future employment.' },
+      { icon: 'user-shield', title: 'Strengthen Character', text: 'Promote values, discipline, and responsibility for personal growth.' },
+      { icon: 'handshake', title: 'Prepare for Reintegration', text: 'Help inmates transition successfully back into their families and communities.' },
+      { icon: 'people-group', title: 'Support Community', text: 'Partner with organizations to create opportunities and reduce recidivism.' },
+      { icon: 'dove', title: 'Share Hope', text: 'Inspire hope and faith in Christ as the foundation for lasting change.' },
+    ]}
+    leftTitle="Our Education & Training Programs"
+    left={[
+      { icon: 'graduation-cap', title: 'Basic Education', text: 'Literacy, numeracy, and GED preparation.' },
+      { icon: 'book-bible', title: 'Bible Study & Faith Formation', text: 'Spiritual growth through Scripture and faith-based programs.' },
+      { icon: 'laptop', title: 'Vocational Training', text: 'Hands-on training in trades such as baking, carpentry, maintenance, and more.' },
+      { icon: 'briefcase', title: 'Life Skills', text: 'Communication, financial literacy, problem-solving, and decision-making.' },
+      { icon: 'brain', title: 'Personal Development', text: 'Building self-esteem, emotional resilience, and leadership skills.' },
+      { icon: 'certificate', title: 'Certification Courses', text: 'Opportunities to earn recognized certifications while incarcerated.' },
+    ]}
+    centerQuote="Education is the key that unlocks the door to a new life." centerRef="IICC Mission"
+    boxUnderCenter
+    box={['Every person has purpose.', 'Every life has value.', 'Every future can change.']} boxAccent="We are here to help."
+    rightTitle="The Benefits of Education"
+    right={[
+      { icon: 'check', text: 'Reduces recidivism and supports safer communities.' },
+      { icon: 'check', text: 'Increases employment opportunities after release.' },
+      { icon: 'check', text: 'Strengthens families and relationships.' },
+      { icon: 'check', text: 'Builds confidence and self-worth.' },
+      { icon: 'check', text: 'Creates hope and a sense of purpose.' },
+      { icon: 'check', text: 'Honors the dignity of every person.' },
+    ]}
+    stripTitle="The Journey of Transformation" stripLight stripNumbered
+    strip={[
+      { title: 'Discover', text: 'We help inmates discover their potential.' },
+      { title: 'Learn', text: 'We provide the education and skills they need.' },
+      { title: 'Grow', text: 'They build confidence, character, and a positive mindset.' },
+      { title: 'Prepare', text: 'We prepare them for real-world opportunities.' },
+      { title: 'Succeed', text: 'They step into their future with hope and purpose.' },
+      { title: 'Transform', text: 'Lives are changed. Communities are stronger. Hope lives on.' },
+    ]}
+    supportIcon="book-open"
+    supportTitle="Invest in education. Change a life. Transform a future." supportText="Together, we can build a better tomorrow."
+    supportCta="Support Education Programs"
+  />
+</Layout>
