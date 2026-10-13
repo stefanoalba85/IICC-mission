@@ -1,0 +1,130 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const values = [
+  { title: 'Faith', desc: "We are grounded in Christian faith and guided by God's love." },
+  { title: 'Hope', desc: 'We bring hope to the hopeless and light to dark places.' },
+  { title: 'Justice', desc: 'We advocate for dignity, fairness and the rights of every individual.' },
+  { title: 'Restoration', desc: 'We empower people to heal, rebuild and thrive in community.' },
+];
+---
+<Layout title="About Us" description="A Mission of Hope, Justice and Restoration — accompanying individuals and families in their journey toward healing, empowerment and a restored future.">
+  <nav class="breadcrumb wrap"><a href="/">Home</a><span class="breadcrumb__sep">/</span><span class="breadcrumb__current">About Us</span></nav>
+
+  <section class="hero-split">
+    <div class="hero-split__text">
+      <span class="eyebrow">About Us</span>
+      <h1 class="section-title" style="margin-block:0.5rem;">A Mission of Hope, <span class="text-amber">Justice and Restoration</span></h1>
+      <p class="section-desc" style="max-width:none;">
+        Accompanying individuals and families in their journey toward healing, empowerment and a
+        restored future.
+      </p>
+      <p class="section-desc" style="max-width:none;">
+        IICC Mission is a Catholic global mission sharing Christ's love, mercy and hope with
+        incarcerated individuals, people in Immigration Detention, their families and all who are
+        experiencing hardship.
+      </p>
+      <a href="/about-us/our-mission" class="btn btn--amber" style="align-self:flex-start;">Our Mission &gt;</a>
+    </div>
+    <div class="hero-split__photo">
+      <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1000&q=80" alt="Hands joined together" />
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="wrap cols-2">
+      <div class="hero-split__photo" style="min-height:320px; border-radius:2px;">
+        <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=800&q=80" alt="A cross at sunrise" />
+      </div>
+      <div>
+        <span class="eyebrow">Our Story</span>
+        <h2 class="section-title" style="margin-block:0.5rem;">Founded on Faith. Driven by Love.</h2>
+        <span class="rule rule--amber" style="margin-block:0.75rem;"></span>
+        <p class="section-desc" style="max-width:none; margin-bottom:1rem;">
+          IICC Mission was founded on the belief that every individual is created with dignity
+          and purpose. Our journey began with a burden to see lives transformed and communities
+          restored through the love of Christ in action.
+        </p>
+        <p class="section-desc" style="max-width:none;">
+          We walk alongside those who are hurting, vulnerable or marginalised — offering not only
+          practical support, but also spiritual and emotional care.
+        </p>
+        <p style="font-family:var(--font-heading); font-size:1.25rem; color:var(--color-navy); margin-top:1rem;">Antonio G. Dattilo</p>
+        <p style="font-size:0.75rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--color-muted);">Ambassador &amp; Founder, IICC Mission</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--offwhite">
+    <div class="wrap cols-60-40">
+      <div>
+        <span class="eyebrow">Who We Are</span>
+        <h2 class="section-title" style="margin-block:0.5rem;">A Global Catholic Mission</h2>
+        <p class="section-desc" style="max-width:none; margin-bottom:1rem;">
+          We are a team of compassionate leaders, volunteers and partners working together to
+          bring hope, promote justice and restore lives through faith-driven action.
+        </p>
+        <p class="section-desc" style="max-width:none; margin-bottom:1.25rem;">
+          We serve individuals and families impacted by hardship, disadvantage, injustice and
+          vulnerability — empowering them to rebuild their lives with dignity and hope.
+        </p>
+        <a href="/about-us/our-leadership" class="btn btn--navy">Meet Our Leadership &gt;</a>
+      </div>
+      <div class="grid-2">
+        {values.map(v => (
+          <div class="card">
+            <span class="card__title">{v.title}</span>
+            <p class="card__body">{v.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="wrap">
+      <div class="section-head section-head--left">
+        <span class="eyebrow">Why We Exist</span>
+        <h2 class="section-title">Because Every Life Matters</h2>
+      </div>
+      <div class="cols-60-40">
+        <p class="section-desc" style="max-width:none;">
+          We believe no one should walk alone through life's challenges. Our mission is to stand
+          in the gap with compassion, practical support and the love of Christ — helping restore
+          lives and rebuild communities for a better tomorrow.
+        </p>
+        <div class="grid-2">
+          <p class="card__body">We support individuals and families in crisis.</p>
+          <p class="card__body">We provide practical, emotional and spiritual care.</p>
+          <p class="card__body">We empower through education, advocacy and community programs.</p>
+          <p class="card__body">We partner with churches, organisations and communities to create lasting impact.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="stat-band">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow eyebrow--white">Together</span>
+        <h2 class="section-title section-title--white">We Create Lasting Impact</h2>
+      </div>
+      <div class="stat-band__inner">
+        <div class="stat-band__item"><span class="stat-band__num">25,000+</span><span class="stat-band__label">Lives Supported</span></div>
+        <div class="stat-band__item"><span class="stat-band__num">120+</span><span class="stat-band__label">Community Programs</span></div>
+        <div class="stat-band__item"><span class="stat-band__num">15+</span><span class="stat-band__label">Years of Service</span></div>
+        <div class="stat-band__item"><span class="stat-band__num">100+</span><span class="stat-band__label">Partners &amp; Volunteers</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-band">
+    <div class="wrap cta-band__inner">
+      <div class="cta-band__text">
+        <h2 class="section-title section-title--white">Get Involved</h2>
+        <p class="section-desc section-desc--white">Join us in bringing hope, justice and restoration to those who need it most.</p>
+      </div>
+      <a href="/get-involved" class="btn btn--amber">Volunteer With Us &gt;</a>
+    </div>
+  </div>
+</Layout>

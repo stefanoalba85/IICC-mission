@@ -1,0 +1,96 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const values = [
+  { title: 'Faith', desc: 'Guided by the Gospel and the belief that every person has value.' },
+  { title: 'Compassion', desc: 'Seeing the person, not only the circumstance.' },
+  { title: 'Dignity', desc: 'Recognising the worth of every human being.' },
+  { title: 'Justice', desc: 'Supporting fairness, restoration and opportunity.' },
+  { title: 'Hope', desc: 'Believing that a new beginning is possible.' },
+];
+---
+<Layout title="Our Story" description="Every Person Has Dignity. Every Person Deserves Hope.">
+  <nav class="breadcrumb wrap"><a href="/">Home</a><span class="breadcrumb__sep">/</span><a href="/about-us">About Us</a><span class="breadcrumb__sep">/</span><span class="breadcrumb__current">Our Story</span></nav>
+
+  <section class="hero-split">
+    <div class="hero-split__text" style="background:var(--color-navy);">
+      <span class="eyebrow eyebrow--white">Our Story</span>
+      <h1 class="section-title section-title--white" style="margin-block:0.5rem;">
+        Every Person Has Dignity. <span class="text-amber">Every Person Deserves Hope.</span>
+      </h1>
+      <p class="section-desc section-desc--white" style="max-width:none;">
+        The IICC Mission exists to walk alongside individuals and families who are facing some of
+        life's most difficult challenges, offering compassion, practical support and lasting hope.
+      </p>
+    </div>
+    <div class="hero-split__photo">
+      <img src="https://images.unsplash.com/photo-1529260830199-42c24126f198?w=1000&q=80" alt="Rome at sunset" />
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="wrap cols-2">
+      <div style="text-align:center;">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=80" alt="Antonio G. Dattilo" style="border-radius:2px; width:100%; max-width:320px; margin-inline:auto;" />
+        <p style="font-family:var(--font-heading); font-weight:700; font-size:1.125rem; color:var(--color-navy); margin-top:1rem;">Antonio G. Dattilo</p>
+        <p style="font-size:0.75rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--color-amber);">Ambassador &amp; Founder, IICC Mission</p>
+      </div>
+      <div>
+        <span class="eyebrow">A Message From Our Founder</span>
+        <p class="section-desc" style="max-width:none; margin-top:0.75rem; margin-bottom:1rem;">
+          Throughout my life, I have seen how difficult circumstances can affect individuals and
+          families. Financial hardship, family struggles, trauma, addiction, loneliness and
+          difficult situations can leave people feeling abandoned and without hope.
+        </p>
+        <p class="section-desc" style="max-width:none; margin-bottom:1rem;">
+          The IICC Mission was founded on the belief that every person has dignity and purpose,
+          and that no one should walk alone. We believe in accompaniment rather than abandonment,
+          restoration rather than rejection, and hope rather than despair.
+        </p>
+        <p class="section-desc" style="max-width:none; margin-bottom:1rem;">
+          Today, we continue this mission by bringing together faith, compassion and practical
+          support to help people rebuild their lives and create brighter futures for themselves,
+          their families and their communities.
+        </p>
+        <p class="section-desc" style="max-width:none;">
+          I invite you to join us on this journey. Together, we can build a more just,
+          compassionate and hopeful world where every life matters and where restoration is
+          possible. Thank you for being part of this mission.
+        </p>
+        <p style="font-family:var(--font-heading); font-style:italic; color:var(--color-navy); margin-top:1rem;">With gratitude, Antonio G. Dattilo</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--offwhite">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Our Values</span>
+        <h2 class="section-title">What Guides Us</h2>
+      </div>
+      <div class="pillars">
+        {values.map(v => (
+          <div class="pillar">
+            <span class="pillar__label">{v.title}</span>
+            <p class="pillar__desc">{v.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <div class="wrap cta-band__inner">
+      <div class="cta-band__text">
+        <span class="eyebrow eyebrow--white">A Brighter Tomorrow</span>
+        <h2 class="section-title section-title--white">For Every Life</h2>
+        <p class="section-desc section-desc--white">
+          IICC Mission is a Catholic global mission sharing Christ's love, mercy and hope with
+          incarcerated individuals, people in Immigration Detention, their families and all who
+          are experiencing hardship.
+        </p>
+      </div>
+      <a href="/get-involved" class="btn btn--amber">Get Involved &gt;</a>
+    </div>
+  </div>
+</Layout>

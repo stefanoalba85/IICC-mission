@@ -1,0 +1,63 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const partners = [
+  { title: 'Legal Partners', sub: 'Justice. Advocacy. Dignity.', desc: 'Our legal partners provide pro bono and low-cost services to protect rights and ensure fair treatment for all.', items: ['Criminal Law', 'Civil & Commercial Law', 'Human Rights Advocacy', 'Immigration Law', 'Appeals & Reviews'] },
+  { title: 'Forensic Psychologists', sub: 'Understanding. Assessment. Support.', desc: 'Helping to assess, understand and support individuals on the path to healing and reintegration.', items: ['Psychological Assessments', 'Risk & Rehabilitation Reports', 'Treatment Recommendations', 'Court Reports', 'Expert Witness Services'] },
+  { title: 'Counsellors & Therapists', sub: 'Healing Hearts. Restoring Lives.', desc: 'Providing professional counselling and emotional support for individuals and families.', items: ['Individual Counselling', 'Family Counselling', 'Trauma & Grief Support', 'Addiction Support', 'Reintegration Support'] },
+  { title: 'Catholic Parish Partners', sub: 'Faith in Action. Community in Love.', desc: 'Working with Catholic parishes to extend care, welcome and practical support to those in need.', items: ['Pastoral Care & Support', 'Accommodation & Shelter', 'Food & Essentials', 'Community Connection', 'Spiritual Guidance'] },
+  { title: 'Community & NGO Partners', sub: 'Stronger Together. Greater Impact.', desc: 'Collaborating with trusted organisations to provide wrap-around services and resources.', items: ['Housing & Homelessness Support', 'Education & Training Programs', 'Employment Pathways', 'Health & Wellbeing Services', 'Youth & Family Support'] },
+  { title: 'Education & Training Partners', sub: 'Knowledge. Skills. New Beginnings.', desc: 'Empowering individuals through education, skills development and employment opportunities.', items: ['Vocational Training', 'Life Skills Programs', 'Mentoring & Coaching', 'Employment Support', 'Digital Literacy'] },
+];
+---
+<Layout title="Professional Partners" description="Experts. Compassion. Restoring Hope.">
+  <nav class="breadcrumb wrap"><a href="/">Home</a><span class="breadcrumb__sep">/</span><a href="/about-us">About Us</a><span class="breadcrumb__sep">/</span><a href="/about-us/our-people">Our People</a><span class="breadcrumb__sep">/</span><span class="breadcrumb__current">Professional Partners</span></nav>
+
+  <section class="hero-split">
+    <div class="hero-split__text">
+      <h1 class="section-title" style="margin-block:0.5rem;">Professional Partners</h1>
+      <p style="font-weight:700; color:var(--color-amber);">Experts. Compassion. Restoring Hope.</p>
+      <p class="section-desc" style="max-width:none;">
+        Our Professional Partners generously donate their expertise, time and services to help
+        inmates, detainees and their families access justice, healing and a brighter future.
+      </p>
+      <div class="hero-split__quote" style="position:static; width:auto;">
+        <p class="hero-split__quote-text">Where there is no guidance, the people fall, but in abundance of counsellors there is safety.</p>
+        <span class="hero-split__quote-ref">— Proverbs 11:14</span>
+      </div>
+    </div>
+    <div class="hero-split__photo">
+      <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1000&q=80" alt="Handshake over documents" />
+    </div>
+  </section>
+
+  <div class="amber-band">
+    <p style="font-family:var(--font-heading); font-weight:700; color:#fff; font-size:1.0625rem;">TOGETHER, WE BRING EXPERTISE AND COMPASSION TO THOSE WHO NEED IT MOST.</p>
+  </div>
+
+  <section class="section section--white">
+    <div class="wrap">
+      <div class="section-head"><h2 class="section-title">Our Professional Partners</h2></div>
+      <div class="grid-3">
+        {partners.map(p => (
+          <div class="card">
+            <span class="card__title">{p.title}</span>
+            <p style="font-size:0.75rem; font-weight:700; color:var(--color-amber);">{p.sub}</p>
+            <p class="card__body">{p.desc}</p>
+            <ul class="checklist">{p.items.map(i => <li>{i}</li>)}</ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <div class="wrap cta-band__inner">
+      <div class="cta-band__text">
+        <h2 class="section-title section-title--white">Interested in Partnering With Us?</h2>
+        <p class="section-desc section-desc--white">If you are a professional, organisation or parish who would like to partner with IICC Mission, we would love to hear from you.</p>
+      </div>
+      <a href="/contact" class="btn btn--amber">Contact Us Today &gt;</a>
+    </div>
+  </div>
+</Layout>

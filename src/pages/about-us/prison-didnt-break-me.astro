@@ -1,0 +1,75 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const chapters = [
+  { n: 1, title: 'My Story', text: "I made mistakes. I paid the price. Eight years of my life in prison. It was a time of loss, pain and isolation. But it was also a time that changed my heart forever. I learned that every person, no matter their past, still has dignity, still has value, and still has a future." },
+  { n: 2, title: 'Faith Was My Strength', text: 'In the silence of my cell, I discovered something powerful: God never left me. Through prayer, through the Gospel, through the Sacraments when I could, my faith became my anchor. Faith gave me strength. Hope gave me purpose.' },
+  { n: 3, title: 'The Prison Bakery Experience', text: 'For four years, I worked in the prison bakery. I learned the craft of breadmaking. I saw how creating something with your hands can change the way you see yourself. I saw men who had lost everything, stand a little taller because they were trusted, they were needed, they were capable. That experience inspired the Bakery of Hope — a place of second chances and new beginnings.' },
+  { n: 4, title: 'Prison Did Not Define Me', text: 'My past is real. But it is not my identity. I am more than my mistakes. I am defined by the choices I make today and the good I choose for tomorrow. A person’s worst moment is not the end of their story.' },
+  { n: 5, title: 'A Message to Inmates and Detainees', text: 'If you are in prison or immigration detention, please hear this: You are not forgotten. You still have dignity. You still have a purpose. And you still have a future. Hold on to hope. It can change your life.' },
+  { n: 6, title: 'A Message to Families', text: 'Families carry a pain too. The wait. The worry. The uncertainty. You are not alone in this journey. Stay strong. Stay connected. Hope is possible for your loved one, and for you.' },
+  { n: 7, title: 'Why IICC Mission Exists', text: 'IICC Mission was born from my journey and my calling. We exist to bring hope, dignity and practical support through Prison Ministry, Immigration Detention Ministry, Advocacy &amp; Justice, Pastoral Care &amp; Spiritual Support, Reintegration &amp; Education and Humanitarian Support.' },
+  { n: 8, title: 'From Experience to Mission', text: 'My story is not defined by where I was. It is defined by the hope I found and the hope I now share with others. IICC Mission is more than an organization. It is a family, a mission of love, mercy and hope for everyone behind walls and for their families.' },
+  { n: 9, title: 'I Will Continue to Give Hope', text: 'I can visit prisons and detention centres to speak with inmates and detainees, to listen, to encourage and to remind them that they are not alone. I will continue to be their voice, their ambassador, and their brother. Together, we can build a world where no one is forgotten.' },
+];
+---
+<Layout title="Prison Didn't Break Me" description="A story of faith, hope, restoration and purpose — the Ambassador & Founder's own journey.">
+  <nav class="breadcrumb wrap"><a href="/">Home</a><span class="breadcrumb__sep">/</span><a href="/about-us">About Us</a><span class="breadcrumb__sep">/</span><span class="breadcrumb__current">Prison Didn't Break Me</span></nav>
+
+  <section class="hero-full" style="min-height:40vh;">
+    <div class="hero-full__bg">
+      <img src="https://images.unsplash.com/photo-1528605105345-5344ea20e269?w=1600&q=80" alt="Light through prison window" />
+    </div>
+    <div class="hero-full__overlay"></div>
+    <div class="hero-full__content">
+      <span class="eyebrow eyebrow--white">A Story of Faith, Hope, Restoration and Purpose</span>
+      <h1 class="section-title section-title--white" style="margin-block:0.5rem; font-size:clamp(2rem,5vw,3rem);">Prison Didn't <span class="text-amber">Break Me</span></h1>
+      <div class="quote-box" style="max-width:480px; margin-top:1rem;">
+        <p class="quote-box__text">"During my time in prison I wasn't alone. I had God and the power of the Gospel guiding me."</p>
+        <span class="quote-box__ref">Even in the darkest place, hope can remain present.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="wrap grid-3">
+      {chapters.map(c => (
+        <div class="card">
+          <span class="card__title">{c.n}. {c.title}</span>
+          <p class="card__body">{c.text}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <div class="quote-box" style="max-width:720px; margin-inline:auto; margin-bottom:3rem;">
+    <p class="quote-box__text">We accompany those who feel forgotten, and we walk with them toward a brighter future.</p>
+  </div>
+
+  <div class="cta-band">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow eyebrow--white">You Can Be Part of This Mission</span>
+      </div>
+      <div class="cols-60-40" style="align-items:center;">
+        <div class="grid-3">
+          <div>
+            <p class="card__title" style="color:#fff;">Support the Mission</p>
+            <p class="card__body" style="color:rgba(255,255,255,0.65);">Your donation helps us reach more lives and bring hope to those in need.</p>
+            <a href="/donate" class="btn btn--amber" style="margin-top:0.75rem;">Donate Now</a>
+          </div>
+          <div>
+            <p class="card__title" style="color:#fff;">Become an Ambassador</p>
+            <p class="card__body" style="color:rgba(255,255,255,0.65);">Use your voice, your talents and your heart to make a difference.</p>
+            <a href="/get-involved" class="btn btn--outline-white" style="margin-top:0.75rem;">Get Involved</a>
+          </div>
+          <div>
+            <p class="card__title" style="color:#fff;">Share Hope</p>
+            <p class="card__body" style="color:rgba(255,255,255,0.65);">Share this story. You never know who needs to hear it today.</p>
+            <a href="/get-involved/submit-your-story" class="btn btn--outline-white" style="margin-top:0.75rem;">Share Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

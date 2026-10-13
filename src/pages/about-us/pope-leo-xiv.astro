@@ -1,0 +1,132 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const values = [
+  { title: 'Faith', desc: 'A faith that is humble, joyful and rooted in the Gospel of Jesus Christ.' },
+  { title: 'Compassion', desc: 'A heart that is close to the poor, the forgotten and the vulnerable.' },
+  { title: 'Unity', desc: 'Building bridges of peace, dialogue and fraternity for all.' },
+  { title: 'Justice', desc: 'Promoting human dignity, protecting rights and serving the common good.' },
+  { title: 'Hope', desc: 'Bringing the light of Christ to a world in need of healing and renewal.' },
+];
+const connection = [
+  { title: 'People in Prison', desc: 'Reaching out with mercy, encouraging rehabilitation and opening doors of hope.' },
+  { title: 'People in Immigration Detention', desc: 'Standing with those in detention, advocating for dignity and justice.' },
+  { title: 'Families', desc: 'Supporting families affected by separation, struggle and uncertainty.' },
+  { title: 'Vulnerable Communities', desc: 'Serving the poor, the sick, the elderly and all who have no voice.' },
+  { title: 'A World in Need of Hope', desc: 'Working together for a more just, peaceful and compassionate world.' },
+];
+const action = [
+  { title: 'Accompaniment', desc: 'Walking alongside people during moments of difficulty and uncertainty.' },
+  { title: 'Compassion', desc: 'Seeing the person beyond their story and their circumstances.' },
+  { title: 'Service', desc: 'Providing practical help, resources and pathways to a better future.' },
+  { title: 'Restoration', desc: 'Believing in the power of forgiveness, healing and new beginnings.' },
+  { title: 'Hope', desc: 'Bringing the light of Christ to every heart and every situation.' },
+];
+const ministries = ['Prison Ministry', 'Immigration Detention Ministry', 'Family Support', 'Education & Awareness', 'Advocacy & Justice', 'Reintegration & Restoration', 'Humanitarian Support'];
+---
+<Layout title="Inspired By Pope Leo XIV" description="A New Chapter of Faith, Hope and Service.">
+  <nav class="breadcrumb wrap"><a href="/">Home</a><span class="breadcrumb__sep">/</span><a href="/about-us">About Us</a><span class="breadcrumb__sep">/</span><span class="breadcrumb__current">Pope Leo XIV</span></nav>
+
+  <section class="hero-split">
+    <div class="hero-split__text">
+      <span class="eyebrow">Inspired By Faith</span>
+      <h1 class="section-title" style="margin-block:0.5rem;">Inspired By <span class="text-amber">Pope Leo XIV</span></h1>
+      <p style="font-family:var(--font-heading); font-weight:700; color:var(--color-navy); font-size:1.0625rem;">A New Chapter of Faith, Hope and Service</p>
+      <p class="section-desc" style="max-width:none;">
+        Pope Leo XIV represents a new chapter in the continuing mission of faith, compassion and
+        service. His leadership inspires communities around the world to remain close to those
+        experiencing hardship, uncertainty and moments of vulnerability.
+      </p>
+      <div class="quote-box" style="position:static; width:auto;">
+        <p class="quote-box__text">"Peace be with you all."</p>
+        <span class="quote-box__ref">— Pope Leo XIV</span>
+      </div>
+    </div>
+    <div class="hero-split__photo">
+      <img src="https://images.unsplash.com/photo-1531572753322-ad063cecc140?w=1000&q=80" alt="St Peter's Square, Vatican" />
+    </div>
+  </section>
+
+  <div class="stat-band">
+    <div class="wrap stat-band__inner">
+      {values.map(v => (
+        <div class="stat-band__item">
+          <span class="value-strip__title">{v.title}</span>
+          <span class="value-strip__desc" style="max-width:160px;">{v.desc}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <section class="section section--white">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">A Connection With IICC Mission</span>
+        <h2 class="section-title">A Leader for Our Time</h2>
+        <p class="section-desc">The values of Pope Leo XIV's ministry align deeply with the mission of IICC Mission. Together we walk with those most in need, upholding the dignity of every person.</p>
+      </div>
+      <div class="grid-3">
+        {connection.map(c => (
+          <div class="card">
+            <span class="card__title">{c.title}</span>
+            <p class="card__body">{c.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="amber-band">
+    <div class="wrap">
+      <p style="font-family:var(--font-heading); font-weight:700; color:#fff; font-size:1.0625rem;">Jubilee of Prisoners — 14 December 2025</p>
+      <p style="color:rgba(255,255,255,0.9); max-width:680px; margin-inline:auto; margin-top:0.5rem;">
+        Pope Leo XIV has announced the Jubilee of Prisoners, a special moment of grace, mercy and
+        hope for all those living in places of confinement and their families.
+      </p>
+    </div>
+  </div>
+
+  <section class="section section--offwhite">
+    <div class="wrap">
+      <div class="section-head"><span class="eyebrow">Faith That Becomes Action</span></div>
+      <div class="pillars">
+        {action.map(a => (
+          <div class="pillar"><span class="pillar__label">{a.title}</span><p class="pillar__desc">{a.desc}</p></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="wrap cols-2">
+      <div class="quote-box">
+        <span class="quote-box__mark">&ldquo;</span>
+        <p class="quote-box__text">To all who feel forgotten, discouraged or lost, know this: God never stops loving you. You are never beyond His mercy. With faith, support and opportunity, a new future is always possible.</p>
+        <span class="quote-box__ref">You are not forgotten. You are loved. You have hope.</span>
+      </div>
+      <div>
+        <span class="eyebrow">Recognition &amp; Gratitude</span>
+        <p class="section-desc" style="max-width:none; margin-top:0.5rem;">
+          IICC Mission gives thanks for the leadership of Pope Leo XIV and his commitment to
+          mercy, justice, human dignity and the care of those most in need.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--offwhite">
+    <div class="wrap">
+      <div class="section-head"><span class="eyebrow">Continuing the Mission Together</span><h2 class="section-title">Inspired by Pope Leo XIV, IICC Mission continues its commitment to:</h2></div>
+      <div class="pillars">{ministries.map(m => <div class="pillar"><span class="pillar__label">{m}</span></div>)}</div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <div class="wrap cta-band__inner">
+      <div class="cta-band__text">
+        <h2 class="section-title section-title--white">Bringing Hope to Those in Need</h2>
+      </div>
+      <a href="/donate" class="btn btn--amber">Donate Now &gt;</a>
+    </div>
+  </div>
+</Layout>

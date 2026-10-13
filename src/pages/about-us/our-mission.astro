@@ -1,0 +1,53 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const areas = [
+  { title: 'Spiritual & Pastoral Care', desc: 'Supporting people through faith, prayer and guidance.' },
+  { title: 'Justice & Advocacy', desc: 'Promoting dignity, fairness and support.' },
+  { title: 'Prisoner & Former Prisoner Support', desc: 'Helping people rebuild and reintegrate into the community.' },
+  { title: 'Immigration Detainee Support', desc: 'Standing alongside people during uncertain times.' },
+  { title: 'Family Support', desc: 'Strengthening families affected by hardship and challenges.' },
+  { title: 'Healing & Reintegration', desc: 'Creating pathways toward healing, restoration and hope.' },
+];
+---
+<Layout title="Our Mission" description="To accompany, empower and restore hope.">
+  <nav class="breadcrumb wrap"><a href="/">Home</a><span class="breadcrumb__sep">/</span><a href="/about-us">About Us</a><span class="breadcrumb__sep">/</span><span class="breadcrumb__current">Our Mission</span></nav>
+
+  <section class="hero-full">
+    <div class="hero-full__bg">
+      <img src="https://images.unsplash.com/photo-1444664597020-dcd4d0f9bdf1?w=1600&q=80" alt="Helping hand reaching up a hill" />
+    </div>
+    <div class="hero-full__overlay"></div>
+    <div class="hero-full__content">
+      <span class="eyebrow eyebrow--white">Our Mission</span>
+      <h1 class="section-title section-title--white" style="margin-block:0.5rem;">To accompany, empower and restore <span class="text-amber">hope.</span></h1>
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">What We Focus On</span>
+        <h2 class="section-title">Our Mission Areas</h2>
+      </div>
+      <div class="grid-3">
+        {areas.map(a => (
+          <div class="card">
+            <span class="card__title">{a.title}</span>
+            <p class="card__body">{a.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <div class="wrap cta-band__inner">
+      <div class="cta-band__text">
+        <h2 class="section-title section-title--white">Our Vision Guides Every Step</h2>
+        <p class="section-desc section-desc--white">Discover the brighter tomorrow we are working to build for every life.</p>
+      </div>
+      <a href="/about-us/our-vision" class="btn btn--amber">Our Vision &gt;</a>
+    </div>
+  </div>
+</Layout>

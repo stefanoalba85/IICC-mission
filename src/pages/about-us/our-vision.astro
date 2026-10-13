@@ -1,0 +1,86 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const pillars = [
+  { title: 'Dignity for All', desc: 'A world where every person is valued, respected and treated with compassion.' },
+  { title: 'Opportunity & Inclusion', desc: 'Communities where everyone has access to support, education and new beginnings.' },
+  { title: 'Justice & Mercy', desc: 'Fairness, reconciliation and advocacy for those who are marginalised or in crisis.' },
+  { title: 'Healing & Restoration', desc: 'Lives transformed through spiritual, emotional and practical support.' },
+  { title: 'Stronger Communities', desc: 'A more compassionate and united society where hope replaces despair.' },
+];
+---
+<Layout title="Our Vision" description="A Brighter Tomorrow for Every Life.">
+  <nav class="breadcrumb wrap"><a href="/">Home</a><span class="breadcrumb__sep">/</span><a href="/about-us">About Us</a><span class="breadcrumb__sep">/</span><span class="breadcrumb__current">Our Vision</span></nav>
+
+  <section class="hero-full">
+    <div class="hero-full__bg">
+      <img src="https://images.unsplash.com/photo-1520690214124-2405c5217036?w=1600&q=80" alt="Dove flying over Rome at sunset" />
+    </div>
+    <div class="hero-full__overlay"></div>
+    <div class="hero-full__content">
+      <span class="eyebrow eyebrow--white">Our Vision</span>
+      <h1 class="section-title section-title--white" style="margin-block:0.5rem;">A Brighter <span class="text-amber">Tomorrow</span> for Every Life</h1>
+      <p class="section-desc section-desc--white" style="max-width:600px;">
+        We envision a world where every individual, regardless of their past, background or
+        circumstances, is treated with dignity, supported with compassion and given the
+        opportunity to rebuild their life.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--offwhite">
+    <div class="wrap cols-60-40">
+      <div>
+        <span class="eyebrow">Our Vision in Detail</span>
+        <h2 class="section-title" style="margin-block:0.5rem;">A World of Dignity, Healing and New Beginnings</h2>
+        <p class="section-desc" style="max-width:none; margin-bottom:1rem;">
+          We envision communities where no one is left behind — where individuals and families
+          affected by incarceration, immigration detention, hardship, trauma or exclusion are
+          welcomed, supported and empowered to rebuild their lives with dignity and hope.
+        </p>
+        <p class="section-desc" style="max-width:none;">
+          Through faith-driven action, collaboration and practical support, we seek to break
+          cycles of despair and create pathways to healing, restoration and reintegration.
+        </p>
+      </div>
+      <div class="quote-box">
+        <span class="quote-box__mark">&ldquo;</span>
+        <p class="quote-box__text">
+          "For I know the plans I have for you, plans to prosper you and not to harm you,
+          plans to give you hope and a future."
+        </p>
+        <span class="quote-box__ref">— Jeremiah 29:11</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Our Vision Pillars</span>
+        <h2 class="section-title">Building a More Just, Compassionate and Hopeful World</h2>
+        <p class="section-desc">Our vision is brought to life through five key pillars:</p>
+      </div>
+      <div class="pillars">
+        {pillars.map(p => (
+          <div class="pillar">
+            <div class="pillar__icon-wrap--filled pillar__icon-wrap" style="width:3.5rem;height:3.5rem;">★</div>
+            <span class="pillar__label">{p.title}</span>
+            <p class="pillar__desc">{p.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <div class="wrap cta-band__inner">
+      <div class="cta-band__text">
+        <span class="eyebrow eyebrow--white">Our Vision in Action</span>
+        <h2 class="section-title section-title--white">Hope Today. Stronger Communities Tomorrow.</h2>
+        <p class="section-desc section-desc--white">Through compassion, service and partnership, we work toward a world where every individual and family can thrive.</p>
+      </div>
+      <a href="/get-involved" class="btn btn--amber">Get Involved &gt;</a>
+    </div>
+  </div>
+</Layout>

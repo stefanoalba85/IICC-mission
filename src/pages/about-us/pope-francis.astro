@@ -1,0 +1,116 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const values = [
+  { title: 'Mercy', desc: 'At the heart of his ministry was mercy. A love that welcomes, forgives and restores.' },
+  { title: 'Closeness', desc: 'He walked with those on the margins, bringing the Church closer to every person.' },
+  { title: 'Dignity', desc: 'Every person has infinite dignity and deserves respect and hope.' },
+  { title: 'Justice', desc: 'He spoke for the voiceless and called for a more just and compassionate world.' },
+  { title: 'Hope', desc: 'Hope is born from love and faith, and it never disappoints.' },
+];
+const prisonMinistry = [
+  'He visited prisons around the world.',
+  'He called prisoners "people, not numbers".',
+  'He encouraged rehabilitation, not revenge.',
+  'He urged communities to open doors of hope.',
+];
+const holyDoor = [
+  "God's mercy reaches every heart.",
+  'No place is beyond the love of God.',
+  'Every person can find forgiveness.',
+  'Hope can rise in the darkest places.',
+];
+const compassion = [
+  { title: 'People in Prison', desc: 'Encouragement, pastoral care and pathways toward rehabilitation and reintegration.' },
+  { title: 'People in Immigration Detention', desc: 'Recognising their dignity, listening to their stories and advocating for their rights.' },
+  { title: 'Families', desc: 'Supporting families who suffer separation, pain and uncertainty.' },
+  { title: 'The Vulnerable', desc: 'Standing with the poor, the sick, the elderly and those without a voice.' },
+  { title: 'Our Common Home', desc: 'Caring for creation and building a world of peace, solidarity and respect.' },
+];
+const ministries = ['Prison Ministry', 'Immigration Detention Ministry', 'Family Support', 'Education & Awareness', 'Advocacy & Justice', 'Reintegration & Restoration', 'Humanitarian Support'];
+---
+<Layout title="Inspired By Pope Francis" description="A Shepherd of Mercy, Compassion and Hope.">
+  <nav class="breadcrumb wrap"><a href="/">Home</a><span class="breadcrumb__sep">/</span><a href="/about-us">About Us</a><span class="breadcrumb__sep">/</span><span class="breadcrumb__current">Pope Francis</span></nav>
+
+  <section class="hero-split">
+    <div class="hero-split__text">
+      <span class="eyebrow">Inspired By Faith</span>
+      <h1 class="section-title" style="margin-block:0.5rem;">Inspired By <span class="text-amber">Pope Francis</span></h1>
+      <p style="font-family:var(--font-heading); font-weight:700; color:var(--color-navy); font-size:1.0625rem;">A Shepherd of Mercy, Compassion and Hope</p>
+      <p class="section-desc" style="max-width:none;">
+        Pope Francis dedicated his life to walking with the poor, the imprisoned, the forgotten
+        and those on the margins of society. His message of mercy, human dignity and hope
+        continues to inspire millions around the world and guides the mission of IICC Mission.
+      </p>
+      <div class="quote-box" style="position:static; width:auto;">
+        <p class="quote-box__text">"The Church is not a tollhouse; it is the house of the Father, where there is a place for everyone, with all their problems."</p>
+        <span class="quote-box__ref">— Pope Francis</span>
+      </div>
+    </div>
+    <div class="hero-split__photo">
+      <img src="https://images.unsplash.com/photo-1531572753322-ad063cecc140?w=1000&q=80" alt="St Peter's Square, Vatican" />
+    </div>
+  </section>
+
+  <div class="stat-band">
+    <div class="wrap stat-band__inner">
+      {values.map(v => (
+        <div class="stat-band__item">
+          <span class="value-strip__title">{v.title}</span>
+          <span class="value-strip__desc" style="max-width:160px;">{v.desc}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <section class="section section--white">
+    <div class="wrap grid-2">
+      <div class="card">
+        <span class="card__title">Pope Francis and Prison Ministry</span>
+        <p class="card__body">Pope Francis had a special closeness to people in prison. He reminded us that no one is defined by their past and that everyone has the capacity for change.</p>
+        <ul class="checklist">{prisonMinistry.map(p => <li>{p}</li>)}</ul>
+      </div>
+      <div class="card">
+        <span class="card__title">The Holy Door of Hope at Rebibbia Prison</span>
+        <p class="card__body">During the Extraordinary Jubilee of Mercy, Pope Francis opened a Holy Door at Rebibbia Prison in Rome. This historic moment reminded the world that:</p>
+        <ul class="checklist">{holyDoor.map(p => <li>{p}</li>)}</ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--offwhite">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">A Message of Compassion for All</span>
+        <h2 class="section-title">A Field Hospital After Battle</h2>
+        <p class="section-desc">Pope Francis called the Church to be a field hospital after battle — a place of healing, encounter and accompaniment.</p>
+      </div>
+      <div class="grid-3">
+        {compassion.map(c => (
+          <div class="card">
+            <span class="card__title">{c.title}</span>
+            <p class="card__body">{c.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="wrap">
+      <div class="section-head"><span class="eyebrow">Continuing the Mission Together</span><h2 class="section-title">Inspired by Pope Francis, IICC Mission continues its commitment to:</h2></div>
+      <div class="pillars">{ministries.map(m => <div class="pillar"><span class="pillar__label">{m}</span></div>)}</div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <div class="wrap cta-band__inner">
+      <div class="cta-band__text">
+        <span class="eyebrow eyebrow--white">Recognition &amp; Gratitude</span>
+        <h2 class="section-title section-title--white">Thank You, Holy Father</h2>
+        <p class="section-desc section-desc--white">IICC Mission gives thanks for the extraordinary example of Pope Francis, whose life and teachings continue to inspire our commitment to mercy, justice, human dignity and hope for all. Your legacy lives on in countless hearts.</p>
+      </div>
+      <a href="/donate" class="btn btn--amber">Donate Now &gt;</a>
+    </div>
+  </div>
+</Layout>

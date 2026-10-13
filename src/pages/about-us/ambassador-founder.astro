@@ -1,0 +1,119 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const story = [
+  { icon: '🏛️', title: 'Time in Prison', text: 'I spent time in prison where I experienced hardship, regret and the reality of being forgotten.' },
+  { icon: '✝️', title: 'A Turning Point', text: 'Through faith, prayer and the Gospel, I found hope, forgiveness and a new purpose.' },
+  { icon: '🍞', title: '4 Years in the Prison Bakery', text: 'I worked in the prison bakery for four years. I saw how creating something with your hands can restore dignity and self-worth.' },
+  { icon: '🕊️', title: 'A Mission is Born', text: 'IICC Mission was born to bring hope, support and practical help to inmates, detainees and their families.' },
+  { icon: '📣', title: 'Ambassador for the Forgotten', text: 'Today, I stand as their voice — an Ambassador for those who feel unseen, unheard and without hope.' },
+];
+const commitments = [
+  'I walk with inmates and detainees, listening with compassion and speaking with truth.',
+  'I bring hope through the Gospel, reminding them they are loved and never forgotten by God.',
+  'I advocate for dignity, justice and fair treatment for all.',
+  'I support families who carry the pain and burden of their loved ones’ imprisonment or detention.',
+  'I build programs that restore lives — through spiritual care, education, skills training, legal referrals and community.',
+  'I empower former inmates to give back to society and become leaders of change.',
+];
+const drives = [
+  { title: 'Faith in God', desc: 'Everything begins and ends with Him.' },
+  { title: 'Love for People', desc: 'Every person has value, purpose and a future.' },
+  { title: 'Justice & Mercy', desc: 'I believe in second chances and fair treatment for all.' },
+  { title: 'Hope for Tomorrow', desc: 'No one is beyond hope. No life is beyond change.' },
+];
+---
+<Layout title="Ambassador & Founder" description="Antonio G. Dattilo — Ambassador & Founder of IICC Mission.">
+  <nav class="breadcrumb wrap"><a href="/">Home</a><span class="breadcrumb__sep">/</span><a href="/about-us">About Us</a><span class="breadcrumb__sep">/</span><span class="breadcrumb__current">Ambassador &amp; Founder</span></nav>
+
+  <section class="hero-split">
+    <div class="hero-split__text">
+      <span class="eyebrow">Ambassador &amp; Founder</span>
+      <h1 class="section-title" style="margin-block:0.5rem;">Antonio G. <span class="text-amber">Dattilo</span></h1>
+      <p style="font-weight:700; color:var(--color-amber);">Their voice. Their hope. Their future. My mission.</p>
+      <p class="section-desc" style="max-width:none;">
+        I walk with inmates, detainees in immigration detention, and their families bringing hope,
+        speaking for the forgotten and building pathways to restoration.
+      </p>
+      <div class="hero-split__quote" style="position:static; width:auto; margin-top:1rem;">
+        <span class="hero-split__quote-mark">&ldquo;</span>
+        <p class="hero-split__quote-text">Prison didn't break me. It changed me. Now I'm here to change lives.</p>
+        <span class="hero-split__quote-ref">— Lived Experience</span>
+      </div>
+    </div>
+    <div class="hero-split__photo">
+      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1000&q=80" alt="Antonio G. Dattilo" />
+    </div>
+  </section>
+
+  <div class="amber-band">
+    <div class="wrap">
+      <p style="font-family:var(--font-heading); font-weight:700; color:#fff; font-size:1.125rem;">CALLED BY GOD. SHAPED BY EXPERIENCE. SENT ON MISSION.</p>
+      <p style="color:rgba(255,255,255,0.9); max-width:760px; margin-inline:auto; margin-top:0.5rem;">
+        IICC Mission was born from lived experience, faith in God, and a deep love for those
+        society often forgets. My journey through prison, transformation and purpose has given me
+        a voice — and that voice belongs to every inmate, detainee and family searching for hope.
+      </p>
+    </div>
+  </div>
+
+  <section class="section section--white">
+    <div class="wrap grid-3">
+      <div>
+        <span class="eyebrow">My Story</span>
+        <div class="checklist" style="margin-top:1rem;">
+          {story.map(s => (
+            <li><strong>{s.title}.</strong> {s.text}</li>
+          ))}
+        </div>
+      </div>
+      <div>
+        <span class="eyebrow">My Commitment</span>
+        <ul class="checklist" style="margin-top:1rem;">
+          {commitments.map(c => <li>{c}</li>)}
+        </ul>
+      </div>
+      <div>
+        <span class="eyebrow">What Drives Me</span>
+        <div class="grid-2" style="margin-top:1rem; grid-template-columns:1fr;">
+          {drives.map(d => (
+            <div class="card">
+              <span class="card__title">{d.title}</span>
+              <p class="card__body">{d.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--offwhite">
+    <div class="wrap cols-2">
+      <div class="card--dark" style="background:var(--color-navy); color:#fff;">
+        <span class="card__title" style="color:#fff;">I Can Tour Prisons and Detention Centres</span>
+        <p class="card__body" style="color:rgba(255,255,255,0.75);">
+          I am available to visit prisons and immigration detention centres to share talks, offer
+          hope and be a voice of encouragement to inmates, detainees and their families.
+        </p>
+        <a href="/contact" class="btn btn--amber" style="align-self:flex-start; margin-top:0.5rem;">Request a Visit or Talk &gt;</a>
+      </div>
+      <div>
+        <span class="eyebrow">Recognition &amp; Support</span>
+        <div class="checklist" style="margin-top:1rem;">
+          <li><strong>Cardinal George Pell</strong> — Encouraged the development of IICC Mission and continues to support our mission of hope, justice and restoration.</li>
+          <li><strong>Archbishop Peter Comensoli</strong> — The first to acknowledge and approve the IICC Mission project and continues to guide and support our work.</li>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <div class="wrap cta-band__inner">
+      <div class="cta-band__text">
+        <h2 class="section-title section-title--white">Be Part of This Mission</h2>
+        <p class="section-desc section-desc--white">Together, we can bring hope, restore dignity and build a future filled with faith and possibility.</p>
+      </div>
+      <a href="/get-involved" class="btn btn--amber">Join the Mission &gt;</a>
+    </div>
+  </div>
+</Layout>

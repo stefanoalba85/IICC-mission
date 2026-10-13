@@ -1,0 +1,99 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const heart = [
+  { title: 'Called to Serve', desc: 'We respond to God’s call to serve those who are imprisoned, detained and forgotten.' },
+  { title: 'Compassionate', desc: 'We treat every person with dignity, respect and unconditional love.' },
+  { title: 'Faith-Driven', desc: 'Our faith in Christ inspires our service and strengthens our mission.' },
+  { title: 'Together As One', desc: 'We work as one family, uniting volunteers, staff, clergy and partners in our mission.' },
+  { title: 'Integrity', desc: 'We act with honesty, transparency and accountability in everything we do.' },
+  { title: 'Making an Impact', desc: 'We bring hope, restore dignity and create a better future together.' },
+];
+const family = [
+  { title: 'Our Clergy', desc: 'Priests, deacons and religious who provide spiritual leadership, sacraments and pastoral care.', href: '/about-us/our-people/staff-volunteers' },
+  { title: 'Our Volunteers', desc: 'Generous men and women who give their time, talents and hearts to make a difference.', href: '/about-us/our-people/staff-volunteers' },
+  { title: 'Our Professionals', desc: 'Lawyers, counsellors, educators and specialists who offer expert support and guidance.', href: '/about-us/our-people/professional-partners' },
+  { title: 'Our Partners', desc: 'Organisations, parishes and supporters who walk with us to expand our mission and impact.', href: '/about-us/our-people/professional-partners' },
+];
+const team = [
+  { name: 'Antonio G. Dattilo', role: 'Ambassador & Founder', desc: 'Leads our mission with lived experience, passion and a heart for restoration.' },
+  { name: 'Fr. Anthony David', role: 'Spiritual Director', desc: 'Provides spiritual guidance and ensures our mission remains rooted in prayer, faith and the Gospel.' },
+  { name: 'Maria Grazia', role: 'Operations Director', desc: 'Oversees programs, operations and the day-to-day running of our mission.' },
+  { name: 'James Porter', role: 'Outreach Director', desc: 'Leads outreach initiatives and builds partnerships in communities worldwide.' },
+  { name: 'Sr. Lucia Maria', role: 'Pastoral Care Director', desc: 'Coordinates pastoral care and support for individuals and their families.' },
+  { name: 'Fr. Michael Tran', role: 'Chaplaincy Director', desc: 'Supports chaplains and pastoral teams in prisons and detention centres.' },
+  { name: 'Elena Rossi', role: 'Legal & Advocacy Director', desc: 'Leads legal referral services and advocates for human rights and protection.' },
+  { name: 'Daniel McCarthy', role: 'Finance & Stewardship Director', desc: 'Manages resources responsibly and ensures financial sustainability.' },
+];
+---
+<Layout title="Our People" description="One Mission. Many Hearts. United in Christ.">
+  <nav class="breadcrumb wrap"><a href="/">Home</a><span class="breadcrumb__sep">/</span><a href="/about-us">About Us</a><span class="breadcrumb__sep">/</span><span class="breadcrumb__current">Our People</span></nav>
+
+  <section class="hero-split">
+    <div class="hero-split__text">
+      <h1 class="section-title" style="margin-block:0.5rem;">Our People</h1>
+      <p style="font-weight:700; color:var(--color-amber);">One Mission. Many Hearts. United in Christ.</p>
+      <p class="section-desc" style="max-width:none;">
+        Our strength is in our people. Together, we walk with inmates, detainees, and their
+        families — offering hope, support, and a path to restoration.
+      </p>
+      <div class="hero-split__quote" style="position:static; width:auto;">
+        <p class="hero-split__quote-text">As each has received a gift, use it to serve one another, as good stewards of God's varied grace.</p>
+        <span class="hero-split__quote-ref">— 1 Peter 4:10</span>
+      </div>
+    </div>
+    <div class="hero-split__photo">
+      <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=1000&q=80" alt="IICC Mission team" />
+    </div>
+  </section>
+
+  <div class="value-strip">
+    <div class="wrap value-strip__inner">
+      {heart.map(h => (
+        <div class="value-strip__item"><span class="value-strip__title">{h.title}</span><span class="value-strip__desc">{h.desc}</span></div>
+      ))}
+    </div>
+  </div>
+
+  <section class="section section--white">
+    <div class="wrap">
+      <div class="section-head"><h2 class="section-title">Our Mission Family</h2></div>
+      <div class="grid-4">
+        {family.map(f => (
+          <a href={f.href} class="photo-card" style="text-align:center; padding:1.5rem 1.25rem;">
+            <span class="photo-card__title">{f.title}</span>
+            <p class="photo-card__desc">{f.desc}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--offwhite">
+    <div class="wrap">
+      <div class="section-head"><h2 class="section-title">Our Dedicated Team</h2></div>
+      <div class="grid-4">
+        {team.map(t => (
+          <div class="team-member">
+            <div class="team-member__photo" style="background:var(--color-navy); display:flex; align-items:center; justify-content:center; color:var(--color-amber); font-family:var(--font-heading); font-size:1.5rem;">
+              {t.name.split(' ').map(w => w[0]).slice(0,2).join('')}
+            </div>
+            <span class="team-member__name">{t.name}</span>
+            <span class="team-member__role">{t.role}</span>
+            <p class="team-member__desc">{t.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <div class="wrap cta-band__inner">
+      <div class="cta-band__text">
+        <h2 class="section-title section-title--white">Join Our Mission Family</h2>
+        <p class="section-desc section-desc--white">Whether you have a few hours or a lifetime of experience, your time, talents and prayers can change lives.</p>
+      </div>
+      <a href="/get-involved" class="btn btn--amber">Get Involved Today &gt;</a>
+    </div>
+  </div>
+</Layout>

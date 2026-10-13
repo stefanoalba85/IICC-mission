@@ -1,9 +1,185 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const pillars = [
+  { icon: 'cross', title: 'Faith', desc: 'Guided by the Gospel and Catholic values.' },
+  { icon: 'heart', title: 'Compassion', desc: 'Serving every person with love and respect.' },
+  { icon: 'people', title: 'Dignity', desc: 'Recognising the value of every human being.' },
+  { icon: 'scale', title: 'Justice', desc: 'Working for fairness, reconciliation and mercy.' },
+  { icon: 'dove', title: 'Hope', desc: 'Believing in new beginnings and brighter futures.' },
+];
+
+const services = [
+  { title: 'Prison Ministry', desc: 'Bringing hope, support and human connection behind the walls.', href: '/our-services/prison-ministry' },
+  { title: 'Immigration Detention Ministry', desc: 'Compassionate support for people in immigration detention.', href: '/our-services/immigration-detention' },
+  { title: 'Mental Health & Wellbeing', desc: 'Supporting the mind, heart and spirit through care and referrals.', href: '/our-services/mental-health' },
+  { title: 'Advocacy & Human Rights', desc: 'Giving a voice to the voiceless and raising awareness for change.', href: '/our-services/advocacy' },
+];
 ---
-<Layout title="Home">
-  <div style="display:flex;align-items:center;justify-content:center;min-height:60vh;flex-direction:column;gap:1rem;">
-    <img src="/IICC_Logo.png" alt="IICC Mission" style="height:80px;opacity:0.4;" />
-    <p style="font-family:var(--font-display);font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--color-muted);">In costruzione</p>
+<Layout
+  title="Bringing Hope Worldwide"
+  description="A Catholic global mission sharing Christ's love, mercy and hope with incarcerated individuals, people in Immigration Detention, their families and all who are experiencing hardship."
+>
+  <!-- HERO -->
+  <section class="hero-full">
+    <div class="hero-full__bg">
+      <img src="https://images.unsplash.com/photo-1529260830199-42c24126f198?w=1600&q=80" alt="Rome at sunset" />
+    </div>
+    <div class="hero-full__overlay"></div>
+    <div class="hero-full__content">
+      <span class="eyebrow eyebrow--white">IICC Mission</span>
+      <h1 class="section-title section-title--white" style="font-size:clamp(2rem,5vw,3.25rem); max-width:720px; margin-block:0.75rem;">
+        Bringing Hope <span class="text-amber">to those in need.</span>
+      </h1>
+      <p class="section-desc section-desc--white" style="max-width:640px; font-size:1.0625rem;">
+        A Catholic global mission sharing Christ's love, mercy and hope with incarcerated
+        individuals, people in Immigration Detention, their families and all who are
+        experiencing hardship.
+      </p>
+      <div style="display:flex; flex-wrap:wrap; gap:1rem; margin-top:1.5rem;">
+        <a href="/donate" class="btn btn--amber">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-10-9.3C.3 8.4 2 4.8 5.6 4.1c2-.4 4 .5 5 2.1a4.8 4.8 0 0 1 5-2.1c3.6.7 5.3 4.3 3.6 7.6C19.5 16.4 12 21 12 21Z"/></svg>
+          Support the Mission
+        </a>
+        <a href="/get-involved/ambassador-program" class="btn btn--outline-white">Become an Ambassador</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORE VALUES STRIP -->
+  <div class="value-strip">
+    <div class="wrap value-strip__inner">
+      {pillars.map(p => (
+        <div class="value-strip__item">
+          <span class="value-strip__title">{p.title}</span>
+          <span class="value-strip__desc">{p.desc}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- FOUNDER -->
+  <section class="section section--white">
+    <div class="wrap cols-2">
+      <div class="hero-split__photo" style="border-radius:2px; min-height:360px;">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80" alt="Antonio G. Dattilo, Ambassador & Founder" />
+      </div>
+      <div>
+        <span class="eyebrow">Our Founder</span>
+        <h2 class="section-title" style="margin-block:0.5rem;">Ambassador &amp; Founder — IICC Mission</h2>
+        <p style="font-family:var(--font-heading); font-style:italic; color:var(--color-amber); font-size:1.125rem; margin-bottom:1rem;">"Prison didn't break me."</p>
+        <p class="section-desc" style="margin-bottom:1rem; max-width:none;">
+          My name is Antonio G. Dattilo, Ambassador and Founder of IICC Mission. My journey has
+          taken me through more than eight years between prison and Immigration Detention Centre.
+          During this time, I experienced hardship, isolation and uncertainty, but I also
+          discovered faith, resilience and the power of hope.
+        </p>
+        <p class="section-desc" style="max-width:none;">
+          While incarcerated, I worked in the prison bakery, where I discovered purpose through
+          discipline, learning new skills and supporting others around me. These experiences
+          inspired the creation of IICC Mission — a global Catholic mission dedicated to bringing
+          Christ's love, mercy and hope to incarcerated individuals, people in Immigration
+          Detention, their families and those experiencing hardship.
+        </p>
+        <a href="/about-us/ambassador-founder" class="btn btn--outline" style="margin-top:1.25rem;">Read Our Founder's Story &gt;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR SERVICES -->
+  <section class="section section--offwhite">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">What We Do</span>
+        <h2 class="section-title">Our Services</h2>
+      </div>
+      <div class="grid-4">
+        {services.map(s => (
+          <div class="card">
+            <span class="card__title">{s.title}</span>
+            <p class="card__body">{s.desc}</p>
+            <a href={s.href} class="photo-card__link">Learn More →</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- GLOBAL MISSION -->
+  <section class="section section--white">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Worldwide</span>
+        <h2 class="section-title">Our Global Mission</h2>
+      </div>
+      <div class="cols-2">
+        <div class="checklist">
+          <li><strong>Head Office</strong> — Via delle Milizie 34, Rome, Italy</li>
+          <li><strong>National Missions</strong> — Italy, Australia, USA, Canada, San Marino, Monaco</li>
+          <li><strong>State Missions</strong> — Serving states and provinces</li>
+          <li><strong>Regional Missions</strong> — Bringing the mission closer to local communities</li>
+        </div>
+        <div class="card--dark" style="background:var(--color-navy);">
+          <span class="card__title" style="color:#fff;">Our Locations</span>
+          <p class="card__body" style="color:rgba(255,255,255,0.7);">
+            🇮🇹 Italy — Rome · Milan · Lamezia Terme<br />
+            🇦🇺 Australia — Melbourne · Sydney · Perth · Adelaide · Brisbane · Hobart · Darwin<br />
+            🇺🇸 United States — Dallas · Minneapolis<br />
+            🇨🇦 Canada — Vancouver · Montreal · Alberta<br />
+            San Marino &amp; Monaco — National Missions
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOPE MEDIA -->
+  <section class="section section--offwhite section--sm">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Stay Connected</span>
+        <h2 class="section-title">Hope Media Channel &amp; Mission Projects</h2>
+      </div>
+      <div class="grid-3">
+        <div class="photo-card">
+          <img class="photo-card__img" src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=600&q=80" alt="Hope Media Channel" />
+          <div class="photo-card__body">
+            <span class="photo-card__title">Hope Media Channel</span>
+            <p class="photo-card__desc">Daily messages of faith, encouragement and hope for inmates, detainees, families and our global community.</p>
+            <a href="/resources" class="photo-card__link">Watch Now →</a>
+          </div>
+        </div>
+        <div class="photo-card">
+          <img class="photo-card__img" src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80" alt="Stories of Hope" />
+          <div class="photo-card__body">
+            <span class="photo-card__title">Stories of Hope</span>
+            <p class="photo-card__desc">Real stories of faith, resilience and new beginnings from around the world.</p>
+            <a href="/programs/hope-companion/stories" class="photo-card__link">Discover More →</a>
+          </div>
+        </div>
+        <div class="photo-card">
+          <img class="photo-card__img" src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=600&q=80" alt="Mission Ambassadors" />
+          <div class="photo-card__body">
+            <span class="photo-card__title">Mission Ambassadors</span>
+            <p class="photo-card__desc">People bringing awareness, support and hope to communities around the world.</p>
+            <a href="/get-involved/ambassador-program" class="photo-card__link">Join the Mission →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-band">
+    <div class="wrap cta-band__inner">
+      <div class="cta-band__text">
+        <h2 class="section-title section-title--white">Together We Can Bring Hope to Those in Need.</h2>
+        <p class="section-desc section-desc--white">Every prayer, every act of kindness and every person can make a difference.</p>
+      </div>
+      <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+        <a href="/donate" class="btn btn--amber">Support the Mission</a>
+        <a href="/get-involved/ambassador-program" class="btn btn--outline-white">Become an Ambassador</a>
+      </div>
+    </div>
   </div>
 </Layout>
