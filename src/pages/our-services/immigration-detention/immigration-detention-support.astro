@@ -1,0 +1,46 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import SupportLanding from '../../../components/SupportLanding.astro';
+---
+<Layout title="Immigration Detention Support" description="Compassion. Dignity. Hope. Supporting new beginnings.">
+  <SupportLanding
+    dir="immigration/support" eyebrow="Immigration Detention Support"
+    title="Compassion.<br/>Dignity. Hope.<br/>Supporting new beginnings." accent=""
+    intro="We walk alongside individuals and families in immigration detention, offering spiritual care, practical support and advocacy. We believe every person deserves dignity, respect and the opportunity for a better future."
+    heroAlt="An IICC Mission volunteer holding hands with a woman through a detention visiting window"
+    heroCta="Our Support Services"
+    quote="“I was a stranger and you welcomed me.”" quoteRef="Matthew 25:35"
+    pillars={[
+      { icon: 'hand-holding-heart', title: 'Human Dignity', text: 'Upholding the God-given dignity of every individual, regardless of status.' },
+      { icon: 'people-group', title: 'Compassionate Care', text: 'Providing emotional, spiritual and practical support to individuals and families.' },
+      { icon: 'scale-balanced', title: 'Advocacy & Justice', text: 'Advocating for fair treatment and supporting access to legal resources.' },
+      { icon: 'handshake', title: 'Family Support', text: 'Supporting families through separation, uncertainty and transition.' },
+      { icon: 'globe', title: 'Community Partnership', text: 'Working with churches, organizations and volunteers to extend hope and help.' },
+      { icon: 'cross', title: 'Sharing Hope', text: 'Sharing the love of Christ and pointing the way to a brighter future.' },
+    ]}
+    progTitle="Our Support Services"
+    progText="We provide support and resources to individuals in immigration detention and their families. Our services are delivered with compassion, respect and a commitment to justice."
+    progHref="/our-services/immigration-detention" progCta="Learn More About Our Services"
+    programs={[
+      { icon: 'heart', title: 'Pastoral & Spiritual Care', text: 'Offering prayer, spiritual counseling and hope to individuals in detention.' },
+      { icon: 'scale-balanced', title: 'Legal & Advocacy Referrals', text: 'Connecting individuals with trusted legal aid and advocacy partners.' },
+      { icon: 'people-group', title: 'Family Connection & Support', text: 'Supporting families with communication, resources and emotional care.' },
+      { icon: 'briefcase-medical', title: 'Essential Needs Assistance', text: 'Providing basic essentials such as toiletries, clothing and comfort items.' },
+      { icon: 'book-open', title: 'Education & Empowerment', text: 'Providing resources and guidance to help individuals build a better future.' },
+    ]}
+    impact={[
+      { icon: 'people-group', num: '3000+', label: 'Individuals Reached Each Year' },
+      { icon: 'handshake', num: '1500+', label: 'Pastoral & Counseling Visits' },
+      { icon: 'scale-balanced', num: '800+', label: 'Legal Referrals & Advocacy Support' },
+      { icon: 'people-roof', num: '1200+', label: 'Family Members Supported' },
+      { icon: 'gift', num: '5000+', label: 'Essential Care Kits Distributed' },
+      { icon: 'heart', num: 'Countless', label: 'Lives Encouraged and Restored' },
+    ]}
+    storyTitle="A Story of Hope"
+    story="“I felt forgotten and alone. The visits, the prayers and the encouragement from IICC Mission, reminded me that I am not alone and that God has not forgotten me.”"
+    storyBy="Detention Center Participant" storyAlt="An IICC Mission volunteer visiting a detainee"
+    boxTitle="You Can Make a Difference" boxText="Your support helps us bring hope, provide resources and advocate for those in immigration detention. Together, we can restore dignity and open doors to new beginnings."
+    boxBtn="Donate Today" boxBtnHref="/donate" boxBtn2="Volunteer" boxBtn2Href="/get-involved/volunteer-program"
+    ctaTitle="Be part of the mission of hope." ctaText="Join us in standing with individuals and families in immigration detention. Together, we can bring compassion, justice and the hope of a new beginning."
+  />
+</Layout>

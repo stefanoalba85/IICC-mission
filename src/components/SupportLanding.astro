@@ -7,10 +7,10 @@ interface Props {
   impact: { icon: string; num: string; label: string }[];
   storyTitle: string; story: string; storyBy: string; storyAlt: string;
   boxTitle: string; boxText: string; boxBtn: string; boxBtnHref: string; boxBtn2: string; boxBtn2Href: string;
-  ctaTitle: string; ctaText: string;
+  ctaTitle: string; ctaText: string; progHref?: string; progCta?: string; heroCta?: string;
 }
 const p = Astro.props;
-const img = (n: string) => `/images/prison-ministry/${p.dir}/${n}.jpg`;
+const img = (n: string) => `/images/${p.dir}/${n}.jpg`;
 ---
 <style>
     .ps-hero { position: relative; min-height: 420px; display: grid; grid-template-columns: 0.9fr 1.1fr; background: #fff; overflow: hidden; }
@@ -30,7 +30,7 @@ const img = (n: string) => `/images/prison-ministry/${p.dir}/${n}.jpg`;
     .ps-pillars :global(svg) { color: var(--color-amber); }
     .ps-pillars h3 { font-family: var(--font-body); text-transform: uppercase; font-size: 0.9375rem; }
     .ps-pillars p { font-size: 0.875rem; line-height: 1.5; color: rgba(255,255,255,0.88); }
-    .ps-progs { display: grid; grid-template-columns: 0.8fr repeat(6, 1fr); gap: 0.6rem; padding-block: 1.75rem; }
+    .ps-progs { display: grid; grid-template-columns: 0.8fr repeat(var(--n), 1fr); gap: 0.6rem; padding-block: 1.75rem; }
     .ps-progs h2, .ps-impact h2 { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: 1.25rem; }
     .ps-prog { background: #fff; border-radius: 6px; box-shadow: 0 3px 10px rgba(18,26,56,0.08); overflow: hidden; text-align: center; }
     .ps-prog__photo { position: relative; }
@@ -70,11 +70,11 @@ const img = (n: string) => `/images/prison-ministry/${p.dir}/${n}.jpg`;
   <div class="ps-hero__text">
     <span class="eyebrow" style="font-size:1rem;">{p.eyebrow}</span>
     <h1 set:html={p.title} />
-    <h2>{p.accent}</h2>
+    {p.accent && <h2>{p.accent}</h2>}
     <span style="width:2rem; height:2px; background:var(--color-amber);"></span>
     <p>{p.intro}</p>
     <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-      <a href="#programs" class="btn btn--navy">Our Programs →</a>
+      <a href="#programs" class="btn btn--navy">{p.heroCta ?? "Our Programs"} →</a>
       <a href="/get-involved" class="btn btn--outline">Get Involved →</a>
     </div>
   </div>
@@ -86,11 +86,11 @@ const img = (n: string) => `/images/prison-ministry/${p.dir}/${n}.jpg`;
   <div class="wrap">{p.pillars.map(x => <div><Icon name={x.icon} size={48} /><h3>{x.title}</h3><p>{x.text}</p></div>)}</div>
 </section>
 
-<section class="wrap ps-progs" id="programs">
+<section class="wrap ps-progs" id="programs" style={`--n:${p.programs.length}`}>
   <div style="display:flex; flex-direction:column; gap:1rem;">
     <h2 set:html={p.progTitle} />
     <p style="font-size:0.9375rem; line-height:1.6; color:var(--color-navy);">{p.progText}</p>
-    <a href="/our-services/prison-ministry" class="btn btn--navy" style="align-self:flex-start; font-size:0.7rem;">Learn More About Our Programs →</a>
+    <a href={p.progHref ?? "/our-services/prison-ministry"} class="btn btn--navy" style="align-self:flex-start; font-size:0.7rem;">{p.progCta ?? "Learn More About Our Programs"} →</a>
   </div>
   {p.programs.map((x, i) => (
     <article class="ps-prog">

@@ -1,0 +1,114 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/immigration/main/${n}.jpg`;
+const mission = [
+  { icon: 'hand-holding-heart', title: 'Spiritual & Pastoral Care', text: 'Offering prayer, sacraments, and faith support to detainees.' },
+  { icon: 'scale-balanced', title: 'Legal Assistance & Referrals', text: 'Connecting individuals with trusted Catholic and professional legal services.' },
+  { icon: 'people-group', title: 'Family Support', text: 'Supporting families with communication, resources, and emotional care.' },
+  { icon: 'comment-dots', title: 'Advocacy & Justice', text: 'Advocating for fair treatment, human dignity, and just immigration policies.' },
+  { icon: 'book-open', title: 'Education & Empowerment', text: 'Providing resources and learning opportunities during detention.' },
+  { icon: 'hand-holding-heart', title: 'Basic Needs & Humanitarian Aid', text: 'Addressing urgent needs and connecting detainees with essential services.' },
+];
+const walk = ['Visit detainees in immigration detention centres', 'Facilitate phone calls, letters, and family contact', 'Provide religious materials and prayer support', 'Refer to legal services and accredited professionals', 'Support mental health and wellbeing', 'Advocate for humane treatment and due process', 'Assist with release planning and community connections'];
+const cards = [
+  { title: 'Pastoral Care', text: 'We bring the presence of Christ to detention centres through prayer, listening, and the sacraments.', icon: 'heart' },
+  { title: 'Legal Assistance', text: 'We connect detainees with experienced Catholic lawyers and legal professionals for advice and representation.', icon: 'scale-balanced' },
+  { title: 'Family Connection', text: 'We support families left behind with updates, guidance, and resources during a very difficult time.', icon: 'people-group' },
+  { title: 'Education & Growth', text: 'We provide educational resources and opportunities to help detainees grow in knowledge and hope.', icon: 'book-open' },
+  { title: 'Humanitarian Support', text: 'We respond to practical needs with dignity and compassion, ensuring no one is forgotten.', icon: 'hand-holding-heart' },
+];
+const help = [
+  { icon: 'hand-holding-heart', title: 'Pray', text: 'Pray for detainees, their families, and our ministry.' },
+  { icon: 'user', title: 'Volunteer', text: 'Join our team to visit, write letters, or offer your professional skills.' },
+  { icon: 'handshake', title: 'Donate', text: 'Your generosity helps us provide essential services and vital support.' },
+  { icon: 'bullhorn', title: 'Advocate', text: 'Speak up for just and humane immigration policies.' },
+  { icon: 'people-group', title: 'Spread Hope', text: 'Share our mission and help others get involved.' },
+];
+---
+<Layout title="Immigration Detention Ministry" description="Bringing Christ's Love and Hope Behind Walls.">
+  <style>
+    .imm-walk { display: grid; grid-template-columns: 1fr 0.95fr 1fr; background: #f6f4ef; }
+    .imm-walk > img { width: 100%; height: 100%; object-fit: cover; }
+    .imm-walk > div { padding: 1.5rem 1.75rem; }
+    .imm-walk h2 { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: 1.125rem; margin-bottom: 0.9rem; }
+    .imm-walk li { position: relative; padding-left: 1.6rem; font-family: var(--font-heading); color: var(--color-navy); font-size: 0.875rem; line-height: 1.35; margin-bottom: 0.5rem; list-style: none; }
+    .imm-walk li::before { content: '✓'; position: absolute; left: 0; width: 1.1rem; height: 1.1rem; border-radius: 50%; background: var(--color-navy); color: #fff; font-size: 0.6rem; display: flex; align-items: center; justify-content: center; }
+    .imm-walk ul { padding: 0; margin: 0; }
+    .imm-quote { background: var(--color-navy-dark); color: #fff; text-align: center; padding: 1rem 1.5rem; font-family: var(--font-heading); font-size: 1.1875rem; line-height: 1.45; }
+    .imm-quote b { color: #d9a540; font-size: 2rem; vertical-align: -0.3rem; }
+    .imm-quote cite { color: #d9a540; font-style: normal; font-size: 0.9375rem; margin-left: 1rem; }
+    .imm-cards { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.6rem; padding-block: 1rem; }
+    .imm-card { border: 1px solid #c9a96a; border-radius: 4px; background: #fbf9f4; text-align: center; overflow: hidden; display: flex; flex-direction: column; }
+    .imm-card img { width: 100%; aspect-ratio: 193 / 120; object-fit: cover; }
+    .imm-card h3 { font-family: var(--font-heading); color: #b8892b; text-transform: uppercase; font-size: 0.9375rem; font-weight: 400; margin-top: 0.6rem; }
+    .imm-card p { font-family: var(--font-heading); color: var(--color-navy); font-size: 0.8125rem; line-height: 1.45; padding: 0.25rem 0.75rem; flex: 1; }
+    .imm-card > span { color: #c9a96a; padding-bottom: 0.75rem; align-self: center; }
+    .imm-help { display: grid; grid-template-columns: 1.3fr repeat(5, 1fr); padding-block: 0.5rem 1.25rem; }
+    .imm-help > div { text-align: center; border-left: 1px solid rgba(184,137,43,0.4); padding-inline: 0.75rem; display: flex; flex-direction: column; align-items: center; gap: 0.3rem; color: var(--color-navy); }
+    .imm-help > div:first-child { text-align: left; align-items: flex-start; border-left: none; }
+    .imm-help h3 { font-family: var(--font-heading); text-transform: uppercase; font-size: 0.875rem; font-weight: 400; }
+    .imm-help p { font-family: var(--font-heading); font-size: 0.8125rem; line-height: 1.4; }
+    @media (max-width: 900px) { .imm-walk, .imm-help { grid-template-columns: 1fr; } .imm-cards { grid-template-columns: 1fr 1fr; } }
+  </style>
+
+  <div class="pm" style="background:#f6f4ef;">
+    <section class="pm-hero" style="display:grid; grid-template-columns:1fr 1fr; min-height:400px; position:relative; overflow:hidden;">
+      <div style="padding:2rem 1.5rem 2rem max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem)); display:flex; flex-direction:column; gap:0.9rem;">
+        <div style="display:grid; grid-template-columns:10rem 1fr; gap:1.5rem; align-items:center;">
+          <img src="/IICC_Logo_main.png" alt="IICC Mission" style="width:100%;" />
+          <div>
+            <h1 style="font-family:var(--font-heading); color:var(--color-navy); text-transform:uppercase; font-size:clamp(2rem,4vw,3rem); line-height:1.02;">Immigration<br /><span style="color:#b8892b;">Detention</span><br />Ministry</h1>
+            <p style="font-family:var(--font-heading); color:var(--color-navy); font-size:1.25rem; line-height:1.3; margin-top:0.5rem;">Bringing Christ’s Love and Hope Behind Walls</p>
+          </div>
+        </div>
+        <span class="heart-rule" style="max-width:none;">♡</span>
+        <p style="font-family:var(--font-heading); color:var(--color-navy); font-size:1.125rem; line-height:1.45;">We walk with people in immigration detention centres and their families, offering spiritual care, practical support, legal referrals, and a voice for justice and human dignity.</p>
+      </div>
+      <div style="position:relative;">
+        <img src={img('hero')} alt="A priest reading the Bible with a detainee" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; -webkit-mask-image:linear-gradient(90deg,transparent,#000 18%); mask-image:linear-gradient(90deg,transparent,#000 18%);" />
+        <div style="position:absolute; inset:0 0 0 55%; background:linear-gradient(90deg, transparent, rgba(18,26,56,0.9) 45%);"></div>
+        <p style="position:absolute; right:max(1.5rem, calc((100vw - 1200px) / 2)); bottom:2rem; width:170px; color:#fff; font-family:var(--font-heading); font-size:1.125rem; line-height:1.4;"><span style="display:block; color:#d9a540; font-size:3rem; line-height:0.6;">&ldquo;</span>I was a stranger and you welcomed me.<span style="display:block; color:#d9a540; margin-top:0.4rem;">– Matthew 25:35</span></p>
+      </div>
+    </section>
+  </div>
+
+  <section class="pm-band" style="background:var(--color-navy-dark); color:#fff; text-align:center; padding-block:1.25rem 1.75rem; border-top:1px solid #b8892b;">
+    <div class="wrap">
+      <h2 class="sec-h--center" style="font-family:var(--font-heading); color:#d9a540; text-transform:uppercase; font-size:1.75rem; display:flex; justify-content:center; gap:1rem;">Our Mission</h2>
+      <p style="font-family:var(--font-heading); font-size:1.0625rem; line-height:1.45; max-width:780px; margin:0.5rem auto 1.25rem;">To share Christ’s love and stand in solidarity with people in immigration detention. We provide pastoral care, advocacy, and essential support while upholding the dignity and rights of every person.</p>
+      <div class="icol" style="color:#fff;">
+        {mission.map(m => <div style="align-items:center; text-align:center; border-color:rgba(184,137,43,0.4);"><span style="width:5.5rem; height:5.5rem; border-radius:50%; border:1.5px solid #b8892b; display:flex; align-items:center; justify-content:center;"><Icon name={m.icon} size={44} /></span><h3 style="color:#fff; font-weight:400;">{m.title}</h3><p style="font-family:var(--font-heading); font-size:0.9375rem; line-height:1.35;">{m.text}</p></div>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="imm-walk">
+    <img src={img('left')} alt="A detainee writing a letter" />
+    <div><h2>We Walk Beside Them</h2><ul>{walk.map(w => <li>{w}</li>)}</ul></div>
+    <img src={img('right')} alt="A woman praying over a Bible in a detention centre" />
+  </section>
+
+  <p class="imm-quote"><b>&ldquo;</b> For I was hungry and you gave me something to eat, I was thirsty and you gave me something to drink, I was a stranger and you invited me in. <b>&rdquo;</b><cite>– Matthew 25:35</cite></p>
+
+  <section class="wrap imm-cards">
+    {cards.map((c, i) => <article class="imm-card"><img src={img(`s${i + 1}`)} alt="" /><h3>{c.title}</h3><p>{c.text}</p><span><Icon name={c.icon} size={22} /></span></article>)}
+  </section>
+
+  <section class="wrap imm-help">
+    <div>
+      <h2 style="font-family:var(--font-heading); text-transform:uppercase; font-size:1.25rem;">You Can Make a Difference</h2>
+      <span class="heart-rule" style="max-width:180px;">♡</span>
+      <p>Your support helps us bring hope, dignity, and justice to people in immigration detention.</p>
+    </div>
+    {help.map(h => <div><Icon name={h.icon} size={40} /><h3>{h.title}</h3><p>{h.text}</p></div>)}
+  </section>
+
+  <section class="pm-support" style="background:var(--color-navy-dark); color:#fff;">
+    <div class="wrap" style="display:grid; grid-template-columns:3rem 1fr auto; gap:1.25rem; align-items:center; padding-block:1rem;">
+      <span style="color:#d9a540;"><Icon name="heart" size={40} /></span>
+      <div><h2 style="font-family:var(--font-heading); font-weight:400; font-size:1.375rem; text-transform:uppercase;">Every person is precious to God.</h2><p style="font-family:var(--font-heading); color:#d9a540; text-transform:uppercase;">Together, we can be a sign of His love.</p></div>
+      <a href="/get-involved" style="background:#c9962a; color:var(--color-navy-dark); border-radius:999px; padding:0.6rem 1.5rem; font-family:var(--font-heading); text-transform:uppercase;">Get Involved Today ›</a>
+    </div>
+  </section>
+</Layout>
