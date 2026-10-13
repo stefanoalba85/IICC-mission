@@ -1,0 +1,184 @@
+---
+import Icon from './Icon.astro';
+import type { IconName } from '../lib/icons';
+
+type Item = { title: string; text: string; icon: IconName };
+type Photo = { title: string; text: string; photo: string };
+interface Props {
+  dir: string;
+  name: string;
+  subtitle: string;
+  intro: string;
+  heroQuote: string;
+  heroQuoteRef: string;
+  heroAlt: string;
+  card: { label: string; href: string };
+  bandTitle?: string;
+  values: Item[];
+  bandQuote?: { text: string; ref: string };
+  connectionTitle: string;
+  connectionIntro: string;
+  connection: Photo[];
+  action: Item[];
+  actionQuote: { text: string; ref?: string };
+  recognition: string;
+  signature: { line: string; sub: string };
+  commitmentIntro: string;
+}
+const p = Astro.props;
+const img = (n: string) => `/images/${p.dir}/${n}.jpg`;
+const ministries: { title: string; icon: IconName }[] = [
+  { title: 'Prison Ministry', icon: 'bars' },
+  { title: 'Immigration Detention Ministry', icon: 'globe' },
+  { title: 'Family Support', icon: 'people' },
+  { title: 'Education & Awareness', icon: 'book' },
+  { title: 'Advocacy & Justice', icon: 'scales' },
+  { title: 'Reintegration & Restoration', icon: 'heartHand' },
+  { title: 'Humanitarian Support', icon: 'heart' },
+];
+---
+<style>
+  .fl { --gold: #b8892b; --cream: #f6f1e7; background: var(--cream); }
+  .fl-tag { background: var(--color-navy-dark); color: var(--gold); text-align: center; font-family: var(--font-heading); text-transform: uppercase; letter-spacing: 0.06em; padding: 0.5rem; font-size: 1rem; width: min(620px, 60%); clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%); }
+  .fl-hero { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; min-height: 440px; }
+  .fl-hero__text { padding: 1.5rem 2rem 2rem max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem)); display: flex; flex-direction: column; gap: 0.9rem; }
+  .fl-hero__brand { display: flex; align-items: center; gap: 0.75rem; }
+  .fl-hero__brand img { width: 72px; }
+  .fl-hero__brand span { font-family: var(--font-heading); color: var(--color-navy); line-height: 1.1; font-size: 0.75rem; text-transform: uppercase; }
+  .fl-hero__brand strong { font-size: 1.6rem; display: block; }
+  .fl-hero h1 { font-family: var(--font-heading); color: var(--color-navy); font-size: 1.75rem; line-height: 1.1; }
+  .fl-hero h1 span { display: block; color: var(--gold); font-size: clamp(2.5rem, 5vw, 3.75rem); }
+  .fl-hero__sub { font-family: var(--font-heading); color: var(--color-navy); font-size: 1.5rem; line-height: 1.3; font-weight: 700; }
+  .fl-hero__intro { font-size: 0.9375rem; line-height: 1.6; color: var(--color-text); max-width: 460px; }
+  .fl-hero__quote { border-top: 1px solid rgba(184,137,43,0.5); padding-top: 1rem; font-family: var(--font-heading); color: var(--color-navy); font-size: 1.25rem; line-height: 1.4; position: relative; padding-left: 2rem; }
+  .fl-hero__quote::before { content: '\201C'; position: absolute; left: 0; top: 0.6rem; color: var(--gold); font-size: 2.5rem; line-height: 1; }
+  .fl-hero__quote cite { display: block; font-style: italic; color: var(--gold); font-size: 1rem; margin-top: 0.4rem; padding-left: 4rem; }
+  .fl-hero__photo { position: relative; margin-top: -2.6rem; }
+  .fl-hero__photo > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; -webkit-mask-image: linear-gradient(90deg, transparent, #000 22%); mask-image: linear-gradient(90deg, transparent, #000 22%); }
+  .fl-card { position: absolute; top: 1.5rem; right: max(1.5rem, calc((100vw - 1200px) / 2)); width: 130px; background: rgba(255,255,255,0.95); border-radius: 6px; padding: 0.75rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.4rem; box-shadow: 0 4px 14px rgba(0,0,0,0.15); }
+  .fl-card img { width: 46px; }
+  .fl-card span { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: 0.8125rem; line-height: 1.15; }
+  .fl-card a { background: var(--color-navy-dark); color: #fff; font-size: 0.625rem; font-weight: 700; text-transform: uppercase; padding: 0.3rem 0.6rem; border-radius: 3px; }
+  .fl-band { background: var(--color-navy-dark); color: #fff; display: grid; grid-template-columns: 1fr auto; }
+  .fl-band__values { padding: 1.5rem 1.5rem 1.75rem max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem)); }
+  .fl-head { display: flex; align-items: center; justify-content: center; gap: 1rem; font-family: var(--font-heading); text-transform: uppercase; font-size: 1.25rem; color: var(--gold); margin-bottom: 1rem; }
+  .fl-head::before, .fl-head::after { content: ''; width: 5rem; height: 1px; background: currentColor; }
+  .fl-head--navy { color: var(--color-navy); font-size: 1.5rem; }
+  .fl-head--navy::before, .fl-head--navy::after { background: var(--gold); }
+  .fl-row { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; }
+  .fl-row > div { text-align: center; padding-inline: 0.75rem; border-right: 1px solid rgba(184,137,43,0.4); display: flex; flex-direction: column; align-items: center; gap: 0.4rem; }
+  .fl-row > div:last-child { border-right: none; }
+  .fl-row h3 { font-family: var(--font-body); color: var(--gold); text-transform: uppercase; font-size: 0.875rem; }
+  .fl-row p { font-size: 0.75rem; line-height: 1.5; }
+  .fl-row svg { color: var(--gold); }
+  .fl-band__quote { width: 260px; background: #0d1530; padding: 1.5rem; font-family: var(--font-heading); font-size: 1.1875rem; line-height: 1.45; display: flex; flex-direction: column; justify-content: center; gap: 0.5rem; margin-right: max(0px, calc((100vw - 1200px) / 2)); }
+  .fl-band__quote::before { content: '\201C'; color: var(--gold); font-size: 2.5rem; line-height: 0.5; }
+  .fl-band__quote cite { color: var(--gold); font-style: italic; }
+  .fl-conn { padding-block: 1.5rem; text-align: center; }
+  .fl-conn > .wrap > p { font-size: 0.875rem; color: var(--color-text); max-width: 680px; margin: -0.5rem auto 1rem; }
+  .fl-conn__grid { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; }
+  .fl-conn__grid > div { padding-inline: 0.6rem; border-right: 1px solid rgba(184,137,43,0.35); display: flex; flex-direction: column; gap: 0.5rem; }
+  .fl-conn__grid > div:last-child { border-right: none; }
+  .fl-conn__grid h3 { font-family: var(--font-body); color: var(--color-navy); text-transform: uppercase; font-size: 0.8125rem; min-height: 2.4em; display: flex; align-items: flex-end; justify-content: center; }
+  .fl-conn__grid img { width: 100%; aspect-ratio: 150 / 76; object-fit: cover; border-radius: 4px; }
+  .fl-conn__grid p { font-size: 0.75rem; line-height: 1.5; color: var(--color-text); }
+  .fl-action { background: var(--color-navy-dark); color: #fff; display: grid; grid-template-columns: 1fr 0.42fr; }
+  .fl-action__items { padding: 1.5rem 1.5rem 1.75rem max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem)); }
+  .fl-action__quote { position: relative; overflow: hidden; display: grid; grid-template-columns: 0.55fr 1fr; align-items: center; }
+  .fl-action__quote img { width: 100%; height: 100%; object-fit: cover; }
+  .fl-action__quote p { padding: 1.25rem max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem)) 1.25rem 1rem; font-family: var(--font-heading); font-size: 1.1875rem; line-height: 1.45; background: linear-gradient(90deg, rgba(13,21,48,0.6), #0d1530 30%); height: 100%; display: flex; flex-direction: column; justify-content: center; }
+  .fl-action__quote cite { color: var(--gold); font-style: italic; display: block; margin-top: 0.5rem; }
+  .fl-recog { display: grid; grid-template-columns: 1.2fr 1fr 0.8fr; gap: 2rem; align-items: center; padding-block: 1.5rem; border-bottom: 1px solid rgba(184,137,43,0.4); }
+  .fl-recog h2 { font-family: var(--font-heading); color: var(--gold); text-transform: uppercase; font-size: 1.25rem; }
+  .fl-recog p { font-size: 0.875rem; line-height: 1.55; color: var(--color-text); }
+  .fl-sign { text-align: center; }
+  .fl-sign strong { font-family: var(--font-script); color: var(--color-navy); font-size: 2.25rem; font-weight: 400; display: block; border-bottom: 1px solid rgba(184,137,43,0.5); padding-bottom: 0.25rem; margin-bottom: 0.4rem; }
+  .fl-sign span { font-size: 0.875rem; color: var(--color-navy); }
+  .fl-crestcard { border: 1.5px solid var(--color-navy); border-radius: 6px; padding: 0.75rem; display: grid; grid-template-columns: 52px 1fr; gap: 0.75rem; align-items: center; background: #fff; }
+  .fl-crestcard img { width: 52px; }
+  .fl-crestcard span { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; line-height: 1.15; }
+  .fl-cont { padding-block: 1.5rem 1.75rem; text-align: center; }
+  .fl-cont > .wrap > p { font-size: 0.875rem; color: var(--color-text); margin: -0.5rem 0 1rem; }
+  .fl-cont .fl-row h3 { color: var(--gold); font-size: 0.75rem; }
+  .fl-tagline { display: flex; align-items: center; gap: 1rem; font-family: var(--font-heading); font-style: italic; color: var(--gold); font-size: 1.125rem; margin-top: 1rem; }
+  .fl-tagline::before, .fl-tagline::after { content: ''; flex: 1; height: 1px; background: var(--gold); }
+  @media (max-width: 900px) {
+    .fl-tag { width: 90%; }
+    .fl-hero, .fl-band, .fl-action, .fl-recog { grid-template-columns: 1fr; }
+    .fl-hero__photo { min-height: 380px; margin-top: 0; }
+    .fl-band__quote { width: auto; margin: 0; }
+    .fl-row, .fl-conn__grid { grid-auto-flow: row; grid-template-columns: repeat(2, 1fr); row-gap: 1.25rem; }
+  }
+</style>
+
+<div class="fl">
+  <div class="fl-tag">→ Inspired by Faith ←</div>
+  <section class="fl-hero">
+    <div class="fl-hero__text">
+      <div class="fl-hero__brand"><img src="/IICC_Badge.png" alt="" /><span><strong>IICC</strong>Mission<br />Bringing hope to those in need</span></div>
+      <h1>Inspired By<span>{p.name}</span></h1>
+      <p class="fl-hero__sub">{p.subtitle}</p>
+      <p class="fl-hero__intro">{p.intro}</p>
+      <p class="fl-hero__quote">{p.heroQuote}<cite>– {p.heroQuoteRef}</cite></p>
+    </div>
+    <div class="fl-hero__photo">
+      <img src={img('hero')} alt={p.heroAlt} />
+      <div class="fl-card"><img src={img('crest')} alt="" /><span set:html={p.card.label} /><a href={p.card.href} target="_blank" rel="noopener">Visit Website</a></div>
+    </div>
+  </section>
+
+  <section class="fl-band">
+    <div class="fl-band__values">
+      {p.bandTitle && <h2 class="fl-head">{p.bandTitle}</h2>}
+      <div class="fl-row">
+        {p.values.map(v => <div><Icon name={v.icon} size={42} /><h3>{v.title}</h3><p>{v.text}</p></div>)}
+      </div>
+    </div>
+    {p.bandQuote && <blockquote class="fl-band__quote">{p.bandQuote.text}<cite>– {p.bandQuote.ref}</cite></blockquote>}
+  </section>
+
+  <slot name="middle" />
+
+  <section class="fl-conn">
+    <div class="wrap">
+      <h2 class="fl-head fl-head--navy">{p.connectionTitle}</h2>
+      <p>{p.connectionIntro}</p>
+      <div class="fl-conn__grid">
+        {p.connection.map(c => <div><h3>{c.title}</h3><img src={img(c.photo)} alt="" /><p>{c.text}</p></div>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="fl-action">
+    <div class="fl-action__items">
+      <h2 class="fl-head">Faith That Becomes Action</h2>
+      <div class="fl-row">
+        {p.action.map(a => <div><Icon name={a.icon} size={42} /><h3>{a.title}</h3><p>{a.text}</p></div>)}
+      </div>
+    </div>
+    <div class="fl-action__quote">
+      <img src={img('action')} alt="" />
+      <p>{p.actionQuote.text}{p.actionQuote.ref && <cite>– {p.actionQuote.ref}</cite>}</p>
+    </div>
+  </section>
+
+  <section class="wrap fl-recog">
+    <div style="display:grid; grid-template-columns:4.5rem 1fr; gap:1rem; align-items:center;">
+      <span style="color:var(--gold);"><Icon name="medal" size={70} stroke={1.4} /></span>
+      <div><h2>Recognition &amp; Gratitude</h2><p>{p.recognition}</p></div>
+    </div>
+    <div class="fl-sign"><strong>{p.signature.line}</strong><span set:html={p.signature.sub} /></div>
+    <div class="fl-crestcard"><img src={img('crest')} alt="" /><span set:html={p.card.label} /></div>
+  </section>
+
+  <section class="fl-cont">
+    <div class="wrap">
+      <h2 class="fl-head fl-head--navy">Continuing the Mission Together</h2>
+      <p>{p.commitmentIntro}</p>
+      <div class="fl-row">
+        {ministries.map(m => <div><Icon name={m.icon} size={36} /><h3>{m.title}</h3></div>)}
+      </div>
+      <p class="fl-tagline">Bringing Hope to Those in Need.</p>
+    </div>
+  </section>
+</div>

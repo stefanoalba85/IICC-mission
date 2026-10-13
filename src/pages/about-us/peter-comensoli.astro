@@ -1,109 +1,40 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-
-const values = [
-  { title: 'Listening', desc: "Listening to people's stories with a heart full of empathy." },
-  { title: 'Compassion', desc: 'Showing mercy and standing beside those in difficult moments.' },
-  { title: 'Community', desc: 'Building communities of welcome, respect and inclusion.' },
-  { title: 'Hope', desc: 'Bringing hope and encouragement for a better tomorrow.' },
-];
-const connection = [
-  { title: 'People in Prison', desc: 'Supporting individuals who seek hope, rehabilitation and a second chance. Believing in the possibility of transformation and reintegration.' },
-  { title: 'People in Immigration Detention', desc: 'Recognising the dignity of every person and providing pastoral care, support and connection with the wider community.' },
-  { title: 'Families', desc: 'Understanding that imprisonment and detention affect entire families. Providing encouragement, guidance and support networks.' },
-  { title: 'Communities in Need', desc: 'Walking alongside vulnerable communities and creating pathways toward healing, dignity and hope.' },
-];
-const action = [
-  { title: 'Accompaniment', desc: 'Walking alongside people during challenging moments, offering presence, support and understanding.' },
-  { title: 'Compassion', desc: 'Seeing the person beyond their circumstances and responding with mercy and kindness.' },
-  { title: 'Service', desc: 'Transforming faith into practical support and connecting people with the resources they need.' },
-  { title: 'Restoration', desc: 'Creating opportunities for healing, growth and a new beginning with dignity and purpose.' },
-];
-const ministries = ['Prison Ministry', 'Immigration Detention Ministry', 'Family Support', 'Education & Awareness', 'Advocacy & Justice', 'Reintegration & Restoration'];
+import FaithLeader from '../../components/FaithLeader.astro';
 ---
 <Layout title="Archbishop Peter Comensoli" description="A Pastoral Leader Guided by Faith, Compassion and Hope.">
-
-  <section class="hero-split">
-    <div class="hero-split__text">
-      <span class="eyebrow">Inspired By Faith</span>
-      <h1 class="section-title" style="margin-block:0.5rem;">Inspired By Archbishop <span class="text-amber">Peter Comensoli</span></h1>
-      <p style="font-family:var(--font-heading); font-weight:700; color:var(--color-navy); font-size:1.0625rem;">A Pastoral Leader Guided by Faith, Compassion and Hope</p>
-      <p class="section-desc" style="max-width:none;">
-        Archbishop Peter Comensoli's pastoral leadership reflects a deep commitment to serving
-        people, strengthening communities and recognising the dignity of every person. His example
-        encourages us to build a Church and a community that listens, accompanies and brings hope.
-      </p>
-      <div class="quote-box" style="position:static; width:auto;">
-        <p class="quote-box__text">"The Church is called to be close to people, to walk with them, to serve them, especially those who are most in need."</p>
-        <span class="quote-box__ref">— Archbishop Peter Comensoli</span>
-      </div>
-    </div>
-    <div class="hero-split__photo">
-      <img src="https://images.unsplash.com/photo-1601122646887-9521133bb0c9?w=1000&q=80" alt="Stained glass window" />
-    </div>
-  </section>
-
-  <div class="stat-band">
-    <div class="wrap stat-band__inner">
-      {values.map(v => (
-        <div class="stat-band__item"><span class="value-strip__title">{v.title}</span><span class="value-strip__desc" style="max-width:160px;">{v.desc}</span></div>
-      ))}
-    </div>
-  </div>
-
-  <section class="section section--white">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">A Connection With IICC Mission</span>
-        <h2 class="section-title">The values of Archbishop Comensoli's pastoral ministry align deeply with the mission of IICC Mission.</h2>
-      </div>
-      <div class="grid-4">
-        {connection.map(c => (
-          <div class="card"><span class="card__title">{c.title}</span><p class="card__body">{c.desc}</p></div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--offwhite">
-    <div class="wrap">
-      <div class="section-head"><span class="eyebrow">Faith That Becomes Action</span></div>
-      <div class="pillars">
-        {action.map(a => (
-          <div class="pillar"><span class="pillar__label">{a.title}</span><p class="pillar__desc">{a.desc}</p></div>
-        ))}
-      </div>
-      <div class="quote-box" style="max-width:600px; margin-inline:auto; margin-top:2rem;">
-        <p class="quote-box__text">No one is beyond the reach of God's love and our care. Together we can build communities where every person is seen, valued and supported.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--white">
-    <div class="wrap cols-2">
-      <div>
-        <span class="eyebrow">Recognition &amp; Gratitude</span>
-        <p class="section-desc" style="max-width:none; margin-top:0.5rem;">
-          IICC Mission recognises the importance of leaders who encourage communities to respond
-          with compassion, justice and humanity. We thank Archbishop Peter Comensoli for his
-          continued example of pastoral leadership, service and dedication to the dignity of
-          every person.
-        </p>
-      </div>
-      <div class="card--dark" style="background:var(--color-navy);">
-        <span class="card__title" style="color:#fff;">Continuing the Mission Together</span>
-        <p class="card__body" style="color:rgba(255,255,255,0.7);">Inspired by faith and guided by compassion, IICC Mission continues its commitment to:</p>
-        <div class="checklist checklist--white">{ministries.map(m => <li>{m}</li>)}</div>
-      </div>
-    </div>
-  </section>
-
-  <div class="cta-band">
-    <div class="wrap cta-band__inner">
-      <div class="cta-band__text">
-        <h2 class="section-title section-title--white">Bringing Hope to Those in Need</h2>
-      </div>
-      <a href="/donate" class="btn btn--amber">Donate Now &gt;</a>
-    </div>
-  </div>
+  <FaithLeader
+    dir="comensoli"
+    name="Archbishop Peter Comensoli"
+    subtitle="A Pastoral Leader Guided by Faith, Compassion and Hope"
+    intro="Archbishop Peter Comensoli’s pastoral leadership reflects a deep commitment to serving people, strengthening communities and recognising the dignity of every person. His example encourages us to build a Church and a community that listens, accompanies and brings hope."
+    heroQuote="The Church is called to be close to people, to walk with them, to serve them, especially those who are most in need."
+    heroQuoteRef="Archbishop Peter Comensoli"
+    heroAlt="Archbishop Peter Comensoli in a cathedral"
+    card={{ label: 'Archdiocese<br/>of Melbourne', href: 'https://melbournecatholic.org' }}
+    values={[
+      { title: 'Listening', text: 'Listening to people’s stories with a heart full of empathy.', icon: 'ear' },
+      { title: 'Compassion', text: 'Showing mercy and standing beside those in difficult moments.', icon: 'heartHand' },
+      { title: 'Community', text: 'Building communities of welcome, respect and inclusion.', icon: 'people' },
+      { title: 'Hope', text: 'Bringing hope and encouragement for a better tomorrow.', icon: 'cross' },
+    ]}
+    connectionTitle="A Connection with IICC Mission"
+    connectionIntro="The values of Archbishop Comensoli’s pastoral ministry align deeply with the mission of IICC Mission. Together we uphold the dignity of every person."
+    connection={[
+      { title: 'People in Prison', text: 'Supporting individuals who seek hope, rehabilitation and a second chance. Believing in the possibility of transformation and reintegration.', photo: 'c1' },
+      { title: 'People in Immigration Detention', text: 'Recognising the dignity of every person and providing pastoral care, support and connection with the wider community.', photo: 'c2' },
+      { title: 'Families', text: 'Understanding that imprisonment and detention affect entire families. Providing encouragement, guidance and support networks.', photo: 'c3' },
+      { title: 'Communities in Need', text: 'Walking alongside vulnerable communities and creating pathways toward healing, dignity and hope.', photo: 'c4' },
+    ]}
+    action={[
+      { title: 'Accompaniment', text: 'Walking alongside people during challenging moments, offering presence, support and understanding.', icon: 'people' },
+      { title: 'Compassion', text: 'Seeing the person beyond their circumstances and responding with mercy and kindness.', icon: 'heart' },
+      { title: 'Service', text: 'Transforming faith into practical support and connecting people with the resources they need.', icon: 'heartHand' },
+      { title: 'Restoration', text: 'Creating opportunities for healing, growth and a new beginning with dignity and purpose.', icon: 'dove' },
+    ]}
+    actionQuote={{ text: 'No one is beyond the reach of God’s love and our care. Together we can build communities where every person is seen, valued and supported.' }}
+    recognition="IICC Mission recognises the importance of leaders who encourage communities to respond with compassion, justice and humanity. We thank Archbishop Peter Comensoli for his continued example of pastoral leadership, service and dedication to the dignity of every person."
+    signature={{ line: '+ Peter Comensoli', sub: 'Archbishop Peter Comensoli<br/>Archbishop of Melbourne' }}
+    commitmentIntro="Inspired by faith and guided by compassion, IICC Mission continues its commitment to:"
+  />
 </Layout>
