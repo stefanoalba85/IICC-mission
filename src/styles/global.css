@@ -353,23 +353,75 @@
     background: var(--color-navy);
   }
   .hero-wave__bg { position: absolute; inset: 0; }
-  .hero-wave__bg img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-wave__bg img { width: 100%; height: 100%; object-fit: cover; object-position: right center; }
   .hero-wave__panel {
-    position: relative;
+    position: absolute;
     z-index: 2;
+    inset-block: 0;
+    left: 0;
     background: var(--color-navy);
-    width: min(620px, 56%);
-    padding: 3rem 2.5rem 3.5rem;
+    width: min(620px, 54%);
+    padding: 3rem 2.5rem 3.5rem max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem));
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 0.75rem;
-    clip-path: polygon(0 0, 100% 0, 82% 20%, 100% 38%, 78% 58%, 96% 80%, 68% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 80% 18%, 96% 36%, 74% 56%, 92% 78%, 64% 100%, 0% 100%);
   }
   @media (max-width: 860px) {
     .hero-wave { min-height: 0; padding-block: 2.5rem; }
-    .hero-wave__panel { width: 100%; clip-path: none; padding: 2rem 1.5rem; }
-    .hero-wave__bg { position: absolute; inset: 0; }
+    .hero-wave__panel {
+      position: relative;
+      inset: auto;
+      width: 100%;
+      clip-path: none;
+      padding: 2rem 1.5rem;
+    }
     .hero-wave__bg::after { content: ''; position: absolute; inset: 0; background: rgba(18,26,56,0.82); }
+  }
+
+  /* ─── PHOTO BAND (text + photo + aside) ──── */
+  .photo-band {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    min-height: 280px;
+    overflow: hidden;
+  }
+  .photo-band__bg { position: absolute; inset: 0; }
+  .photo-band__bg img { width: 100%; height: 100%; object-fit: cover; }
+  .photo-band__text {
+    position: relative;
+    z-index: 2;
+    background: var(--color-navy);
+    width: min(420px, 42%);
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.625rem;
+  }
+  .photo-band__aside {
+    position: relative;
+    z-index: 2;
+    margin-left: auto;
+    background: rgba(18,26,56,0.88);
+    border-left: 1px solid rgba(224,123,0,0.3);
+    width: min(300px, 27%);
+    padding: 1.75rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+  .photo-band__aside-item { display: flex; align-items: center; gap: 0.625rem; }
+  .photo-band__aside-item svg { color: var(--color-amber); flex-shrink: 0; }
+  .photo-band__aside-item span { font-family: var(--font-heading); font-style: italic; font-size: 0.875rem; color: #fff; }
+  @media (max-width: 760px) {
+    .photo-band { flex-direction: column; min-height: 0; }
+    .photo-band__text, .photo-band__aside { width: 100%; margin-left: 0; }
+    .photo-band__bg { position: absolute; inset: 0; }
+    .photo-band__bg::after { content: ''; position: absolute; inset: 0; background: rgba(18,26,56,0.35); }
   }
 
   /* ─── CARDS ──────────────────────────────── */

@@ -17,18 +17,16 @@ const pillars = [
     <div class="hero-wave__bg">
       <img src="/images/our-vision/hero.jpg" alt="St Peter's Basilica at sunset with a dove flying" />
     </div>
-    <div class="wrap" style="position:relative; z-index:2;">
-      <div class="hero-wave__panel">
-        <span class="eyebrow eyebrow--white">Our Vision</span>
-        <h1 class="section-title section-title--white" style="font-size:clamp(1.75rem,4vw,2.5rem);">
-          A Brighter <span class="text-amber">Tomorrow</span> for Every Life
-        </h1>
-        <p class="section-desc section-desc--white" style="max-width:360px;">
-          We envision a world where every individual, regardless of their past, background or
-          circumstances, is treated with dignity, supported with compassion and given the
-          opportunity to rebuild their life.
-        </p>
-      </div>
+    <div class="hero-wave__panel">
+      <span class="eyebrow eyebrow--white">Our Vision</span>
+      <h1 class="section-title section-title--white" style="font-size:clamp(1.75rem,4vw,2.5rem);">
+        A Brighter <span class="text-amber">Tomorrow</span> for Every Life
+      </h1>
+      <p class="section-desc section-desc--white" style="max-width:360px;">
+        We envision a world where every individual, regardless of their past, background or
+        circumstances, is treated with dignity, supported with compassion and given the
+        opportunity to rebuild their life.
+      </p>
     </div>
   </section>
 
@@ -82,19 +80,36 @@ const pillars = [
   </section>
 
   <!-- VISION IN ACTION -->
-  <section class="hero-full" style="min-height:0;">
-    <div class="hero-full__bg" style="position:relative; aspect-ratio:1054/359;">
-      <img src="/images/our-vision/action-band.jpg" alt="A family looking over Rome at sunset" style="opacity:1;" />
+  <section class="photo-band">
+    <div class="photo-band__bg">
+      <img src="/images/our-vision/action-band.jpg" alt="A family looking over Rome at sunset" />
     </div>
-    <div class="hero-full__overlay" style="background:linear-gradient(100deg, rgba(18,26,56,0.92) 0%, rgba(18,26,56,0.6) 38%, rgba(18,26,56,0.15) 60%, rgba(18,26,56,0) 72%);"></div>
-    <div class="hero-full__content" style="padding-block:2.5rem;">
+    <div class="photo-band__text">
       <span class="eyebrow eyebrow--white">Our Vision in Action</span>
-      <h2 class="section-title section-title--white" style="font-size:clamp(1.5rem,3.5vw,2rem); margin-block:0.5rem;">Hope Today. Stronger Communities Tomorrow.</h2>
-      <p class="section-desc section-desc--white" style="max-width:380px; margin-bottom:1rem;">
+      <h2 class="section-title section-title--white" style="font-size:clamp(1.25rem,3vw,1.75rem);">Hope Today. Stronger Communities Tomorrow.</h2>
+      <p class="section-desc section-desc--white" style="max-width:320px;">
         Through compassion, service and partnership, we work toward a world where every
         individual and family can thrive.
       </p>
-      <a href="/get-involved" class="btn btn--amber">Get Involved &gt;</a>
+      <a href="/get-involved" class="btn btn--amber" style="align-self:flex-start;">Get Involved &gt;</a>
+    </div>
+    <div class="photo-band__aside">
+      <div class="photo-band__aside-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.3-9-8.3C1.3 9.2 3 6 6.2 5.4c1.8-.4 3.6.4 4.5 1.9a4.3 4.3 0 0 1 4.5-1.9C18.4 6 20 9.2 18.3 12.7 16 16.7 12 21 12 21Z"/></svg>
+        <span>People Rebuild.</span>
+      </div>
+      <div class="photo-band__aside-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm8 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM2 20c0-3 2.7-5 6-5s6 2 6 5v1H2v-1Zm12.3-4.6c2.1.5 3.7 2.2 3.7 4.6v1h4v-1c0-2.8-2.3-4.9-5.1-4.9-.9 0-1.8.1-2.6.3Z"/></svg>
+        <span>Families Heal.</span>
+      </div>
+      <div class="photo-band__aside-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+        <span>Communities Grow.</span>
+      </div>
+      <div class="photo-band__aside-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3c-2 2.5-4 3-4 6a4 4 0 0 0 8 0c0-3-2-3.5-4-6Zm-7 9c1 2 3 2.5 3 5a3 3 0 0 1-6 0c0-2.5 2-3 3-5Zm14 0c1 2 3 2.5 3 5a3 3 0 0 1-6 0c0-2.5 2-3 3-5Z"/></svg>
+        <span>A Brighter Tomorrow Becomes Possible.</span>
+      </div>
     </div>
   </section>
 </Layout>
