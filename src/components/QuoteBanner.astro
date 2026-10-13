@@ -1,0 +1,12 @@
+---
+interface Props { left?: string; right?: string; quote: string; by: string; dark?: boolean; }
+const p = Astro.props;
+const fade = (d: string) => `-webkit-mask-image:linear-gradient(${d},#000 55%,transparent); mask-image:linear-gradient(${d},#000 55%,transparent);`;
+---
+<section class="wrap" style="padding-bottom:1rem;">
+  <div style={`display:grid; grid-template-columns:${p.left ? '0.9fr ' : ''}2fr${p.right ? ' 0.9fr' : ''}; background:${p.dark ? 'var(--color-navy-dark)' : '#f5efe4'}; color:${p.dark ? '#fff' : 'var(--color-navy)'}; border-radius:4px; overflow:hidden; align-items:center;`}>
+    {p.left && <img src={`/images/advocacy/${p.left}.jpg`} alt="" style={`width:100%; height:100%; min-height:120px; object-fit:cover; ${fade('90deg')}`} />}
+    <blockquote style="margin:0; padding:1.25rem; text-align:center; font-family:var(--font-heading); font-style:italic; font-size:1.3125rem; line-height:1.45;"><span style="color:#c9741f; font-size:2.5rem; line-height:0; vertical-align:-0.6rem; font-style:normal;">&ldquo;</span> <Fragment set:html={p.quote} /> <span style="color:#c9741f; font-size:2.5rem; line-height:0; vertical-align:-0.6rem; font-style:normal;">&rdquo;</span><cite style="display:block; font-style:normal; color:#c9741f; font-size:1rem; margin-top:0.4rem;">– {p.by}</cite></blockquote>
+    {p.right && <img src={`/images/advocacy/${p.right}.jpg`} alt="" style={`width:100%; height:100%; min-height:120px; object-fit:cover; ${fade('270deg')}`} />}
+  </div>
+</section>

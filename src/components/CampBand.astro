@@ -1,0 +1,14 @@
+---
+import Icon from './Icon.astro';
+interface Props { lead: string; items: { icon: string; title: string; text?: string }[]; }
+const p = Astro.props;
+---
+<section style="background:var(--color-navy-dark); color:#fff;">
+  <div class="wrap" style={`display:grid; grid-template-columns:1.9fr repeat(${p.items.length},1fr); align-items:center; padding-block:1.1rem;`}>
+    <div style="display:grid; grid-template-columns:5.5rem 1fr; gap:1rem; align-items:center; padding-right:1rem;">
+      <span style="color:#d9862a;"><Icon name="hand-holding-heart" size={80} /></span>
+      <p style="font-family:var(--font-heading); font-size:1.0625rem; line-height:1.45;" set:html={p.lead} />
+    </div>
+    {p.items.map(i => <div style="text-align:center; border-left:1px solid rgba(201,150,42,0.4); padding-inline:0.6rem; display:flex; flex-direction:column; align-items:center; gap:0.35rem;"><span style="color:#d9862a;"><Icon name={i.icon} size={38} /></span><strong style="font-family:var(--font-heading); font-weight:400; font-size:0.9375rem; line-height:1.2;">{i.title}</strong>{i.text && <span style="font-size:0.75rem; line-height:1.4; color:rgba(255,255,255,0.85);">{i.text}</span>}</div>)}
+  </div>
+</section>

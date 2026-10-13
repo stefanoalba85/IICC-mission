@@ -1,0 +1,11 @@
+---
+interface Props { title: string; items: (string | [string, string])[]; light?: boolean; }
+const p = Astro.props;
+---
+<div style={`background:${p.light === false ? 'transparent' : '#f7f6f3'}; border-radius:4px; padding:1.25rem; height:100%;`}>
+  <h2 class="camp-h" style="font-size:1.125rem;">{p.title}</h2>
+  <ul class="camp-check">
+    {p.items.map(i => Array.isArray(i) ? <li><strong>{i[0]}</strong><span>{i[1]}</span></li> : <li>{i}</li>)}
+  </ul>
+  <slot />
+</div>

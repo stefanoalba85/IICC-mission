@@ -1,0 +1,12 @@
+---
+import Icon from './Icon.astro';
+interface Props { text: string; cta?: string; href?: string; }
+const p = Astro.props;
+---
+<section style="background:var(--color-navy-dark); color:#fff;">
+  <div class="wrap" style="display:grid; grid-template-columns:4.5rem 1fr auto; gap:1.25rem; align-items:center; padding-block:1rem;">
+    <span style="color:#d9862a;"><Icon name="hand-holding-heart" size={60} /></span>
+    <p style="font-family:var(--font-heading); font-size:1.1875rem; line-height:1.45;" set:html={p.text} />
+    <a href={p.href ?? '/get-involved'} style="background:#c9741f; color:#fff; border-radius:3px; padding:0.8rem 1.75rem; font-family:var(--font-heading); text-transform:uppercase; font-size:1rem; white-space:nowrap;">{p.cta ?? 'Join the Movement'} →</a>
+  </div>
+</section>

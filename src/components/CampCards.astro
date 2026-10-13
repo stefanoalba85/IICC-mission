@@ -1,0 +1,20 @@
+---
+import Icon from './Icon.astro';
+interface Props { title: string; dir?: string; items: { photo: string; title: string; text: string; icon?: string; extra?: string }[]; heart?: boolean; }
+const p = Astro.props;
+const img = (n: string) => `/images/${p.dir ?? 'advocacy'}/${n}.jpg`;
+---
+<section class="wrap" style="padding-block:1.25rem 1rem;">
+  <h2 class="camp-h">{p.title}</h2>
+  <div style={`display:grid; grid-template-columns:repeat(${p.items.length},1fr); gap:0.75rem; margin-top:0.9rem;`} class="camp-grid">
+    {p.items.map(i => <article style="background:#fff; border-radius:4px; box-shadow:0 3px 10px rgba(18,26,56,0.08); overflow:hidden; display:flex; flex-direction:column;">
+      <div style="position:relative;"><img src={img(i.photo)} alt="" style="width:100%; aspect-ratio:175/105; object-fit:cover;" />{i.icon && <span style="position:absolute; left:50%; bottom:-1.4rem; transform:translateX(-50%); width:2.9rem; height:2.9rem; border-radius:50%; background:var(--color-navy-dark); color:#d9862a; border:2px solid #fff; display:flex; align-items:center; justify-content:center;"><Icon name={i.icon} size={20} /></span>}</div>
+      <div style={`padding:${i.icon ? '1.9rem' : '0.9rem'} 0.9rem 0.9rem; display:flex; flex-direction:column; gap:0.4rem; flex:1; ${i.icon ? 'text-align:center;' : ''}`}>
+        <h3 style="font-family:var(--font-heading); color:var(--color-navy); font-weight:400; font-size:1.0625rem; line-height:1.25;">{i.title}</h3>
+        <p style="font-family:var(--font-heading); color:var(--color-text); font-size:0.8125rem; line-height:1.5; flex:1;">{i.text}</p>
+        {i.extra && <Fragment set:html={i.extra} />}
+        {p.heart && <span style="color:#d9862a; text-align:center;">♡</span>}
+      </div>
+    </article>)}
+  </div>
+</section>

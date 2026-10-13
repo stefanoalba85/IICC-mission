@@ -1,0 +1,59 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import MinHero from '../../../components/MinHero.astro';
+import CampBand from '../../../components/CampBand.astro';
+import IconCards from '../../../components/IconCards.astro';
+import CampCards from '../../../components/CampCards.astro';
+import ActionBox from '../../../components/ActionBox.astro';
+import CheckPanel from '../../../components/CheckPanel.astro';
+import StatsRow from '../../../components/StatsRow.astro';
+import LeadersBand from '../../../components/LeadersBand.astro';
+import QuoteBanner from '../../../components/QuoteBanner.astro';
+import JoinCta from '../../../components/JoinCta.astro';
+import MiddlePanel from '../../../components/MiddlePanel.astro';
+import ImStrip from '../../../components/ImStrip.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/advocacy/${n}.jpg`;
+---
+<Layout title="Family Rights of Prisoners" description="Stronger Families. Stronger Communities. A more just Italy.">
+  <MinHero boxed kicker="🇮🇹 Italy Campaign" title="Family Rights<br/><span>of Prisoners</span>" subtitle="Stronger Families.<br/>Stronger Communities.<br/><span style='color:#c9741f'>A more just Italy.</span>"
+    intro={['Family is not a privilege – it is a right. We call on Italy to protect and promote the rights of prisoners to maintain meaningful relationships with their families. Keeping families connected restores hope, strengthens rehabilitation and builds a safer society for all.']}
+    img={img('fam-hero')} alt="A mother and son with their hands on the glass of a prison visiting booth" quote="A society is judged not by how it treats its citizens in freedom, but how it treats them and their families in confinement." quoteRef="Pope Francis" />
+  <CampBand lead="Supporting family connections behind bars is an investment in rehabilitation, public safety and human dignity." items={[
+    { icon: 'people-group', title: 'Strengthen Families', text: 'Keep families connected through regular contact, visits and communication.' },
+    { icon: 'heart', title: 'Support Rehabilitation', text: 'Strong family ties increase motivation, hope and successful reintegration.' },
+    { icon: 'shield-halved', title: 'Protect Children', text: 'Children have the right to maintain contact with their incarcerated parent.' },
+    { icon: 'people-group', title: 'Reduce Recidivism', text: 'Family support reduces reoffending and builds healthier communities.' },
+    { icon: 'scale-balanced', title: 'Respect Human Rights', text: 'Family contact is a fundamental right recognized by law.' },
+    { icon: 'building-columns', title: 'Build a Better Italy', text: 'A more compassionate justice system creates a safer, stronger and more united Italy.' },
+  ]} />
+  <IconCards title="Family Rights We Support" items={[
+    { icon: 'people-arrows', title: 'Right to Family Contact', text: 'Ensure prisoners can maintain regular contact with their spouse, children and loved ones through visits, calls and correspondence.' },
+    { icon: 'child-reaching', title: 'Right of the Child', text: 'Protect the right of children to maintain a relationship with their parents, benefiting their emotional well-being and stability.' },
+    { icon: 'phone', title: 'Access to Communication', text: 'Guarantee affordable and adequate access to phone calls, video calls, and letters to keep families connected across all distances.' },
+    { icon: 'people-group', title: 'Family-Friendly Visits', text: 'Create welcoming and child-friendly visiting environments that respect privacy, dignity and the needs of families.' },
+    { icon: 'book-open', title: 'Information & Transparency', text: 'Provide clear information about prisoners’ rights, visiting procedures and communication access.' },
+    { icon: 'hand-holding-heart', title: 'Support for Families', text: 'Offer support services for families facing emotional, financial and social challenges.' },
+  ]} />
+  <section class="wrap camp-split">
+    <img src={img('fam-hands')} alt="Hands holding each other in comfort" />
+    <MiddlePanel title="Your Voice Can Keep Families Together" text="Add your signature to stand for justice, family rights and a more compassionate Italy." trio={[{ icon: 'pen', title: 'Sign', text: 'Add your name' }, { icon: 'share-nodes', title: 'Share', text: 'Share with your community' }, { icon: 'bullhorn', title: 'Amplify', text: 'Help us reach more people' }]} />
+    <ActionBox title="Sign the Petition" text="Together, we can protect family rights and build a more just and humane Italy." buttons={[{ label: 'Sign the Petition', href: '/our-services/advocacy/petition-campaigns' }, { label: 'Share This Petition', icon: 'envelope', kind: 'white', href: '/contact' }]} />
+  </section>
+  <section class="wrap camp-split" style="grid-template-columns:1.25fr 0.95fr 0.9fr;">
+    <CheckPanel light={false} title="The Issues We Are Addressing" items={['Limited access to visits, especially for children and distant families','High cost and limited availability of phone and video calls','Restrictive visiting hours that do not consider family needs','Lack of child-friendly spaces for visits','Insufficient support for families of prisoners']} />
+    <img src={img('fam-issue')} alt="A child holding a drawing up to the prison glass" />
+    <ActionBox light title="Support Our Campaign" text="Stand with us. Support reforms that strengthen families and change lives." buttons={[{ label: 'Donate Now', icon: 'heart' }, { label: 'Support on GoFundMe', kind: 'green' }]} />
+  </section>
+  <StatsRow label="Why It Matters" items={[
+    { icon: 'people-group', num: '80%', text: 'of prisoners want more family contact' }, { icon: 'child', num: 'Children', text: 'with parental contact show better outcomes' },
+    { icon: 'shield-halved', num: 'Lower Risk', text: 'of reoffending with strong family support' }, { icon: 'heart', num: 'Healthier', text: 'mental health for prisoners' }, { icon: 'people-roof', num: 'Stronger', text: 'communities build a stronger Italy' },
+  ]} />
+  <LeadersBand title="Supported by People of Faith, Law, Health & Community Leaders" sub="Together, we defend family rights and human dignity." side="fam-band" people={[
+    { photo: 'fam-p1', name: 'Pope Leo XIV', role: 'Pope of the Catholic Church' }, { photo: 'fam-p2', name: 'Cardinal Matteo Zuppi', role: 'President, CEI' },
+    { photo: 'fam-p3', name: 'Don Luigi Ciotti', role: 'Founder, Libera' }, { photo: 'fam-p4', name: 'Gherardo Colombo', role: 'Former Magistrate' },
+    { photo: 'fam-p5', name: 'Gherardo Colombo', role: 'Former Magistrate' }, { photo: 'fam-p6', name: 'Chiara Giuffrini', role: 'Human Rights Advocate' },
+    { photo: 'fam-p7', name: 'Monica Cirinnà', role: 'Senator' }, { photo: 'fam-p8', name: 'Padre Alex Zanotelli', role: 'Missionary' },
+  ]} />
+  <JoinCta text="When families stay connected, hope is restored.<br/>When hope is restored, lives are transformed." />
+</Layout>

@@ -1,0 +1,48 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import MinHero from '../../../components/MinHero.astro';
+import CampBand from '../../../components/CampBand.astro';
+import IconCards from '../../../components/IconCards.astro';
+import CampCards from '../../../components/CampCards.astro';
+import ActionBox from '../../../components/ActionBox.astro';
+import CheckPanel from '../../../components/CheckPanel.astro';
+import StatsRow from '../../../components/StatsRow.astro';
+import LeadersBand from '../../../components/LeadersBand.astro';
+import QuoteBanner from '../../../components/QuoteBanner.astro';
+import JoinCta from '../../../components/JoinCta.astro';
+import MiddlePanel from '../../../components/MiddlePanel.astro';
+import ImStrip from '../../../components/ImStrip.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/advocacy/${n}.jpg`;
+---
+<Layout title="Human Dignity in Italian Prisons" description="Every person. Every day. Dignity is not a privilege. It is a right.">
+  <MinHero boxed kicker="🇮🇹 Italy Campaign" title="Human Dignity<br/>in Italian<br/><span>Prisons</span>" subtitle="Every person. Every day.<br/><span style='color:#c9741f'>Dignity is not a privilege.<br/>It is a right.</span>"
+    intro={['Human dignity is the foundation of justice. Every person in prison must be treated with respect, compassion and fairness. A more humane prison system is a safer, healthier and more just Italy for everyone.']}
+    img={img('hd-hero')} alt="A man standing in a prison corridor facing a bright window" quote="The measure of any society is how it treats those who have done wrong, not how it treats those who got it right." quoteRef="Dostoevsky" />
+  <CampBand lead="Human dignity must be protected behind bars. It is the path to rehabilitation, reduces reoffending and builds a more just society." items={[
+    { icon: 'user', title: 'Respect Every Person', text: 'Every prisoner is a human being with inherent worth and rights.' },
+    { icon: 'hand-holding-heart', title: 'Promote Rehabilitation', text: 'Dignity and respect open the door to change and reintegration.' },
+    { icon: 'scale-balanced', title: 'Ensure Justice & Fairness', text: 'Equal treatment and access to rights for all prisoners, without discrimination.' },
+    { icon: 'shield-halved', title: 'Protect Rights', text: 'Uphold physical, mental and moral integrity in all prison environments.' },
+    { icon: 'people-group', title: 'Build a Better Society', text: 'Respect in prison creates safer communities for everyone.' },
+  ]} />
+  <CampCards heart title="Why Human Dignity in Prisons Matters" items={[
+    { photo: 'hd-c1', title: 'It’s a Fundamental Right', text: 'Human dignity is protected under the Italian Constitution and international human rights law.' },
+    { photo: 'hd-c2', title: 'Better Living Conditions', text: 'Overcrowding, poor facilities and inadequate healthcare violate dignity and harm everyone.' },
+    { photo: 'hd-c3', title: 'Promotes Rehabilitation', text: 'When people are treated with respect, they are more likely to change and rebuild their lives.' },
+    { photo: 'hd-c4', title: 'Access to Education & Programs', text: 'Education, work and personal growth programs restore hope and create opportunity.' },
+    { photo: 'hd-c5', title: 'Health & Mental Care', text: 'Access to proper healthcare and mental health support is essential for dignity and recovery.' },
+    { photo: 'hd-c6', title: 'Stronger Communities', text: 'Respecting dignity in prison leads to safer communities and a stronger, more compassionate Italy.' },
+  ]} />
+  <section class="wrap camp-3">
+    <CheckPanel title="Key Issues We Are Addressing" items={['Overcrowding that violates human dignity','Inadequate healthcare and mental health support','Limited access to education, work and rehabilitation programs','Poor living conditions and lack of basic services','Lack of transparency and independent oversight','Violence, abuse and discrimination in prison','Insufficient preparation for reintegration and reentry']} />
+    <ActionBox title="Our Commitment" text="We work with prisoners, families, legal experts, health professionals and faith communities to promote reforms that uphold dignity and human rights in every prison." buttons={[{ label: 'Sign Our Petition', icon: 'file-signature', kind: 'white', href: '/our-services/advocacy/petition-campaigns' }, { label: 'Write to Authorities', icon: 'envelope', kind: 'white', href: '/contact' }, { label: 'Share This Campaign', icon: 'share-nodes', kind: 'white', href: '/contact' }]} />
+    <ActionBox light title="Take Action Today" text="Your voice can help build prisons that respect human dignity and offer real hope for change." buttons={[{ label: 'Donate Now', icon: 'heart' }, { label: 'Support on GoFundMe', kind: 'green' }]}><p style="font-size:0.8125rem; font-family:var(--font-heading);">Every action brings us closer to a more just and humane Italy.</p></ActionBox>
+  </section>
+  <StatsRow label="The Reality in<br/>Italian Prisons" items={[
+    { icon: 'people-group', num: '61,000+', text: 'People are currently held in Italian prisons' }, { icon: 'calendar', num: '114%', text: 'Average prison capacity (overcrowding)' },
+    { icon: 'user', num: '1 in 3', text: 'Prisoners lack access to adequate programs' }, { icon: 'brain', num: 'High', text: 'Mental health needs often go unmet' }, { icon: 'file-lines', num: 'Too Many', text: 'Struggle to rebuild their lives after prison' },
+  ]} />
+  <QuoteBanner left="hd-ql" right="hd-qr" quote="When we restore dignity, we restore hope.<br/>When we restore hope, we build a future." by="IICC Mission" />
+  <JoinCta text="A more humane prison system is possible.<br/>Let’s put human dignity at the heart of justice in Italy." />
+</Layout>

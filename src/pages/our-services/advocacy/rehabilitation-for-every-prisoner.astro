@@ -1,0 +1,61 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import MinHero from '../../../components/MinHero.astro';
+import CampBand from '../../../components/CampBand.astro';
+import IconCards from '../../../components/IconCards.astro';
+import CampCards from '../../../components/CampCards.astro';
+import ActionBox from '../../../components/ActionBox.astro';
+import CheckPanel from '../../../components/CheckPanel.astro';
+import StatsRow from '../../../components/StatsRow.astro';
+import LeadersBand from '../../../components/LeadersBand.astro';
+import QuoteBanner from '../../../components/QuoteBanner.astro';
+import JoinCta from '../../../components/JoinCta.astro';
+import MiddlePanel from '../../../components/MiddlePanel.astro';
+import ImStrip from '../../../components/ImStrip.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/advocacy/${n}.jpg`;
+const path = [
+  { icon: 'book-open', title: 'Education & Literacy', text: 'Improving reading, writing, numeracy and life skills opens the door to a better future.' },
+  { icon: 'briefcase', title: 'Vocational Training & Employment', text: 'Equipping prisoners with practical skills and work experience creates dignity and independence.' },
+  { icon: 'brain', title: 'Mental Health Support', text: 'Counselling and therapy help heal trauma, build resilience and prevent re-offending.' },
+  { icon: 'people-roof', title: 'Family & Relationship Support', text: 'Strong family connections are vital for successful reintegration and stability.' },
+  { icon: 'cross', title: 'Spiritual & Pastoral Care', text: 'Faith offers forgiveness, purpose and the strength to make a new start.' },
+  { icon: 'road', title: 'Reintegration & Aftercare', text: 'Ongoing support after release helps rebuild lives, housing, employment and community connection.' },
+];
+---
+<Layout title="Rehabilitation for Every Prisoner" description="Every person has the capacity to change. Every life has value.">
+  <MinHero boxed title="Rehabilitation<br/><span>for Every Prisoner</span>" subtitle="Every person has the capacity<br/>to change. <span style='color:#c9741f'>Every life has value.</span>"
+    intro={['The IICC Mission believes that rehabilitation is not a reward—it is a right, a responsibility of society, and the key to safer communities. True justice is not measured by how we punish, but by how we help transform lives.']}
+    img={img('reh-hero')} alt="A man sitting in a cell looking at a sunlit window" quote="I came that they may have life, and have it to the full." quoteRef="John 10:10" />
+  <CampBand lead="<strong style='font-size:1.25rem; font-weight:400'>Rehabilitation restores hope. Hope builds a future.</strong><br/><small>With the right support, education, skills and spiritual guidance, prisoners can return to society as responsible, contributing members.</small>" items={[
+    { icon: 'people-group', title: '1 in 3', text: 'people released from prison return within two years.' }, { icon: 'graduation-cap', title: '70%', text: 'lower reoffending rate with access to education and training.' },
+    { icon: 'hand-holding-heart', title: 'Lives', text: 'are transformed through faith, support and opportunity.' }, { icon: 'shield-halved', title: 'Communities', text: 'are safer and stronger when rehabilitation is the priority.' },
+  ]} />
+  <section class="wrap camp-split" style="grid-template-columns:1.2fr 0.5fr 1.2fr; padding-top:1.25rem;">
+    <div><h2 class="camp-h">The Path to Rehabilitation</h2>{path.map(r => <div class="im-row" style="grid-template-columns:3.25rem 1fr;"><i style="width:3.25rem; height:3.25rem;"><Icon name={r.icon} size={22} /></i><div><h3 style="text-transform:none; font-size:1rem;">{r.title}</h3><p>{r.text}</p></div></div>)}</div>
+    <img src={img('reh-path')} alt="A man walking down a sunlit path" />
+    <div><CheckPanel light={false} title="The Benefits of Rehabilitation" items={[['Reduces reoffending and crime','Rehabilitation is proven to break the cycle of crime.'],['Improves mental and physical health','Support services reduce stress, addiction and self-harm.'],['Strengthens families','Healing relationships create stable, supportive homes.'],['Builds safer communities','Fewer victims. Stronger neighbourhoods. A better future.'],['Restores human dignity','Everyone deserves the chance to change and contribute.']]} />
+      <div class="im-note" style="background:#f5efe4; border:none;"><span style="color:#c9741f;"><Icon name="dove" size={40} /></span><span style="font-style:italic; font-size:0.9375rem;">“We must not forget those who are in prison. They are persons, they have faces, they have stories, they have hearts.”<br /><span style="color:#c9741f;">– Pope Francis</span></span></div></div>
+  </section>
+  <section class="wrap camp-split" style="grid-template-columns:0.8fr 1fr 1.5fr;">
+    <img src={img('reh-hands')} alt="Two hands clasped in support" />
+    <div style="padding:0.5rem;"><h2 class="camp-h" style="text-align:left;">Our Commitment</h2><p class="im-p" style="font-size:0.9375rem;">The IICC Mission is committed to building a culture of rehabilitation in every prison and detention centre we serve. We work with chaplains, professionals, volunteers and partners to ensure that no one is left behind and that every prisoner has the chance to rebuild their life.</p></div>
+    <ActionBox title="You Can Help Transform Lives">
+      <div class="camp-trio" style="color:#fff;">{[['hand-holding-heart','Volunteer','Share your time and skills.'],['book-open','Sponsor','education and training programs.'],['hand-holding-dollar','Donate','and support rehabilitation initiatives.'],['people-group','Advocate','for policies that promote second chances.']].map(([i,t,d]) => <div style="color:#fff;"><span style="color:#d9862a;"><Icon name={i} size={30} /></span><strong>{t}</strong><span>{d}</span></div>)}</div>
+      <a href="/get-involved" class="btn btn--amber" style="align-self:center;">Get Involved Today ♥</a>
+    </ActionBox>
+  </section>
+  <section class="wrap" style="padding-bottom:1rem;"><div style="background:#f5efe4; border-radius:4px; display:grid; grid-template-columns:5rem 1.4fr 1fr 4rem; gap:1.25rem; align-items:center; padding:1rem 1.5rem;" class="camp-grid">
+    <span style="width:4.5rem; height:4.5rem; border-radius:50%; border:2px solid #c9741f; color:#c9741f; display:flex; align-items:center; justify-content:center;"><Icon name="cross" size={34} /></span>
+    <p style="font-family:var(--font-heading); font-style:italic; color:var(--color-navy); font-size:1.0625rem; line-height:1.45;">“Do not judge, and you will not be judged. Do not condemn, and you will not be condemned. Forgive, and you will be forgiven.”<br /><span style="color:#c9741f;">– Luke 6:37</span></p>
+    <p style="font-family:var(--font-heading); color:var(--color-navy); font-size:1.0625rem; line-height:1.45;">Rehabilitation is mercy in action.<br />Mercy builds hope. Hope builds a new beginning.</p>
+    <span style="color:#c9741f;"><Icon name="hand-holding-heart" size={52} /></span>
+  </div></section>
+  <ImStrip items={[
+    { icon: 'people-group', title: 'We Believe', text: 'Every person is created in the image of God and deserves dignity.' },
+    { icon: 'shield-halved', title: 'We Support', text: 'Rehabilitation as a right and a proven path to safer communities.' },
+    { icon: 'handshake', title: 'We Collaborate', text: 'Working with professionals, volunteers and partners to change lives.' },
+    { icon: 'dove', title: 'We Restore Hope', text: 'Because no life is beyond transformation.' },
+    { icon: 'scale-balanced', title: 'We Stand for Justice', text: 'A fair system includes compassion, opportunity and second chances.' },
+  ]} />
+</Layout>

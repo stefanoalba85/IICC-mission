@@ -1,0 +1,56 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import MinHero from '../../../components/MinHero.astro';
+import CampBand from '../../../components/CampBand.astro';
+import IconCards from '../../../components/IconCards.astro';
+import CampCards from '../../../components/CampCards.astro';
+import ActionBox from '../../../components/ActionBox.astro';
+import CheckPanel from '../../../components/CheckPanel.astro';
+import StatsRow from '../../../components/StatsRow.astro';
+import LeadersBand from '../../../components/LeadersBand.astro';
+import QuoteBanner from '../../../components/QuoteBanner.astro';
+import JoinCta from '../../../components/JoinCta.astro';
+import MiddlePanel from '../../../components/MiddlePanel.astro';
+import ImStrip from '../../../components/ImStrip.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/advocacy/${n}.jpg`;
+---
+<Layout title="Prison Conditions Worldwide" description="Every person. Every country. Every life matters.">
+  <MinHero boxed kicker="🌐 Global Advocacy" title="Prison Conditions<br/><span>Worldwide</span>" subtitle="Every person. Every country.<br/><span style='color:#c9741f'>Every life matters.</span>"
+    intro={['Millions of people around the world live behind bars. Too many are forgotten. We shine a light on prison conditions worldwide and work for change through advocacy, compassion and justice.']}
+    img={img('pcw-hero')} alt="A prison watchtower and fence at sunset" quote="The true measure of a society is how it treats those who are imprisoned." quoteRef="Nelson Mandela" />
+  <CampBand lead="Poor prison conditions violate human dignity and undermine justice everywhere." items={[
+    { icon: 'people-group', title: 'Overcrowding', text: 'Severe overcrowding fuels violence, illness and despair.' },
+    { icon: 'heart-pulse', title: 'Health & Hygiene', text: 'Inadequate healthcare and poor sanitation put lives at risk.' },
+    { icon: 'brain', title: 'Mental Health', text: 'Lack of mental health care deepens trauma and isolation.' },
+    { icon: 'shield-halved', title: 'Violence & Abuse', text: 'Violence, torture and ill-treatment must never be tolerated.' },
+    { icon: 'lock', title: 'Isolation', text: 'Long periods in isolation cause lasting psychological damage.' },
+    { icon: 'box-open', title: 'Lack of Opportunity', text: 'Limited education and rehabilitation keep people trapped in cycles.' },
+    { icon: 'building-columns', title: 'Need for Reform', text: 'Reform is possible. Change begins with awareness and action.' },
+  ]} />
+  <IconCards title="The Reality in Prisons Around the World" items={[
+    { icon: 'people-group', title: '11+ Million', text: 'People are imprisoned worldwide.' }, { icon: 'chart-column', title: '1 in 5', text: 'Prisons are operating over capacity.' },
+    { icon: 'kit-medical', title: 'Poor Healthcare', text: 'Many prisons lack access to basic medical care.' }, { icon: 'brain', title: 'Mental Health Crisis', text: 'High rates of depression, anxiety and self-harm.' },
+    { icon: 'scale-balanced', title: 'Human Rights Violations', text: 'Torture, abuse and neglect continue in many countries.' }, { icon: 'globe', title: 'Every Region', text: 'No country is immune to the prison conditions crisis.' },
+  ]} />
+  <section class="wrap camp-split">
+    <img src={img('pcw-map')} alt="Hands on a world map marked with pins" />
+    <MiddlePanel title="We Monitor. We Report. We Advocate." text="We work with partners and human rights bodies to document conditions, raise awareness, and demand reforms that uphold dignity and justice." trio={[{ icon: 'file-lines', title: 'Research', text: 'Gather data and document the truth' }, { icon: 'bullhorn', title: 'Raise Awareness', text: 'Shine a light on forgotten voices' }, { icon: 'handshake', title: 'Drive Change', text: 'Advocate for reforms and accountability' }]} />
+    <ActionBox title="Take Action Today" text="Join us in demanding safe, humane and dignified prison conditions for all." buttons={[{ label: 'Sign Our Petition', href: '/our-services/advocacy/petition-campaigns' }, { label: 'Share This Campaign', icon: 'envelope', kind: 'white', href: '/contact' }, { label: 'Support on GoFundMe', kind: 'green' }, { label: 'Donate Now', icon: 'heart' }]} />
+  </section>
+  <section class="wrap camp-3">
+    <CheckPanel title="Key Issues We Address" items={['Overcrowding and inadequate infrastructure','Lack of healthcare and mental health services','Poor sanitation, food and living conditions','Violence, abuse and excessive use of force','Solitary confinement and prolonged isolation','Lack of rehabilitation, education and opportunities','Discrimination and vulnerable populations at risk','Lack of transparency and independent oversight']} />
+    <CheckPanel title="Our Goals" items={['Promote compliance with international standards','Strengthen oversight and accountability','Ensure access to healthcare and mental health care','Support rehabilitation and reintegration','Protect vulnerable prisoners','End torture, abuse and all forms of ill-treatment','Build global partnerships for lasting reform']} />
+    <ActionBox light title="Support Our Mission" text="Your support helps us advocate, educate and bring hope to prisons worldwide." buttons={[{ label: 'Donate Now', icon: 'heart' }, { label: 'Support on GoFundMe', kind: 'green' }]} />
+  </section>
+  <StatsRow label="Why It Matters" items={[
+    { icon: 'people-group', num: '60,000+', text: 'Families affected every day' }, { icon: 'globe', num: '100+', text: 'Countries where prison conditions need reform' },
+    { icon: 'file-lines', num: '15+', text: 'UN standards exist to protect dignity' }, { icon: 'handshake', num: 'Together', text: 'we can build a world of justice and hope.' }, { icon: 'chart-line', num: 'Change is possible', text: 'Through advocacy, compassion and action.' },
+  ]} />
+  <LeadersBand title="Supported by People of Faith, Law, Health & Human Rights Leaders" sub="Together, we stand for dignity. Together, we demand change." side="pcw-band" people={[
+    { photo: 'pcw-p1', name: 'Pope Leo XIV', role: 'Pope of the Catholic Church' }, { photo: 'pcw-p2', name: 'Cardinal Matteo Zuppi', role: 'President, CEI' },
+    { photo: 'pcw-p3', name: 'Archbishop Desmond Tutu', role: '(In Memoriam)' }, { photo: 'pcw-p4', name: 'Mary Robinson', role: 'Former UN High Commissioner for Human Rights' },
+    { photo: 'pcw-p5', name: 'Michelle Bachelet', role: 'Former UN High Commissioner for Human Rights' },
+  ]} />
+  <JoinCta text="Dignity behind bars. Justice without borders.<br/>Hope for every person." />
+</Layout>

@@ -1,0 +1,69 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import MinHero from '../../../components/MinHero.astro';
+import CampBand from '../../../components/CampBand.astro';
+import IconCards from '../../../components/IconCards.astro';
+import CampCards from '../../../components/CampCards.astro';
+import ActionBox from '../../../components/ActionBox.astro';
+import CheckPanel from '../../../components/CheckPanel.astro';
+import StatsRow from '../../../components/StatsRow.astro';
+import LeadersBand from '../../../components/LeadersBand.astro';
+import QuoteBanner from '../../../components/QuoteBanner.astro';
+import JoinCta from '../../../components/JoinCta.astro';
+import MiddlePanel from '../../../components/MiddlePanel.astro';
+import ImStrip from '../../../components/ImStrip.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/advocacy/${n}.jpg`;
+const focus = [
+  { icon: 'people-group', title: 'Human Dignity & Rights', text: 'Upholding the inherent dignity and rights of every person, regardless of their circumstances.' },
+  { icon: 'scale-balanced', title: 'Fair Treatment for All', text: 'Promoting just policies, fair treatment, and humane conditions in prisons and detention centres.' },
+  { icon: 'bullhorn', title: 'Giving Voice to the Voiceless', text: 'Raising awareness about issues that are ignored and ensuring inmates, detainees, and families are heard.' },
+  { icon: 'shield-halved', title: 'Policy & System Reform', text: 'Working for legal and policy reforms that promote rehabilitation, reintegration, and second chances.' },
+  { icon: 'handshake', title: 'Community Awareness', text: 'Educating communities to break stigma, encourage empathy, and build a culture of understanding.' },
+  { icon: 'hand-holding-heart', title: 'Hope & Restoration', text: 'Advocating for opportunities that restore hope and enable individuals to rebuild their lives.' },
+];
+const doRows = [
+  { icon: 'magnifying-glass', title: 'Research & Awareness', text: 'We identify issues, gather facts, and raise awareness.' },
+  { icon: 'bullhorn', title: 'Advocate & Influence', text: 'We engage with policymakers, leaders, and communities.' },
+  { icon: 'handshake', title: 'Partner & Collaborate', text: 'We work with Catholic organizations, NGOs, and community partners.' },
+  { icon: 'graduation-cap', title: 'Educate & Empower', text: 'We educate the public and empower people to take action.' },
+  { icon: 'hand-holding-heart', title: 'Support & Accompany', text: 'We stand with inmates, detainees, and their families every step of the way.' },
+];
+const help = [
+  { icon: 'bullhorn', title: 'Raise Your Voice', text: 'Speak up, share, and help bring attention to important issues.' },
+  { icon: 'file-signature', title: 'Support Our Campaigns', text: 'Join our advocacy efforts and petition for change.' },
+  { icon: 'people-group', title: 'Volunteer', text: 'Use your time and skills to support advocacy initiatives.' },
+  { icon: 'hands-praying', title: 'Pray', text: 'Pray for justice, mercy, and healing in our communities.' },
+  { icon: 'hand-holding-dollar', title: 'Donate', text: 'Your support helps us continue advocacy and bring hope.' },
+];
+---
+<Layout title="Advocacy" description="Raising voices. Bringing change. Justice. Dignity. Hope.">
+  <MinHero boxed title="Advocacy<br/><span style='font-size:0.62em'>Raising Voices.<br/>Bringing Change.</span>" subtitle="Justice. Dignity. Hope.<br/>Every Person Matters."
+    intro={['We advocate for the rights and dignity of inmates, detainees, and their families. We bring attention to forgotten issues, speak up for the voiceless, and work for a more just, compassionate, and merciful society.']}
+    img={img('main-hero')} alt="IICC Mission volunteers holding advocacy signs" quote="Speak up for those who cannot speak for themselves; ensure justice for those being crushed." quoteRef="Proverbs 31:8" />
+  <section style="background:var(--color-navy-dark); color:#fff; text-align:center; padding-block:1.25rem 1.5rem; border-top:1px solid #b8892b;">
+    <div class="wrap">
+      <h2 style="font-family:var(--font-heading); color:#d9a540; text-transform:uppercase; font-size:1.625rem; font-weight:400;">Our Advocacy Focus</h2>
+      <p style="font-family:var(--font-heading); margin:0.4rem auto 1.1rem; max-width:720px;">We advocate for fair treatment, systemic change, and human dignity in prisons, immigration detention, and in our communities.</p>
+      <div class="icol" style="color:#fff;">{focus.map(f => <div style="align-items:center; text-align:center; border-color:rgba(184,137,43,0.4);"><span style="width:4.75rem; height:4.75rem; border-radius:50%; border:1.5px solid #c9741f; display:flex; align-items:center; justify-content:center;"><Icon name={f.icon} size={36} /></span><h3 style="color:#fff; font-weight:400;">{f.title}</h3><p style="font-family:var(--font-heading); font-size:0.875rem; line-height:1.4;">{f.text}</p></div>)}</div>
+    </div>
+  </section>
+  <section class="wrap camp-3" style="padding-top:1.25rem;">
+    <CheckPanel title="We Advocate For" items={['Fair sentencing and sentencing reform','Access to legal representation','Humane prison and detention conditions','Access to rehabilitation and education','Reintegration and employment opportunities','Family unity and support','End to discrimination and stigma','Respect for human rights and freedoms']}>
+      <div class="im-note" style="background:#f2e6d6; border:none;"><span style="color:var(--color-navy);"><Icon name="scale-balanced" size={36} /></span><span style="font-size:0.875rem;">Advocacy is not about taking sides. It is about standing up for what is right. It is about restoring dignity and hope.</span></div>
+    </CheckPanel>
+    <div style="background:#f7f6f3; border-radius:4px; padding:1.25rem;"><h2 class="camp-h" style="font-size:1.125rem;">What We Do</h2>{doRows.map(r => <div class="im-row"><i><Icon name={r.icon} size={20} /></i><div><h3>{r.title}</h3><p>{r.text}</p></div></div>)}</div>
+    <div style="background:#f7f6f3; border-radius:4px; padding:1.25rem; display:grid; grid-template-columns:1.4fr 0.8fr; gap:0.5rem;">
+      <div><h2 class="camp-h" style="font-size:1.125rem;">How You Can Help</h2>{help.map(r => <div class="im-row" style="grid-template-columns:2.4rem 1fr;"><i style="width:2.4rem; height:2.4rem;"><Icon name={r.icon} size={16} /></i><div><h3>{r.title}</h3><p>{r.text}</p></div></div>)}</div>
+      <img src={img('main-help')} alt="IICC Mission advocates holding a Change Starts With Us sign" style="width:100%; height:100%; object-fit:cover; border-radius:4px;" />
+    </div>
+  </section>
+  <section class="im-qcta"><div class="wrap"><blockquote>Let justice roll on like a river, righteousness like a never-failing stream!<cite>– Amos 5:24</cite></blockquote><span style="color:#d9a540;"><Icon name="heart" size={44} /></span><a href="/our-services/advocacy/support-justice-campaign">Together, We Can Create Change ›<small>Join us in building a more just, merciful, and hopeful world.</small></a></div></section>
+  <ImStrip items={[
+    { icon: 'eye', title: 'We See the Need', text: 'We see the pain. We see the injustice.' },
+    { icon: 'bullhorn', title: 'We Speak Up', text: 'We speak for those who cannot speak.' },
+    { icon: 'scale-balanced', title: 'We Seek Justice', text: 'We work for change that brings hope.' },
+    { icon: 'dove', title: 'We Bring Hope', text: 'We believe in second chances and a new future.' },
+    { icon: 'people-group', title: 'We Walk Together', text: 'We are one community advocating for all.' },
+  ]} />
+</Layout>

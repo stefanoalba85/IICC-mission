@@ -1,0 +1,10 @@
+---
+import Icon from './Icon.astro';
+interface Props { title: string; text: string; trio: { icon: string; title: string; text: string }[]; }
+const p = Astro.props;
+---
+<div style="padding:1rem 0.5rem; text-align:center; display:flex; flex-direction:column; justify-content:center;">
+  <h2 class="camp-h" style="font-size:1.0625rem;">{p.title}</h2>
+  <p style="font-family:var(--font-heading); color:var(--color-navy); font-size:0.9375rem; line-height:1.5; margin-top:0.4rem;">{p.text}</p>
+  <div class="camp-trio">{p.trio.map(t => <div><Icon name={t.icon} size={30} /><strong>{t.title}</strong><span>{t.text}</span></div>)}</div>
+</div>

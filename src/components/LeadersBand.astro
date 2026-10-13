@@ -1,0 +1,16 @@
+---
+interface Props { title: string; sub: string; people: { photo: string; name: string; role: string }[]; side?: string; }
+const p = Astro.props;
+---
+<section class="wrap" style="padding-bottom:1rem;">
+  <div style="position:relative; background:var(--color-navy-dark); color:#fff; border-radius:4px; overflow:hidden; display:grid; grid-template-columns:1fr 0.28fr;">
+    <div style="padding:1rem 1.25rem; text-align:center;">
+      <h2 style="font-family:var(--font-heading); text-transform:uppercase; font-weight:400; font-size:1rem;">{p.title}</h2>
+      <p style="font-size:0.8125rem; color:rgba(255,255,255,0.85);">{p.sub}</p>
+      <div style={`display:grid; grid-template-columns:repeat(${p.people.length},1fr); gap:0.5rem; margin-top:0.75rem;`}>
+        {p.people.map(x => <div style="display:flex; flex-direction:column; align-items:center; gap:0.25rem;"><img src={`/images/advocacy/${x.photo}.jpg`} alt={x.name} style="width:4rem; height:4rem; border-radius:50%; object-fit:cover; border:2px solid #fff;" /><strong style="font-size:0.75rem; font-weight:400;">{x.name}</strong><span style="font-size:0.625rem; color:rgba(255,255,255,0.75); line-height:1.25;">{x.role}</span></div>)}
+      </div>
+    </div>
+    {p.side && <img src={`/images/advocacy/${p.side}.jpg`} alt="" style="width:100%; height:100%; object-fit:cover; -webkit-mask-image:linear-gradient(90deg,transparent,#000 40%); mask-image:linear-gradient(90deg,transparent,#000 40%);" />}
+  </div>
+</section>
