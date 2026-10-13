@@ -1,0 +1,9 @@
+---
+interface Props { img: string; lines: string; quote: string; cta: string; href?: string; }
+const p = Astro.props;
+---
+<section class="camp-grid" style="display:grid; grid-template-columns:1.1fr 1fr auto; background:#fbf6ec; align-items:center;">
+  <div style="position:relative; background:var(--color-navy-dark); min-height:120px; align-self:stretch;"><img src={p.img} alt="" style="position:absolute; inset:0; width:45%; height:100%; object-fit:cover;" /><p style="position:relative; margin-left:42%; padding:1rem; color:#fff; font-family:var(--font-heading); text-transform:uppercase; font-size:1.125rem; line-height:1.25;" set:html={p.lines} /></div>
+  <p style="padding:1rem 1.25rem; font-family:var(--font-heading); font-style:italic; color:var(--color-navy); font-size:1.0625rem; line-height:1.45;"><span style="color:#c9741f; font-size:2.25rem; line-height:0.5; font-style:normal;">&ldquo;</span> {p.quote}</p>
+  <a href={p.href ?? '/donate'} class="btn btn--amber" style="margin-right:max(1.5rem, calc((100vw - 1200px) / 2));">{p.cta} →</a>
+</section>

@@ -1,0 +1,18 @@
+---
+interface Props { kicker?: string; title: string; text: string; img: string; alt: string; quote?: string; cta1?: string; cta1Href?: string; cta2?: string; cta2Href?: string; }
+const p = Astro.props;
+---
+<section style="position:relative; display:grid; grid-template-columns:0.9fr 1.1fr; min-height:400px; background:#fff; overflow:hidden;" class="camp-grid">
+  <div style="padding:2rem 1.5rem 2rem max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem)); display:flex; flex-direction:column; gap:0.75rem; justify-content:center; position:relative; z-index:2;">
+    {p.kicker && <p style="font-family:var(--font-body); font-weight:700; color:#c9741f; text-transform:uppercase; font-size:0.9375rem; letter-spacing:0.03em;">{p.kicker}</p>}
+    <h1 style="font-family:var(--font-heading); color:var(--color-navy); text-transform:uppercase; font-size:clamp(2rem,4vw,3.1rem); line-height:1.05;" set:html={p.title} />
+    <span style="width:2.5rem; height:2px; background:#c9741f;"></span>
+    <p style="font-size:1rem; line-height:1.6; color:var(--color-navy);">{p.text}</p>
+    <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+      <a href={p.cta1Href ?? '/partnerships'} class="btn btn--navy">{p.cta1 ?? 'Our Global Impact'} →</a>
+      <a href={p.cta2Href ?? '/get-involved'} class="btn btn--outline">{p.cta2 ?? 'Get Involved'} →</a>
+    </div>
+  </div>
+  <div style="position:relative; min-height:300px;"><img src={p.img} alt={p.alt} style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; -webkit-mask-image:linear-gradient(90deg,transparent,#000 22%); mask-image:linear-gradient(90deg,transparent,#000 22%);" /></div>
+  {p.quote && <p style="position:absolute; right:max(1rem, calc((100vw - 1200px) / 2)); top:50%; transform:translateY(-50%); width:170px; background:rgba(18,26,56,0.95); border:1.5px solid #c9962a; padding:1.25rem 1rem; color:#fff; font-family:var(--font-heading); font-style:italic; font-size:1.125rem; line-height:1.4; z-index:2;"><span style="display:block; color:#d9862a; font-size:3rem; line-height:0.6; font-style:normal;">&ldquo;</span>{p.quote}<span style="display:block; text-align:center; color:#d9862a; margin-top:0.5rem; font-style:normal;">♡</span></p>}
+</section>

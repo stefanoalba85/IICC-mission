@@ -1,0 +1,26 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import GmHero from '../../components/GmHero.astro';
+import GiIcons from '../../components/GiIcons.astro';
+import GmCta from '../../components/GmCta.astro';
+import GmBand from '../../components/GmBand.astro';
+import ResCards from '../../components/ResCards.astro';
+import Icon from '../../components/Icon.astro';
+const img = (n: string) => `/images/partnerships/${n}.jpg`;
+---
+<Layout title="State Missions Structure" description="Stronger states. Brighter futures.">
+  <GmHero kicker="State Missions Structure" title="Stronger<br/>states.<br/><span style='color:#c9741f'>Brighter<br/>futures.</span>" text="Our State Missions bring the IICC Mission closer to communities, ensuring local leadership, practical support and lasting impact for people who are incarcerated, detained and their families." cta1="Our National Missions" cta1Href="/partnerships/national-missions" img={img('st-hero')} alt="The US Capitol at sunset" quote="Real change happens when we are present in local communities — state by state, person by person." />
+  <GiIcons dark items={[{ icon: 'location-dot', title: 'Local Presence', text: 'State Missions ensure our work is accessible and responsive to local needs.' },{ icon: 'people-group', title: 'Coordinated Support', text: 'Working with churches, chaplains and community organisations.' },{ icon: 'handshake', title: 'Tailored Programs', text: 'Addressing state-specific needs and priorities.' },{ icon: 'chart-column', title: 'Greater Impact', text: 'Building stronger communities and supporting more people state by state.' },{ icon: 'globe', title: 'Part of a Global Mission', text: 'Each State Mission contributes to our worldwide mission of faith, hope, justice and restoration.' }]} />
+  <section class="wrap camp-grid" style="display:grid; grid-template-columns:1.4fr 1fr; gap:1.25rem; padding-block:1.25rem;">
+    <div><h2 style="font-family:var(--font-heading); color:var(--color-navy); text-transform:uppercase; font-size:1.5rem;"><span style="color:#c9741f;">Example:</span> United States State Missions</h2><p style="font-family:var(--font-heading); color:var(--color-navy); font-size:1.125rem;">4 Area/Zone Missions supervising State Missions</p><img src={img('st-map')} alt="US map coloured by the four zones" style="width:100%; margin-top:0.5rem;" /></div>
+    <div style="border:1px solid #e5e1d8; padding:1rem;"><h2 style="font-family:var(--font-heading); color:var(--color-navy); text-transform:uppercase; font-size:1.375rem;"> Area / Zone Missions</h2>{[['st-z1','West Zone Mission – Los Angeles','Supervises State Missions in Western states (e.g. CA, NV, WA, OR, AZ, etc.)','#c9861a'],['st-z2','Central Zone Mission – Minneapolis','Supervises State Missions in Central/Northern states (e.g. MN, IL, MI, OH, IA, etc.)','#2a64b8'],['st-z3','South Zone Mission – Dallas','Supervises State Missions in Southern states (e.g. TX, FL, GA, AL, TN, etc.)','#3f8f2f'],['st-z4','East Zone Mission – Washington','Supervises State Missions in Eastern states (e.g. NY, PA, VA, NC, etc.)','#d23b3b']].map(([p,t,d,c]) => <div style="display:grid; grid-template-columns:4.5rem 1fr; gap:0.75rem; margin-top:0.75rem; align-items:center;"><img src={img(p)} alt="" style="width:4.5rem; height:4.5rem; border-radius:50%; object-fit:cover;" /><div><p style={`background:${c}; color:#fff; padding:0.3rem 0.75rem; font-size:0.8125rem; text-transform:uppercase;`}>{t} →</p><p style="font-size:0.8125rem; padding:0.3rem 0.75rem;">{d}</p></div></div>)}</div>
+  </section>
+  <section class="wrap" style="padding-bottom:1rem;"><div class="camp-trio" style="border:1px solid #e5e1d8; padding:1rem;">{[['location-dot','50','States'],['people-group','4','Area/Zone Missions'],['people-group','State','Mission Leaders in Each State'],['church','','Partnerships with Dioceses, Parishes and Chaplains'],['hand-holding-heart','','Local Programs and Support Services'],['chart-column','','Measurable Community Impact']].map(([i,n,t]) => <div><span style="color:#c9741f;"><Icon name={i} size={36} /></span>{n && <strong style="font-family:var(--font-heading); font-size:1.5rem; text-transform:none;">{n}</strong>}<span style="font-family:var(--font-heading); font-size:0.9375rem;">{t}</span></div>)}</div></section>
+  <ResCards center title="Role of State Missions" dir="partnerships" items={[
+    { photo: 'st-1', icon: 'hands-praying', title: 'Pastoral Care', text: 'Support chaplaincy visits, prayer, faith-based programs and spiritual guidance.', cta: '' },
+    { photo: 'st-2', icon: 'scale-balanced', title: 'Legal Assistance & Referral', text: 'Provide information, referrals and advocacy support.', cta: '' },
+    { photo: 'st-3', icon: 'heart', title: 'Family & Community Support', text: 'Support families, reintegration and local community initiatives.', cta: '' },
+    { photo: 'st-4', icon: 'book-open', title: 'Education & Reintegration', text: 'Deliver training, education and pathways to employment.', cta: '' },
+  ]} />
+  <GmBand img={img('st-band')} lines="Stronger states.<br/>Stronger communities.<br/><span style='color:#d9862a'>A brighter tomorrow.</span>" quote="When local communities come together with faith and compassion, lives are changed, families are restored, and communities thrive." cta="Support a State Mission" />
+</Layout>

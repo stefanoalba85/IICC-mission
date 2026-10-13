@@ -1,0 +1,27 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import GmHero from '../../components/GmHero.astro';
+import GiIcons from '../../components/GiIcons.astro';
+import GmCta from '../../components/GmCta.astro';
+import GmBand from '../../components/GmBand.astro';
+import ResCards from '../../components/ResCards.astro';
+import Icon from '../../components/Icon.astro';
+const img = (n: string) => `/images/partnerships/${n}.jpg`;
+---
+<Layout title="Italian Branches" description="Restoring hope. Building futures.">
+  <GmHero kicker="Italian Branches" title="Restoring hope.<br/>Building futures." text="The IICC Mission Italian Branches bring faith, compassion and practical support to individuals and communities across Italy. Through local partnerships and life-changing initiatives, we are creating pathways to restoration, dignity and a new beginning." cta1="Our Programs" cta1Href="#focus" img={img('it-hero')} alt="Florence with the Italian flag at sunset" />
+  <GiIcons dark items={[{ icon: 'hand-holding-heart', title: 'Faith Driven', text: 'Our work is grounded in faith and a love for every person.' },{ icon: 'people-group', title: 'Local Connections', text: 'Working with churches, organisations and communities across Italy.' },{ icon: 'hand-holding-heart', title: 'Practical Support', text: 'Programs that meet real needs and help rebuild lives.' },{ icon: 'cross', title: 'Restoration', text: 'Creating opportunities for healing, growth and second chances.' },{ icon: 'globe', title: 'Part of a Global Mission', text: 'United with IICC Mission branches around the world to create lasting change.' }]} />
+  <section class="wrap camp-grid" style="display:grid; grid-template-columns:1fr 1.6fr; gap:1.25rem; padding-block:1.5rem; align-items:center;">
+    <div><h2 style="font-family:var(--font-heading); color:var(--color-navy); text-transform:uppercase; font-size:1.375rem;"> About Our Italian Branches</h2><p class="im-p" style="margin-block:0.75rem;">IICC Mission is committed to walking alongside individuals and families facing hardship, incarceration, marginalisation and disadvantage across Italy.</p><p class="im-p">We collaborate with local churches, organisations, volunteers and community leaders to deliver compassionate support, practical assistance and life-changing programs that restore hope and build stronger communities.</p></div>
+    <div class="camp-grid" style="display:grid; grid-template-columns:repeat(4,1fr); gap:0.6rem;">{[['people-group','15+','Local Partners & Organisations'],['hand-holding-heart','1000+','Lives Supported Each Year'],['house-chimney','10+','Community Initiatives'],['map','Across Italy','Making an Impact in Communities']].map(([i,n,t]) => <div style="background:#f7f6f3; padding:1rem 0.5rem; text-align:center; display:flex; flex-direction:column; align-items:center; gap:0.3rem;"><span style="color:#c9741f;"><Icon name={i} size={40} /></span><strong style="font-family:var(--font-heading); color:var(--color-navy); font-size:1.5rem;">{n}</strong><span style="font-size:0.8125rem;">{t}</span></div>)}</div>
+  </section>
+  <section id="focus"><ResCards center title="Our Focus in Italy" dir="partnerships" items={[
+    { photo: 'it-1', icon: 'handshake', title: 'Reintegration Support', text: 'Helping individuals rebuild their lives with dignity and meaningful opportunities.', cta: '' },
+    { photo: 'it-2', icon: 'book-open', title: 'Education & Training', text: 'Providing education, skills development and pathways to employment.', cta: '' },
+    { photo: 'it-3', icon: 'hand-holding-heart', title: 'Humanitarian Aid', text: 'Offering practical support to individuals and families in times of need.', cta: '' },
+    { photo: 'it-4', icon: 'church', title: 'Faith & Community Connection', text: 'Building relationships, encouragement and hope through local communities.', cta: '' },
+    { photo: 'it-5', icon: 'bread-slice', title: 'Social Enterprise Initiatives', text: 'Creating sustainable projects that empower, restore and strengthen communities.', cta: '' },
+  ]} /></section>
+  <section class="wrap camp-grid" style="display:grid; grid-template-columns:1fr 1fr; background:#f7f3ec; margin-bottom:1.25rem; align-items:center;"><div style="padding:1.5rem;"><p style="color:#c9741f; text-transform:uppercase; font-weight:700; font-size:0.875rem;">Featured Initiative</p><h2 style="font-family:var(--font-heading); color:var(--color-navy); text-transform:uppercase; font-size:1.375rem;"> Bakery Pilot Project – Italy</h2><p class="im-p" style="margin-block:0.6rem 0.9rem;">Our Bakery Pilot Project provides practical training and employment opportunities for individuals seeking a fresh start. It is more than a bakery – it is a pathway to dignity, purpose and a brighter future.</p><div class="camp-trio">{[['hand-holding-heart','Skills Development'],['briefcase','Employment Pathways'],['people-group','Community Contribution'],['cross','Hope & Restoration']].map(([i,t]) => <div><span style="color:#c9741f;"><Icon name={i} size={26} /></span><span>{t}</span></div>)}</div><a href="/programs/bakery-of-hope" class="btn btn--navy" style="margin-top:0.9rem;">Learn More About the Project →</a></div><img src={img('it-bake')} alt="A baker in an IICC Mission Italy bakery" style="width:100%; height:100%; object-fit:cover;" /></section>
+  <GmCta title="Together, we can restore hope and build futures." text="Your support helps us reach more people, strengthen communities and create lasting change across Italy." />
+</Layout>
