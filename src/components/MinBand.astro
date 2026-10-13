@@ -1,0 +1,25 @@
+---
+import Icon from './Icon.astro';
+interface Props { title: string; intro?: string; items: { icon: string; title: string; text: string }[]; }
+const p = Astro.props;
+---
+<style>
+  .mb { background: var(--color-navy-dark); color: #fff; text-align: center; padding-block: 1.25rem 1.75rem; border-top: 1px solid #b8892b; }
+  .mb h2 { display: flex; justify-content: center; align-items: center; gap: 1rem; font-family: var(--font-heading); color: #d9a540; text-transform: uppercase; font-size: 1.625rem; }
+  .mb h2::before, .mb h2::after { content: ''; width: 7rem; height: 1px; background: #b8892b; }
+  .mb__intro { font-family: var(--font-heading); font-size: 1.0625rem; line-height: 1.45; max-width: 780px; margin: 0.5rem auto 1.25rem; }
+  .mb__grid { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; }
+  .mb__grid > div { border-right: 1px solid rgba(184,137,43,0.4); padding-inline: 0.75rem; display: flex; flex-direction: column; align-items: center; gap: 0.4rem; }
+  .mb__grid > div:last-child { border-right: none; }
+  .mb__grid i { width: 5.5rem; height: 5.5rem; border-radius: 50%; border: 1.5px solid #b8892b; display: flex; align-items: center; justify-content: center; margin-bottom: 0.4rem; }
+  .mb__grid h3 { font-family: var(--font-heading); text-transform: uppercase; font-size: 1.0625rem; font-weight: 400; }
+  .mb__grid p { font-family: var(--font-heading); font-size: 0.9375rem; line-height: 1.35; color: rgba(255,255,255,0.9); }
+  @media (max-width: 900px) { .mb__grid { grid-auto-flow: row; grid-template-columns: 1fr 1fr; row-gap: 1.25rem; } .mb__grid > div { border-right: none; } }
+</style>
+<section class="mb">
+  <div class="wrap">
+    <h2>{p.title}</h2>
+    {p.intro && <p class="mb__intro">{p.intro}</p>}
+    <div class="mb__grid">{p.items.map(i => <div><i><Icon name={i.icon} size={46} /></i><h3>{i.title}</h3><p>{i.text}</p></div>)}</div>
+  </div>
+</section>

@@ -1,0 +1,12 @@
+---
+import Icon from './Icon.astro';
+interface Props { title: string; text: string; cta: string; sub?: string; href?: string; icon?: string; }
+const p = Astro.props;
+---
+<section style="background:var(--color-navy-dark); color:#fff; border-top:1px solid rgba(184,137,43,0.5);">
+  <div class="wrap" style="display:grid; grid-template-columns:3.5rem 1fr auto; gap:1.25rem; align-items:center; padding-block:1rem;">
+    <span style="color:#d9a540;"><Icon name={p.icon ?? 'heart'} size={44} /></span>
+    <div><h2 style="font-family:var(--font-heading); font-weight:400; font-size:1.3125rem; text-transform:uppercase;">{p.title}</h2><p style="font-family:var(--font-heading); color:#d9a540; text-transform:uppercase;">{p.text}</p></div>
+    <a href={p.href ?? '/get-involved'} style="background:#c9962a; color:var(--color-navy-dark); border-radius:999px; padding:0.55rem 1.5rem; font-family:var(--font-heading); text-transform:uppercase; text-align:center; line-height:1.25;">{p.cta} ›{p.sub && <small style="display:block; text-transform:none; font-size:0.8125rem;">{p.sub}</small>}</a>
+  </div>
+</section>

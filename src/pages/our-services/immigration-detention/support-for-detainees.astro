@@ -1,0 +1,100 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import MinHero from '../../../components/MinHero.astro';
+import MinBand from '../../../components/MinBand.astro';
+import MinCta from '../../../components/MinCta.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/immigration/detainees/${n}.jpg`;
+const rows = (list: { icon: string; title: string; text: string }[]) => list;
+const connected = rows([
+  { icon: 'envelope', title: 'Write to Us', text: 'We can help you send letters to your family and receive responses.' },
+  { icon: 'phone', title: 'Request a Call', text: 'We will do our best to help facilitate phone calls where possible.' },
+  { icon: 'people-arrows', title: 'Send a Message', text: 'Share your prayer requests or ask for support – we are here for you.' },
+]);
+const helpWith = rows([
+  { icon: 'scale-balanced', title: 'Legal Information', text: 'Understanding your rights and options.' },
+  { icon: 'people-arrows', title: 'Family Contact', text: 'Helping you stay in touch with your loved ones.' },
+  { icon: 'hand-holding-heart', title: 'Emotional Support', text: 'Encouragement and care to help you through difficult days.' },
+]);
+const ways = [
+  { icon: 'hand-holding-heart', b: 'Pray', t: 'for detainees and their families.' },
+  { icon: 'heart', b: 'Donate', t: 'to help provide resources and essential services.' },
+  { icon: 'people-arrows', b: 'Volunteer', t: 'your time and skills.' },
+  { icon: 'bullhorn', b: 'Advocate', t: 'for just and humane immigration policies.' },
+];
+---
+<Layout title="Support for Detainees" description="You Are Not Forgotten. You Are Loved.">
+  <style>
+    .sd-alone { display: grid; grid-template-columns: 1fr 0.8fr 1.1fr; background: #f6f4ef; }
+    .sd-alone > img { width: 100%; height: 100%; object-fit: cover; }
+    .sd-alone > div { padding: 1.75rem; display: flex; flex-direction: column; justify-content: center; }
+    .sd-h { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: 1.25rem; font-weight: 400; }
+    .sd-alone li { list-style: none; position: relative; padding-left: 2rem; font-family: var(--font-heading); color: var(--color-navy); font-size: 1.125rem; margin-top: 0.6rem; }
+    .sd-alone li::before { content: '✓'; position: absolute; left: 0; width: 1.35rem; height: 1.35rem; border-radius: 50%; background: var(--color-navy); color: #fff; font-size: 0.75rem; display: flex; align-items: center; justify-content: center; }
+    .sd-alone ul { padding: 0; margin: 0.5rem 0 1rem; }
+    .sd-alone p { font-family: var(--font-heading); color: var(--color-navy); font-size: 1rem; line-height: 1.45; }
+    .sd-three { display: grid; grid-template-columns: 1fr 1.1fr 1fr; gap: 1.5rem; padding-block: 1.25rem; align-items: center; }
+    .sd-three > img { width: 100%; border-radius: 2px; }
+    .sd-row { display: grid; grid-template-columns: 3.75rem 1fr; gap: 1rem; margin-top: 1rem; }
+    .sd-row i { width: 3.75rem; height: 3.75rem; border-radius: 50%; background: var(--color-navy-dark); color: #fff; display: flex; align-items: center; justify-content: center; }
+    .sd-row h3 { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: 1rem; font-weight: 400; }
+    .sd-row p { font-family: var(--font-heading); color: var(--color-navy); font-size: 0.9375rem; line-height: 1.4; }
+    .sd-msg { display: grid; grid-template-columns: 0.95fr 1.1fr 1fr; background: #f6f4ef; }
+    .sd-msg > div:first-child { background: var(--color-navy-dark); color: #fff; padding: 1.75rem 1.75rem 1.75rem max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem)); }
+    .sd-msg h2 { font-family: var(--font-heading); text-transform: uppercase; font-size: 1.375rem; font-weight: 400; text-align: center; }
+    .sd-msg blockquote { margin: 0.75rem 0 0; font-family: var(--font-heading); font-size: 1.125rem; line-height: 1.45; }
+    .sd-msg cite { display: block; text-align: right; color: #d9a540; font-style: normal; margin-top: 0.5rem; }
+    .sd-msg > img { width: 100%; height: 100%; object-fit: cover; }
+    .sd-msg > div:last-child { padding: 1.5rem; }
+    .sd-way { display: grid; grid-template-columns: 2rem 1fr; gap: 0.75rem; margin-top: 0.6rem; font-family: var(--font-heading); color: var(--color-navy); }
+    @media (max-width: 900px) { .sd-alone, .sd-three, .sd-msg { grid-template-columns: 1fr; } }
+  </style>
+
+  <MinHero title="Support<br/>for <span>Detainees</span>" subtitle="You Are Not Forgotten.<br/>You Are Loved."
+    intro={['We walk alongside people in immigration detention centres, offering practical help, spiritual support, and a message of hope. Every person has dignity. Every story matters.']}
+    img={img('hero')} alt="An IICC Mission volunteer holding a detainee's hands across a table"
+    quote="I was a stranger and you welcomed me. You came alongside me when I needed a new beginning." quoteRef="Matthew 25:35" />
+
+  <MinBand title="We Are Here to Support You"
+    intro="Our team and volunteers provide a range of services to help detainees feel seen, heard, and supported during one of the most challenging times of their lives."
+    items={[
+      { icon: 'hands-praying', title: 'Spiritual & Emotional Care', text: 'Prayer, encouragement, and a listening ear to bring comfort and hope.' },
+      { icon: 'envelope', title: 'Letter Writing & Connection', text: 'We help you stay connected with your loved ones through letters and messages.' },
+      { icon: 'phone', title: 'Phone Call Support', text: 'Assistance with phone calls to your family and support network where possible.' },
+      { icon: 'people-arrows', title: 'Family Support', text: 'We walk with your family, providing updates, guidance, and emotional support.' },
+      { icon: 'scale-balanced', title: 'Legal Assistance & Referrals', text: 'Access to trusted legal advice and referrals to help you understand your rights.' },
+      { icon: 'book-open', title: 'Information & Referrals', text: 'Practical information about your case, rights, and available support services.' },
+      { icon: 'hand-holding-heart', title: 'Basic Needs Support', text: 'We help address urgent needs, including clothing, hygiene items, and other essentials when possible.' },
+    ]} />
+
+  <section class="sd-alone">
+    <img src={img('left')} alt="An IICC Mission volunteer meeting a detainee" />
+    <div>
+      <h2 class="sd-h" style="font-size:1.5rem;">You Are Not Alone</h2>
+      <ul><li>We see your dignity.</li><li>We hear your story.</li><li>We stand with you.</li><li>We believe in your future.</li></ul>
+      <p>No matter your situation, you are valuable, and there is hope for a better tomorrow.</p>
+    </div>
+    <img src={img('right')} alt="An IICC Mission volunteer comforting a woman" />
+  </section>
+
+  <section class="wrap sd-three">
+    <div><h2 class="sd-h">How You Can Stay Connected</h2>{connected.map(r => <div class="sd-row"><i><Icon name={r.icon} size={26} /></i><div><h3>{r.title}</h3><p>{r.text}</p></div></div>)}</div>
+    <img src={img('center')} alt="An IICC Mission team member writing a letter" />
+    <div><h2 class="sd-h" style="text-align:center;">We Can Help With</h2>{helpWith.map(r => <div class="sd-row"><i><Icon name={r.icon} size={26} /></i><div><h3>{r.title}</h3><p>{r.text}</p></div></div>)}</div>
+  </section>
+
+  <section class="sd-msg">
+    <div>
+      <h2>A Message of Hope</h2>
+      <blockquote><span style="color:#d9a540; font-size:2.5rem; line-height:0.5;">&ldquo;</span>“For I know the plans I have for you,” declares the Lord, “plans to prosper you and not to harm you, plans to give you hope and a future.”<cite>– Jeremiah 29:11</cite></blockquote>
+    </div>
+    <img src={img('group')} alt="Women sitting together in a support circle" />
+    <div>
+      <h2 class="sd-h">Ways You Can Help</h2>
+      <p style="font-family:var(--font-heading); color:var(--color-navy);">Your support makes a real difference.</p>
+      {ways.map(w => <div class="sd-way"><Icon name={w.icon} size={24} /><span><strong style="text-transform:uppercase; font-weight:400;">{w.b}</strong> {w.t}</span></div>)}
+    </div>
+  </section>
+
+  <MinCta title="Together, we can bring hope, dignity, and support to detained brothers and sisters." text="" cta="Get Involved Today" sub="Hope. Dignity. Justice. A New Beginning." />
+</Layout>

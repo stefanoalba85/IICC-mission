@@ -1,0 +1,38 @@
+---
+interface Props { kicker?: string; title: string; subtitle: string; intro: string[]; img: string; alt: string; quote: string; quoteRef: string; }
+const p = Astro.props;
+---
+<style>
+  .mh { display: grid; grid-template-columns: 1fr 1fr; min-height: 400px; position: relative; overflow: hidden; background: #f6f4ef; }
+  .mh__text { padding: 1.75rem 1.5rem 1.75rem max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem)); display: flex; flex-direction: column; gap: 0.8rem; }
+  .mh__brand { display: grid; grid-template-columns: 10rem 1fr; gap: 1.5rem; align-items: center; }
+  .mh__brand img { width: 100%; }
+  .mh__kicker { font-family: var(--font-heading); color: #b8892b; text-transform: uppercase; font-size: 1rem; }
+  .mh h1 { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.02; }
+  .mh h1 :global(span) { color: #b8892b; }
+  .mh__sub { font-family: var(--font-heading); color: var(--color-navy); font-size: 1.1875rem; line-height: 1.3; margin-top: 0.5rem; }
+  .mh__intro p { font-family: var(--font-heading); color: var(--color-navy); font-size: 1.0625rem; line-height: 1.5; margin-bottom: 0.4rem; }
+  .mh__photo { position: relative; }
+  .mh__photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; -webkit-mask-image: linear-gradient(90deg, transparent, #000 18%); mask-image: linear-gradient(90deg, transparent, #000 18%); }
+  .mh__photo::after { content: ''; position: absolute; inset: 0 0 0 55%; background: linear-gradient(90deg, transparent, rgba(18,26,56,0.9) 45%); }
+  .mh__quote { position: absolute; right: max(1.5rem, calc((100vw - 1200px) / 2)); bottom: 2rem; width: 175px; z-index: 2; color: #fff; font-family: var(--font-heading); font-size: 1.125rem; line-height: 1.4; }
+  .mh__quote::before { content: '\201C'; display: block; color: #d9a540; font-size: 3rem; line-height: 0.6; }
+  .mh__quote cite { display: block; color: #d9a540; font-style: normal; margin-top: 0.4rem; }
+  @media (max-width: 900px) { .mh { grid-template-columns: 1fr; } .mh__photo { min-height: 300px; } .mh__brand { grid-template-columns: 6rem 1fr; } }
+</style>
+<section class="mh">
+  <div class="mh__text">
+    <div class="mh__brand">
+      <img src="/IICC_Logo_main.png" alt="IICC Mission" />
+      <div>
+        {p.kicker && <p class="mh__kicker">{p.kicker}</p>}
+        <h1 set:html={p.title} />
+        <p class="mh__sub" set:html={p.subtitle} />
+      </div>
+    </div>
+    <span class="heart-rule" style="max-width:none;">♡</span>
+    <div class="mh__intro">{p.intro.map(t => <p set:html={t} />)}</div>
+  </div>
+  <div class="mh__photo"><img src={p.img} alt={p.alt} /></div>
+  <p class="mh__quote">{p.quote}<cite>– {p.quoteRef}</cite></p>
+</section>
