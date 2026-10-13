@@ -1,0 +1,47 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ResHero from '../../components/ResHero.astro';
+import ResBand from '../../components/ResBand.astro';
+import ResCards from '../../components/ResCards.astro';
+import NewsBar from '../../components/NewsBar.astro';
+import CheckPanel from '../../components/CheckPanel.astro';
+import ImStrip from '../../components/ImStrip.astro';
+import Icon from '../../components/Icon.astro';
+const img = (n: string) => `/images/resources/${n}.jpg`;
+const band6 = [
+  { icon: 'book-open', title: 'Faith & Spirituality', text: 'Strengthen your faith and find daily encouragement.' },
+  { icon: 'people-group', title: 'Legal & Rights', text: 'Know your rights and access legal information.' },
+  { icon: 'hand-holding-heart', title: 'Mental Health & Wellbeing', text: 'Support for your mind and emotions.' },
+  { icon: 'people-roof', title: 'Family & Relationships', text: 'Resources to strengthen families and connections.' },
+  { icon: 'graduation-cap', title: 'Education & Employment', text: 'Learn, grow and build a better future.' },
+  { icon: 'hand-holding-heart', title: 'Practical Help & Community', text: 'Practical guidance and community support.' },
+];
+const assure = [
+  { icon: 'people-group', title: 'You Are Not Alone', text: 'We stand with you and your family.' },
+  { icon: 'ear-listen', title: 'We Listen', text: 'Your story matters. We are here to listen.' },
+  { icon: 'signs-post', title: 'We Guide', text: 'We help you understand your rights and options.' },
+  { icon: 'handshake', title: 'We Connect', text: 'We refer you to trusted legal professionals.' },
+  { icon: 'dove', title: 'We Hope', text: 'We believe in healing, justice, and new beginnings.' },
+];
+const guides = [['Preparing for Prison','A practical guide for inmates.'],['Preparing for Immigration Detention','A practical guide for detainees.'],['For Families & Loved Ones','Support, hope and practical guidance.'],['Rebuilding After Release','Steps to rebuild, restore and thrive.'],['Faith, Hope & Encouragement','Daily spiritual guidance.'],['Your Rights & Protections','Know your rights and stay protected.'],['Mental Health & Wellbeing','Tools and strategies for a healthy mind.'],['Staying Connected With Family','Communication tips and letter writing.'],['Reintegration & Employment','Finding purpose, work and direction.'],['Support Services & Referrals','Where to find help and support.']];
+---
+<Layout title="Downloadable Guides" description="Practical guides. Real support. Whenever you need it.">
+  <ResHero title="Downloadable<br/>Guides" sub="Practical guides. Real support.<br/>Whenever you need it." text={['Our downloadable guides provide clear information, practical steps and encouragement for inmates, detainees, families and supporters.','Download for free and share with others who may need help and hope.']} cta="All Guides Are Free to Download" img={img('dg-hero')} alt="A tablet showing an IICC Mission guide" />
+  <ResBand items={[
+    { icon: 'cloud-arrow-down', title: 'Free to Download', text: 'All our guides are free and always will be.' }, { icon: 'book-open', title: 'Practical & Clear', text: 'Easy to read, practical information you can use.' },
+    { icon: 'hand-holding-heart', title: 'Made with Care', text: 'Created with compassion and lived experience.' }, { icon: 'people-group', title: 'For Everyone', text: 'For inmates, detainees, families and supporters.' },
+    { icon: 'share-nodes', title: 'Share & Help Others', text: 'Share guides with someone who may need them.' }, { icon: 'shield-halved', title: 'Trusted & Faith-Based', text: 'Guided by Catholic values and human dignity.' },
+  ]} />
+  <section class="wrap camp-grid" style="display:grid; grid-template-columns:1fr 2.1fr; gap:1.25rem; padding-block:1.25rem;">
+    <div style="display:flex; flex-direction:column; gap:1rem;">
+      <CheckPanel light={false} title="What You’ll Find in Our Guides" items={['Step-by-step information and practical advice','Emotional and spiritual support','Rights, legal processes and protection','Family guidance and communication tips','Preparing for prison or immigration detention','Reintegration, recovery and rebuilding your life','Resources, referrals and support services','Encouragement, hope and faith']} />
+      <div style="background:#f3f3f3; border-radius:4px; padding:1.25rem; text-align:center; font-family:var(--font-heading); color:var(--color-navy); font-size:1.25rem; line-height:1.4;"><span style="color:var(--color-navy); opacity:0.5;"><Icon name="dove" size={56} /></span><p><span style="color:#c9741f; font-size:2rem; line-height:0.5;">&ldquo;</span> I can do all things through Christ who strengthens me.</p><p style="color:#c9741f; font-size:0.9375rem;">– Philippians 4:13</p></div>
+    </div>
+    <div><h2 class="camp-h">Explore Our Downloadable Guides</h2><div style="display:grid; grid-template-columns:repeat(5,1fr); gap:0.6rem; margin-top:0.75rem;" class="camp-grid">{guides.map(([t,d],k) => <article style="background:#fff; border-radius:4px; box-shadow:0 3px 10px rgba(18,26,56,0.08); overflow:hidden; display:flex; flex-direction:column;"><img src={img(`dg-${k+1}`)} alt={t} style="width:100%; aspect-ratio:119/139; object-fit:cover;" /><div style="padding:0.6rem; flex:1; display:flex; flex-direction:column; gap:0.3rem;"><h3 style="font-family:var(--font-heading); color:var(--color-navy); font-size:0.9375rem;">{t}</h3><p style="font-size:0.75rem; flex:1;">{d}</p><a href="/contact" aria-label={`Download ${t}`} style="align-self:center; width:2rem; height:2rem; border-radius:50%; background:#c9741f; color:#fff; display:flex; align-items:center; justify-content:center;"><Icon name="download" size={14} /></a></div></article>)}</div></div>
+  </section>
+  <section class="wrap camp-grid" style="display:grid; grid-template-columns:2fr 1fr; gap:1rem; padding-bottom:1.25rem;">
+    <div><h2 class="camp-h">How to Use Our Guides</h2><div class="camp-trio">{[['cloud-arrow-down','1. Download','Click the download icon and save the guide.'],['book-open','2. Read & Reflect','Take your time to read and reflect.'],['share-nodes','3. Share','Share with someone who may need it.'],['hand-holding-heart','4. Get Support','Contact us if you need further help.']].map(([i,t,d]) => <div><Icon name={i} size={36} /><strong>{t}</strong><span>{d}</span></div>)}</div></div>
+    <div style="background:#f3f3f3; border-radius:4px; padding:1.25rem;"><h3 style="font-family:var(--font-heading); color:var(--color-navy); font-size:1.125rem;">Need Personal Support?</h3><p class="im-p" style="font-size:0.875rem; margin-block:0.5rem;">If you or someone you know needs personal support or assistance, please contact us.</p><a href="/get-involved/support-request" class="btn btn--amber">Request Support →</a></div>
+  </section>
+  <NewsBar title="Knowledge empowers. Hope restores." text="Download, read, share and make a difference. Together, we bring hope to those in need." />
+</Layout>

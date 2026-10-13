@@ -1,0 +1,33 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import ResHero from '../../../components/ResHero.astro';
+import ResBand from '../../../components/ResBand.astro';
+import ResCards from '../../../components/ResCards.astro';
+import NewsBar from '../../../components/NewsBar.astro';
+import AutismHero from '../../../components/AutismHero.astro';
+import AutismCta from '../../../components/AutismCta.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/resources/${n}.jpg`;
+const stat = (items: string[][]) => items;
+---
+<Layout title="Autism Family Support" description="Strong families. Brighter futures. Together.">
+  <AutismHero kicker="Autism Family Support" title="Strong Families.<br/>Brighter Futures.<br/>Together." accent="Supporting Families.<br/>Empowering Every Journey." text="Families are at the heart of every individual’s growth and well-being. At IICC Mission, we walk alongside families raising children with autism—offering support, resources, and a caring community to help you thrive together." img={img('fs-hero')} alt="An IICC Mission counsellor meeting with a family" quote="As for me and my house, we will serve the Lord." quoteRef="Joshua 24:15" cta="Our Support Services" />
+  <ResBand items={[
+    { icon: 'hand-holding-heart', title: 'You Are Not Alone', text: 'We provide understanding, encouragement and a listening ear every step of the way.' }, { icon: 'people-group', title: 'Practical Support', text: 'Access tools, resources and guidance to navigate daily challenges with confidence.' },
+    { icon: 'book-open', title: 'Stronger Together', text: 'Connect with other families, share experiences and build lasting relationships.' }, { icon: 'user', title: 'Building Potential', text: 'We focus on your child’s strengths and celebrate every milestone achieved.' },
+    { icon: 'hand-holding-heart', title: 'Faith & Hope', text: 'Rooted in faith, we offer hope, peace and purpose for your family’s journey.' }, { icon: 'cross', title: 'Grace for Today', text: 'Every day is a new opportunity to grow, learn and create beautiful moments.' },
+  ]} />
+  <ResCards center title="Our Family Support Services" cols={6} items={[
+    { photo: 'fs-1', icon: 'comments', title: 'Family Counseling & Guidance', text: 'One-on-one and family counseling to help build stronger communication, understanding and emotional connection.', cta: 'Learn More', button: true },
+    { photo: 'fs-2', icon: 'people-group', title: 'Parent Support Groups', text: 'Join other parents and caregivers for encouragement, sharing experiences and building a supportive community.', cta: 'Learn More', button: true },
+    { photo: 'fs-3', icon: 'book-open', title: 'Education & Resources', text: 'Access helpful guides, tools and information on autism, therapy options, education and community services.', cta: 'Learn More', button: true },
+    { photo: 'fs-4', icon: 'hand-holding-heart', title: 'Skills & Behavior Support', text: 'Practical strategies and training to support your child’s behavior, development and daily living skills.', cta: 'Learn More', button: true },
+    { photo: 'fs-5', icon: 'calendar-days', title: 'Workshops & Trainings', text: 'Attend workshops and training sessions on topics that empower families and promote growth.', cta: 'Learn More', button: true },
+    { photo: 'fs-6', icon: 'shield-heart', title: 'Respite & Wellness Support', text: 'Resources and referrals for respite care and caregiver wellness to help families rest and recharge.', cta: 'Learn More', button: true },
+  ]} />
+  <section class="wrap camp-grid" style="display:grid; grid-template-columns:1.6fr 1fr; gap:0.9rem; padding-bottom:1.25rem;">
+    <div style="background:#f3f3f3; border-radius:6px; display:grid; grid-template-columns:7rem 1.4fr 1fr; gap:1rem; align-items:center; overflow:hidden; padding-left:1.25rem;"><span style="color:var(--color-navy);"><Icon name="hand-holding-heart" size={96} /></span><div><h2 style="font-family:var(--font-heading); color:var(--color-navy); text-transform:uppercase; font-weight:400; font-size:1.25rem;">We Are Here for You.</h2><p style="color:#c9741f; font-family:var(--font-heading); text-transform:uppercase; font-size:0.9375rem;">Every family. Every story. Every step.</p><p style="font-size:0.875rem; line-height:1.5; margin-top:0.5rem;">Raising a child with autism is a beautiful journey filled with love and learning. You don’t have to do it alone—let us walk with you.</p></div><img src={img('fs-here')} alt="A mother hugging her son" style="width:100%; height:100%; object-fit:cover;" /></div>
+    <div style="background:#f3f3f3; border-radius:6px; padding:1.25rem;"><h3 style="font-family:var(--font-heading); color:var(--color-navy); text-transform:uppercase; font-weight:400; font-size:1.25rem;">Need Support?</h3><p class="im-p" style="font-size:0.9375rem; margin-block:0.5rem 0.9rem;">Our team is ready to listen, support and connect you with the resources you need.</p><div style="display:flex; gap:0.75rem; flex-wrap:wrap;"><a href="/contact" class="btn btn--navy">Contact Us →</a><a href="/resources/autism/support-request" class="btn btn--outline">Request Support →</a></div></div>
+  </section>
+  <AutismCta title="Together, we can create an inclusive future." text="When families are supported, children thrive and communities grow stronger." />
+</Layout>

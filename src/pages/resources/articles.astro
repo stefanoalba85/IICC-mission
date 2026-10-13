@@ -1,0 +1,59 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ResHero from '../../components/ResHero.astro';
+import ResBand from '../../components/ResBand.astro';
+import ResCards from '../../components/ResCards.astro';
+import NewsBar from '../../components/NewsBar.astro';
+import CheckPanel from '../../components/CheckPanel.astro';
+import ImStrip from '../../components/ImStrip.astro';
+import Icon from '../../components/Icon.astro';
+const img = (n: string) => `/images/resources/${n}.jpg`;
+const band6 = [
+  { icon: 'book-open', title: 'Faith & Spirituality', text: 'Strengthen your faith and find daily encouragement.' },
+  { icon: 'people-group', title: 'Legal & Rights', text: 'Know your rights and access legal information.' },
+  { icon: 'hand-holding-heart', title: 'Mental Health & Wellbeing', text: 'Support for your mind and emotions.' },
+  { icon: 'people-roof', title: 'Family & Relationships', text: 'Resources to strengthen families and connections.' },
+  { icon: 'graduation-cap', title: 'Education & Employment', text: 'Learn, grow and build a better future.' },
+  { icon: 'hand-holding-heart', title: 'Practical Help & Community', text: 'Practical guidance and community support.' },
+];
+const assure = [
+  { icon: 'people-group', title: 'You Are Not Alone', text: 'We stand with you and your family.' },
+  { icon: 'ear-listen', title: 'We Listen', text: 'Your story matters. We are here to listen.' },
+  { icon: 'signs-post', title: 'We Guide', text: 'We help you understand your rights and options.' },
+  { icon: 'handshake', title: 'We Connect', text: 'We refer you to trusted legal professionals.' },
+  { icon: 'dove', title: 'We Hope', text: 'We believe in healing, justice, and new beginnings.' },
+];
+const arts = [
+  ['ar-1','Prison Ministry','Finding Hope Behind Bars','Hope can light the darkest places. A reflection on faith, resilience and new beginnings.','May 15, 2025 · 5 min read'],
+  ['ar-2','Family Support','Supporting Your Loved One','Practical ways families can provide support, love and encouragement.','May 12, 2025 · 6 min read'],
+  ['ar-3','Faith & Spirituality','God’s Plans Are Greater','Trusting in God’s plan even when the road is uncertain.','May 9, 2025 · 4 min read'],
+  ['ar-4','Mental Health','Managing Anxiety Every Day','Simple strategies to help manage anxiety and find peace.','May 7, 2025 · 5 min read'],
+  ['ar-5','Justice & Advocacy','Know Your Rights','Understanding your rights in prison and immigration detention.','May 5, 2025 · 7 min read'],
+  ['ar-6','Families & Relationships','Rebuilding Family Bonds','Steps toward healing, forgiveness and stronger relationships.','May 2, 2025 · 6 min read'],
+  ['ar-7','Inspiration & Stories','A New Beginning Is Possible','Real stories of transformation, second chances and hope restored.','April 30, 2025 · 5 min read'],
+  ['ar-8','News & Perspectives','Building a More Compassionate World','Working together for justice, dignity and hope for all.','April 28, 2025 · 4 min read'],
+];
+const cats = [['play','All Articles',126],['cross','Faith & Spirituality',24],['brain','Mental Health & Wellbeing',18],['book-open','Prison & Detention Ministry',22],['scale-balanced','Justice & Advocacy',16],['people-group','Families & Relationships',20],['lightbulb','Inspiration & Stories',14],['globe','News & Perspectives',12]];
+---
+<Layout title="Articles & Insights" description="Knowledge. Understanding. Hope in action.">
+  <ResHero title="Articles &amp;<br/>Insights" sub="Knowledge. Understanding.<br/>Hope in action." text={['Inspiring articles, reflections and practical insights to encourage, inform and equip you on your journey.']} cta="Subscribe for New Articles" ctaHref="/news/newsletter" img={img('ar-hero')} alt="A handwritten Joshua 1:9 verse next to an IICC Mission mug" />
+  <ResBand items={[
+    { icon: 'book-open', title: 'Faith & Spirituality', text: 'Deepen your faith and grow closer to God.' }, { icon: 'hand-holding-heart', title: 'Mental Health & Wellbeing', text: 'Support for the mind, emotions and soul.' },
+    { icon: 'people-group', title: 'Prison & Detention Ministry', text: 'Resources, stories and encouragement.' }, { icon: 'scale-balanced', title: 'Justice & Advocacy', text: 'Understanding rights, respect and dignity for all.' },
+    { icon: 'people-roof', title: 'Families & Relationships', text: 'Strengthening bonds, healing and hope.' }, { icon: 'hand-holding-heart', title: 'Inspiration & Stories', text: 'Real stories of faith, courage and change.' }, { icon: 'globe', title: 'News & Perspectives', text: 'Latest updates and thoughtful perspectives.' },
+  ]} />
+  <section class="wrap camp-grid" style="display:grid; grid-template-columns:3fr 1fr; gap:1rem; padding-block:1.25rem;">
+    <div><h2 class="camp-h">Latest Articles</h2><div style="display:grid; grid-template-columns:repeat(4,1fr); gap:0.75rem; margin-top:0.75rem;" class="camp-grid">{arts.map(([p,k,t,d,m]) => <article style="background:#fff; border-radius:4px; box-shadow:0 3px 10px rgba(18,26,56,0.08); overflow:hidden; display:flex; flex-direction:column;"><img src={img(p)} alt="" style="width:100%; aspect-ratio:166/108; object-fit:cover;" /><div style="padding:0.75rem; display:flex; flex-direction:column; gap:0.35rem; flex:1;"><span style="font-size:0.6875rem; text-transform:uppercase; color:var(--color-navy);">{k}</span><h3 style="font-family:var(--font-heading); color:var(--color-navy); font-size:1rem;">{t}</h3><p style="font-size:0.8125rem; line-height:1.45; flex:1;">{d}</p><span style="font-size:0.75rem; color:var(--color-muted);">{m}</span><a href="/resources/articles" style="color:#c9741f; font-size:0.75rem; font-weight:700;">READ MORE →</a></div></article>)}</div><div style="text-align:center; margin-top:1rem;"><a href="/resources/articles" class="btn btn--outline-amber">View All Articles →</a></div></div>
+    <aside style="display:flex; flex-direction:column; gap:0.75rem;">
+      <div style="background:#f3f3f3; border-radius:4px; padding:1rem;"><h3 class="camp-h" style="font-size:1rem;">Browse Articles</h3>{cats.map(([i,t,n]) => <p style="display:grid; grid-template-columns:1.5rem 1fr auto; gap:0.5rem; align-items:center; margin-top:0.55rem; font-size:0.8125rem; color:var(--color-navy);"><Icon name={i} size={16} />{t}<span>({n})</span></p>)}</div>
+      <div style="background:#f3f3f3; border-radius:4px; padding:1rem;"><h3 class="camp-h" style="font-size:1rem;">Search Articles</h3><form style="display:flex; margin-top:0.5rem;" onsubmit="event.preventDefault()"><input aria-label="Search articles" placeholder="Search topics, keywords..." style="flex:1; padding:0.5rem; border:1px solid #ccc; border-radius:4px 0 0 4px;" /><button class="btn btn--amber" style="border-radius:0 4px 4px 0; padding:0.5rem 0.75rem;" aria-label="Search"><Icon name="magnifying-glass" size={14} /></button></form></div>
+      <div style="background:#f3f3f3; border-radius:4px; padding:1rem;"><h3 class="camp-h" style="font-size:1rem;">Popular Topics</h3><div style="display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:0.5rem;">{['Hope','Forgiveness','Prayer','Mental Health','Resilience','Family','Reintegration','Rights','Faith','Healing'].map(t => <span style="border:1px solid #c7cbd6; border-radius:999px; padding:0.2rem 0.7rem; font-size:0.75rem; color:var(--color-navy);">{t}</span>)}</div></div>
+      <div style="background:var(--color-navy-dark); color:#fff; border-radius:4px; padding:1rem;"><h3 style="font-family:var(--font-heading); text-transform:uppercase; font-weight:400; text-align:center;">Never Miss an Article</h3><p style="font-size:0.8125rem; margin-block:0.5rem;">Subscribe to receive the latest articles, reflections and resources straight to your inbox.</p><a href="/news/newsletter" class="btn btn--amber" style="width:100%; justify-content:center;">Subscribe</a></div>
+    </aside>
+  </section>
+  <section class="wrap camp-grid" style="display:grid; grid-template-columns:1.5fr 1fr; gap:1rem; padding-bottom:1.25rem;">
+    <div style="background:#f7f6f3; border-radius:4px; padding:1.25rem;"><h2 class="camp-h">Why Read Our Articles?</h2><div class="camp-trio">{[['book-open','Be Informed','Stay informed with accurate information and helpful guidance.'],['hand-holding-heart','Be Encouraged','Read stories and reflections that uplift, inspire and give you hope.'],['lightbulb','Be Equipped','Gain practical insights and tools to navigate life’s challenges.'],['people-group','Be Part of the Mission','Join a community working together for change and restoration.']].map(([i,t,d]) => <div><Icon name={i} size={36} /><strong style="text-transform:none; font-size:0.9375rem;">{t}</strong><span>{d}</span></div>)}</div></div>
+    <div style="position:relative; border-radius:4px; overflow:hidden; background:#f5efe4; display:grid; grid-template-columns:1.4fr 1fr; align-items:center;"><p style="padding:1.25rem; font-family:var(--font-heading); color:var(--color-navy); font-size:1.125rem; line-height:1.45; text-align:center;"><span style="color:#c9741f; font-size:2.25rem; line-height:0.5;">&ldquo;</span> Let us not get tired of doing good, for in due season we will reap, if we do not give up.<span style="display:block; color:#c9741f; font-size:0.9375rem;">– Galatians 6:9</span></p><img src={img('ar-quote')} alt="" style="width:100%; height:100%; object-fit:cover;" /></div>
+  </section>
+  <NewsBar title="Stay Connected. Stay Inspired." text="Subscribe to our newsletter to receive new articles, resources and mission updates." />
+</Layout>

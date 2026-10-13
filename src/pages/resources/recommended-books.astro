@@ -1,0 +1,54 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ResHero from '../../components/ResHero.astro';
+import ResBand from '../../components/ResBand.astro';
+import ResCards from '../../components/ResCards.astro';
+import NewsBar from '../../components/NewsBar.astro';
+import CheckPanel from '../../components/CheckPanel.astro';
+import ImStrip from '../../components/ImStrip.astro';
+import Icon from '../../components/Icon.astro';
+const img = (n: string) => `/images/resources/${n}.jpg`;
+const band6 = [
+  { icon: 'book-open', title: 'Faith & Spirituality', text: 'Strengthen your faith and find daily encouragement.' },
+  { icon: 'people-group', title: 'Legal & Rights', text: 'Know your rights and access legal information.' },
+  { icon: 'hand-holding-heart', title: 'Mental Health & Wellbeing', text: 'Support for your mind and emotions.' },
+  { icon: 'people-roof', title: 'Family & Relationships', text: 'Resources to strengthen families and connections.' },
+  { icon: 'graduation-cap', title: 'Education & Employment', text: 'Learn, grow and build a better future.' },
+  { icon: 'hand-holding-heart', title: 'Practical Help & Community', text: 'Practical guidance and community support.' },
+];
+const assure = [
+  { icon: 'people-group', title: 'You Are Not Alone', text: 'We stand with you and your family.' },
+  { icon: 'ear-listen', title: 'We Listen', text: 'Your story matters. We are here to listen.' },
+  { icon: 'signs-post', title: 'We Guide', text: 'We help you understand your rights and options.' },
+  { icon: 'handshake', title: 'We Connect', text: 'We refer you to trusted legal professionals.' },
+  { icon: 'dove', title: 'We Hope', text: 'We believe in healing, justice, and new beginnings.' },
+];
+const books = [['bk-b1','The Imitation of Christ','Thomas à Kempis'],['bk-b2','Rediscover Jesus','Matthew Kelly'],['bk-b3','Rejoice!','Fr. Mark Toups'],['bk-b4','You Did It to Me','Fr. Mike Schmitz'],['bk-b5','The Screwtape Letters','C.S. Lewis'],['bk-b6','The Confessions','St. Augustine'],['bk-b7','Pray, Hope and Don’t Worry','St. Padre Pio'],['bk-b8','Catechism of the Catholic Church','']];
+---
+<Layout title="Recommended Books" description="Inspire. Grow. Pray. Live.">
+  <ResHero title="<span style='text-transform:none'>Recommended<br/>Books</span>" sub="Inspire. Grow. Pray. Live." text={['Carefully selected Catholic books to strengthen your faith, deepen your understanding, and inspire a life rooted in Christ.']} img={img('bk-hero')} alt="A stack of Catholic books beside a candle and a cross" />
+  <ResBand items={[
+    { icon: 'book-open', title: 'Faith Formation', text: 'Build a stronger relationship with God and deepen your understanding of Catholic teaching.' },
+    { icon: 'dove', title: 'Spiritual Growth', text: 'Find encouragement, hope and wisdom for your daily walk with Christ.' },
+    { icon: 'people-roof', title: 'For Everyone', text: 'Books for all ages and every stage of your faith journey.' },
+    { icon: 'heart', title: 'Hope & Healing', text: 'Discover stories of redemption, healing and the transforming power of God’s love.' },
+    { icon: 'cross', title: 'Trusted & Authentic', text: 'All books are carefully chosen for their Catholic faithfulness and quality.' },
+    { icon: 'gift', title: 'Great for Gifting', text: 'Inspire others by sharing the gift of faith through a meaningful book.' },
+  ]} />
+  <ResCards center title="Browse by Category" items={[
+    { photo: 'bk-c1', title: 'Spiritual Growth', text: 'Deepen your prayer life and grow closer to God.', cta: 'View Books', button: true },
+    { photo: 'bk-c2', title: 'Scripture & Bible Study', text: 'Understand Scripture and the Word of God.', cta: 'View Books', button: true },
+    { photo: 'bk-c3', title: 'Catholic Teaching', text: 'Learn the beauty and truth of our Catholic faith.', cta: 'View Books', button: true },
+    { photo: 'bk-c4', title: 'Family & Children', text: 'Faith-filled books for children and families.', cta: 'View Books', button: true },
+    { photo: 'bk-c5', title: 'Hope & Healing', text: 'Find hope, healing and strength in difficult times.', cta: 'View Books', button: true },
+    { photo: 'bk-c6', title: 'Lives of the Saints', text: 'Be inspired by the saints who walked before us.', cta: 'View Books', button: true },
+  ]} />
+  <section class="wrap" style="padding-bottom:1rem;"><h2 class="camp-h">Featured Recommended Books</h2><div style="display:grid; grid-template-columns:repeat(8,1fr); gap:0.75rem; margin-top:0.75rem; text-align:center;" class="camp-grid">{books.map(([p,t,a]) => <div style="display:flex; flex-direction:column; align-items:center; gap:0.3rem;"><img src={img(p)} alt={t} style="width:80%; box-shadow:0 4px 10px rgba(0,0,0,0.2);" /><strong style="font-family:var(--font-heading); color:var(--color-navy); font-size:0.8125rem; font-weight:400;">{t}</strong><span style="font-size:0.75rem; color:var(--color-muted);">{a}</span><a href="/resources/resource-centre" class="btn btn--navy" style="padding:0.3rem 0.7rem; font-size:0.65rem;">View Book →</a></div>)}</div></section>
+  <section class="wrap camp-3">
+    <CheckPanel title="Why Read Good Books?" items={['Strengthens your faith and trust in God','Provides guidance for life’s challenges','Inspires hope, peace and joy','Deepens your prayer and reflection','Helps you grow in wisdom and love']}><div class="im-note" style="background:var(--color-navy-dark); color:#fff; border:none;"><span style="color:#d9862a;"><Icon name="book-open" size={36} /></span><span>“Your word is a lamp to my feet and a light to my path.”<br /><span style="color:#d9862a;">– Psalm 119:105</span></span></div></CheckPanel>
+    <div style="background:#f7f6f3; border-radius:4px; padding:1.25rem;"><h2 class="camp-h" style="font-size:1.125rem;">How to Choose the Right Book</h2>{[['Pray for guidance','Ask the Holy Spirit to help you find what you need.'],['Consider your current season in life','Where are you in your faith journey?'],['Look for trusted Catholic authors','and publishers committed to the truth.'],['Read reviews and recommendations','from reliable Catholic sources.'],['Start with short, practical books','and grow from there.']].map(([t,d],k) => <div class="im-row" style="grid-template-columns:2.25rem 1fr;"><i style="width:2.25rem; height:2.25rem; font-style:normal; font-weight:700;">{k+1}</i><p style="font-size:0.875rem;"><strong>{t}</strong> – {d}</p></div>)}</div>
+    <div style="background:#f7f6f3; border-radius:4px; padding:1.25rem;"><h2 class="camp-h" style="font-size:1.125rem;">Ways to Get Our Books</h2>{[['store','Online Store','Shop our recommended books online.'],['church','Parish & Mission Bookshops','Visit your local Catholic bookshop.'],['gift','As Gifts','Share a book with someone you love.'],['book','Library Resources','Borrow from your parish or local library.']].map(([i,t,d]) => <div class="im-row" style="grid-template-columns:2.25rem 1fr;"><i style="width:2.25rem; height:2.25rem;"><Icon name={i} size={16} /></i><div><h3 style="text-transform:none;">{t}</h3><p>{d}</p></div></div>)}<a href="/resources/resource-centre" class="btn btn--navy" style="margin-top:0.9rem;">Visit Our Book Store →</a></div>
+  </section>
+  <NewsBar title="Stay Inspired Every Day" text="Subscribe now and receive faith-filled book recommendations, inspiration and special offers directly to your inbox." />
+  <ImStrip items={assure} />
+</Layout>

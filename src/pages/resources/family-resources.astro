@@ -1,0 +1,45 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ResHero from '../../components/ResHero.astro';
+import ResBand from '../../components/ResBand.astro';
+import ResCards from '../../components/ResCards.astro';
+import NewsBar from '../../components/NewsBar.astro';
+import CheckPanel from '../../components/CheckPanel.astro';
+import ImStrip from '../../components/ImStrip.astro';
+import Icon from '../../components/Icon.astro';
+const img = (n: string) => `/images/resources/${n}.jpg`;
+const band6 = [
+  { icon: 'book-open', title: 'Faith & Spirituality', text: 'Strengthen your faith and find daily encouragement.' },
+  { icon: 'people-group', title: 'Legal & Rights', text: 'Know your rights and access legal information.' },
+  { icon: 'hand-holding-heart', title: 'Mental Health & Wellbeing', text: 'Support for your mind and emotions.' },
+  { icon: 'people-roof', title: 'Family & Relationships', text: 'Resources to strengthen families and connections.' },
+  { icon: 'graduation-cap', title: 'Education & Employment', text: 'Learn, grow and build a better future.' },
+  { icon: 'hand-holding-heart', title: 'Practical Help & Community', text: 'Practical guidance and community support.' },
+];
+const assure = [
+  { icon: 'people-group', title: 'You Are Not Alone', text: 'We stand with you and your family.' },
+  { icon: 'ear-listen', title: 'We Listen', text: 'Your story matters. We are here to listen.' },
+  { icon: 'signs-post', title: 'We Guide', text: 'We help you understand your rights and options.' },
+  { icon: 'handshake', title: 'We Connect', text: 'We refer you to trusted legal professionals.' },
+  { icon: 'dove', title: 'We Hope', text: 'We believe in healing, justice, and new beginnings.' },
+];
+---
+<Layout title="Family Resources" description="Stronger Families. Brighter Tomorrows. You are not alone.">
+  <ResHero kicker="Family Support" title="Family<br/><span style='color:#c9741f'>Resources</span>" sub="Stronger Families.<br/>Brighter Tomorrows.<br/>You are not alone." text={['The IICC Mission provides information, guidance and practical resources to support the families of incarcerated people, detainees and those affected by the criminal justice and immigration system.']} img={img('fm-hero')} alt="A family embracing while looking at a sunset" quote="Family is not about being perfect. It is about showing up, holding on, and never giving up." quoteRef="Pope Francis" />
+  <section style="background:var(--color-navy-dark); color:#fff;"><div class="wrap icol" style="padding-block:1.25rem; color:#fff;">{[['people-roof','Support','Practical guidance and real support.'],['heart','Hope','Helping families stay connected.'],['handshake','Guidance','Information, services and referral pathways.'],['people-group','Community','You are not alone.'],['dove','Restoration','Supporting stronger families and brighter futures.']].map(([i,t,d]) => <div style="align-items:center; text-align:center; border-color:rgba(201,150,42,0.4);"><span style="width:4.25rem; height:4.25rem; border-radius:50%; border:2px solid #d9862a; color:#d9862a; display:flex; align-items:center; justify-content:center;"><Icon name={i} size={30} /></span><h3 style="color:#fff; font-weight:400;">{t}</h3><p style="font-family:var(--font-heading); font-size:1rem;">{d}</p></div>)}</div></section>
+  <section class="wrap camp-grid" style="display:grid; grid-template-columns:1fr 1fr 0.95fr; gap:1rem; padding-block:1.25rem;">
+    <div><h2 class="camp-h" style="text-align:left; font-size:1.125rem;">How We Support Families</h2><p class="im-p" style="margin-block:0.5rem 0.75rem;">We walk alongside families who have loved ones in prison, immigration detention or involved in the justice system. Our resources aim to reduce stress, provide practical information and connect you with services and support.</p><img src={img('fm-hand')} alt="An adult holding a child’s hand" style="width:100%; border-radius:4px;" /></div>
+    <div style="background:#f7f6f3; border-radius:4px; padding:1.1rem;"><h2 class="camp-h" style="font-size:1.125rem;">Key Areas of Support</h2>{[['heart','Emotional Wellbeing','Support for stress, anxiety, grief and managing difficult emotions.'],['people-group','Staying Connected','Guidance on letters, phone calls, visits and maintaining strong family ties.'],['file-lines','Practical Information','Information on the justice and immigration systems, rights and processes.'],['children','Children & Young People','Age-appropriate resources to help children cope with a loved one’s incarceration.'],['hand-holding-heart','Financial Support & Services','Referrals to financial counselling, housing, employment and community support.'],['people-group','Community & Peer Support','Connection with support groups and other families with shared experiences.']].map(([i,t,d],k) => <div class="im-row"><i style={k%2 ? '' : 'background:#c9741f'}><Icon name={i} size={20} /></i><div><h3 style="text-transform:none; font-size:0.9375rem;">{t}</h3><p style="font-size:0.8125rem;">{d}</p></div></div>)}</div>
+    <div><h2 class="camp-h" style="font-size:1.125rem;">Family Resource Library</h2>{[['book-open','Guides & Fact Sheets'],['children','Children’s Resources'],['heart','Wellbeing Resources'],['phone','Visiting & Communication'],['scale-balanced','Legal Information & Rights'],['hand-holding-dollar','Financial Assistance'],['location-dot','Support Services Directory'],['circle-play','Videos & Webinars'],['people-group','Personal Stories']].map(([i,t]) => <a href="/resources/download-guides" style="display:grid; grid-template-columns:2rem 1fr auto; gap:0.75rem; align-items:center; padding-block:0.55rem; border-bottom:1px solid #eee; font-family:var(--font-heading); color:var(--color-navy);"><Icon name={i} size={22} />{t}<span style="color:#c9741f;">→</span></a>)}</div>
+  </section>
+  <section class="wrap camp-grid" style="display:grid; grid-template-columns:3fr 1fr; gap:1rem; padding-bottom:1.25rem;">
+    <ResCards center title="Featured Resources" items={[
+      { photo: 'fm-f1', icon: 'book-open', title: 'A Guide for Families', text: 'Practical information and support for families with a loved one in prison or detention.', cta: 'Download Guide', button: true, href: '/resources/download-guides' },
+      { photo: 'fm-f2', icon: 'children', title: 'Supporting Children', text: 'Helping children and young people understand and cope with a loved one’s incarceration.', cta: 'View Resources', button: true },
+      { photo: 'fm-f3', icon: 'heart', title: 'Looking After Yourself', text: 'Self-care strategies for families and carers.', cta: 'View Resources', button: true },
+      { photo: 'fm-f4', icon: 'people-group', title: 'Family Support Groups', text: 'Find support groups and connect with other families.', cta: 'Find a Group', button: true },
+    ]} />
+    <div style="background:#f7f6f3; border-radius:4px; padding:1.1rem; margin-top:1.25rem;"><h2 class="camp-h" style="font-size:1.125rem;">You Are Not Alone</h2><ul class="check" style="margin-top:0.6rem;">{['It’s okay to feel overwhelmed.','It’s okay to ask for help.','You are a valued and important part of their journey.','There are people who care.','Stronger days are ahead.','Together, we can face the challenges and build brighter tomorrows.'].map(t => <li style="font-size:0.875rem;">{t}</li>)}</ul></div>
+  </section>
+  <section style="background:var(--color-navy-dark); color:#fff;"><div class="wrap camp-grid" style="display:grid; grid-template-columns:4rem 1fr auto; gap:1.25rem; align-items:center; padding-block:1rem;"><span style="color:#d9862a;"><Icon name="heart" size={50} /></span><div><h2 style="font-family:var(--font-heading); text-transform:uppercase; font-weight:400; font-size:1.25rem;">Stronger Families. Brighter Tomorrows.</h2><p>Support. Information. Community. Hope.</p></div><a href="/get-involved/support-request" class="btn btn--amber">Get Family Support →</a></div></section>
+</Layout>

@@ -1,0 +1,43 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import ResHero from '../../../components/ResHero.astro';
+import ResBand from '../../../components/ResBand.astro';
+import ResCards from '../../../components/ResCards.astro';
+import NewsBar from '../../../components/NewsBar.astro';
+import AutismHero from '../../../components/AutismHero.astro';
+import AutismCta from '../../../components/AutismCta.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/resources/${n}.jpg`;
+const stat = (items: string[][]) => items;
+---
+<Layout title="Autism Support Request Form" description="We are here to help. Request support for you or your loved one.">
+  <AutismHero kicker="Autism Support Request" title="We Are Here to Help." accent="Complete the form below to request support for you or your loved one." text="At IICC Mission, we provide compassionate support, resources and guidance for individuals with autism and their families. Our team will review your request and connect you with the right services." img={img('rq-hero')} alt="A mother and son doing homework together" quote="No one should walk this journey alone. We are here with you every step of the way." quoteRef="IICC Mission" cta="Start Your Request" />
+  <section class="wrap camp-grid" style="display:grid; grid-template-columns:2.3fr 1fr; gap:1rem; padding-block:1.25rem;" id="cats">
+    <form style="background:#fff; border-radius:6px; box-shadow:0 3px 12px rgba(18,26,56,0.08); padding:1.25rem; display:grid; grid-template-columns:1fr 1fr; gap:0.75rem 1.25rem;" onsubmit="event.preventDefault(); this.querySelector('.done').hidden=false;">
+      <h2 style="grid-column:1/-1; font-family:var(--font-heading); color:var(--color-navy); text-transform:uppercase; font-weight:400; font-size:1.25rem;">Support Request Form</h2>
+      <label class="form-field">Full Name *<input class="form-input" required placeholder="Enter your full name" /></label>
+      <label class="form-field">What type of support are you seeking? *<select class="form-input" required><option value="">Select support type</option><option>Family Support</option><option>Education & Learning</option><option>Therapy & Development</option><option>Life Skills & Independence</option><option>Community Connection</option><option>Advocacy & Awareness</option></select></label>
+      <label class="form-field">Email Address *<input class="form-input" type="email" required placeholder="Enter your email address" /></label>
+      <label class="form-field" style="grid-row:span 3;">Please describe your request or needs *<textarea class="form-input form-input--textarea" required placeholder="Tell us how we can help..." style="height:100%;"></textarea></label>
+      <label class="form-field">Phone Number *<input class="form-input" type="tel" required placeholder="Enter your phone number" /></label>
+      <label class="form-field">Relationship to Individual *<select class="form-input" required><option value="">Select relationship</option><option>Self</option><option>Parent</option><option>Caregiver</option><option>Family member</option><option>Professional</option></select></label>
+      <label class="form-field">Individual with Autism (if different) *<input class="form-input" placeholder="Enter full name" /></label>
+      <label class="form-field">How did you hear about us?<select class="form-input"><option>Select an option</option><option>Parish</option><option>Friend or family</option><option>Online</option><option>Other</option></select></label>
+      <label class="form-field">Date of Birth (Individual)<input class="form-input" type="date" /></label>
+      <fieldset class="form-field" style="border:none; padding:0;"><legend style="font-size:0.875rem; font-weight:600; color:var(--color-navy);">Preferred Contact Method</legend><div style="display:flex; gap:1rem; font-size:0.875rem;"><label><input type="checkbox" /> Email</label><label><input type="checkbox" /> Phone Call</label><label><input type="checkbox" /> Text Message</label></div></fieldset>
+      <label class="form-field">Preferred Language<select class="form-input"><option>English</option><option>Italiano</option><option>Español</option><option>Other</option></select></label>
+      <label class="form-field">Best Time to Contact You<select class="form-input"><option>Morning</option><option>Afternoon</option><option>Evening</option></select></label>
+      <div><button class="btn btn--navy" type="submit">Submit Request →</button><p class="done" hidden style="color:var(--color-navy); font-weight:700; margin-top:0.5rem;">Request received. We will contact you soon.</p></div>
+      <label style="font-size:0.8125rem; display:flex; gap:0.5rem;"><input type="checkbox" required /> I consent to IICC Mission contacting me regarding my request and understand my information will be kept confidential.</label>
+    </form>
+    <aside style="background:#f3f3f3; border-radius:6px; padding:1.25rem;">
+      <h2 style="font-family:var(--font-heading); color:var(--color-navy); text-transform:uppercase; font-weight:400; font-size:1.125rem;">What Happens Next?</h2>
+      {[['envelope','Receive Confirmation','You will receive a confirmation email or message.'],['people-group','Review & Assessment','Our team will review your request and assess your needs.'],['hand-holding-heart','Connect & Support','We will connect you with the right resources and support services.']].map(([i,t,d]) => <div class="im-row"><i><Icon name={i} size={20} /></i><div><h3>{t}</h3><p>{d}</p></div></div>)}
+      <h3 style="font-family:var(--font-heading); color:var(--color-navy); text-transform:uppercase; font-weight:400; margin-top:1.25rem;">Need Immediate Help?</h3>
+      <p style="font-size:0.875rem;">Contact our Support Team</p>
+      {[['phone','+39 349 303 6235'],['envelope','info@iiccmission.org'],['globe','www.iiccmission.org'],['clock','Mon – Fri: 9:00 AM – 5:00 PM']].map(([i,t]) => <p style="display:flex; gap:0.6rem; align-items:center; font-size:0.875rem; margin-top:0.4rem; color:var(--color-navy);"><Icon name={i} size={14} />{t}</p>)}
+    </aside>
+  </section>
+  <section class="wrap" style="padding-bottom:1rem;"><h2 class="camp-h">Our Autism Support Services</h2><div class="camp-trio" style="margin-top:0.75rem;">{[['people-group','Family Support','Guidance, counseling and resources for families and caregivers.'],['book-open','Education & Learning','Academic support, tutoring and learning resources.'],['hand-holding-heart','Therapy & Development','Access to therapy services and skill-building programs.'],['briefcase','Life Skills & Independence','Programs that promote independence and daily living skills.'],['people-group','Community Connection','Support groups, events and community engagement.'],['shield-halved','Advocacy & Awareness','Advocacy, awareness and inclusion initiatives.']].map(([i,t,d]) => <div><Icon name={i} size={44} /><strong>{t}</strong><span>{d}</span></div>)}</div></section>
+  <AutismCta title="Together, we can create an inclusive future." text="Submit your request today and let us help you or your loved one access the support you deserve." />
+</Layout>

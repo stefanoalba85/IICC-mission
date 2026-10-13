@@ -1,0 +1,12 @@
+---
+import Icon from './Icon.astro';
+interface Props { title?: string; text?: string; }
+const p = Astro.props;
+---
+<section style="background:var(--color-navy-dark); color:#fff;">
+  <div class="wrap camp-grid" style="display:grid; grid-template-columns:4.5rem 1.3fr 1.2fr; gap:1.25rem; align-items:center; padding-block:1rem;">
+    <span style="width:4.25rem; height:4.25rem; border-radius:50%; border:2px solid #d9862a; color:#d9862a; display:flex; align-items:center; justify-content:center;"><Icon name="envelope-open-text" size={28} /></span>
+    <div><h2 style="font-family:var(--font-body); text-transform:uppercase; font-size:1rem;">{p.title ?? 'Stay Informed. Stay Inspired.'}</h2><p style="font-size:0.9375rem;">{p.text ?? 'Subscribe to our newsletter for the latest resources, updates and encouragement.'}</p></div>
+    <form style="display:flex;" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Subscribed';"><input type="email" required placeholder="Enter your email address" aria-label="Email address" style="flex:1; padding:0.7rem 1rem; border:none; border-radius:4px 0 0 4px; font-size:0.875rem;" /><button class="btn btn--amber" style="border-radius:0 4px 4px 0;">Subscribe</button></form>
+  </div>
+</section>

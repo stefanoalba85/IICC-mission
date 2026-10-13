@@ -1,0 +1,39 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import ResHero from '../../../components/ResHero.astro';
+import ResBand from '../../../components/ResBand.astro';
+import ResCards from '../../../components/ResCards.astro';
+import NewsBar from '../../../components/NewsBar.astro';
+import AutismHero from '../../../components/AutismHero.astro';
+import AutismCta from '../../../components/AutismCta.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/resources/${n}.jpg`;
+const stat = (items: string[][]) => items;
+---
+<Layout title="Autism Resources" description="Understanding. Acceptance. Support. Hope.">
+  <ResHero title="Autism<br/>Resources" sub="Understanding. Acceptance.<br/>Support. Hope." text={['Practical tools, guidance and support for individuals with autism, their families, caregivers and communities. You are not alone. We walk with you every step of the way.']} cta="View All Autism Resources" img={img('au-hero')} alt="A mother and son doing a puzzle together" />
+  <ResBand items={[
+    { icon: 'people-group', title: 'Acceptance & Dignity', text: 'Every individual is valued, respected and loved.' }, { icon: 'hand-holding-heart', title: 'Support for Families', text: 'Practical help, resources and encouragement for families and caregivers.' },
+    { icon: 'brain', title: 'Understanding Autism', text: 'Education and awareness to build understanding and inclusion.' }, { icon: 'book-bible', title: 'Faith & Hope', text: 'Spiritual encouragement and hope for every step of the journey.' },
+    { icon: 'people-roof', title: 'Community & Inclusion', text: 'Building inclusive communities where everyone belongs.' }, { icon: 'handshake', title: 'Practical Resources', text: 'Tools and strategies for daily life, learning and wellbeing.' },
+  ]} />
+  <ResCards title="Explore Autism Resource Categories" cols={5} items={[
+    { photo: 'au-1', icon: 'puzzle-piece', title: 'Understanding Autism', text: 'Information about autism spectrum disorder (ASD), signs, strengths and individual differences.', href: '/resources/autism/awareness' },
+    { photo: 'au-2', icon: 'people-group', title: 'For Parents & Caregivers', text: 'Guidance, practical tips and emotional support for parents and primary caregivers.', href: '/resources/autism/family-support' },
+    { photo: 'au-3', icon: 'graduation-cap', title: 'Education & Learning', text: 'Strategies for learning, school support, IEP guidance and advocacy.', href: '/resources/autism/support' },
+    { photo: 'au-4', icon: 'hand', title: 'Therapies & Interventions', text: 'Information on therapies, interventions and support services.', href: '/resources/autism/support' },
+    { photo: 'au-5', icon: 'heart', title: 'Emotional & Mental Health', text: 'Tools for managing anxiety, sensory overwhelm and emotional wellbeing.' },
+    { photo: 'au-6', icon: 'people-roof', title: 'Family Life & Routines', text: 'Creating supportive routines, communication tips and family wellbeing.', href: '/resources/autism/family-support' },
+    { photo: 'au-7', icon: 'comment', title: 'Communication Support', text: 'Visual supports, social stories, AAC resources and communication strategies.' },
+    { photo: 'au-8', icon: 'people-group', title: 'Community & Inclusion', text: 'Building inclusive communities, friendships and social participation.', href: '/resources/autism/advocacy' },
+    { photo: 'au-9', icon: 'id-card', title: 'Daily Living Skills', text: 'Resources for independence, life skills and preparing for the future.' },
+    { photo: 'au-10', icon: 'cross', title: 'Faith & Spiritual Support', text: 'Faith-based encouragement, prayers and spiritual resources.', href: '/resources/prayer-resources' },
+  ]} />
+  <section class="wrap camp-grid" style="display:grid; grid-template-columns:1fr 1.15fr 1fr; gap:0.9rem; padding-bottom:1rem;">
+    <div style="background:#f3f3f3; border-radius:4px; padding:1.25rem; display:grid; grid-template-columns:4rem 1fr; gap:1rem; align-items:center;"><span style="color:var(--color-navy); opacity:0.5;"><Icon name="dove" size={56} /></span><p style="font-family:var(--font-heading); color:var(--color-navy); font-size:1.1875rem; line-height:1.45;">You are wonderfully made.<br />You are loved.<br />You belong.<br />You matter.<br /><span style="color:#c9741f; font-size:0.875rem;">– Psalm 139:14</span></p></div>
+    <div style="background:#f3f3f3; border-radius:4px; padding:1.25rem; display:grid; grid-template-columns:1.4fr 0.6fr; align-items:center;"><div><h2 class="camp-h" style="text-align:left; font-size:1.125rem;">You Are Not Alone</h2><ul class="check">{['We are here to support you','We listen with compassion','We walk with you in hope','We celebrate every step forward','We believe in every person’s potential'].map(t => <li style="font-size:0.875rem;">{t}</li>)}</ul></div><span style="color:#c9741f;"><Icon name="puzzle-piece" size={80} /></span></div>
+    <div style="background:var(--color-navy-dark); color:#fff; border-radius:4px; padding:1.25rem; display:grid; grid-template-columns:3.5rem 1fr; gap:1rem; align-items:center;"><span style="color:#d9862a;"><Icon name="headset" size={48} /></span><div><h3 style="font-family:var(--font-heading); text-transform:uppercase; font-weight:400;">Need Support?</h3><p style="font-size:0.9375rem; margin-block:0.4rem 0.75rem;">If you need help or would like to speak with someone, we are here for you.</p><a href="/resources/autism/support-request" class="btn btn--amber">Request Support →</a></div></div>
+  </section>
+  <section class="wrap" style="padding-bottom:1.25rem;"><div style="border:1px solid #e3e3ea; border-radius:4px; padding:1rem;"><h2 class="camp-h">Quick Links</h2><div class="camp-trio" style="margin-top:0.6rem;">{[['envelope','Downloadable Guides','Practical guides and tip sheets.'],['file-pen','Worksheets & Tools','Printable resources for daily use.'],['book-open','Recommended Books','Books and stories for all ages.'],['location-dot','Local Services','Find autism services in your area.'],['circle-play','Webinars & Videos','Helpful videos and training sessions.'],['user-shield','Emergency Support','Crisis and urgent support contacts.']].map(([i,t,d]) => <div><Icon name={i} size={32} /><strong style="text-transform:none; font-size:0.875rem;">{t}</strong><span>{d}</span></div>)}</div></div></section>
+  <NewsBar title="Stay Informed. Stay Encouraged." text="Subscribe to receive autism resources, updates and encouragement." />
+</Layout>

@@ -1,0 +1,16 @@
+---
+interface Props { kicker: string; title: string; accent?: string; text: string; img: string; alt: string; quote: string; quoteRef: string; cta: string; }
+const p = Astro.props;
+---
+<section style="position:relative; display:grid; grid-template-columns:0.95fr 1.05fr; min-height:440px; overflow:hidden; background:#fff;" class="camp-grid">
+  <div style="padding:2rem 1.5rem 2rem max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem)); display:flex; flex-direction:column; gap:0.75rem; justify-content:center;">
+    <p style="color:#c9741f; font-family:var(--font-heading); text-transform:uppercase; font-size:1rem;">{p.kicker}</p>
+    <h1 style="font-family:var(--font-heading); color:var(--color-navy); text-transform:uppercase; font-size:clamp(1.75rem,3.5vw,2.6rem); line-height:1.1;" set:html={p.title} />
+    {p.accent && <p style="color:#c9741f; font-family:var(--font-heading); text-transform:uppercase; font-size:1.1875rem; line-height:1.3;" set:html={p.accent} />}
+    <span style="width:2.25rem; height:2px; background:#c9741f;"></span>
+    <p style="font-size:0.9375rem; line-height:1.6; color:var(--color-navy);">{p.text}</p>
+    <div style="display:flex; gap:0.75rem; flex-wrap:wrap;"><a href="#cats" class="btn btn--navy">{p.cta} →</a><a href="/get-involved" class="btn btn--outline">Get Involved →</a></div>
+  </div>
+  <div style="position:relative; min-height:300px;"><img src={p.img} alt={p.alt} style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; -webkit-mask-image:linear-gradient(90deg,transparent,#000 18%); mask-image:linear-gradient(90deg,transparent,#000 18%);" /></div>
+  <p style="position:absolute; right:max(1rem, calc((100vw - 1200px) / 2)); bottom:2rem; width:200px; background:var(--color-navy-dark); border-radius:6px; padding:1.25rem 1.1rem; color:#fff; font-family:var(--font-heading); font-size:1.125rem; line-height:1.4;"><span style="display:block; color:#d9862a; font-size:3rem; line-height:0.6;">&ldquo;</span>{p.quote}<span style="display:block; font-size:0.9375rem; margin-top:0.5rem;">— {p.quoteRef}</span></p>
+</section>

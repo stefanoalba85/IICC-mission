@@ -1,0 +1,9 @@
+---
+import Icon from './Icon.astro';
+interface Props { items: { icon: string; title: string; text: string }[]; }
+---
+<section style="background:var(--color-navy-dark); color:#fff;">
+  <div class="wrap camp-grid" style={`display:grid; grid-template-columns:repeat(${Astro.props.items.length},1fr); padding-block:1.25rem;`}>
+    {Astro.props.items.map((i, k) => <div style={`text-align:center; ${k ? 'border-left:1px solid rgba(201,150,42,0.35);' : ''} padding-inline:0.6rem; display:flex; flex-direction:column; align-items:center; gap:0.4rem;`}><span style="color:#d9862a;"><Icon name={i.icon} size={46} /></span><strong style="font-family:var(--font-body); text-transform:uppercase; font-size:0.875rem; line-height:1.25;">{i.title}</strong><span style="font-size:0.8125rem; line-height:1.4; color:rgba(255,255,255,0.88);">{i.text}</span></div>)}
+  </div>
+</section>

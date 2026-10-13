@@ -1,0 +1,22 @@
+---
+import Icon from './Icon.astro';
+interface Props { title: string; dir?: string; cols?: number; items: { photo: string; icon?: string; title: string; text: string; links?: string[]; cta?: string; href?: string; kicker?: string; meta?: string; button?: boolean }[]; center?: boolean; }
+const p = Astro.props;
+const img = (n: string) => `/images/${p.dir ?? 'resources'}/${n}.jpg`;
+---
+<section class="wrap" style="padding-block:1.25rem 1rem;" id="cats">
+  {p.title && <h2 class="camp-h">{p.title}</h2>}
+  <div style={`display:grid; grid-template-columns:repeat(${p.cols ?? p.items.length},1fr); gap:0.9rem; margin-top:0.9rem;`} class="camp-grid">
+    {p.items.map(i => <article style={`background:#fff; border-radius:4px; box-shadow:0 3px 10px rgba(18,26,56,0.08); overflow:hidden; display:flex; flex-direction:column; ${p.center ? 'text-align:center;' : ''}`}>
+      <div style="position:relative;"><img src={img(i.photo)} alt="" style="width:100%; aspect-ratio:16/8; object-fit:cover; display:block;" />{i.icon && <span style={`position:absolute; ${p.center ? 'left:50%; transform:translateX(-50%);' : 'left:1rem;'} bottom:-1.5rem; width:3.1rem; height:3.1rem; border-radius:50%; background:var(--color-navy-dark); color:#fff; border:2px solid #fff; display:flex; align-items:center; justify-content:center;`}><Icon name={i.icon} size={22} /></span>}</div>
+      <div style={`padding:${i.icon ? '1.9rem' : '0.9rem'} 1rem 1rem; display:flex; flex-direction:column; gap:0.4rem; flex:1;`}>
+        {i.kicker && <span style="font-size:0.6875rem; text-transform:uppercase; letter-spacing:0.04em; color:var(--color-navy);">{i.kicker}</span>}
+        <h3 style={`font-family:var(--font-heading); color:var(--color-navy); font-size:1.0625rem; line-height:1.25; ${p.center ? 'text-transform:uppercase; font-size:0.9375rem;' : ''}`}>{i.title}</h3>
+        <p style="font-size:0.8125rem; line-height:1.5; color:var(--color-text); flex:1;">{i.text}</p>
+        {i.meta && <span style="font-size:0.75rem; color:var(--color-muted);">{i.meta}</span>}
+        {i.links && <ul style="list-style:none; padding:0; margin:0.25rem 0 0; display:flex; flex-direction:column; gap:0.25rem;">{i.links.map(l => <li style="font-size:0.8125rem; color:var(--color-navy);">{l} <span style="color:#c9741f;">→</span></li>)}</ul>}
+        {i.button ? <a href={i.href ?? '/resources'} class="btn btn--navy" style="align-self:center; padding:0.45rem 1rem; font-size:0.75rem;">{i.cta ?? 'View'} →</a> : (i.cta !== '' && <a href={i.href ?? '/resources'} style="color:#c9741f; font-size:0.75rem; font-weight:700; text-transform:uppercase;">{i.cta ?? 'View Resources'} →</a>)}
+      </div>
+    </article>)}
+  </div>
+</section>

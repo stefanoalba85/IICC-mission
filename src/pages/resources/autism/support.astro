@@ -1,0 +1,35 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import ResHero from '../../../components/ResHero.astro';
+import ResBand from '../../../components/ResBand.astro';
+import ResCards from '../../../components/ResCards.astro';
+import NewsBar from '../../../components/NewsBar.astro';
+import AutismHero from '../../../components/AutismHero.astro';
+import AutismCta from '../../../components/AutismCta.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/resources/${n}.jpg`;
+const stat = (items: string[][]) => items;
+const IMPACT = [['people-group','1200+','Individuals Supported Annually'],['book-open','800+','Therapy & Learning Sessions Provided'],['graduation-cap','300+','Students Supported in Education'],['briefcase','150+','Individuals Placed in Training or Employment'],['people-roof','600+','Families Strengthened Through Support'],['heart','Countless','Lives Empowered with Hope & Purpose']];
+---
+<Layout title="Autism Support" description="Every ability deserves opportunity. Accept. Empower. Include.">
+  <AutismHero kicker="Autism Support" title="Every Ability<br/>Deserves Opportunity." accent="Accept. Empower. Include." text="At IICC Mission, we believe every individual with autism deserves respect, support and the chance to thrive. Through faith, compassion and practical programs, we walk alongside individuals and families—empowering abilities, building confidence and creating inclusive opportunities for a brighter future." img={img('su-hero')} alt="A mother and son doing a puzzle together" quote="For we are God’s handiwork, created in Christ Jesus to do good works." quoteRef="Ephesians 2:10" cta="Our Programs" />
+  <ResBand items={[
+    { icon: 'hand-holding-heart', title: 'Dignity & Respect', text: 'Honoring every individual and embracing their unique gifts.' }, { icon: 'people-group', title: 'Empowerment', text: 'Equipping individuals with skills, confidence and opportunities to grow.' },
+    { icon: 'book-open', title: 'Inclusion', text: 'Creating welcoming, accessible spaces where everyone belongs.' }, { icon: 'heart', title: 'Family Support', text: 'Strengthening families with resources, guidance and a caring community.' },
+    { icon: 'handshake', title: 'Community Impact', text: 'Building a more inclusive society through awareness, partnership and action.' }, { icon: 'cross', title: 'Faith & Hope', text: 'Guided by our faith, we bring hope, love and purpose to every life.' },
+  ]} />
+  <section class="wrap camp-grid" style="display:grid; grid-template-columns:0.9fr 4fr; gap:1rem; padding-block:1.25rem;">
+    <div><h2 style="font-family:var(--font-heading); color:var(--color-navy); text-transform:uppercase; font-size:1.25rem;">Our Autism Support Programs</h2><p class="im-p" style="font-size:0.875rem; margin-block:0.75rem;">We offer a range of programs and services designed to support individuals with autism across all stages of life and their families.</p><a href="#cats" class="btn btn--navy" style="font-size:0.7rem;">Learn More About Our Programs →</a></div>
+    <ResCards center title="" cols={6} items={[
+      { photo: 'su-1', icon: 'people-group', title: 'Early Intervention & Development', text: 'Support for children through early learning, therapy and developmental interventions.', cta: '' },
+      { photo: 'su-2', icon: 'book-open', title: 'Education & Learning Support', text: 'Tutoring, individualized learning and academic support for school success.', cta: '' },
+      { photo: 'su-3', icon: 'briefcase', title: 'Life Skills & Independence', text: 'Building daily living, communication and social skills for greater independence.', cta: '' },
+      { photo: 'su-4', icon: 'heart', title: 'Family Counseling & Support', text: 'Guidance, counseling and support groups to strengthen families and reduce stress.', cta: '' },
+      { photo: 'su-5', icon: 'user', title: 'Vocational Training & Employment', text: 'Job readiness, skills training and employment support for meaningful opportunities.', cta: '' },
+      { photo: 'su-6', icon: 'bullhorn', title: 'Awareness & Community Outreach', text: 'Raising awareness, promoting inclusion and building supportive communities.', cta: '' },
+    ]} />
+  </section>
+  <section class="wrap" style="padding-bottom:1rem;"><h2 class="camp-h">Our Impact</h2><div class="camp-trio" style="margin-top:0.75rem;">{IMPACT.map(([i,n,t]) => <div><span style="color:#c9741f;"><Icon name={i} size={44} /></span><strong style="font-family:var(--font-heading); text-transform:none; font-size:1.75rem; font-weight:400;">{n}</strong><span style="font-size:0.875rem;">{t}</span></div>)}</div></section>
+  <section class="wrap camp-grid" style="display:grid; grid-template-columns:1.2fr 1fr; gap:1rem; padding-bottom:1.25rem;"><div style="background:#f3f3f3; border-radius:6px; display:grid; grid-template-columns:1.1fr 1fr; overflow:hidden;"><div style="padding:1.25rem; display:grid; grid-template-columns:2.5rem 1fr; gap:0.6rem;"><span style="color:#c9741f; font-family:var(--font-heading); font-size:3rem; line-height:0.8;">&ldquo;</span><div><h3 style="font-family:var(--font-heading); color:var(--color-navy); text-transform:uppercase; font-weight:400;">A Story of Hope</h3><p style="font-size:0.875rem; line-height:1.55; margin-block:0.5rem;">“IICC Mission gave my son more than services—they gave him confidence, friends and a future. We are forever grateful for their love and support.”</p><p style="font-size:0.875rem;">— Parent of a Program Participant</p></div></div><img src={img('su-story')} alt="" style="width:100%; height:100%; object-fit:cover;" /></div><div style="background:var(--color-navy-dark); color:#fff; border-radius:6px; padding:1.5rem; display:grid; grid-template-columns:4rem 1fr; gap:1rem; align-items:center;"><span><Icon name="hand-holding-heart" size={56} /></span><div><h3 style="font-family:var(--font-heading); text-transform:uppercase; font-weight:400; font-size:1.25rem;">You Can Make a Difference</h3><p style="font-size:0.9375rem; line-height:1.5; margin-block:0.5rem 0.9rem;">Your support helps provide therapy, education, resources and opportunities for individuals with autism and their families. Together, we can build an inclusive world where every ability is celebrated.</p><div style="display:flex; gap:0.75rem; flex-wrap:wrap;"><a href="/donate" class="btn btn--amber">Donate Today →</a><a href="/get-involved/volunteer-program" class="btn btn--outline-white">Volunteer →</a></div></div></div></section>
+  <AutismCta title="Together, we can create an inclusive future." text="Join us in supporting individuals with autism and their families.<br/>Together, we can make every ability an opportunity." />
+</Layout>

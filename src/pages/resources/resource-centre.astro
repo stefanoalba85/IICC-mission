@@ -1,0 +1,50 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ResHero from '../../components/ResHero.astro';
+import ResBand from '../../components/ResBand.astro';
+import ResCards from '../../components/ResCards.astro';
+import NewsBar from '../../components/NewsBar.astro';
+import CheckPanel from '../../components/CheckPanel.astro';
+import ImStrip from '../../components/ImStrip.astro';
+import Icon from '../../components/Icon.astro';
+const img = (n: string) => `/images/resources/${n}.jpg`;
+const band6 = [
+  { icon: 'book-open', title: 'Faith & Spirituality', text: 'Strengthen your faith and find daily encouragement.' },
+  { icon: 'people-group', title: 'Legal & Rights', text: 'Know your rights and access legal information.' },
+  { icon: 'hand-holding-heart', title: 'Mental Health & Wellbeing', text: 'Support for your mind and emotions.' },
+  { icon: 'people-roof', title: 'Family & Relationships', text: 'Resources to strengthen families and connections.' },
+  { icon: 'graduation-cap', title: 'Education & Employment', text: 'Learn, grow and build a better future.' },
+  { icon: 'hand-holding-heart', title: 'Practical Help & Community', text: 'Practical guidance and community support.' },
+];
+const assure = [
+  { icon: 'people-group', title: 'You Are Not Alone', text: 'We stand with you and your family.' },
+  { icon: 'ear-listen', title: 'We Listen', text: 'Your story matters. We are here to listen.' },
+  { icon: 'signs-post', title: 'We Guide', text: 'We help you understand your rights and options.' },
+  { icon: 'handshake', title: 'We Connect', text: 'We refer you to trusted legal professionals.' },
+  { icon: 'dove', title: 'We Hope', text: 'We believe in healing, justice, and new beginnings.' },
+];
+const feat = [['rc-f1','Hope for Every Season','Encouraging devotionals to strengthen your faith through any season.'],['rc-f2','A New Path Forward','Practical guides for rebuilding your life with purpose and hope.'],['rc-f3','You Are Not Alone','Support resources for you and your family.'],['rc-f4','Letters of Encouragement','Messages of hope and faith to uplift your heart.']];
+---
+<Layout title="Resource Centre" description="Find trusted information. Find strength. Find hope.">
+  <ResHero title="Resource<br/>Centre" sub="Find trusted information.<br/>Find strength. Find hope." text={['Our Resource Centre provides practical tools, spiritual guidance and reliable information to help inmates, detainees, families and supporters navigate life’s challenges and build a better future.']} cta="Browse All Resources" img={img('rc-hero')} alt="An IICC Mission volunteer reading a book titled You Are Never Alone" />
+  <ResBand items={band6} />
+  <ResCards title="Explore Resource Collections" cols={6} items={[
+    { photo: 'rc-c1', icon: 'cross', title: 'Faith & Spirituality', text: 'Bible readings, prayers, reflections and spiritual guidance.', links: ['Daily Devotions','Prayers & Reflections','Bible Study Guides','Inspiration & Hope'], cta: '' },
+    { photo: 'rc-c2', icon: 'scale-balanced', title: 'Legal & Rights Information', text: 'Know your rights, legal processes and access trusted legal resources.', links: ['Your Rights','Legal Processes','Find Legal Help','FAQs'], cta: '' },
+    { photo: 'rc-c3', icon: 'brain', title: 'Mental Health & Wellbeing', text: 'Tools, strategies and support for your mental and emotional wellbeing.', links: ['Wellbeing Tools','Coping Strategies','Counselling Support','Crisis Support'], cta: '' },
+    { photo: 'rc-c4', icon: 'people-roof', title: 'Family & Relationships', text: 'Support and resources to help families heal and stay connected.', links: ['Family Support','Communication Tips','Children & Families','Rebuilding Relationships'], cta: '' },
+    { photo: 'rc-c5', icon: 'graduation-cap', title: 'Education & Employment', text: 'Education pathways, skills training and employment support.', links: ['Education Resources','Skills & Training','Job Search Help','Reintegration Support'], cta: '' },
+    { photo: 'rc-c6', icon: 'hand-holding-heart', title: 'Practical Help & Community Support', text: 'Access services, assistance programs and community resources.', links: ['Assistance Programs','Community Services','Housing & Support','Food & Essentials'], cta: '' },
+  ]} />
+  <section class="wrap" style="padding-bottom:1rem;"><h2 class="camp-h">Featured Resources</h2><div style="display:grid; grid-template-columns:repeat(4,1fr); gap:0.75rem; margin-top:0.75rem;" class="camp-grid">{feat.map(([p,t,d]) => <article style="background:#f7f6f3; border-radius:4px; display:grid; grid-template-columns:0.8fr 1fr; overflow:hidden;"><img src={img(p)} alt="" style="width:100%; height:100%; object-fit:cover;" /><div style="padding:0.9rem;"><h3 style="font-family:var(--font-heading); color:var(--color-navy); font-size:1.0625rem;">{t}</h3><p style="font-size:0.8125rem; line-height:1.45; margin-block:0.4rem;">{d}</p><a href="/resources/articles" style="color:#c9741f; font-size:0.75rem; font-weight:700;">READ MORE →</a></div></article>)}</div></section>
+  <section class="wrap" style="padding-bottom:1rem;"><div style="background:#eef0f5; border-radius:6px; padding:1.25rem; display:grid; grid-template-columns:5rem 1.4fr repeat(4,0.6fr); gap:1rem; align-items:center;" class="camp-grid">
+    <span style="color:var(--color-navy); opacity:0.6;"><Icon name="dove" size={64} /></span>
+    <div><h2 style="font-family:var(--font-heading); color:var(--color-navy); font-size:1.375rem; font-weight:400;">We are here to walk with you.</h2><p class="im-p" style="font-size:0.9375rem;">Whatever your situation, you are not alone. Explore our resources to find the help, hope and support you need today.</p></div>
+    {[['book-open','Trusted Information'],['hand-holding-heart','Practical Support'],['shield-halved','Faith-Based Guidance'],['people-group','For You and Your Family']].map(([i,t]) => <div style="text-align:center; color:var(--color-navy); display:flex; flex-direction:column; align-items:center; gap:0.4rem; font-family:var(--font-heading);"><Icon name={i} size={40} />{t}</div>)}
+  </div></section>
+  <section class="wrap camp-grid" style="display:grid; grid-template-columns:1fr 2fr; gap:0.75rem; padding-bottom:1.25rem;">
+    <div style="background:var(--color-navy-dark); color:#fff; border-radius:6px; padding:1.25rem;"><h2 style="font-family:var(--font-heading); font-weight:400; font-size:1.375rem;">Need personalised help?</h2><p style="margin-block:0.4rem 0.9rem;">Our team is here to support you.</p><a href="/get-involved/support-request" class="btn btn--amber">Request Support →</a></div>
+    <div style="background:#f5efe4; border-radius:6px; display:grid; grid-template-columns:1.4fr 1fr; overflow:hidden; align-items:center;"><p style="padding:1.25rem; text-align:center; font-family:var(--font-heading); color:var(--color-navy); font-size:1.25rem;"><span style="color:#c9741f; font-size:2.25rem; line-height:0.5;">&ldquo;</span> I can do all things through Christ who strengthens me.<span style="display:block; color:#c9741f; font-size:0.9375rem;">– Philippians 4:13</span></p><img src={img('rc-band')} alt="" style="width:100%; height:100%; object-fit:cover;" /></div>
+  </section>
+  <NewsBar />
+</Layout>

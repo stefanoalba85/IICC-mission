@@ -1,0 +1,54 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ResHero from '../../components/ResHero.astro';
+import ResBand from '../../components/ResBand.astro';
+import ResCards from '../../components/ResCards.astro';
+import NewsBar from '../../components/NewsBar.astro';
+import CheckPanel from '../../components/CheckPanel.astro';
+import ImStrip from '../../components/ImStrip.astro';
+import Icon from '../../components/Icon.astro';
+const img = (n: string) => `/images/resources/${n}.jpg`;
+const band6 = [
+  { icon: 'book-open', title: 'Faith & Spirituality', text: 'Strengthen your faith and find daily encouragement.' },
+  { icon: 'people-group', title: 'Legal & Rights', text: 'Know your rights and access legal information.' },
+  { icon: 'hand-holding-heart', title: 'Mental Health & Wellbeing', text: 'Support for your mind and emotions.' },
+  { icon: 'people-roof', title: 'Family & Relationships', text: 'Resources to strengthen families and connections.' },
+  { icon: 'graduation-cap', title: 'Education & Employment', text: 'Learn, grow and build a better future.' },
+  { icon: 'hand-holding-heart', title: 'Practical Help & Community', text: 'Practical guidance and community support.' },
+];
+const assure = [
+  { icon: 'people-group', title: 'You Are Not Alone', text: 'We stand with you and your family.' },
+  { icon: 'ear-listen', title: 'We Listen', text: 'Your story matters. We are here to listen.' },
+  { icon: 'signs-post', title: 'We Guide', text: 'We help you understand your rights and options.' },
+  { icon: 'handshake', title: 'We Connect', text: 'We refer you to trusted legal professionals.' },
+  { icon: 'dove', title: 'We Hope', text: 'We believe in healing, justice, and new beginnings.' },
+];
+const vids = [['vd-1','4:32','A Message of Hope from Pope Leo XIV','A special message of peace, faith and hope for all.'],['vd-2','3:45','You Are Not Alone – Archbishop’s Message','Words of encouragement for those facing difficult times.'],['vd-3','3:20','God’s Mercy is Greater Than Our Mistakes','A message of hope and forgiveness.'],['vd-4','5:10','Prison Didn’t Break Me','An inspiring story of faith, resilience and transformation.'],['vd-5','4:10','Let Us Pray Together','A guided prayer for strength, healing and protection.']];
+const pls = [['vd-p1',12,'Hope for Today','Daily messages to strengthen your heart.'],['vd-p2',10,'Family Support','Encouragement and guidance for families.'],['vd-p3',15,'Faith & Scripture','Bible reflections and spiritual nourishment.'],['vd-p4',8,'Healing & Recovery','Messages for healing, restoration and peace.'],['vd-p5',9,'Prayers & Worship','Prayers, worship and moments with God.']];
+---
+<Layout title="Videos & Messages" description="Messages of hope. For you. With you.">
+  <ResHero title="Videos &amp;<br/>Messages" sub="Messages of hope.<br/>For you. With you." text={['Inspiration, encouragement and guidance for inmates, detainees, families and all who walk this journey.']} cta="Subscribe to Hope Media Channel" ctaHref="https://www.youtube.com" cta2="Submit a Prayer Request" cta2Href="/get-involved/prayer-request" img={img('vd-hero')} alt="A tablet showing the IICC Hope Media Channel" />
+  <ResBand items={[
+    { icon: 'circle-play', title: 'Hope & Encouragement', text: 'Messages to uplift your heart and strengthen your spirit.' }, { icon: 'cross', title: 'Faith & Inspiration', text: 'Reflections, prayers and scripture to guide your journey.' },
+    { icon: 'people-group', title: 'For Inmates & Detainees', text: 'Messages of hope for those in prison and immigration detention.' }, { icon: 'hand-holding-heart', title: 'For Families', text: 'Support, encouragement and strength for families and loved ones.' },
+    { icon: 'calendar-days', title: 'Seasonal Messages', text: 'Special messages for holidays, celebrations and important dates.' }, { icon: 'globe', title: 'Global Voices', text: 'Messages from Pope Leo XIV, Archbishops, Bishops, Priests and mission ambassadors.' },
+  ]} />
+  <section class="wrap camp-grid" style="display:grid; grid-template-columns:3.4fr 1fr; gap:1rem; padding-block:1.25rem;">
+    <div>
+      <h2 class="camp-h">Featured Videos</h2>
+      <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:0.6rem; margin-top:0.75rem;" class="camp-grid">{vids.map(([p,d,t,x]) => <article style="background:#fff; border-radius:4px; box-shadow:0 3px 10px rgba(18,26,56,0.08); overflow:hidden;"><div style="position:relative;"><img src={img(p)} alt="" style="width:100%; aspect-ratio:157/151; object-fit:cover;" /><span style="position:absolute; left:0.5rem; bottom:0.5rem; width:2.25rem; height:2.25rem; border-radius:50%; background:rgba(0,0,0,0.6); border:2px solid #fff; color:#fff; display:flex; align-items:center; justify-content:center;"><Icon name="play" size={14} /></span><span style="position:absolute; right:0.4rem; bottom:0.5rem; background:rgba(0,0,0,0.7); color:#fff; font-size:0.7rem; padding:0.1rem 0.35rem; border-radius:3px;">{d}</span></div><div style="padding:0.6rem;"><h3 style="font-family:var(--font-heading); color:var(--color-navy); font-size:0.9375rem;">{t}</h3><p style="font-size:0.75rem; margin-block:0.3rem;">{x}</p><a href="https://www.youtube.com" style="color:#c9741f; font-size:0.7rem; font-weight:700;">VIEW VIDEO →</a></div></article>)}</div>
+      <h2 class="camp-h" style="margin-top:1.25rem;">Browse by Playlist</h2>
+      <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:0.6rem; margin-top:0.75rem;" class="camp-grid">{pls.map(([p,n,t,x]) => <article style="background:#fff; border-radius:4px; box-shadow:0 3px 10px rgba(18,26,56,0.08); overflow:hidden;"><div style="position:relative;"><img src={img(p)} alt="" style="width:100%; aspect-ratio:132/85; object-fit:cover;" /><span style="position:absolute; left:0.5rem; bottom:0.4rem; color:#fff; font-size:1.25rem; line-height:1; text-shadow:0 1px 3px #000;">{n}<small style="display:block; font-size:0.55rem;">VIDEOS</small></span></div><div style="padding:0.6rem;"><h3 style="font-family:var(--font-heading); color:var(--color-navy); font-size:0.9375rem;">{t}</h3><p style="font-size:0.75rem; margin-block:0.3rem;">{x}</p><a href="https://www.youtube.com" style="color:#c9741f; font-size:0.7rem; font-weight:700;">VIEW PLAYLIST →</a></div></article>)}</div>
+    </div>
+    <aside style="display:flex; flex-direction:column; gap:0.75rem;">
+      <div style="background:#f3f3f3; border-radius:4px; padding:1rem;"><h3 class="camp-h" style="font-size:1rem;">Video Categories</h3>{[['play','All Videos',128],['heart','Hope & Encouragement',28],['cross','Faith & Reflections',24],['user','Messages from Leaders',20],['people-group','For Inmates & Detainees',22],['people-roof','For Families',18],['calendar','Seasonal Messages',10],['hands-praying','Prayer & Worship',6]].map(([i,t,n]) => <p style="display:grid; grid-template-columns:1.5rem 1fr auto; gap:0.5rem; align-items:center; margin-top:0.5rem; font-size:0.8125rem; color:var(--color-navy);"><Icon name={i} size={16} />{t}<span>({n})</span></p>)}<a href="https://www.youtube.com" class="btn btn--amber" style="width:100%; justify-content:center; margin-top:0.75rem;">View All Videos →</a></div>
+      <div style="background:#f3f3f3; border-radius:4px; padding:1rem;"><h3 class="camp-h" style="font-size:1rem;">Popular Videos</h3>{['You Are Loved by God','Never Lose Hope','God Has a Plan for You','A New Beginning','Trust in God Always'].map(t => <p style="display:grid; grid-template-columns:1.5rem 1fr; gap:0.5rem; margin-top:0.6rem; font-size:0.8125rem; color:var(--color-navy);"><Icon name="circle-play" size={16} />{t}</p>)}</div>
+    </aside>
+  </section>
+  <section class="wrap" style="padding-bottom:1.25rem;"><div style="background:#2d3c63; color:#fff; border-radius:6px; display:grid; grid-template-columns:0.6fr 1.6fr 1.5fr; gap:1.25rem; align-items:center; overflow:hidden;" class="camp-grid">
+    <img src={img('vd-cam')} alt="A video camera on a tripod" style="width:100%; height:100%; object-fit:cover;" />
+    <div style="padding-block:1.25rem;"><h2 style="font-family:var(--font-heading); text-transform:uppercase; font-weight:400; font-size:1.25rem;">Be Part of the Mission</h2><p style="margin-block:0.4rem 0.75rem;">Help us share messages of hope with more people. Like, comment, share and subscribe to spread hope.</p><a href="https://www.youtube.com" class="btn btn--amber">Subscribe on YouTube ▶</a></div>
+    <div style="padding:1.25rem; display:grid; grid-template-columns:4rem 1fr; gap:1rem; align-items:center; border-left:1px solid rgba(255,255,255,0.25);"><span style="width:4rem; height:4rem; border-radius:50%; border:2px solid #fff; display:flex; align-items:center; justify-content:center;"><Icon name="hand-holding-heart" size={28} /></span><div><h3 style="font-weight:400; font-size:1.0625rem;">Got a message of hope to share?</h3><p style="font-size:0.875rem; margin-block:0.3rem 0.6rem;">We welcome messages from clergy, volunteers and ambassadors to encourage others.</p><a href="/get-involved/submit-your-story" class="btn" style="background:#fff; color:var(--color-navy);">Submit Your Video →</a></div></div>
+  </div></section>
+  <NewsBar title="Stay Connected. Stay Inspired." text="Subscribe to receive new videos, resources and mission updates." />
+</Layout>

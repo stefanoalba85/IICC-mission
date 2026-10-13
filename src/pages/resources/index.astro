@@ -1,0 +1,45 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ResHero from '../../components/ResHero.astro';
+import ResBand from '../../components/ResBand.astro';
+import ResCards from '../../components/ResCards.astro';
+import NewsBar from '../../components/NewsBar.astro';
+import CheckPanel from '../../components/CheckPanel.astro';
+import ImStrip from '../../components/ImStrip.astro';
+import Icon from '../../components/Icon.astro';
+const img = (n: string) => `/images/resources/${n}.jpg`;
+const band6 = [
+  { icon: 'book-open', title: 'Faith & Spirituality', text: 'Strengthen your faith and find daily encouragement.' },
+  { icon: 'people-group', title: 'Legal & Rights', text: 'Know your rights and access legal information.' },
+  { icon: 'hand-holding-heart', title: 'Mental Health & Wellbeing', text: 'Support for your mind and emotions.' },
+  { icon: 'people-roof', title: 'Family & Relationships', text: 'Resources to strengthen families and connections.' },
+  { icon: 'graduation-cap', title: 'Education & Employment', text: 'Learn, grow and build a better future.' },
+  { icon: 'hand-holding-heart', title: 'Practical Help & Community', text: 'Practical guidance and community support.' },
+];
+const assure = [
+  { icon: 'people-group', title: 'You Are Not Alone', text: 'We stand with you and your family.' },
+  { icon: 'ear-listen', title: 'We Listen', text: 'Your story matters. We are here to listen.' },
+  { icon: 'signs-post', title: 'We Guide', text: 'We help you understand your rights and options.' },
+  { icon: 'handshake', title: 'We Connect', text: 'We refer you to trusted legal professionals.' },
+  { icon: 'dove', title: 'We Hope', text: 'We believe in healing, justice, and new beginnings.' },
+];
+---
+<Layout title="Resources" description="Knowledge. Support. Hope. Empowerment.">
+  <ResHero title="Resources" sub="Knowledge. Support. Hope.<br/>Empowerment." text={['Equipping inmates, detainees, their families and supporters with practical tools, spiritual guidance and trusted information to navigate challenges, strengthen faith and build a brighter future.']} cta="Explore Resources" img={img('main-hero')} alt="An IICC Mission volunteer reading a book titled Hope Restores" />
+  <ResBand items={band6} />
+  <ResCards title="Browse Our Resource Categories" cols={3} items={[
+    { photo: 'main-c1', icon: 'cross', title: 'Faith & Spirituality', text: 'Daily devotionals, prayers, Bible readings, reflections and spiritual guidance.', href: '/resources/prayer-resources' },
+    { photo: 'main-c2', icon: 'scale-balanced', title: 'Legal & Rights Information', text: 'Understand your rights, legal processes, and find trusted legal resources.', href: '/our-services/prison-ministry/rights-awareness' },
+    { photo: 'main-c3', icon: 'brain', title: 'Mental Health & Wellbeing', text: 'Practical tools, emotional support and strategies for mental wellness.', href: '/our-services/mental-health/mental-health-resources' },
+    { photo: 'main-c4', icon: 'people-roof', title: 'Family & Relationships', text: 'Support and guidance for families, communication and rebuilding relationships.', href: '/resources/family-resources' },
+    { photo: 'main-c5', icon: 'graduation-cap', title: 'Education & Employment', text: 'Learning resources, skills training and employment support to create opportunities.', href: '/resources/download-guides' },
+    { photo: 'main-c6', icon: 'hand-holding-heart', title: 'Practical Help & Community Support', text: 'Access assistance programs, referrals, food support and community services.', href: '/resources/resource-centre' },
+  ]} />
+  <section class="wrap" style="padding-bottom:1.25rem;"><div style="background:#f3f3f3; border-radius:6px; padding:1.25rem; display:grid; grid-template-columns:5rem 1.2fr 1fr 1.1fr; gap:1.25rem; align-items:center;" class="camp-grid">
+    <span style="color:var(--color-navy); opacity:0.6;"><Icon name="dove" size={70} /></span>
+    <div><h2 style="font-family:var(--font-heading); color:var(--color-navy); font-size:1.375rem; font-weight:400;">Resources for Every Step of the Journey</h2><p class="im-p" style="font-size:0.875rem; margin-block:0.4rem 0.75rem;">Whether you are an inmate, detainee, family member or supporter, our resources are here to inform, encourage and empower you.</p><a href="/get-involved/support-request" class="btn btn--amber" style="padding:0.45rem 1rem; font-size:0.75rem;">Get the Support You Need →</a></div>
+    <ul class="check">{['Practical information you can trust','Spiritual encouragement for every day','Support for challenges and setbacks','Tools for personal growth and healing','Hope for a brighter tomorrow'].map(t => <li style="font-size:0.875rem;">{t}</li>)}</ul>
+    <p style="font-family:var(--font-heading); color:var(--color-navy); font-size:1.25rem; line-height:1.4; text-align:center;"><span style="color:#c9741f; font-size:2.5rem; line-height:0.5;">&ldquo;</span>Come to me, all you who are weary and burdened, and I will give you rest.<span style="display:block; color:#c9741f; font-size:0.875rem;">– Matthew 11:28</span></p>
+  </div></section>
+  <NewsBar />
+</Layout>

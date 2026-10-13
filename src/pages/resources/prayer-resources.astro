@@ -1,0 +1,47 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ResHero from '../../components/ResHero.astro';
+import ResBand from '../../components/ResBand.astro';
+import ResCards from '../../components/ResCards.astro';
+import NewsBar from '../../components/NewsBar.astro';
+import CheckPanel from '../../components/CheckPanel.astro';
+import ImStrip from '../../components/ImStrip.astro';
+import Icon from '../../components/Icon.astro';
+const img = (n: string) => `/images/resources/${n}.jpg`;
+const band6 = [
+  { icon: 'book-open', title: 'Faith & Spirituality', text: 'Strengthen your faith and find daily encouragement.' },
+  { icon: 'people-group', title: 'Legal & Rights', text: 'Know your rights and access legal information.' },
+  { icon: 'hand-holding-heart', title: 'Mental Health & Wellbeing', text: 'Support for your mind and emotions.' },
+  { icon: 'people-roof', title: 'Family & Relationships', text: 'Resources to strengthen families and connections.' },
+  { icon: 'graduation-cap', title: 'Education & Employment', text: 'Learn, grow and build a better future.' },
+  { icon: 'hand-holding-heart', title: 'Practical Help & Community', text: 'Practical guidance and community support.' },
+];
+const assure = [
+  { icon: 'people-group', title: 'You Are Not Alone', text: 'We stand with you and your family.' },
+  { icon: 'ear-listen', title: 'We Listen', text: 'Your story matters. We are here to listen.' },
+  { icon: 'signs-post', title: 'We Guide', text: 'We help you understand your rights and options.' },
+  { icon: 'handshake', title: 'We Connect', text: 'We refer you to trusted legal professionals.' },
+  { icon: 'dove', title: 'We Hope', text: 'We believe in healing, justice, and new beginnings.' },
+];
+---
+<Layout title="Prayer Resources" description="Faith. Strength. Hope. You are not alone.">
+  <ResHero kicker="Prayer & Spiritual Support" title="Prayer<br/><span style='color:#c9741f'>Resources</span>" sub="Faith. Strength. Hope.<br/>You are not alone." text={['Prayer is a powerful source of comfort, strength and hope. The IICC Mission provides resources, prayer intentions and spiritual support for incarcerated persons, detainees, families and all those in need.']} img={img('pr-hero')} alt="Hands clasped around a rosary in golden light" quote="Do not be anxious about anything, but in everything, by prayer and petition, with thanksgiving, present your requests to God." quoteRef="Philippians 4:6" />
+  <section style="background:var(--color-navy-dark); color:#fff;"><div class="wrap icol" style="padding-block:1.25rem; color:#fff;">{[['hands-praying','Prayer','A source of peace and strength.'],['people-group','Community','We pray together, no matter where you are.'],['heart','Hope','Prayer brings light in difficult times.'],['cross','Spiritual Support','Resources for personal and group prayer.'],['dove','Restoration','With faith, there is always a path forward.']].map(([i,t,d]) => <div style="align-items:center; text-align:center; border-color:rgba(201,150,42,0.4);"><span style="width:4.25rem; height:4.25rem; border-radius:50%; border:2px solid #d9862a; color:#d9862a; display:flex; align-items:center; justify-content:center;"><Icon name={i} size={30} /></span><h3 style="color:#fff; font-weight:400;">{t}</h3><p style="font-family:var(--font-heading); font-size:0.9375rem;">{d}</p></div>)}</div></section>
+  <ResCards center title="Explore Our Prayer Resources" items={[
+    { photo: 'pr-1', icon: 'book-open', title: 'Daily Prayers', text: 'Start your day with prayers for strength, peace and guidance.', cta: 'View Prayers', button: true },
+    { photo: 'pr-2', icon: 'cross', title: 'Prayers for Those Incarcerated', text: 'Special prayers for prisoners, detainees and their families.', cta: 'View Prayers', button: true },
+    { photo: 'pr-3', icon: 'fire', title: 'Prayer Intentions', text: 'Submit a prayer request or pray for the intentions of others.', cta: 'Submit Request', href: '/get-involved/prayer-request', button: true },
+    { photo: 'pr-4', icon: 'people-group', title: 'Prayer Groups', text: 'Join our global community in prayer for justice, healing and restoration.', cta: 'Join a Group', button: true },
+    { photo: 'pr-5', icon: 'cross', title: 'Catholic Prayers', text: 'Traditional prayers, the Rosary, novenas and liturgical resources.', cta: 'View Resources', button: true },
+    { photo: 'pr-6', icon: 'dove', title: 'Interfaith Prayers', text: 'Prayers and reflections from different faith traditions.', cta: 'View Resources', button: true },
+  ]} />
+  <section class="wrap camp-grid" style="display:grid; grid-template-columns:1fr 1.1fr; gap:0.9rem; padding-bottom:1rem;">
+    <div style="background:#f7f6f3; border-radius:4px; padding:1.1rem;"><h2 class="camp-h" style="text-align:left; font-size:1.125rem;">Scripture for Strength</h2><div style="display:grid; grid-template-columns:1fr 1.2fr; gap:1rem; margin-top:0.6rem; align-items:center;"><img src={img('pr-sc')} alt="An open Bible at sunrise" style="width:100%; border-radius:4px;" /><div><p style="font-family:var(--font-heading); color:var(--color-navy); font-size:1.0625rem; line-height:1.45;">“Be strong and courageous. Do not be afraid or discouraged, for the Lord your God will be with you wherever you go.”<span style="display:block; color:#c9741f;">— Joshua 1:9</span></p><a href="/resources/bible-daily-gospel" class="btn btn--amber" style="margin-top:0.6rem; padding:0.45rem 1rem; font-size:0.75rem;">Read More Scriptures →</a></div></div></div>
+    <div style="background:#f5efe4; border-radius:4px; display:grid; grid-template-columns:1.7fr 0.6fr; overflow:hidden;"><div style="padding:1.1rem;"><h2 class="camp-h" style="text-align:left; font-size:1.125rem;">Submit a Prayer Request</h2><p class="im-p" style="font-size:0.9375rem; margin-block:0.5rem 0.75rem;">Share your prayer intentions with us. Our team and global community will keep you in their prayers.</p><a href="/get-involved/prayer-request" class="btn btn--amber">Submit a Prayer Request →</a><p style="display:flex; gap:0.5rem; margin-top:0.75rem; font-size:0.8125rem; color:var(--color-navy);"><Icon name="lock" size={14} />All requests are treated with confidentiality and respect.</p></div><img src={img('pr-sub')} alt="" style="width:100%; height:100%; object-fit:cover;" /></div>
+  </section>
+  <section class="wrap camp-grid" style="display:grid; grid-template-columns:2.8fr 1fr; gap:0.9rem; padding-bottom:1.25rem;">
+    <div><h2 class="camp-h">Featured Prayers</h2><div style="display:grid; grid-template-columns:repeat(4,1fr); gap:0.6rem; margin-top:0.6rem;" class="camp-grid">{[['pr-f1','A Prayer for Healing','“Lord, bring healing to all who are suffering in body, mind and spirit.”'],['pr-f2','A Prayer for Families','“Lord, strengthen the families of those in prison and detention. Give them peace and hope.”'],['pr-f3','A Prayer for Justice','“Lord, guide our leaders to act with justice, compassion and truth.”'],['pr-f4','A Prayer for a Brighter Tomorrow','“Lord, give hope to those who feel lost, and help us build a more just and compassionate world.”']].map(([p,t,d]) => <article style="background:#fff; border-radius:4px; box-shadow:0 3px 10px rgba(18,26,56,0.08); overflow:hidden; text-align:center; display:flex; flex-direction:column;"><img src={img(p)} alt="" style="width:100%; aspect-ratio:166/91; object-fit:cover;" /><div style="padding:0.7rem; display:flex; flex-direction:column; gap:0.4rem; flex:1;"><h3 style="font-family:var(--font-heading); color:var(--color-navy); text-transform:uppercase; font-size:0.8125rem;">{t}</h3><p style="font-size:0.8125rem; font-family:var(--font-heading); flex:1;">{d}</p><a href="/resources/prayer-resources" class="btn btn--amber" style="align-self:center; padding:0.35rem 0.8rem; font-size:0.65rem;">Read Prayer →</a></div></article>)}</div></div>
+    <div style="background:var(--color-navy-dark); color:#fff; border-radius:4px; padding:1.1rem;"><h3 style="font-family:var(--font-heading); text-transform:uppercase; font-weight:400; border-bottom:1px solid #d9862a; padding-bottom:0.4rem;">Prayer Resources Library</h3>{[['book-open','Printable Prayer Cards'],['file-lines','Prayer Booklets (PDF)'],['cross','The Holy Rosary Guide'],['calendar','Novena Prayers'],['circle-play','Audio & Video Prayers'],['file','Seasonal & Special Prayers']].map(([i,t]) => <p style="display:grid; grid-template-columns:1.6rem 1fr auto; gap:0.5rem; margin-top:0.7rem; font-size:0.875rem;"><Icon name={i} size={18} />{t}<span style="color:#d9862a;">→</span></p>)}</div>
+  </section>
+  <section style="background:var(--color-navy-dark); color:#fff;"><div class="wrap camp-grid" style="display:grid; grid-template-columns:4rem 1fr auto; gap:1.25rem; align-items:center; padding-block:1rem;"><span style="color:#d9862a;"><Icon name="heart" size={50} /></span><div><h2 style="font-family:var(--font-heading); text-transform:uppercase; font-weight:400; font-size:1.25rem;">Together in prayer, we can bring hope.</h2><p>Join our global community in prayer for those who are incarcerated, detained and in need.</p></div><a href="/get-involved/prayer-request" class="btn btn--amber">Join Our Prayer Community →</a></div></section>
+</Layout>

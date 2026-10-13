@@ -1,0 +1,35 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import ResHero from '../../../components/ResHero.astro';
+import ResBand from '../../../components/ResBand.astro';
+import ResCards from '../../../components/ResCards.astro';
+import NewsBar from '../../../components/NewsBar.astro';
+import AutismHero from '../../../components/AutismHero.astro';
+import AutismCta from '../../../components/AutismCta.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/resources/${n}.jpg`;
+const stat = (items: string[][]) => items;
+const IMPACT = [['people-group','5000+','Individuals Reached Annually'],['chalkboard-user','80+','Awareness Events Conducted'],['school','100+','Schools & Organizations Engaged'],['hand-holding-heart','1200+','Families Supported Through Awareness'],['heart','Countless','Lives Impacted with Understanding and Inclusion']];
+---
+<Layout title="Autism Awareness" description="Awareness today. Acceptance forever. Inclusion always.">
+  <AutismHero kicker="Autism Awareness" title="Awareness Today.<br/>Acceptance Forever.<br/>Inclusion Always." text="Autism awareness is the first step toward acceptance, understanding and inclusion. At IICC Mission, we are committed to raising awareness, challenging stigma and creating a world where individuals with autism are valued, supported and empowered." img={img('aw-hero')} alt="A boy placing a puzzle piece on a See the Ability poster" quote="Let’s create a world where every individual with autism is seen, heard, valued and included." quoteRef="Romans 12:16" cta="Our Awareness Initiatives" />
+  <ResBand items={[
+    { icon: 'lightbulb', title: 'Understand', text: 'Learning about autism helps break down myths and build compassion.' }, { icon: 'people-group', title: 'Accept', text: 'Acceptance means valuing individuals for who they are and celebrating their differences.' },
+    { icon: 'people-roof', title: 'Include', text: 'Inclusion creates opportunities for participation and belonging for all.' }, { icon: 'bullhorn', title: 'Advocate', text: 'Raising awareness gives a voice to individuals with autism and their families.' },
+    { icon: 'hand-holding-heart', title: 'Empower', text: 'Empowerment provides resources, support and hope for a brighter future.' }, { icon: 'cross', title: 'Inspired by Faith', text: 'Our faith calls us to love, serve and stand with those who are often overlooked.' },
+  ]} />
+  <section class="wrap camp-grid" style="display:grid; grid-template-columns:0.9fr 4fr; gap:1rem; padding-block:1.25rem;">
+    <div><h2 style="font-family:var(--font-heading); color:var(--color-navy); text-transform:uppercase; font-size:1.25rem;">Our Awareness Initiatives</h2><p class="im-p" style="font-size:0.875rem; margin-block:0.75rem;">We engage our community through education, outreach and events that promote understanding, acceptance and inclusion.</p><a href="#cats" class="btn btn--navy" style="font-size:0.7rem;">Explore Our Initiatives →</a></div>
+    <ResCards center title="" cols={6} items={[
+      { photo: 'aw-1', icon: 'chalkboard-user', title: 'Education & Outreach', text: 'Hosting seminars, workshops and school programs to increase understanding of autism.', cta: '' },
+      { photo: 'aw-2', icon: 'puzzle-piece', title: 'Community Awareness Events', text: 'Organizing events and campaigns that bring our community together to spread awareness.', cta: '' },
+      { photo: 'aw-3', icon: 'people-group', title: 'Blue Connection Campaign', text: 'Lighting up communities, wearing blue and sharing stories to show support and solidarity.', cta: '' },
+      { photo: 'aw-4', icon: 'heart', title: 'Family & Caregiver Support', text: 'Providing resources, support groups and encouragement for families and caregivers.', cta: '' },
+      { photo: 'aw-5', icon: 'handshake', title: 'Partnerships & Collaboration', text: 'Working with schools, organizations and advocates to promote inclusion and opportunity.', cta: '' },
+      { photo: 'aw-6', icon: 'star', title: 'Storytelling & Advocacy', text: 'Sharing stories that inspire, educate and advocate for a more inclusive society.', cta: '' },
+    ]} />
+  </section>
+  <section class="wrap" style="padding-bottom:1rem;"><h2 class="camp-h">Our Impact</h2><div class="camp-trio" style="margin-top:0.75rem;">{IMPACT.map(([i,n,t]) => <div><span style="color:#c9741f;"><Icon name={i} size={44} /></span><strong style="font-family:var(--font-heading); text-transform:none; font-size:1.75rem; font-weight:400;">{n}</strong><span style="font-size:0.875rem;">{t}</span></div>)}</div></section>
+  <section class="wrap camp-grid" style="display:grid; grid-template-columns:1.2fr 1fr; gap:1rem; padding-bottom:1.25rem;"><div style="background:#f3f3f3; border-radius:6px; display:grid; grid-template-columns:1.1fr 1fr; overflow:hidden;"><div style="padding:1.25rem; display:grid; grid-template-columns:2.5rem 1fr; gap:0.6rem;"><span style="color:#c9741f; font-family:var(--font-heading); font-size:3rem; line-height:0.8;">&ldquo;</span><div><h3 style="font-family:var(--font-heading); color:var(--color-navy); text-transform:uppercase; font-weight:400;">A Voice of Hope</h3><p style="font-size:0.875rem; line-height:1.55; margin-block:0.5rem;">“Awareness changed the way our community sees autism. My child is now accepted, included and celebrated. Thank you, IICC Mission, for making a difference.”</p><p style="font-size:0.875rem;">— Parent Advocate</p></div></div><img src={img('aw-voice')} alt="" style="width:100%; height:100%; object-fit:cover;" /></div><div style="background:var(--color-navy-dark); color:#fff; border-radius:6px; padding:1.5rem; display:grid; grid-template-columns:4rem 1fr; gap:1rem; align-items:center;"><span><Icon name="hand-holding-heart" size={56} /></span><div><h3 style="font-family:var(--font-heading); text-transform:uppercase; font-weight:400; font-size:1.25rem;">You Can Make a Difference</h3><p style="font-size:0.9375rem; line-height:1.5; margin-block:0.5rem 0.9rem;">Your support helps us continue raising awareness, providing resources and creating inclusive spaces where individuals with autism can thrive.</p><div style="display:flex; gap:0.75rem; flex-wrap:wrap;"><a href="/donate" class="btn btn--amber">Donate Today →</a><a href="/get-involved/volunteer-program" class="btn btn--outline-white">Volunteer →</a></div></div></div></section>
+  <AutismCta title="Awareness leads to acceptance. Acceptance leads to inclusion." text="Together, we can build a better tomorrow." />
+</Layout>
