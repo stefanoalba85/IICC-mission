@@ -1,0 +1,32 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import GiHero from '../../components/GiHero.astro';
+import GiIcons from '../../components/GiIcons.astro';
+import GiPhotoText from '../../components/GiPhotoText.astro';
+import GiFoot from '../../components/GiFoot.astro';
+import ResCards from '../../components/ResCards.astro';
+import Icon from '../../components/Icon.astro';
+const img = (n: string) => `/images/get-involved/${n}.jpg`;
+const STATS = [['people-group','1000+','People supported every year'],['globe','50+','Programs and initiatives'],['heart','6','Continents reached'],['chart-column','Thousands','of lives touched with hope']];
+const BAR = (t1: string, t2: string, q: string, cta: string, href: string) => ({ t1, t2, q, cta, href });
+---
+<Layout title="Leave a Legacy" description="A legacy of hope for generations.">
+  <GiHero kicker="Leave a Legacy" title="A Legacy<br/><span style='color:#c9741f'>of Hope</span><br/>for Generations" text="By leaving a gift in your Will, you can continue to bring hope, dignity, justice and restoration to people who are incarcerated, detained and their families — long into the future." cta="♥ Leave a Legacy" href="/contact" img={img('lg-hero')} alt="An older man with his arm around a younger man looking at St Peter’s" quote="You can leave more than a gift. You can leave hope, a second chance, and a more compassionate world." />
+  <GiIcons items={[{ icon: 'seedling', title: 'Enduring Impact', text: 'Your legacy helps change lives for generations.' },{ icon: 'people-group', title: 'Support Vulnerable People', text: 'Provide ongoing care for those who are incarcerated, detained and their families.' },{ icon: 'globe', title: 'Stronger Communities', text: 'Help reduce reoffending and build safer, more compassionate societies.' },{ icon: 'heart', title: 'A More Just World', text: 'Leave a legacy of faith, hope, justice and reconciliation.' }]} />
+  <section class="camp-grid" style="display:grid; grid-template-columns:1fr 1fr;">
+    <GiPhotoText img={img('lg-heart')} text="Compassion<br/>lives on<br/><strong>through<br/>your legacy.</strong>" />
+    <div style="padding:1.25rem 1.5rem;"><h2 class="im-h" style="font-size:1.25rem;">How Your Legacy Can Help</h2>{[['hands-praying','Pastoral Care','Support chaplaincy visits, spiritual guidance and faith-based programs in prisons and detention centres.'],['scale-balanced','Legal Assistance','Enable legal advice, case preparation and advocacy for the rights and dignity of incarcerated and detained people.'],['book-open','Education & Reintegration','Fund skills training, education and pathways to a brighter future.'],['hand-holding-heart','Humanitarian Support','Provide essential items, family support and emergency assistance.'],['people-group','Global Reach','Help us expand our mission across Australia, Italy, the USA and communities worldwide.']].map(([i,t,d]) => <div class="im-row" style="grid-template-columns:2.5rem 1fr; align-items:center; margin-top:0.5rem;"><span style="color:var(--color-navy);"><Icon name={i} size={30} /></span><div><h3 style="text-transform:none; font-size:1rem;">{t}</h3><p>{d}</p></div></div>)}</div>
+  </section>
+  <ResCards center title="Ways to Leave a Legacy" dir="get-involved" items={[
+    { photo: 'lg-1', title: 'A Residual Gift', text: 'A percentage of your estate after your loved ones have been provided for.', cta: '' },
+    { photo: 'lg-2', title: 'A Specific Gift', text: 'A fixed amount or a specific asset such as a property or shares.', cta: '' },
+    { photo: 'lg-3', title: 'A Gift in Kind', text: 'Donations of property, shares or other assets that can support our mission.', cta: '' },
+    { photo: 'lg-4', title: 'A Memorial Gift', text: 'A gift in memory of a loved one to honour their life and values.', cta: '' },
+  ]} />
+  <section class="camp-grid" style="display:grid; grid-template-columns:0.4fr 0.8fr 1.4fr 0.6fr; background:#fbf6ec; align-items:stretch;">
+    <img src={img('lg-dove')} alt="" style="width:100%; height:100%; object-fit:cover;" />
+    <p style="padding:1.25rem; font-family:var(--font-heading); font-style:italic; color:var(--color-navy); font-size:1.125rem; align-self:center;"><span style="color:#c9741f; font-size:2.5rem; line-height:0.5;">&ldquo;</span> What we do in life echoes in eternity. A legacy of compassion today can transform tomorrow.</p>
+    <div style="padding:1.25rem;"><h2 class="im-h" style="font-size:1.25rem;">Your Legacy of Hope</h2><p class="im-p" style="margin-block:0.5rem 0.75rem;">By including IICC Mission in your Will, you become part of a lasting mission of faith, hope, justice and restoration — ensuring that future generations have a second chance and a brighter tomorrow.</p><a href="/contact" class="btn btn--amber">Request a Legacy Guide →</a></div>
+    <div style="position:relative; background:var(--color-navy-dark);"><img src={img('lg-rome')} alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.6;" /><p style="position:relative; padding:1.25rem; color:#fff; font-family:var(--font-heading); text-transform:uppercase; font-size:1.25rem; line-height:1.2;">Leave a legacy that <span style="color:#d9862a;">changes lives.</span></p></div>
+  </section>
+</Layout>

@@ -1,0 +1,8 @@
+---
+interface Props { img: string; text: string; }
+const p = Astro.props;
+---
+<div style="position:relative; background:var(--color-navy-dark); overflow:hidden; min-height:220px; display:grid; grid-template-columns:1fr 1fr;">
+  <img src={p.img} alt="" style="width:100%; height:100%; object-fit:cover; -webkit-mask-image:linear-gradient(90deg,#000 55%,transparent); mask-image:linear-gradient(90deg,#000 55%,transparent);" />
+  <div style="padding:1.25rem; display:flex; flex-direction:column; justify-content:center; color:#fff; font-family:var(--font-heading); font-size:1.625rem; line-height:1.2; text-transform:uppercase;"><Fragment set:html={p.text} /><span style="color:#d9862a; font-size:1rem; margin-top:0.5rem;">— ♡ —</span></div>
+</div>
