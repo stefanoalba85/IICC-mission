@@ -1,97 +1,23 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import PellStory from '../../components/PellStory.astro';
 ---
 <Layout title="Inspired By Faith" description="Inspired by Cardinal George Pell — a message of faith, courage and hope that helped bring IICC Mission to life.">
-
-  <section class="hero-split">
-    <div class="hero-split__text" style="background:var(--color-navy);">
-      <span class="eyebrow eyebrow--white">Our Story</span>
-      <h1 class="section-title section-title--white" style="margin-block:0.5rem;">Inspired by <span class="text-amber">Cardinal George Pell</span></h1>
-      <p class="section-desc section-desc--white" style="max-width:none;">A message of faith, courage and hope that helped bring IICC Mission to life.</p>
-      <div class="hero-split__quote" style="position:static; width:auto; margin-top:1rem;">
-        <span class="hero-split__quote-mark">&ldquo;</span>
-        <p class="hero-split__quote-text">The Catholic Church needs you. Your lived experience will be a treasure for many. Have courage my son, start doing something. Changes come always from the bottom and not from the top...</p>
-        <span class="hero-split__quote-ref">— Cardinal George Pell</span>
-      </div>
-    </div>
-    <div class="hero-split__photo">
-      <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=1000&q=80" alt="St Peter's Basilica" />
-    </div>
-  </section>
-
-  <section class="section section--white">
-    <div class="wrap grid-2">
-      <div class="card">
-        <span class="card__title">A Friendship That Began Before Prison</span>
-        <p class="card__body">
-          Before my imprisonment, I had the privilege of knowing His Eminence Cardinal George
-          Pell. A man of deep faith, wisdom and compassion. Our paths crossed through faith, ideas
-          and a shared concern for people who are often forgotten by society.
-        </p>
-      </div>
-      <div class="card">
-        <span class="card__title">Letters That Crossed Prison Walls</span>
-        <p class="card__body">
-          During my time in prison, I reconnected with Cardinal Pell. We exchanged letters and
-          shared ideas about the needs of prisoners, their families, and the responsibility of the
-          Church to accompany them. He listened. He cared. And he encouraged me to keep going.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--offwhite">
-    <div class="wrap grid-2">
-      <div class="quote-box">
-        <span class="quote-box__mark">&ldquo;</span>
-        <p class="quote-box__text">Words that inspired a mission. His words gave me the strength and confidence to believe that my experience could be used for something bigger than myself, and for the good of others.</p>
-      </div>
-      <div class="card">
-        <span class="card__title">A Message That Changed My Direction</span>
-        <p class="card__body">
-          Without his encouragement, I may not have had the confidence to continue this journey.
-          His support helped me understand that this mission was bigger than myself — it was a
-          responsibility to serve others.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--white">
-    <div class="wrap">
-      <span class="eyebrow">From Experience to Service</span>
-      <h2 class="section-title" style="margin-block:0.5rem;">The Birth of IICC Mission</h2>
-      <p class="section-desc" style="max-width:none; margin-bottom:1rem;">
-        Eight years in prison gave me a lived experience that cannot be taught in a classroom. It
-        showed me the pain, the injustice, the isolation — and also the incredible capacity for
-        change when a person is given hope, faith and support.
-      </p>
-      <p class="section-desc" style="max-width:none;">
-        <strong>IICC Mission was born from that experience</strong>, and from the encouragement of
-        a man who believed that my story could bring hope to many others.
-      </p>
-    </div>
-  </section>
-
-  <div class="stat-band">
-    <div class="wrap" style="text-align:center;">
-      <p class="section-title section-title--white" style="margin-bottom:0.75rem;">A Legacy That Continues</p>
-      <p class="section-desc section-desc--white" style="max-width:720px; margin-inline:auto;">
-        Cardinal George Pell was a shepherd with a heart for those who suffer. His belief in the
-        dignity of every person and his courage to speak the truth left a lasting impact on my
-        life and on this mission.
-      </p>
-      <p class="text-amber" style="font-weight:700; margin-top:1rem;">His encouragement was the spark. This mission is the fruit.</p>
-    </div>
-  </div>
-
-  <div class="cta-band">
-    <div class="wrap cta-band__inner">
-      <div class="cta-band__text">
-        <h2 class="section-title section-title--white">Forever in Our Prayers, Forever in Our Hearts</h2>
-        <p class="section-desc section-desc--white">Thank you, Caro Padre, for believing in this mission, for encouraging me, and for reminding me that hope can be brought even to the darkest places.</p>
-      </div>
-      <a href="/get-involved/prayer-request" class="btn btn--amber">Prayer Request &gt;</a>
-    </div>
-  </div>
+  <PellStory
+    imgDir="inspired-by-faith"
+    heroAlt="Antonio G. Dattilo and Cardinal George Pell in front of St Peter's Basilica"
+    heroQuote="The Catholic Church needs you. Your lived experience will be a treasure for many. Have courage my son, start doing something. Changes come always from the bottom and not from the top..."
+    heroAside
+    ring
+    closing
+    pillars={[
+      { title: 'Prison Ministry', icon: 'bars' },
+      { title: 'Immigration Detention Ministry', icon: 'globe' },
+      { title: 'Families Support', icon: 'people' },
+      { title: 'Pastoral Care', icon: 'dove' },
+      { title: 'Advocacy & Justice', icon: 'scales' },
+      { title: 'Humanitarian Support', icon: 'heartHand' },
+    ]}
+    pillarsCaption="Bringing Christ’s love, mercy and hope to those who feel forgotten."
+  />
 </Layout>

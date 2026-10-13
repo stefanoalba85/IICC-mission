@@ -18,6 +18,7 @@
   --font-display: 'Cinzel', Georgia, serif;
   --font-heading: 'Playfair Display', Georgia, serif;
   --font-body:    'Source Sans 3', system-ui, sans-serif;
+  --font-script:  'Great Vibes', 'Brush Script MT', cursive;
 }
 
 /* ═══════════════════════════════════════════════
@@ -358,7 +359,7 @@
     overflow: hidden;
     background: var(--color-navy);
   }
-  .hero-wave::before {
+  .hero-wave::before, .curve-top::before {
     content: '';
     position: absolute;
     inset: 0 0 auto 0;
@@ -498,6 +499,18 @@
   /* ─── PANEL (light rounded box) ─── */
   .panel { background: #f7f6f3; border-radius: 6px; padding: 1.75rem 1.5rem; }
   .panel__title { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; text-align: center; font-size: 1.125rem; font-weight: 700; }
+
+  .curve-top { position: relative; }
+  .curve-top::before { height: 44px; }
+  .photo-band--fade { background: var(--color-navy); min-height: 320px; }
+  .photo-band--fade .photo-band__bg { inset: 0 0 0 28%; }
+  .photo-band--fade .photo-band__text {
+    width: min(560px, 46%);
+    background: linear-gradient(90deg, var(--color-navy) 72%, rgba(27,39,81,0));
+    padding: 3.25rem 3rem 2.5rem max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem));
+  }
+  .photo-band--fade .photo-band__text p { color: #fff; font-size: 1.0625rem; line-height: 1.5; max-width: 360px; }
+  @media (max-width: 760px) { .photo-band--fade .photo-band__bg { inset: 0; } .photo-band--fade .photo-band__text { width: 100%; background: rgba(27,39,81,0.85); } }
 
   /* ─── CARDS ──────────────────────────────── */
   .card {

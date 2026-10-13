@@ -1,93 +1,19 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-const ministries = ['Spiritual & Pastoral Care', 'Legal Assistance & Advocacy', 'Education & Awareness', 'Humanitarian Support', 'Healing, Restoration & Reintegration'];
+import PellStory from '../../components/PellStory.astro';
 ---
 <Layout title="Cardinal George Pell — Inspiration & Support" description="A message of faith, courage and hope that helped bring IICC Mission to life.">
-
-  <section class="hero-full">
-    <div class="hero-full__bg">
-      <img src="https://images.unsplash.com/photo-1507692049790-de58290a4334?w=1600&q=80" alt="Candlelight in prayer" />
-    </div>
-    <div class="hero-full__overlay"></div>
-    <div class="hero-full__content">
-      <span class="eyebrow eyebrow--white">Our Story</span>
-      <h1 class="section-title section-title--white" style="margin-block:0.5rem;">Inspired by <span class="text-amber">Cardinal George Pell</span></h1>
-      <p class="section-desc section-desc--white" style="max-width:560px;">A message of faith, courage and hope that helped bring IICC Mission to life.</p>
-      <div class="quote-box" style="max-width:520px; margin-top:1rem;">
-        <p class="quote-box__text">"Faith can be tested in moments of darkness, but hope can continue to shine through every trial."</p>
-        <span class="quote-box__ref">— Cardinal George Pell</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--white">
-    <div class="wrap grid-2">
-      <div class="card">
-        <span class="card__title">A Friendship That Began Before Prison</span>
-        <p class="card__body">
-          Before my imprisonment, I had the privilege of knowing His Eminence Cardinal George
-          Pell. A man of deep faith, wisdom and compassion. Our paths crossed through faith, ideas
-          and a shared concern for people who are often forgotten by society.
-        </p>
-      </div>
-      <div class="card">
-        <span class="card__title">Letters That Crossed Prison Walls</span>
-        <p class="card__body">
-          During my time in prison, I reconnected with Cardinal Pell. We exchanged letters and
-          shared ideas about the needs of prisoners, their families, and the responsibility of the
-          Church to accompany them. He listened. He cared. And he encouraged me to keep going.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--offwhite">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">From Experience to Service</span>
-        <h2 class="section-title">The Birth of IICC Mission</h2>
-      </div>
-      <p class="section-desc" style="max-width:760px; margin-inline:auto; text-align:center; margin-bottom:1.5rem;">
-        Eight years in prison gave me a lived experience that cannot be taught in a classroom. It
-        showed me the pain, the injustice, the isolation — and also the incredible capacity for
-        change when a person is given hope, faith and support.
-        <strong> IICC Mission was born from that experience</strong>, and from the encouragement of
-        a man who believed that my story could bring hope to many others.
-      </p>
-      <div class="pillars">
-        {ministries.map(m => (
-          <div class="pillar"><span class="pillar__label">{m}</span></div>
-        ))}
-      </div>
-      <p style="text-align:center; font-style:italic; color:var(--color-muted); margin-top:1rem;">Accompanying. Empowering. Restoring Hope.</p>
-    </div>
-  </section>
-
-  <div class="stat-band">
-    <div class="wrap cols-2" style="align-items:center;">
-      <div>
-        <p class="section-title section-title--white" style="margin-bottom:0.75rem;">A Legacy That Continues</p>
-        <p class="section-desc section-desc--white">
-          Cardinal George Pell was a shepherd with a heart for those who suffer. His belief in the
-          dignity of every person and his courage to speak the truth left a lasting impact on my
-          life and on this mission.
-        </p>
-        <p class="text-amber" style="font-weight:700; margin-top:1rem;">His encouragement was the spark. This mission is the fruit.</p>
-      </div>
-      <div class="quote-box">
-        <span class="quote-box__mark">&ldquo;</span>
-        <p class="quote-box__text">We will remember Cardinal George Pell, the instigator of this project, who suffered time in prison along with thousands of other inmates. His time in prison and his suffering will not be for nothing.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="cta-band">
-    <div class="wrap cta-band__inner">
-      <div class="cta-band__text">
-        <h2 class="section-title section-title--white">Forever in Our Prayers, Forever in Our Hearts</h2>
-        <p class="section-desc section-desc--white">Thank you, Caro Padre, for believing in this mission, for encouraging me, and for reminding me that hope can be brought even to the darkest places.</p>
-      </div>
-      <a href="/donate" class="btn btn--amber">Support the Mission &gt;</a>
-    </div>
-  </div>
+  <PellStory
+    imgDir="cardinal-pell"
+    heroAlt="Cardinal George Pell praying in a candlelit cell"
+    heroQuote="Faith can be tested in moments of darkness, but hope can continue to shine through every trial."
+    pillars={[
+      { title: 'Spiritual & Pastoral Care', icon: 'pray' },
+      { title: 'Legal Assistance & Advocacy', icon: 'scales' },
+      { title: 'Education & Awareness', icon: 'book', color: '#5e6b2f' },
+      { title: 'Humanitarian Support', icon: 'heartHand' },
+      { title: 'Healing, Restoration & Reintegration', icon: 'sunRoad', color: 'var(--color-amber)' },
+    ]}
+    pillarsCaption="Accompanying. Empowering. Restoring Hope."
+  />
 </Layout>

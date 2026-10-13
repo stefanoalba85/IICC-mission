@@ -1,0 +1,169 @@
+---
+import Icon from './Icon.astro';
+import type { IconName } from '../lib/icons';
+
+interface Props {
+  imgDir: string;
+  heroQuote: string;
+  heroAlt: string;
+  pillars: { title: string; icon: IconName; color?: string }[];
+  pillarsCaption: string;
+  heroAside?: boolean;
+  closing?: boolean;
+  ring?: boolean;
+}
+const { imgDir, heroQuote, heroAlt, pillars, pillarsCaption, heroAside = false, closing = false, ring = false } = Astro.props;
+const img = (n: string) => `/images/${imgDir}/${n}.jpg`;
+---
+<style>
+  .ps-hero { position: relative; background: var(--color-navy-dark); color: #fff; min-height: 460px; display: flex; align-items: center; overflow: hidden; }
+  .ps-hero__bg { position: absolute; inset: 0 0 0 30%; }
+  .ps-hero__bg img { width: 100%; height: 100%; object-fit: cover; object-position: 70% top; -webkit-mask-image: linear-gradient(90deg, transparent, #000 18%); mask-image: linear-gradient(90deg, transparent, #000 18%); }
+  .ps-hero__text { position: relative; z-index: 2; width: min(560px, 48%); padding: 3.5rem 1.5rem 2.5rem max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem)); display: flex; flex-direction: column; gap: 1rem; }
+  .ps-hero__title { font-family: var(--font-heading); font-size: clamp(2.25rem, 5vw, 3.5rem); line-height: 1.05; }
+  .ps-hero__lead { font-family: var(--font-heading); font-size: 1.25rem; line-height: 1.4; }
+  .ps-hero__quote { position: relative; padding-left: 2.5rem; font-family: var(--font-heading); font-style: italic; font-size: 1rem; line-height: 1.55; }
+  .ps-hero__quote::before { content: '\201C'; position: absolute; left: 0; top: -0.6rem; font-size: 3.25rem; color: var(--color-amber); font-style: normal; }
+  .ps-hero__quote cite { display: block; font-style: normal; font-family: var(--font-body); color: var(--color-amber); text-transform: uppercase; font-size: 0.8125rem; letter-spacing: 0.04em; margin-top: 0.5rem; }
+  .ps-aside { position: absolute; right: max(1.5rem, calc((100vw - 1200px) / 2)); top: 50%; transform: translateY(-50%); z-index: 2; width: 210px; border: 1px solid var(--color-amber); background: rgba(18,26,56,0.92); padding: 1.5rem 1rem; text-align: center; display: flex; flex-direction: column; gap: 0.6rem; align-items: center; }
+  .ps-aside strong { font-family: var(--font-heading); color: var(--color-amber); text-transform: uppercase; font-size: 1.125rem; line-height: 1.35; font-weight: 400; }
+  .ps-aside p { font-size: 0.875rem; line-height: 1.45; }
+  .ps-two { display: grid; grid-template-columns: 1fr 1fr 0.9fr; background: #fff; }
+  .ps-two > div { padding: 1.75rem 1.5rem; display: grid; grid-template-columns: 3.5rem 1fr; gap: 1rem; }
+  .ps-two > div:first-child { padding-left: max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem)); border-right: 1px solid rgba(201,160,23,0.5); }
+  .ps-two h2, .ps-words h2 { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: 1.125rem; line-height: 1.25; margin-bottom: 0.6rem; }
+  .ps-two p { font-size: 0.9375rem; line-height: 1.5; color: var(--color-navy); }
+  .ps-badge { width: 3.5rem; height: 3.5rem; border-radius: 50%; background: var(--color-navy); color: #fff; border: 3px solid var(--color-amber); display: flex; align-items: center; justify-content: center; }
+  .ps-two__photo { padding: 0 !important; display: block !important; }
+  .ps-two__photo img { width: 100%; height: 100%; object-fit: cover; -webkit-mask-image: linear-gradient(90deg, transparent, #000 25%); mask-image: linear-gradient(90deg, transparent, #000 25%); }
+  .ps-words { background: #f8f1e4; }
+  .ps-words .wrap { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; padding-block: 1.5rem; }
+  .ps-words .wrap > div { padding-inline: 1.5rem; border-right: 1px solid rgba(201,160,23,0.5); }
+  .ps-words .wrap > div:first-child { padding-left: 0; }
+  .ps-words .wrap > div:last-child { border-right: none; padding-right: 0; }
+  .ps-words h2 { color: var(--color-amber); }
+  .ps-words p { font-size: 0.9375rem; line-height: 1.5; color: var(--color-navy); }
+  .ps-words blockquote { margin: 0; font-family: var(--font-heading); font-style: italic; font-size: 1.0625rem; line-height: 1.6; color: var(--color-navy); }
+  .ps-birth { display: grid; grid-template-columns: 0.55fr 1fr; background: #fff; }
+  .ps-birth > img { width: 100%; height: 100%; object-fit: cover; }
+  .ps-birth__text { padding: 1.5rem 1.5rem 1.25rem; padding-right: max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem)); }
+  .ps-birth h2 { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: 1.25rem; }
+  .ps-birth h2 span { color: var(--color-amber); }
+  .ps-birth p { font-size: 1rem; line-height: 1.5; color: var(--color-navy); margin-top: 0.5rem; }
+  .ps-pillars { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; margin-block: 1.25rem 0.75rem; }
+  .ps-pillars div { text-align: center; padding-inline: 0.5rem; border-right: 1px solid rgba(27,39,81,0.15); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; color: var(--color-navy); }
+  .ps-pillars div:last-child { border-right: none; }
+  .ps-caption { display: flex; align-items: center; gap: 1rem; font-family: var(--font-heading); font-style: italic; color: var(--color-navy); font-size: 1.0625rem; }
+  .ps-caption::before, .ps-caption::after { content: ''; flex: 1; height: 1px; background: var(--color-amber); }
+  .ps-legacy { position: relative; background: var(--color-navy-dark); color: #fff; display: grid; grid-template-columns: 0.55fr 1.1fr 1fr; align-items: center; }
+  .ps-legacy > img { width: 100%; height: 100%; object-fit: cover; -webkit-mask-image: linear-gradient(90deg, #000 70%, transparent); mask-image: linear-gradient(90deg, #000 70%, transparent); }
+  .ps-legacy__text { padding: 1.5rem; }
+  .ps-legacy h2 { font-family: var(--font-heading); color: var(--color-amber); text-transform: uppercase; font-size: 1.375rem; }
+  .ps-legacy p { font-size: 0.9375rem; line-height: 1.55; margin-top: 0.5rem; }
+  .ps-legacy strong { display: block; color: var(--color-amber); font-size: 1.0625rem; margin-top: 0.75rem; }
+  .ps-legacy blockquote { margin: 0; padding: 1.5rem max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem)) 1.5rem 3.5rem; border-left: 1px solid rgba(201,160,23,0.5); position: relative; font-family: var(--font-heading); font-style: italic; font-size: 1.1875rem; line-height: 1.5; }
+  .ps-legacy blockquote::before { content: '\201C'; position: absolute; left: 1rem; top: 0.75rem; font-size: 3.5rem; color: var(--color-amber); font-style: normal; }
+  .ps-closing { background: var(--color-navy); color: #fff; text-align: center; padding-block: 1.5rem; border-top: 1px solid rgba(201,160,23,0.4); }
+  .ps-closing h2 { font-family: var(--font-heading); color: var(--color-amber); text-transform: uppercase; font-size: 1.375rem; }
+  .ps-closing p { margin-top: 0.5rem; line-height: 1.55; }
+  .ps-cta { background: #fff; border-top: 1px solid rgba(27,39,81,0.1); }
+  .ps-cta .wrap { display: grid; grid-template-columns: repeat(4, 1fr); padding-block: 1.25rem; }
+  .ps-cta .wrap > div { display: grid; grid-template-columns: 3rem 1fr; gap: 0.75rem; align-items: center; padding-inline: 1rem; border-right: 1px solid rgba(27,39,81,0.12); color: var(--color-amber); }
+  .ps-cta .wrap > div:last-child { border-right: none; }
+  .ps-cta h3 { font-size: 0.8125rem; text-transform: uppercase; color: var(--color-amber); font-family: var(--font-body); }
+  .ps-cta h3 b { display: block; color: var(--color-navy); }
+  .ps-cta .btn { padding: 0.4rem 1rem; margin-top: 0.5rem; font-size: 0.7rem; }
+  @media (max-width: 900px) {
+    .ps-hero__bg { inset: 0; opacity: 0.4; } .ps-hero__text { width: 100%; } .ps-aside { display: none; }
+    .ps-two, .ps-words .wrap, .ps-birth, .ps-legacy, .ps-cta .wrap { grid-template-columns: 1fr; }
+    .ps-words .wrap > div { border: none; padding: 0.75rem 0; }
+    .ps-pillars { grid-auto-flow: row; grid-template-columns: repeat(3, 1fr); row-gap: 1rem; }
+  }
+</style>
+
+<section class="ps-hero">
+  <div class="ps-hero__bg"><img src={img('hero')} alt={heroAlt} /></div>
+  <div class="ps-hero__text">
+    <span class="eyebrow">Our Story</span>
+    <h1 class="ps-hero__title">Inspired by<br /><span class="text-amber">Cardinal<br />George Pell</span></h1>
+    <p class="ps-hero__lead">A message of faith, courage and hope that helped bring IICC Mission to life.</p>
+    <p class="ps-hero__quote">{heroQuote}<cite>— Cardinal George Pell</cite></p>
+  </div>
+  {heroAside && (
+    <div class="ps-aside">
+      <span class="text-amber"><Icon name="cross" size={36} /></span>
+      <strong>A Shepherd.<br />A Mentor.<br />A Friend.</strong>
+      <p>His encouragement became a mission of hope for the forgotten.</p>
+    </div>
+  )}
+</section>
+
+<section class="ps-two">
+  <div>
+    <span class="ps-badge"><Icon name="handshake" size={24} /></span>
+    <div><h2>A Friendship That<br />Began Before Prison</h2><p>Before my imprisonment, I had the privilege of knowing His Eminence Cardinal George Pell. A man of deep faith, wisdom and compassion. Our paths crossed through faith, ideas and a shared concern for people who are often forgotten by society.</p></div>
+  </div>
+  <div>
+    <span class="ps-badge"><Icon name="mail" size={24} /></span>
+    <div><h2>Letters That<br />Crossed Prison Walls</h2><p>During my time in prison, I reconnected with Cardinal Pell. We exchanged letters and shared ideas about the needs of prisoners, their families, and the responsibility of the Church to accompany them.</p><p style="font-weight:700; margin-top:0.4rem;">He listened. He cared. And he encouraged me to keep going.</p></div>
+  </div>
+  <div class="ps-two__photo"><img src={img('letters')} alt="Letters and a photograph of Antonio G. Dattilo with Cardinal Pell" /></div>
+</section>
+
+<section class="ps-words">
+  <div class="wrap">
+    <div style="display:grid; grid-template-columns:3rem 1fr; gap:0.75rem;">
+      <span class="text-amber" style="font-family:var(--font-heading); font-size:3.5rem; line-height:0.8;">&ldquo;</span>
+      <div><h2>Words That<br />Inspired a Mission</h2><p>His words gave me the strength and confidence to believe that my experience could be used for something bigger than myself. And for the good of others.</p></div>
+    </div>
+    <div>
+      <blockquote>“The Catholic Church needs you. Your lived experience will be a treasure for many. Have courage my son, start doing something. Changes come always from the bottom and not from the top...”</blockquote>
+      <p class="text-amber" style="text-align:right; font-size:0.8125rem; text-transform:uppercase; margin-top:0.5rem;">Cardinal George Pell</p>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 5.5rem; gap:1rem; align-items:center;">
+      <div><h2>A Message That<br />Changed My Direction</h2><p>Without his encouragement, I may not have had the confidence to continue this journey. His support helped me understand that this mission was bigger than myself — it was a responsibility to serve others.</p></div>
+      <span style="width:5.5rem; height:5.5rem; border-radius:50%; border:2px solid var(--color-amber); color:var(--color-amber); display:flex; align-items:center; justify-content:center;"><Icon name="pray" size={44} stroke={1.6} /></span>
+    </div>
+  </div>
+</section>
+
+<section class="ps-birth">
+  <img src={img('prison')} alt="A man sitting alone in a prison corridor lit by sunlight" />
+  <div class="ps-birth__text">
+    <h2>From Experience to Service – <span>The Birth of IICC Mission</span></h2>
+    <p>Eight years in prison gave me a lived experience that cannot be taught in a classroom. It showed me the pain, the injustice, the isolation — and also the incredible capacity for change when a person is given hope, faith and support.</p>
+    <p><strong>IICC Mission was born from that experience</strong>, and from the encouragement of a man who believed that my story could bring hope to many others.</p>
+    <div class="ps-pillars">
+      {pillars.map(p => <div><span style={`color:${p.color ?? 'var(--color-navy)'}; ${ring ? 'width:4.25rem;height:4.25rem;border-radius:50%;border:2px solid var(--color-amber);display:flex;align-items:center;justify-content:center;' : ''}`}><Icon name={p.icon} size={ring ? 34 : 48} stroke={1.7} /></span>{p.title}</div>)}
+    </div>
+    <p class="ps-caption">{pillarsCaption}</p>
+  </div>
+</section>
+
+<section class="ps-legacy">
+  <img src={img('pell')} alt="Cardinal George Pell beside a candle" />
+  <div class="ps-legacy__text">
+    <h2>A Legacy That Continues</h2>
+    <p>Cardinal George Pell was a shepherd with a heart for those who suffer. His belief in the dignity of every person and his courage to speak the truth left a lasting impact on my life and on this mission.</p>
+    <strong>His encouragement was the spark.<br />This mission is the fruit.</strong>
+  </div>
+  <blockquote>We will remember Cardinal George Pell, the instigator of this project, who suffered time in prison along with thousands of other inmates. His time in prison and his suffering will not be for nothing.</blockquote>
+</section>
+
+{closing && (
+  <section class="ps-closing">
+    <div class="wrap">
+      <h2>Forever in Our Prayers – Forever in Our Hearts.</h2>
+      <p>Thank you, Caro Padre, for believing in this mission,<br />for encouraging me, and for reminding me that hope can be brought even to the darkest places.</p>
+    </div>
+  </section>
+)}
+
+<section class="ps-cta">
+  <div class="wrap">
+    <div><Icon name="people" size={40} /><div><h3>You Can Be Part<b>of This Mission</b></h3><p style="font-size:0.75rem; color:var(--color-text);">Together, we can bring hope, dignity and restoration to those who feel forgotten.</p></div></div>
+    <div><Icon name="heartHand" size={40} /><div><h3>Support<b>the Mission</b></h3><a href="/donate" class="btn btn--amber">Donate Now</a></div></div>
+    <div><Icon name="people" size={40} /><div><h3>Become an IICC<b>Mission Ambassador</b></h3><a href="/get-involved/ambassador-program" class="btn btn--amber">Get Involved</a></div></div>
+    <div><Icon name="pray" size={40} /><div><h3>Prayer<b>Request</b></h3><a href="/get-involved/prayer-request" class="btn btn--amber">Let Us Pray</a></div></div>
+  </div>
+</section>

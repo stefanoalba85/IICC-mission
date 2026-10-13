@@ -1,85 +1,83 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Icon from '../../components/Icon.astro';
+import type { IconName } from '../../lib/icons';
 
-const values = [
-  { title: 'Faith', desc: 'Guided by the Gospel and the belief that every person has value.' },
-  { title: 'Compassion', desc: 'Seeing the person, not only the circumstance.' },
-  { title: 'Dignity', desc: 'Recognising the worth of every human being.' },
-  { title: 'Justice', desc: 'Supporting fairness, restoration and opportunity.' },
-  { title: 'Hope', desc: 'Believing that a new beginning is possible.' },
+const values: { title: string; text: string; icon: IconName; navy?: boolean }[] = [
+  { title: 'Faith', text: 'Guided by the Gospel and the belief that every person has value.', icon: 'pray', navy: true },
+  { title: 'Compassion', text: 'Seeing the person, not only the circumstance.', icon: 'heart' },
+  { title: 'Dignity', text: 'Recognising the worth of every human being.', icon: 'people' },
+  { title: 'Justice', text: 'Supporting fairness, restoration and opportunity.', icon: 'scales' },
+  { title: 'Hope', text: 'Believing that a new beginning is possible.', icon: 'sunRoad' },
+];
+const letter = [
+  'Throughout my life, I have seen how difficult circumstances can affect individuals and families. Financial hardship, family struggles, trauma, addiction, loneliness and difficult situations can leave people feeling abandoned and without hope.',
+  'The IICC Mission was founded on the belief that every person has dignity and purpose, and that no one should walk alone. We believe in accompaniment rather than abandonment, restoration rather than rejection, and hope rather than despair.',
+  'Our mission is to walk alongside individuals and families — including those affected by incarceration and immigration detention — offering faith-based guidance, practical support and compassionate services. Together, we work to rebuild lives, strengthen families and create communities where everyone can belong.',
+  'This mission is made possible through the dedication of our supporters, volunteers, partners and the many people who believe in a more just, compassionate and hopeful world. Your support allows us to bring dignity, healing and new beginnings to those who need it most.',
+  'I invite you to join us on this journey. Together, we can build a world where every life matters and where restoration is possible.',
+  'Thank you for being part of this mission.',
 ];
 ---
-<Layout title="Founder Messages" description="A Journey of Faith, Compassion and Action — messages from the Ambassador & Founder.">
+<Layout title="Founder Messages" description="A Journey of Faith, Compassion and Action — a message from the Ambassador & Founder.">
+  <style>
+    .fm-body { display: grid; grid-template-columns: 0.75fr 1.4fr; gap: 3rem; padding-block: 2.5rem; }
+    .fm-values { background: #fbf6ec; border-radius: 6px; padding: 1.25rem 1.25rem 0.5rem; margin-top: 2rem; }
+    .fm-values h2 { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+    .fm-values h2::after { content: ''; flex: 1; height: 1px; background: var(--color-amber); }
+    .fm-value { display: grid; grid-template-columns: 3.25rem 1fr; gap: 1rem; align-items: center; padding-block: 0.875rem; border-bottom: 1px solid rgba(201,160,23,0.3); }
+    .fm-value:last-child { border-bottom: none; }
+    .fm-value h3 { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: 1.0625rem; }
+    .fm-value p { font-size: 0.875rem; line-height: 1.45; color: var(--color-text); }
+    .fm-letter h2 { font-family: var(--font-heading); color: var(--color-navy); font-size: 2.25rem; margin-bottom: 1.25rem; }
+    .fm-letter p { font-size: 1.0625rem; line-height: 1.6; color: var(--color-navy); margin-bottom: 1rem; }
+    .fm-sign { font-family: var(--font-script); font-size: 3rem; color: var(--color-navy); margin-block: 0.5rem; }
+    .fm-role { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; line-height: 1.45; }
+    @media (max-width: 860px) { .fm-body { grid-template-columns: 1fr; } }
+  </style>
 
-  <section class="hero-split">
-    <div class="hero-split__text" style="background:var(--color-navy);">
-      <span class="eyebrow eyebrow--white">Founder Messages</span>
-      <h1 class="section-title section-title--white" style="margin-block:0.5rem;">A Message from <span class="text-amber">the Founder</span></h1>
-      <p class="section-desc section-desc--white" style="max-width:none;">A Journey of Faith, Compassion and Action.</p>
-      <p class="section-desc section-desc--white" style="max-width:none;">Sharing hope. Building second chances. Creating a more just and compassionate world.</p>
-    </div>
-    <div class="hero-split__photo">
-      <img src="https://images.unsplash.com/photo-1529260830199-42c24126f198?w=1000&q=80" alt="Rome at sunset" />
+  <section class="hero-wave">
+    <div class="hero-wave__bg"><img src="/images/founder-messages/hero.jpg" alt="St Peter's Basilica and the Tiber at sunset" /></div>
+    <div class="hero-wave__panel">
+      <span class="eyebrow">Founder Messages</span>
+      <h1 class="hero-wave__title">A Message from <span class="text-amber">the Founder</span></h1>
+      <p class="hero-wave__lead" style="font-family:var(--font-heading); font-size:1.625rem; line-height:1.25;">A Journey of Faith, Compassion and Action</p>
+      <p class="hero-wave__lead">Sharing hope. Building second chances.<br />Creating a more just and compassionate world.</p>
     </div>
   </section>
 
-  <section class="section section--white">
-    <div class="wrap cols-60-40">
-      <div>
-        <h2 class="section-title" style="margin-bottom:1rem;">Dear Friends,</h2>
-        <p class="section-desc" style="max-width:none; margin-bottom:1rem;">
-          Throughout my life, I have seen how difficult circumstances can affect individuals and
-          families. Financial hardship, family struggles, trauma, addiction, loneliness and
-          difficult situations can leave people feeling abandoned and without hope.
-        </p>
-        <p class="section-desc" style="max-width:none; margin-bottom:1rem;">
-          The IICC Mission was founded on the belief that every person has dignity and purpose,
-          and that no one should walk alone. We believe in accompaniment rather than abandonment,
-          restoration rather than rejection, and hope rather than despair.
-        </p>
-        <p class="section-desc" style="max-width:none; margin-bottom:1rem;">
-          Our mission is to walk alongside individuals and families — including those affected by
-          incarceration and immigration detention — offering faith-based guidance, practical
-          support and compassionate services. Together, we work to rebuild lives, strengthen
-          families and create communities where everyone can belong.
-        </p>
-        <p class="section-desc" style="max-width:none; margin-bottom:1rem;">
-          This mission is made possible through the dedication of our supporters, volunteers,
-          partners and the many people who believe in a more just, compassionate and hopeful
-          world. Your support allows us to bring dignity, healing and new beginnings to those who
-          need it most.
-        </p>
-        <p class="section-desc" style="max-width:none; margin-bottom:1rem;">
-          I invite you to join us on this journey. Together, we can build a world where every life
-          matters and where restoration is possible. Thank you for being part of this mission.
-        </p>
-        <p style="font-family:var(--font-heading); font-style:italic; font-size:1.125rem; color:var(--color-navy);">With gratitude, Antonio G. Dattilo</p>
-        <p style="font-size:0.75rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--color-muted);">Ambassador &amp; Founder, IICC Mission</p>
+  <section class="wrap fm-body">
+    <aside>
+      <div class="quote-plain" style="border-top:1px solid var(--color-amber); padding-top:1.25rem;">
+        <p class="quote-plain__text">For I know the plans I have for you, plans to prosper you and not to harm you, plans to give you hope and a future.</p>
+        <span class="quote-plain__ref">Jeremiah 29:11</span>
       </div>
-      <div>
-        <div class="quote-box" style="margin-bottom:1.5rem;">
-          <span class="quote-box__mark">&ldquo;</span>
-          <p class="quote-box__text">"For I know the plans I have for you, plans to prosper you and not to harm you, plans to give you hope and a future."</p>
-          <span class="quote-box__ref">— Jeremiah 29:11</span>
-        </div>
-        <div class="card" style="background:var(--color-off-white);">
-          <span class="card__title">Our Guiding Values</span>
-          <div class="checklist" style="margin-top:0.5rem;">
-            {values.map(v => <li><strong>{v.title}</strong> — {v.desc}</li>)}
+      <div class="fm-values">
+        <h2>Our Guiding Values</h2>
+        {values.map(v => (
+          <div class="fm-value">
+            <span style={`color:${v.navy ? 'var(--color-navy)' : 'var(--color-amber)'}`}><Icon name={v.icon} size={48} /></span>
+            <div><h3>{v.title}</h3><p>{v.text}</p></div>
           </div>
-        </div>
+        ))}
       </div>
-    </div>
+    </aside>
+    <article class="fm-letter">
+      <h2>Dear Friends,</h2>
+      {letter.map(p => <p>{p}</p>)}
+      <p>With gratitude,</p>
+      <p class="fm-sign">Antonio G. Dattilo</p>
+      <p class="fm-role">Antonio G. Dattilo<br />Ambassador &amp; Founder<br />IICC Mission</p>
+    </article>
   </section>
 
-  <div class="cta-band">
-    <div class="wrap cta-band__inner">
-      <div class="cta-band__text">
-        <span class="eyebrow eyebrow--white">Together We Can</span>
-        <h2 class="section-title section-title--white">Build a Brighter Tomorrow</h2>
-        <p class="section-desc section-desc--white">A more just, compassionate and hopeful world is possible — one life, one family, one community at a time.</p>
-      </div>
-      <a href="/get-involved" class="btn btn--amber">Get Involved &gt;</a>
+  <section class="photo-band photo-band--fade curve-top">
+    <div class="photo-band__bg"><img src="/images/founder-messages/band.jpg" alt="A man sitting on a wall looking at Rome at sunset" /></div>
+    <div class="photo-band__text">
+      <span class="eyebrow">Together We Can</span>
+      <h2 class="hero-wave__title" style="font-size:clamp(1.75rem,3.5vw,2.5rem);">Build a Brighter <span class="text-amber">Tomorrow</span></h2>
+      <p>A more just, compassionate and hopeful world is possible — one life, one family, one community at a time.</p>
+      <a href="/get-involved" class="btn btn--amber" style="align-self:flex-start;">Get Involved &gt;</a>
     </div>
-  </div>
+  </section>
 </Layout>
