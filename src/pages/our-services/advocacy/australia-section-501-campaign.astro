@@ -1,0 +1,46 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import MinHero from '../../../components/MinHero.astro';
+import CampBand from '../../../components/CampBand.astro';
+import MinBand from '../../../components/MinBand.astro';
+import IconCards from '../../../components/IconCards.astro';
+import CampCards from '../../../components/CampCards.astro';
+import ActionBox from '../../../components/ActionBox.astro';
+import CheckPanel from '../../../components/CheckPanel.astro';
+import StatsRow from '../../../components/StatsRow.astro';
+import LeadersBand from '../../../components/LeadersBand.astro';
+import QuoteBanner from '../../../components/QuoteBanner.astro';
+import JoinCta from '../../../components/JoinCta.astro';
+import MiddlePanel from '../../../components/MiddlePanel.astro';
+import ImStrip from '../../../components/ImStrip.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/advocacy/${n}.jpg`;
+---
+<Layout title="Australia Section 501 Campaign" description="People are not criminals. Detention is not the answer.">
+  <MinHero boxed kicker="🇦🇺 Australia Campaign" title="Immigration<br/>Detention<br/><span>Reform</span>" subtitle="People are not criminals.<br/><span style='color:#c9741f'>Detention is not the answer.</span>"
+    intro={['We advocate for a fair, humane and just immigration system that upholds human dignity, protects rights and builds stronger communities for all.']}
+    img={img('aus-hero')} alt="A family walking hand in hand beside a detention fence at sunset" quote="I was a stranger and you welcomed me." quoteRef="Matthew 25:35" />
+  <CampBand lead="Australia’s immigration detention system impacts thousands of people each year – men, women and children seeking safety and a better future. It is time for change." items={[
+    { icon: 'people-group', title: 'Protect Human Dignity', text: 'Every person deserves respect, safety and compassion.' }, { icon: 'scale-balanced', title: 'End Unnecessary Detention', text: 'Detention should be a last resort, never the default.' },
+    { icon: 'people-roof', title: 'Focus on Families & Children', text: 'No child should be locked up. Keep families together.' }, { icon: 'shield-halved', title: 'Ensure Fair Process & Transparency', text: 'People deserve clear information, fairness and justice.' }, { icon: 'handshake', title: 'Build a Better Australia', text: 'A humane system strengthens our nation and our values.' },
+  ]} />
+  <CampCards title="Why Immigration Detention Reform Matters" items={[
+    { photo: 'aus-c1', icon: 'user', title: 'Humane Treatment', text: 'Detention causes deep psychological harm and trauma. We advocate for alternatives that respect human dignity.' },
+    { photo: 'aus-c2', icon: 'people-group', title: 'Children First', text: 'Children should never be detained. We call for an end to the detention of children and their families.' },
+    { photo: 'aus-c3', icon: 'scale-balanced', title: 'Fair & Just Process', text: 'People seeking protection deserve timely, fair and independent assessment of their claims.' },
+    { photo: 'aus-c4', icon: 'dove', title: 'Community Solutions', text: 'Community-based alternatives are safer, more effective and far more humane.' },
+    { photo: 'aus-c5', icon: 'heart', title: 'Stronger Together', text: 'We can build a more welcoming, compassionate and inclusive Australia for everyone.' },
+  ]} />
+  <section class="wrap camp-3" style="grid-template-columns:1.6fr 1fr;">
+    <CheckPanel title="Our Advocacy Priorities" items={[['End Mandatory Detention','Detention should not be automatic. It must be a last resort, used only in exceptional cases.'],['Release Children and Families','All children must be released from detention. Families belong together in the community.'],['Expand Community Alternatives','Invest in housing, support services and case management as effective alternatives.'],['Ensure Transparency & Oversight','Increase independent oversight, accountability and transparency in detention centres.'],['Protect Mental Health & Wellbeing','Provide adequate healthcare, trauma-informed support and access to essential services.']]} />
+    <div style="display:flex; flex-direction:column; gap:0.75rem;">
+      <ActionBox title="Take Action Today" text="Your voice can help create a fairer, more compassionate immigration system. Stand with us for justice." buttons={[{ label: 'Sign Our Petition', icon: 'file-signature', href: '/our-services/advocacy/petition-campaigns' }, { label: 'Contact Your MP', icon: 'envelope', kind: 'white', href: '/contact' }, { label: 'Share This Campaign', icon: 'share-nodes', kind: 'white', href: '/contact' }]} />
+      <ActionBox light text="Support our work to end immigration detention and build community solutions." buttons={[{ label: 'Donate Now', icon: 'heart' }, { label: 'Support on GoFundMe', kind: 'green' }]} />
+    </div>
+  </section>
+  <section class="wrap camp-3" style="grid-template-columns:1fr 1.25fr; padding-top:0;">
+    <div style="background:var(--color-navy-dark); color:#fff; border-radius:4px; padding:1.25rem;"><h2 style="font-family:var(--font-heading); text-transform:uppercase; font-weight:400;">The Reality</h2><div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:0.75rem;">{[['people-group','2,000+','People in immigration detention on any given day in Australia'],['baby','100+','Children have been born in immigration detention'],['calendar','Many','People detained for years with no end in sight']].map(([i,n,t]) => <div style="display:grid; grid-template-columns:2.5rem 1fr; gap:0.6rem;"><span style="color:#d9862a;"><Icon name={i} size={30} /></span><div><strong style="color:#d9862a; font-family:var(--font-heading); font-size:1.25rem; font-weight:400;">{n}</strong><p style="font-size:0.75rem;">{t}</p></div></div>)}</div></div>
+    <div style="display:grid; grid-template-columns:1.1fr 0.9fr; background:#f5efe4; border-radius:4px; overflow:hidden; align-items:center;"><p style="padding:1.25rem; font-family:var(--font-heading); font-style:italic; color:var(--color-navy); font-size:1.375rem; line-height:1.4; text-align:center;"><span style="color:#c9741f; font-size:2.5rem; font-style:normal; line-height:0.5;">&ldquo;</span> A nation is judged by how it treats those who have nothing.<span style="display:block; color:#c9741f; font-size:1rem; margin-top:0.4rem;">– Mahatma Gandhi</span></p><img src={img('aus-child')} alt="A child holding a teddy bear behind a fence" style="width:100%; height:100%; object-fit:cover;" /></div>
+  </section>
+  <JoinCta text="Together, we can build an immigration system that reflects our values of compassion, justice and dignity. Let’s choose welcome over fear. Let’s choose humanity." />
+</Layout>

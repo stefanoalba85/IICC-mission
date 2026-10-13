@@ -1,0 +1,50 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import MinHero from '../../../components/MinHero.astro';
+import CampBand from '../../../components/CampBand.astro';
+import MinBand from '../../../components/MinBand.astro';
+import IconCards from '../../../components/IconCards.astro';
+import CampCards from '../../../components/CampCards.astro';
+import ActionBox from '../../../components/ActionBox.astro';
+import CheckPanel from '../../../components/CheckPanel.astro';
+import StatsRow from '../../../components/StatsRow.astro';
+import LeadersBand from '../../../components/LeadersBand.astro';
+import QuoteBanner from '../../../components/QuoteBanner.astro';
+import JoinCta from '../../../components/JoinCta.astro';
+import MiddlePanel from '../../../components/MiddlePanel.astro';
+import ImStrip from '../../../components/ImStrip.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/advocacy/${n}.jpg`;
+---
+<Layout title="Petition Campaigns" description="Every person. Every country. Every life matters.">
+  <MinHero boxed kicker="🌐 Global Advocacy" title="Prison Conditions<br/><span>Worldwide</span>" subtitle="Every person. Every country.<br/><span style='color:#c9741f'>Every life matters.</span>"
+    intro={['Millions of people around the world live behind bars. Too many are forgotten. The IICC Mission shines a light on prison conditions worldwide and works for change through advocacy, compassion and justice.']}
+    img={img('pet-hero')} alt="A prison watchtower at sunset" quote="The true measure of a society is how it treats those who are imprisoned." quoteRef="Nelson Mandela" />
+  <section style="background:var(--color-navy-dark); color:#fff;"><div class="wrap" style="display:grid; grid-template-columns:repeat(8,1fr); padding-block:1.1rem;" class="camp-grid">
+    {[['hand-holding-heart','Human Dignity','Every person has inherent worth and deserves respect.'],['people-group','Overcrowding','Severe overcrowding fuels violence, illness and despair.'],['heart-pulse','Health & Hygiene','Inadequate healthcare and poor sanitation put lives at risk.'],['brain','Mental Health','Lack of mental health care deepens trauma and isolation.'],['shield-halved','Violence & Abuse','Violence, torture and ill-treatment must never be tolerated.'],['lock','Isolation','Long periods in isolation cause lasting psychological damage.'],['book-open','Lack of Opportunity','Limited education and rehabilitation keep people trapped in cycles.'],['building-columns','Need for Reform','Reform is possible. Change begins with awareness and action.']].map(([i,t,d]) => <div style="text-align:center; border-left:1px solid rgba(201,150,42,0.35); padding-inline:0.4rem; display:flex; flex-direction:column; align-items:center; gap:0.3rem;"><span style="color:#d9862a;"><Icon name={i} size={36} /></span><strong style="font-family:var(--font-body); font-size:0.75rem; text-transform:uppercase;">{t}</strong><span style="font-size:0.7rem; line-height:1.35;">{d}</span></div>)}
+  </div></section>
+  <IconCards title="The Reality in Prisons Around the World" items={[
+    { icon: 'people-group', title: '11+ Million', text: 'People are imprisoned worldwide.' }, { icon: 'chart-column', title: '1 in 5', text: 'Prisons are operating over capacity.' },
+    { icon: 'kit-medical', title: 'Poor Healthcare', text: 'Many prisons lack access to basic medical care.' }, { icon: 'brain', title: 'Mental Health Crisis', text: 'High rates of depression, anxiety and self-harm.' },
+    { icon: 'scale-balanced', title: 'Human Rights Violations', text: 'Torture, abuse and neglect continue in many countries.' }, { icon: 'globe', title: 'Every Region', text: 'No country is immune to the prison conditions crisis.' },
+  ]} />
+  <section class="wrap camp-split">
+    <img src={img('pet-man')} alt="A man sitting by a prison window at sunrise" />
+    <MiddlePanel title="We Monitor. We Report. We Advocate." text="We work with partners and human rights bodies to document conditions, raise awareness and demand reforms that uphold the dignity and rights of all people in prison." trio={[{ icon: 'file-lines', title: 'Research', text: 'Gather data and document the truth' }, { icon: 'bullhorn', title: 'Raise Awareness', text: 'Give a voice to the forgotten' }, { icon: 'handshake', title: 'Drive Change', text: 'Advocate for reforms and accountability' }]} />
+    <ActionBox title="Take Action Today" text="Join us in demanding safe, humane and dignified prison conditions for all." buttons={[{ label: 'Sign Our Petition' , href: '/contact' }, { label: 'Share This Campaign', icon: 'envelope', kind: 'white', href: '/contact' }, { label: 'Support on GoFundMe', kind: 'green' }, { label: 'Donate Now', icon: 'heart' }]} />
+  </section>
+  <section class="wrap camp-3">
+    <CheckPanel title="Key Issues We Address" items={['Overcrowding and inadequate infrastructure','Lack of healthcare and mental health services','Poor sanitation, food and living conditions','Violence, abuse and excessive use of force','Solitary confinement and prolonged isolation','Lack of rehabilitation, education and opportunities','Discrimination and vulnerable populations at risk','Lack of transparency and independent oversight']} />
+    <CheckPanel title="Our Goals" items={['Promote compliance with international standards','Strengthen oversight and accountability','Ensure access to healthcare and mental health care','Support rehabilitation and reintegration','Protect vulnerable prisoners','End torture, abuse and all forms of ill-treatment','Build global partnerships for lasting reform']} />
+    <CheckPanel title="Human Rights Resources" items={['Universal Declaration of Human Rights','International Covenant on Civil and Political Rights','Convention Against Torture','UN Standard Minimum Rules for the Treatment of Prisoners (Nelson Mandela Rules)','Useful Links & Organisations']} />
+  </section>
+  <StatsRow label="Why It Matters" items={[
+    { icon: 'people-group', num: '60,000+', text: 'Families affected every day.' }, { icon: 'globe', num: '100+', text: 'Countries where prison conditions need reform.' },
+    { icon: 'file-lines', num: '15+', text: 'UN standards exist to protect dignity.' }, { icon: 'handshake', num: 'Together', text: 'We can build a world of justice and hope.' }, { icon: 'chart-line', num: 'Change is possible', text: 'Through advocacy, compassion and action.' },
+  ]} />
+  <section style="position:relative; background:var(--color-navy-dark); color:#fff; overflow:hidden; text-align:center;">
+    <img src={img('pet-ql')} alt="" style="position:absolute; left:0; top:0; width:32%; height:100%; object-fit:cover; -webkit-mask-image:linear-gradient(90deg,#000 40%,transparent); mask-image:linear-gradient(90deg,#000 40%,transparent);" />
+    <img src={img('pet-qr')} alt="" style="position:absolute; right:0; top:0; width:32%; height:100%; object-fit:cover; -webkit-mask-image:linear-gradient(270deg,#000 40%,transparent); mask-image:linear-gradient(270deg,#000 40%,transparent);" />
+    <div class="wrap" style="position:relative; padding-block:1.75rem;"><h2 style="font-family:var(--font-heading); text-transform:uppercase; font-weight:400; font-size:1.5rem; line-height:1.3;">Dignity behind bars.<br />Justice without borders.</h2><span class="heart-rule heart-rule--center" style="max-width:220px; margin-block:0.5rem;">♡</span><p style="font-family:var(--font-heading); font-size:1.125rem;">Hope for every person.</p></div>
+  </section>
+</Layout>

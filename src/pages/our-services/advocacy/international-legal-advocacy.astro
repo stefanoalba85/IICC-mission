@@ -1,0 +1,60 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import MinHero from '../../../components/MinHero.astro';
+import CampBand from '../../../components/CampBand.astro';
+import MinBand from '../../../components/MinBand.astro';
+import IconCards from '../../../components/IconCards.astro';
+import CampCards from '../../../components/CampCards.astro';
+import ActionBox from '../../../components/ActionBox.astro';
+import CheckPanel from '../../../components/CheckPanel.astro';
+import StatsRow from '../../../components/StatsRow.astro';
+import LeadersBand from '../../../components/LeadersBand.astro';
+import QuoteBanner from '../../../components/QuoteBanner.astro';
+import JoinCta from '../../../components/JoinCta.astro';
+import MiddlePanel from '../../../components/MiddlePanel.astro';
+import ImStrip from '../../../components/ImStrip.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/advocacy/${n}.jpg`;
+const focus = [
+  ['building-lock','Fair Treatment & Human Dignity','Advocating for humane detention conditions, respect for dignity and an end to cruel, inhuman or degrading treatment.'],
+  ['book-open','Access to Justice','Ensuring every person has the right to legal representation, fair hearings and effective remedies.'],
+  ['hand-holding-heart','Rehabilitation & Reintegration','Promoting policies that support rehabilitation, education, vocational training and successful reintegration into society.'],
+  ['people-roof','Family Rights','Protecting the rights of families to stay connected and supporting children and loved ones of prisoners and detainees.'],
+  ['dove','Special Protection for Vulnerable Groups','Advocating for the rights of migrants, immigration detainees, youth, people with disabilities and other vulnerable individuals.'],
+  ['globe','Law & Policy Reform','Working for laws and policies that are fair, proportionate, and consistent with international human rights standards.'],
+];
+const approach = [
+  ['magnifying-glass','Research & Documentation','We gather facts, monitor conditions and document human rights concerns.'],
+  ['scale-balanced','Legal Analysis','We analyse laws, policies and practices against international standards.'],
+  ['comments','Advocacy & Dialogue','We engage with governments, institutions and stakeholders to promote change.'],
+  ['handshake','Strategic Partnerships','We collaborate with legal experts, NGOs, faith organisations and human rights bodies worldwide.'],
+  ['building-columns','Litigation & Legal Remedies','Where appropriate, we support access to courts and international mechanisms to seek justice.'],
+];
+---
+<Layout title="International Legal Advocacy" description="Justice knows no borders. Human dignity is universal.">
+  <MinHero boxed title="International<br/><span>Legal Advocacy</span>" subtitle="Justice knows no borders.<br/><span style='color:#c9741f'>Human dignity is universal.</span>"
+    intro={['The IICC Mission advocates for the rights of prisoners, detainees and their families through lawful and peaceful means at national, regional and international levels. We work to ensure that laws, policies and practices respect human dignity and align with international human rights standards.']}
+    img={img('il-hero')} alt="The International Court of Justice with flags" quote="Let justice roll on like a river, righteousness like a never-failing stream!" quoteRef="Amos 5:24" />
+  <CampBand lead="<span style='font-size:1.3rem'>We believe in lawful advocacy that promotes justice, protects rights and builds a more humane world.</span>" items={[
+    { icon: 'hand-holding-heart', title: 'Defending rights. Protecting dignity.' }, { icon: 'globe', title: 'Upholding international human rights law.' }, { icon: 'dove', title: 'Promoting justice, peace and hope.' },
+  ]} />
+  <section class="wrap camp-3" style="padding-top:1.25rem;">
+    <div><h2 class="camp-h">Our Advocacy Focus</h2>{focus.map(([i,t,d]) => <div class="im-row" style="grid-template-columns:3.25rem 1fr;"><i style="width:3.25rem; height:3.25rem;"><Icon name={i} size={22} /></i><div><h3 style="text-transform:none; font-size:1rem;">{t}</h3><p>{d}</p></div></div>)}</div>
+    <div><h2 class="camp-h">Our Approach</h2>{approach.map(([i,t,d]) => <div style="background:#f7f3ec; border-radius:6px; padding:0.75rem; margin-top:0.6rem; display:grid; grid-template-columns:3.5rem 1fr; gap:0.75rem; align-items:center;"><span style="width:3.5rem; height:3.5rem; border-radius:50%; border:1.5px solid #c9741f; color:#c9741f; display:flex; align-items:center; justify-content:center;"><Icon name={i} size={24} /></span><div><h3 class="im-h" style="text-transform:none; font-size:1rem;">{t}</h3><p class="im-p" style="font-size:0.875rem;">{d}</p></div></div>)}</div>
+    <div><CheckPanel light={false} title="International Frameworks" items={['Universal Declaration of Human Rights (UDHR)','International Covenant on Civil and Political Rights (ICCPR)','Convention Against Torture (CAT)','UN Standard Minimum Rules for the Treatment of Prisoners (Nelson Mandela Rules)','Body of Principles for the Protection of All Persons under Any Form of Detention','European Convention on Human Rights (ECHR)','Regional human rights systems and mechanisms']} />
+      <div class="im-note" style="background:#f5efe4; border:none;"><span style="color:#c9741f;"><Icon name="dove" size={40} /></span><span style="font-style:italic; font-size:0.9375rem;">“We must not forget those who are in prison. They are persons, they have faces, they have stories, they have hearts.”<br /><span style="color:#c9741f;">– Pope Francis</span></span></div></div>
+  </section>
+  <section style="background:#f5efe4;"><div class="wrap" style="display:grid; grid-template-columns:5rem 1fr auto; gap:1.25rem; align-items:center; padding-block:1rem;">
+    <span style="width:4.5rem; height:4.5rem; border-radius:50%; border:2px solid #c9741f; color:var(--color-navy); display:flex; align-items:center; justify-content:center;"><Icon name="people-group" size={34} /></span>
+    <div><h2 style="font-family:var(--font-heading); color:var(--color-navy); text-transform:uppercase; font-size:1.25rem; font-weight:400;">Advocating Today for a Just Tomorrow.</h2><p class="im-p">Your support helps us raise our voice for those who cannot be heard, and build a world where every person is treated with dignity and respect.</p></div>
+    <a href="/donate" class="btn btn--amber">Support Our Advocacy ♥</a>
+  </div></section>
+  <ImStrip items={[
+    { icon: 'bullhorn', title: 'Raise Awareness', text: 'Help inform others about human rights issues.' }, { icon: 'people-group', title: 'Sign Petitions', text: 'Add your voice to calls for justice and reform.' },
+    { icon: 'hand-holding-heart', title: 'Support Legal Cases', text: 'Fund legal actions that protect rights and change lives.' }, { icon: 'handshake', title: 'Partner With Us', text: 'Collaborate in research, advocacy and reform.' },
+    { icon: 'hand-holding-dollar', title: 'Make a Donation', text: 'Your generosity makes our global advocacy possible.' }, { icon: 'globe', title: 'Pray With Us', text: 'Pray for justice, mercy and the dignity of all.' },
+  ]} />
+  <section style="position:relative; background:var(--color-navy-dark); color:#fff; overflow:hidden;"><img src={img('il-band')} alt="" style="position:absolute; inset:0 0 0 60%; width:40%; height:100%; object-fit:cover; -webkit-mask-image:linear-gradient(90deg,transparent,#000 50%); mask-image:linear-gradient(90deg,transparent,#000 50%);" />
+    <div class="wrap" style="position:relative; display:grid; grid-template-columns:5rem 1fr; gap:1.25rem; align-items:center; padding-block:1.25rem;"><span style="color:#d9862a;"><Icon name="hand-holding-heart" size={64} /></span><p style="font-family:var(--font-heading); font-size:1.375rem; line-height:1.4;">True justice is not measured by how we treat the powerful,<br />but by how we treat the most vulnerable.</p></div>
+  </section>
+</Layout>

@@ -1,0 +1,46 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import MinHero from '../../../components/MinHero.astro';
+import CampBand from '../../../components/CampBand.astro';
+import MinBand from '../../../components/MinBand.astro';
+import IconCards from '../../../components/IconCards.astro';
+import CampCards from '../../../components/CampCards.astro';
+import ActionBox from '../../../components/ActionBox.astro';
+import CheckPanel from '../../../components/CheckPanel.astro';
+import StatsRow from '../../../components/StatsRow.astro';
+import LeadersBand from '../../../components/LeadersBand.astro';
+import QuoteBanner from '../../../components/QuoteBanner.astro';
+import JoinCta from '../../../components/JoinCta.astro';
+import MiddlePanel from '../../../components/MiddlePanel.astro';
+import ImStrip from '../../../components/ImStrip.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/advocacy/${n}.jpg`;
+---
+<Layout title="International Human Rights Campaign" description="Defending Human Dignity. Promoting Justice. Building a More Compassionate World.">
+  <MinHero boxed kicker="Advocacy" title="International<br/><span>Human Rights</span><br/>Campaign" subtitle="Defending Human Dignity.<br/>Promoting Justice. Building a<br/>More Compassionate World."
+    intro={['The IICC Mission advocates for the fundamental human rights of all people, especially the vulnerable, the forgotten, and those whose voices are too often ignored.']}
+    img={img('ihr-hero')} alt="People embracing in front of a globe at sunset" quote="All human beings are born free and equal in dignity and rights." quoteRef="Universal Declaration of Human Rights" />
+  <section style="background:var(--color-navy-dark); color:#fff; padding-block:1.25rem;"><div class="wrap icol" style="color:#fff;">
+    {[['scale-balanced','Human Dignity','Every person has inherent worth and deserves respect.'],['shield-halved','Justice for All','We champion fairness, equality and accountability.'],['dove','Compassion in Action','We walk alongside those who suffer and are forgotten.'],['people-group','Voices of the Silenced','We amplify stories that challenge injustice and awaken conscience.'],['globe','Global Solidarity','Together, we build a world where rights are protected for everyone.']].map(([i,t,d]) => <div style="align-items:center; text-align:center; border-color:rgba(184,137,43,0.4);"><span style="width:4.5rem; height:4.5rem; border-radius:50%; border:1.5px solid #c9741f; color:#d9862a; display:flex; align-items:center; justify-content:center;"><Icon name={i} size={34} /></span><h3 style="color:#fff; font-weight:400;">{t}</h3><p style="font-family:var(--font-heading); font-size:0.875rem;">{d}</p></div>)}
+  </div></section>
+  <section class="wrap camp-3" style="padding-top:1.25rem;">
+    <div style="background:#f7f6f3; border-radius:4px; padding:1.25rem; display:flex; flex-direction:column; gap:1rem;">
+      <div><h2 class="camp-h" style="text-align:left; font-size:1.125rem;">Our Vision</h2><p class="im-p" style="font-size:0.9375rem;">A world where every person—regardless of race, nationality, faith, gender, or background—enjoys their human rights and lives with dignity, freedom and hope.</p></div>
+      <div><h2 class="camp-h" style="text-align:left; font-size:1.125rem;">Our Mission</h2><p class="im-p" style="font-size:0.9375rem;">The IICC Mission advocates for human rights through education, advocacy, legal support, awareness, and international collaboration. We stand with individuals and communities facing injustice and work for meaningful change at local, national and global levels.</p></div>
+    </div>
+    <CheckPanel light={false} title="Our Priorities" items={['Protecting the right to life, liberty, and security.','Promoting fair trials and access to justice.','Upholding freedom from torture, abuse and cruel treatment.','Defending the rights of prisoners, detainees and migrants.','Advocating for women, children and vulnerable communities.','Raising awareness and educating communities.','Promoting reconciliation, healing and restoration.','Holding systems accountable and advocating for reform.']} />
+    <div style="display:flex; flex-direction:column; gap:0.75rem;">
+      <ActionBox title="Get Support or Information" text="If you or someone you know is experiencing a human rights violation or needs guidance, we are here to help." buttons={[{ label: 'Request Confidential Support', href: '/get-involved/support-request' }, { label: 'Share Your Story (Confidential)', kind: 'white', href: '/get-involved/submit-your-story' }]} />
+      <ActionBox light title="Support the Human Rights Campaign" text="Your support helps us continue our advocacy, provide legal information, raise awareness and defend the rights of those who need it most." buttons={[{ label: 'Donate Now' }]} />
+    </div>
+  </section>
+  <CampCards title="Our Current Advocacy Campaigns" items={[
+    { photo: 'ihr-c1', icon: 'scale-balanced', title: 'Justice for Those Affected by the Lawyer X Scandal', text: 'Seeking accountability and justice for individuals whose fair trial rights were undermined.' },
+    { photo: 'ihr-c2', icon: 'globe', title: 'Fair Trial Rights for All', text: 'Promoting fair trials and protecting the rights of people in the criminal justice system.' },
+    { photo: 'ihr-c3', icon: 'people-group', title: 'Rights of Detainees & Migrants', text: 'Defending the dignity and rights of people in immigration detention and their families.' },
+  ]} />
+  <section class="wrap" style="display:grid; grid-template-columns:repeat(4,1fr); gap:0.75rem; padding-bottom:1.25rem;">
+    {[['book-open','Human Rights Resources','Universal Declaration of Human Rights · ICCPR · Convention Against Torture · Useful links','View Resources','/resources'],['people-group','Stories of Hope','Read stories of individuals and communities who have overcome injustice with the support of compassionate people.','Read Stories','/programs/hope-companion/stories'],['bullhorn','Media & Awareness','Watch interviews, videos and updates from around the world to stay informed and inspired to take action.','Visit Media Centre','/resources/videos'],['hand-holding-heart','Take Action','Pray for justice. Share awareness. Volunteer your time and skills. Support our campaigns.','Make a Difference','/get-involved']].map(([i,t,d,c,h],k) => <div class="im-panel" style={k===3 ? 'background:var(--color-navy-dark); color:#fff; border:none;' : ''}><div style="display:grid; grid-template-columns:2.75rem 1fr; gap:0.6rem; align-items:center;"><span style="color:#c9741f;"><Icon name={i} size={36} /></span><h3 class="im-h" style={k===3 ? 'color:#fff' : ''}>{t}</h3></div><p class="im-p" style={`font-size:0.875rem; margin-block:0.6rem; ${k===3 ? 'color:#fff' : ''}`}>{d}</p><a href={h} style="color:#c9741f; font-weight:700; font-size:0.8125rem; text-transform:uppercase;">{c} →</a></div>)}
+  </section>
+  <JoinCta text="Together, we can defend human rights.<br/>Your voice. Your support. Real change." cta="Get Involved Today" />
+</Layout>

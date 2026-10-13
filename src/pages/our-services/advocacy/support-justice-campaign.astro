@@ -1,0 +1,42 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import MinHero from '../../../components/MinHero.astro';
+import CampBand from '../../../components/CampBand.astro';
+import MinBand from '../../../components/MinBand.astro';
+import IconCards from '../../../components/IconCards.astro';
+import CampCards from '../../../components/CampCards.astro';
+import ActionBox from '../../../components/ActionBox.astro';
+import CheckPanel from '../../../components/CheckPanel.astro';
+import StatsRow from '../../../components/StatsRow.astro';
+import LeadersBand from '../../../components/LeadersBand.astro';
+import QuoteBanner from '../../../components/QuoteBanner.astro';
+import JoinCta from '../../../components/JoinCta.astro';
+import MiddlePanel from '../../../components/MiddlePanel.astro';
+import ImStrip from '../../../components/ImStrip.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/advocacy/${n}.jpg`;
+const camps = [
+  ['sup-c1','Reform Article 41-bis in Italy','We are calling for reform of Article 41-bis to ensure proportionality, human dignity and access to rehabilitation.','HIGH',38,'/our-services/advocacy/article-41-bis-reform'],
+  ['sup-c2','End Indefinite Immigration Detention','We advocate for an end to indefinite immigration detention and for a fair, timely and humane process.','HIGH',45,'/our-services/advocacy/immigration-reform-campaign'],
+  ['sup-c3','Right to Rehabilitation for Every Prisoner','We advocate for laws that guarantee access to education, training, mental health support and rehabilitation programs.','HIGH',40,'/our-services/advocacy/rehabilitation-for-every-prisoner'],
+  ['sup-c4','Abolish Discriminatory Laws','We work to remove laws and policies that disproportionately punish and disadvantage vulnerable people.','MEDIUM',25,'/our-services/advocacy/mandatory-visa-cancellation'],
+  ['sup-c5','Protect Families Behind Bars','We advocate for policies that protect the rights of prisoners to maintain family connections and support their children.','MEDIUM',25,'/our-services/advocacy/human-dignity-in-detention'],
+];
+---
+<Layout title="Support an Advocacy Campaign" description="Your support fuels justice. Your generosity changes lives.">
+  <MinHero boxed title="Support an<br/><span>Advocacy</span><br/>Campaign" subtitle="Your support fuels justice.<br/><span style='color:#c9741f'>Your generosity changes lives.</span>"
+    intro={['Every campaign we lead is built on hope, powered by people like you, and driven by the belief that every person deserves dignity, fair treatment and a second chance.']}
+    img={img('sup-hero')} alt="Many hands joined together" quote="Take up the cause of the oppressed and defend the rights of the poor." quoteRef="Proverbs 31:9" />
+  <CampBand lead="Your donation helps us advocate for law reform, protect human rights and build a more just and compassionate world for prisoners, detainees and their families." items={[
+    { icon: 'bullhorn', title: 'Drive Change', text: 'Support campaigns that influence laws and policies.' }, { icon: 'shield-halved', title: 'Protect Dignity', text: 'Defend the rights of the most vulnerable.' },
+    { icon: 'hand-holding-heart', title: 'Give Hope', text: 'Restore hope and opportunity for brighter futures.' }, { icon: 'people-group', title: 'Make an Impact', text: 'Together, we can create lasting, positive change in our communities.' }, { icon: 'scale-balanced', title: 'Stand for Justice', text: 'Be a voice for those who cannot speak for themselves.' },
+  ]} />
+  <CampCards title="Our Priority Advocacy Campaigns" items={camps.map(([photo,title,text,u,pc,href]) => ({ photo, title, text, extra: `<p style="font-size:0.8125rem; color:${u==='HIGH' ? '#c0392b' : '#c9741f'}; font-weight:700;">Urgency: ${u}</p><div style="height:6px; background:#e6e6e6; border-radius:3px;"><div style="width:${pc}%; height:100%; background:${u==='HIGH' ? '#c0392b' : '#c9741f'}; border-radius:3px;"></div></div><a href="/donate" style="background:#c9741f; color:#fff; text-align:center; font-size:0.75rem; text-transform:uppercase; padding:0.5rem; border-radius:3px; margin-top:0.5rem;">Support This Campaign</a><a href="${href}" style="text-align:center; font-size:0.8125rem; color:var(--color-navy);">Learn more <span style="color:#c9741f">→</span></a>` }))} />
+  <section class="wrap camp-3">
+    <div style="background:#f5efe4; border-radius:4px; padding:1.25rem; display:grid; grid-template-columns:4.5rem 1fr; gap:1rem; align-items:start;"><span style="color:#c9741f;"><Icon name="hand-holding-heart" size={64} /></span><div><h2 class="im-h">Make a Difference Today</h2><p class="im-p" style="font-size:0.875rem; margin-block:0.5rem;">Your donation directly supports our advocacy work, research, legal action, petitions and campaigns.</p><a href="/donate" class="btn btn--amber" style="width:100%; justify-content:center;">Donate Now ♥</a><p style="text-align:center; margin-block:0.4rem;">or</p><a href="https://www.gofundme.com" style="background:#2f6b2a; color:#fff; display:block; text-align:center; padding:0.6rem; border-radius:3px; font-family:var(--font-heading);">Support us on GoFundMe</a></div></div>
+    <CheckPanel title="Your Support Helps Fund" items={['Legal research and reports','Law reform advocacy','Public awareness campaigns','Human rights education','Meetings with lawmakers','Support for affected families','International advocacy efforts']} />
+    <div style="background:#f7f6f3; border-radius:4px; padding:1.25rem;"><h2 class="camp-h" style="font-size:1.125rem;">Every Gift Counts</h2>{[['bullhorn','$25','Helps raise awareness'],['file-lines','$50','Supports research & reports'],['scale-balanced','$100','Helps fund legal consultations'],['people-group','$250','Supports advocacy meetings'],['dove','$500+','Fuels major campaign initiatives']].map(([i,a,t]) => <p style="display:grid; grid-template-columns:1.75rem 3.5rem 1fr; gap:0.4rem; align-items:center; margin-top:0.55rem; font-family:var(--font-heading); color:var(--color-navy); font-size:0.875rem;"><Icon name={i} size={18} /><strong style="font-weight:400;">{a}</strong>{t}</p>)}<p style="font-family:var(--font-heading); font-style:italic; color:var(--color-navy); margin-top:0.75rem;">Thank you for standing with us for justice!</p></div>
+  </section>
+  <section class="wrap" style="padding-bottom:1.25rem;"><h2 class="camp-h">Other Ways to Support</h2><div class="camp-trio" style="margin-top:0.75rem;">{[['share-nodes','Share Our Campaigns','Help spread awareness by sharing our campaigns with your network.'],['file-signature','Sign Petitions','Add your voice to our petitions and calls for reform.'],['people-group','Become a Volunteer','Offer your time and skills to support our advocacy work.'],['hands-praying','Pray for Justice','Lift up our missions and those we serve in your prayers.'],['building','Corporate Partnerships','Partner with us to create meaningful, lasting change.']].map(([i,t,d]) => <div style="flex-direction:row; text-align:left; gap:0.75rem; align-items:flex-start;"><span style="width:3.25rem; height:3.25rem; flex-shrink:0; border-radius:50%; background:var(--color-navy-dark); color:#d9862a; display:flex; align-items:center; justify-content:center;"><Icon name={i} size={22} /></span><span><strong style="display:block;">{t}</strong>{d}</span></div>)}</div></section>
+  <JoinCta text="Together, we can build a world where every person is treated with dignity, justice and compassion. Thank you for being part of this mission." cta="View All Campaigns" href="/our-services/advocacy" />
+</Layout>

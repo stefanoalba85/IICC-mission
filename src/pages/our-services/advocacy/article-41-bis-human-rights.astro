@@ -1,0 +1,53 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import MinHero from '../../../components/MinHero.astro';
+import CampBand from '../../../components/CampBand.astro';
+import MinBand from '../../../components/MinBand.astro';
+import IconCards from '../../../components/IconCards.astro';
+import CampCards from '../../../components/CampCards.astro';
+import ActionBox from '../../../components/ActionBox.astro';
+import CheckPanel from '../../../components/CheckPanel.astro';
+import StatsRow from '../../../components/StatsRow.astro';
+import LeadersBand from '../../../components/LeadersBand.astro';
+import QuoteBanner from '../../../components/QuoteBanner.astro';
+import JoinCta from '../../../components/JoinCta.astro';
+import MiddlePanel from '../../../components/MiddlePanel.astro';
+import ImStrip from '../../../components/ImStrip.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/advocacy/${n}.jpg`;
+const concerns = [
+  ['user','Long-Term Isolation','Extended isolation can cause severe psychological harm and may amount to inhuman or degrading treatment (UN Mandela Rules 43–45).'],
+  ['people-roof','Limited Family Contact','Severe restrictions impact the fundamental right to family life and can cause lasting harm to relationships, especially with children.'],
+  ['book-open','Restricted Access to Rehabilitation','Limited access to education, vocational training and programs undermines the right to rehabilitation and reintegration.'],
+  ['brain','Mental Health Impact','Prolonged isolation and sensory deprivation are linked to anxiety, depression, self-harm and other mental health conditions.'],
+  ['scale-balanced','Proportionality & Duration','Human rights law requires that restrictive measures be necessary, proportionate and regularly reviewed.'],
+];
+const act = [['file-signature','Sign Our Petition','Help us call on the Italian Parliament to reform Article 41-bis.'],['people-group','Raise Awareness','Share this campaign and help inform others.'],['hand-holding-heart','Support Our Advocacy','Your support helps us promote human dignity and justice for all.']];
+---
+<Layout title="Article 41-Bis & Human Rights" description="Security is necessary. But dignity is non-negotiable.">
+  <MinHero boxed title="Article 41-Bis<br/><span>&amp; Human Rights</span>" subtitle="Security is necessary.<br/><span style='color:#c9741f'>But dignity is non-negotiable.</span>"
+    intro={['The IICC Mission believes that all prison regimes, including Article 41-bis of the Italian Legal System, must respect international human rights standards and uphold the inherent dignity of every person.']}
+    img={img('a41-hero')} alt="A man sitting alone in a dark cell" quote="Every person, even those who have committed serious crimes, retains their human dignity and inalienable rights." quoteRef="IICC Mission" />
+  <section style="background:var(--color-navy-dark); color:#fff;"><div class="wrap" style="display:grid; grid-template-columns:5.5rem 1.6fr 1fr; gap:1.5rem; align-items:center; padding-block:1.25rem;">
+    <span style="color:#d9862a;"><Icon name="scale-balanced" size={80} /></span>
+    <div><h2 style="font-family:var(--font-heading); font-weight:400; font-size:1.375rem;">What is Article 41-bis?</h2><p style="font-family:var(--font-heading); font-size:0.9375rem; line-height:1.5; margin-top:0.4rem;">Article 41-bis of the Italian Penitentiary Law applies a special regime to prisoners considered to be linked to organized crime. While the intention is to prevent criminal communication and protect public security, its long-term and cumulative application raises serious human rights concerns.</p></div>
+    <div style="border:1px solid rgba(255,255,255,0.4); border-radius:4px; padding:1rem;"><h3 style="font-family:var(--font-heading); color:#d9a540; text-transform:uppercase; font-weight:400;">Our Position</h3><p style="font-family:var(--font-heading); font-size:0.9375rem; line-height:1.45;">The IICC Mission does not seek to undermine security. We seek to ensure that security measures are proportionate, necessary, time-limited and compliant with human rights law.</p></div>
+  </div></section>
+  <section class="wrap camp-3" style="grid-template-columns:1fr 1fr; padding-top:1.25rem;">
+    <div><h2 class="camp-h">Key Human Rights Concerns</h2>{concerns.map(([i,t,d]) => <div class="im-row" style="grid-template-columns:3.5rem 1fr;"><i style="width:3.5rem; height:3.5rem; color:#d9862a;"><Icon name={i} size={24} /></i><div><h3 style="text-transform:none; font-size:1rem;">{t}</h3><p style="font-size:0.8125rem;">{d}</p></div></div>)}</div>
+    <div><CheckPanel light={false} title="International Human Rights Standards" items={['European Convention on Human Rights (ECHR)','International Covenant on Civil and Political Rights (ICCPR)','UN Convention Against Torture (CAT)','UN Standard Minimum Rules for the Treatment of Prisoners (Nelson Mandela Rules)']}><p class="im-p" style="font-size:0.875rem; margin-top:0.5rem;">Italy is a party to international treaties that protect the rights of all persons deprived of liberty.</p></CheckPanel>
+      <div class="im-note" style="background:#f5efe4; border:none;"><span style="color:#c9741f;"><Icon name="dove" size={40} /></span><span style="font-style:italic;">“We must not forget those who are in prison. They are persons, they have faces, they have stories, they have hearts.”<br /><span style="color:#c9741f;">– Pope Francis</span></span></div></div>
+  </section>
+  <section class="wrap camp-split" style="grid-template-columns:0.9fr 1.3fr 0.95fr; background:#f7f6f3; padding:1rem; border-radius:4px;">
+    <img src={img('a41-parl')} alt="The Italian Parliament chamber" />
+    <CheckPanel light={false} title="Advocating for Reform" items={['Review Article 41-bis in light of human rights standards','Ensure time limits and regular independent reviews','Guarantee access to meaningful rehabilitation programs','Strengthen family contact and social reintegration pathways','Uphold the dignity of every person in detention']}><p class="im-p" style="font-size:0.875rem; margin-top:0.5rem;">The IICC Mission advocates for a fair and humane justice system that balances public safety with human dignity, rehabilitation and hope. We call on the Italian Parliament to act.</p></CheckPanel>
+    <div style="border:1px solid #c9a96a; border-radius:4px; padding:1rem; background:#fff;"><h2 class="camp-h" style="font-size:1.125rem;">Take Action</h2>{act.map(([i,t,d]) => <div class="im-row"><i><Icon name={i} size={20} /></i><div><h3>{t}</h3><p>{d}</p></div></div>)}<a href="/our-services/advocacy/petition-campaigns" class="btn btn--amber" style="width:100%; justify-content:center; margin-top:0.75rem;">Sign the Petition ♥</a></div>
+  </section>
+  <section style="position:relative; background:var(--color-navy-dark); color:#fff; overflow:hidden; margin-top:1rem;"><img src={img('a41-band')} alt="" style="position:absolute; inset:0 0 0 62%; width:38%; height:100%; object-fit:cover; -webkit-mask-image:linear-gradient(90deg,transparent,#000 50%); mask-image:linear-gradient(90deg,transparent,#000 50%);" />
+    <div class="wrap" style="position:relative; display:grid; grid-template-columns:5rem 1fr; gap:1.25rem; align-items:center; padding-block:1.25rem;"><span style="color:#d9862a;"><Icon name="hand-holding-heart" size={64} /></span><div><h2 style="font-family:var(--font-heading); color:#d9a540; text-transform:uppercase; font-weight:400; font-size:1.375rem;">A justice system is measured by how it treats its most vulnerable.</h2><p style="font-family:var(--font-heading); font-size:1.0625rem;">Security without humanity is not justice. True justice restores hope.</p></div></div>
+  </section>
+  <ImStrip items={[
+    { icon: 'hands-praying', title: 'We Believe', text: 'Every person is created in the image of God and deserves dignity.' }, { icon: 'shield-halved', title: 'We Advocate', text: 'For laws and policies that respect human rights and promote rehabilitation.' },
+    { icon: 'people-group', title: 'We Accompany', text: 'Prisoners and their families on the journey toward healing and reintegration.' }, { icon: 'scale-balanced', title: 'We Promote', text: 'Justice, mercy and reconciliation in our communities.' }, { icon: 'dove', title: 'We Hope', text: 'For a society where every person can build a new future.' },
+  ]} />
+</Layout>

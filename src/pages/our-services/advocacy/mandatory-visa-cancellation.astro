@@ -1,0 +1,46 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import MinHero from '../../../components/MinHero.astro';
+import CampBand from '../../../components/CampBand.astro';
+import MinBand from '../../../components/MinBand.astro';
+import IconCards from '../../../components/IconCards.astro';
+import CampCards from '../../../components/CampCards.astro';
+import ActionBox from '../../../components/ActionBox.astro';
+import CheckPanel from '../../../components/CheckPanel.astro';
+import StatsRow from '../../../components/StatsRow.astro';
+import LeadersBand from '../../../components/LeadersBand.astro';
+import QuoteBanner from '../../../components/QuoteBanner.astro';
+import JoinCta from '../../../components/JoinCta.astro';
+import MiddlePanel from '../../../components/MiddlePanel.astro';
+import ImStrip from '../../../components/ImStrip.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/advocacy/${n}.jpg`;
+---
+<Layout title="Mandatory Visa Cancellation Reform" description="People are not their mistakes. Let compassion lead our laws.">
+  <MinHero boxed kicker="🇦🇺 Australia Campaign" title="Mandatory<br/><span>Visa Cancellation</span><br/><small style='font-size:0.6em'>is Unjust &amp; Inhumane</small>" subtitle="People are not their mistakes.<br/><span style='color:#c9741f'>Let compassion lead our laws.</span>"
+    intro={['Mandatory visa cancellation laws tear families apart, punish people twice and go against the values of fairness, mercy and human dignity. It is time to change.']}
+    img={img('mv-hero')} alt="People protesting with a sign calling for fair laws" quote="Justice without mercy is not justice at all." quoteRef="James 2:13" />
+  <CampBand lead="Mandatory visa cancellation laws are harsh, outdated and disproportionate. They destroy lives and divide families. It is time for a fairer Australia." items={[
+    { icon: 'people-roof', title: 'Protect Families', text: 'Keep families together and stop unnecessary separation.' }, { icon: 'scale-balanced', title: 'Restore Fairness', text: 'Abolish laws that impose automatic and disproportionate penalties.' },
+    { icon: 'shield-halved', title: 'Uphold Human Rights', text: 'Respect human dignity and Australia’s international obligations.' }, { icon: 'circle-check', title: 'Promote Rehabilitation', text: 'Recognise change, rehabilitation and the right to rebuild a life.' }, { icon: 'earth-oceania', title: 'A Better Australia', text: 'Stronger communities built on compassion, justice and inclusion.' },
+  ]} />
+  <CampCards title="Why Mandatory Visa Cancellation Laws Must Change" items={[
+    { photo: 'mv-c1', title: 'Tears Families Apart', text: 'Thousands of Australian children are at risk of losing a parent, causing emotional trauma that lasts a lifetime.' },
+    { photo: 'mv-c2', title: 'Disproportionate Penalties', text: 'A lifetime of residence can be cancelled due to past mistakes, no matter how minor or how long ago.' },
+    { photo: 'mv-c3', title: 'Ignores Rehabilitation', text: 'It disregards personal growth, genuine change and the desire to contribute positively to Australian society.' },
+    { photo: 'mv-c4', title: 'Against Australian Values', text: 'These laws contradict our values of fairness, mateship, second chances and compassion.' },
+    { photo: 'mv-c5', title: 'No Individual Assessment', text: 'Decisions are automatic, without considering individual circumstances, hardship or best interests.' },
+  ]} />
+  <section class="wrap camp-3" style="grid-template-columns:1.6fr 1fr;">
+    <CheckPanel title="Key Issues We Are Fighting" items={[['Abolish Mandatory Cancellation','End automatic visa cancellation laws that remove a person’s right to remain in Australia.'],['Ensure Procedural Fairness','Guarantee natural justice, transparency and the right to a meaningful review.'],['Consider Best Interests of Children','Put the wellbeing of children and families at the centre of every decision.'],['Recognise Rehabilitation & Long-Term Contribution','Give weight to good character, community ties, employment, and years of lawful residence.'],['Align with Human Rights Obligations','Ensure Australia fulfils its obligations under international human rights law.']]} />
+    <div style="display:flex; flex-direction:column; gap:0.75rem;">
+      <ActionBox title="Take Action Today" text="Your voice can bring fairness and hope to thousands of people and families affected by this unjust law." buttons={[{ label: 'Sign Our Petition', icon: 'file-signature', href: '/our-services/advocacy/petition-campaigns' }, { label: 'Write to Your MP', icon: 'envelope', kind: 'white', href: '/contact' }, { label: 'Share This Campaign', icon: 'share-nodes', kind: 'white', href: '/contact' }]} />
+      <ActionBox light text="Support our fight for fair and compassionate immigration laws." buttons={[{ label: 'Donate Now', icon: 'heart' }, { label: 'Support on GoFundMe', kind: 'green' }]} />
+    </div>
+  </section>
+  <section class="wrap camp-3" style="grid-template-columns:1fr 1.25fr; padding-top:0;">
+    <div style="background:var(--color-navy-dark); color:#fff; border-radius:4px; padding:1.25rem;"><h2 style="font-family:var(--font-heading); text-transform:uppercase; font-weight:400;">The Impact in Australia</h2><div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:0.75rem;">{[['people-group','10,000+','People at risk of visa cancellation every year'],['people-roof','Families','Separated and living in fear and uncertainty'],['calendar','Many','Australian citizen children affected'],['scale-balanced','Too Harsh','Punishes people twice for their past']].map(([i,n,t]) => <div style="display:grid; grid-template-columns:2.5rem 1fr; gap:0.6rem;"><span style="color:#d9862a;"><Icon name={i} size={30} /></span><div><strong style="color:#d9862a; font-family:var(--font-heading); font-size:1.25rem; font-weight:400;">{n}</strong><p style="font-size:0.75rem;">{t}</p></div></div>)}</div></div>
+    <div style="display:grid; grid-template-columns:1.1fr 0.9fr; background:#f5efe4; border-radius:4px; overflow:hidden; align-items:center;"><p style="padding:1.25rem; font-family:var(--font-heading); font-style:italic; color:var(--color-navy); font-size:1.25rem; line-height:1.4; text-align:center;"><span style="color:#c9741f; font-size:2.5rem; font-style:normal; line-height:0.5;">&ldquo;</span> A fair society is measured by how it treats those who made mistakes, not by how harshly it punishes them.<span style="display:block; color:#c9741f; font-size:1rem; margin-top:0.4rem;">– Nelson Mandela</span></p><img src={img('mv-family')} alt="A family walking along the shore at sunset" style="width:100%; height:100%; object-fit:cover;" /></div>
+  </section>
+  <JoinCta text="<strong style='font-weight:400; text-transform:uppercase'>Let’s build a fairer future</strong><br/>Stand with us to end mandatory visa cancellation and build a more just, compassionate Australia." />
+</Layout>

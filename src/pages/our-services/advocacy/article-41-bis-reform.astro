@@ -1,0 +1,51 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import MinHero from '../../../components/MinHero.astro';
+import CampBand from '../../../components/CampBand.astro';
+import MinBand from '../../../components/MinBand.astro';
+import IconCards from '../../../components/IconCards.astro';
+import CampCards from '../../../components/CampCards.astro';
+import ActionBox from '../../../components/ActionBox.astro';
+import CheckPanel from '../../../components/CheckPanel.astro';
+import StatsRow from '../../../components/StatsRow.astro';
+import LeadersBand from '../../../components/LeadersBand.astro';
+import QuoteBanner from '../../../components/QuoteBanner.astro';
+import JoinCta from '../../../components/JoinCta.astro';
+import MiddlePanel from '../../../components/MiddlePanel.astro';
+import ImStrip from '../../../components/ImStrip.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/advocacy/${n}.jpg`;
+---
+<Layout title="Article 41-Bis Reform" description="End isolation. Restore humanity. Uphold justice.">
+  <MinHero boxed kicker="🇮🇹 Italy Campaign" title="Article 41-Bis<br/><span>Reform</span>" subtitle="End isolation. Restore<br/><span style='color:#c9741f'>humanity. Uphold justice.</span>"
+    intro={['Article 41-bis imposes extreme isolation on prisoners for an indefinite period, often with devastating and irreversible consequences. It is time for Italy to lead with justice, compassion and respect for human dignity.']}
+    img={img('a41r-hero')} alt="A long prison corridor lit by a window" quote="Prisons are not built for revenge, but for rehabilitation and the protection of society." quoteRef="Pope Francis" />
+  <CampBand lead="A more just Italy is possible. Reform Article 41-bis and build a prison system that promotes safety, dignity and the possibility of change." items={[
+    { icon: 'building-lock', title: 'End Inhumane Isolation', text: 'Prolonged isolation harms mental health and human dignity.' }, { icon: 'scale-balanced', title: 'Restore Legal Protections', text: 'Ensure proportionality, review and the right to be heard.' },
+    { icon: 'user', title: 'Promote Rehabilitation', text: 'Give every person a real chance to change and reintegrate.' }, { icon: 'shield-halved', title: 'Protect Society Long-Term', text: 'Rehabilitation and inclusion create safer, stronger communities.' },
+    { icon: 'building-columns', title: 'Uphold Italy’s Values', text: 'Align prison policies with human rights and constitutional principles.' },
+  ]} />
+  <section class="wrap camp-split" style="grid-template-columns:1.1fr 0.9fr 0.8fr; padding-top:1.25rem;">
+    <div><h2 class="camp-h">What is Article 41-bis?</h2><p class="im-p" style="font-size:0.9375rem;">Article 41-bis of the Italian Prison Law allows for a special regime of severe isolation for prisoners accused or convicted of mafia-related offenses. Originally intended as an exceptional and temporary measure, it has become a long-term regime that can last for decades, with limited human contact and very restricted rights.</p></div>
+    <div style="background:#f7f3ec; border-radius:4px; padding:1rem; display:flex; flex-direction:column; gap:0.6rem; justify-content:center;">{[['clock','22–24 hours a day in isolation'],['people-arrows','Limited visits and communication'],['ban','No meaningful participation in rehabilitation'],['calendar','Indefinite duration, with renewals every 2 years']].map(([i,t]) => <p style="display:grid; grid-template-columns:1.75rem 1fr; gap:0.5rem; align-items:center; font-family:var(--font-heading); color:var(--color-navy); font-size:0.875rem;"><span style="color:#c9741f;"><Icon name={i} size={18} /></span>{t}</p>)}</div>
+    <img src={img('a41r-cell')} alt="A bare prison cell" />
+  </section>
+  <CampCards heart title="Why Article 41-Bis Reform Is Urgent" items={[
+    { photo: 'a41r-c1', title: 'Harms Human Dignity and Mental Health', text: 'Prolonged isolation causes severe psychological damage, depression and even self-harm.' },
+    { photo: 'a41r-c2', title: 'Exceeds International Standards', text: 'It conflicts with European human rights law and UN standards on the treatment of prisoners.' },
+    { photo: 'a41r-c3', title: 'Lacks Proportionality and Review', text: 'Renewals are often automatic, with insufficient consideration of individual progress.' },
+    { photo: 'a41r-c4', title: 'Blocks Rehabilitation and Reintegration', text: 'It removes hope and opportunity, making it harder for people to rebuild their lives.' },
+    { photo: 'a41r-c5', title: 'Contradicts Italy’s Constitutional Values', text: 'Italy is founded on dignity, rehabilitation and humanity. 41-bis must reflect this.' },
+  ]} />
+  <section class="wrap camp-3" style="grid-template-columns:1.3fr 1fr 0.8fr;">
+    <CheckPanel title="Our Reform Demands" items={['Limit the use of Article 41-bis to truly exceptional cases.','Set a maximum duration and end automatic renewals.','Guarantee meaningful judicial review and the right to be heard.','Increase access to communication, education and rehabilitation.','Ensure transparency and independent oversight.']} />
+    <ActionBox title="Take Action Today" text="Your voice can help bring justice and humanity to Italy’s prisons. Stand with us to reform Article 41-bis." buttons={[{ label: 'Sign Our Petition', icon: 'file-signature', href: '/our-services/advocacy/petition-campaigns' }, { label: 'Write to Italian Authorities', icon: 'envelope', kind: 'white', href: '/contact' }, { label: 'Share This Campaign', icon: 'share-nodes', kind: 'white', href: '/contact' }]} />
+    <ActionBox light title="" text="Support our mission to end extreme isolation and promote rehabilitation." buttons={[{ label: 'Donate Now', icon: 'heart' }, { label: 'Support on GoFundMe', kind: 'green' }]}><span style="color:#c9741f;"><Icon name="hand-holding-heart" size={48} /></span></ActionBox>
+  </section>
+  <StatsRow label="The Impact of<br/>41-Bis in Italy" items={[
+    { icon: 'people-group', num: '700+', text: 'People are currently held under 41-bis.' }, { icon: 'calendar', num: '30+', text: 'Years: some prisoners have spent more than 30 years in this regime.' },
+    { icon: 'brain', num: 'Many', text: 'Reports of severe psychological harm and deterioration.' }, { icon: 'rotate', num: '2 Years', text: 'Regime can be renewed every 2 years, indefinitely, with limited safeguards.' }, { icon: 'heart', num: 'Hope', text: 'Reform can restore dignity, encourage change and protect society.' },
+  ]} />
+  <QuoteBanner dark left="a41r-ql" right="a41r-qr" quote="A society is judged not by how it treats those who are powerful,<br/>but by how it treats those who are vulnerable." by="Martin Luther King, Jr." />
+  <JoinCta text="Let’s build an Italy where justice is fair, prisons are humane and every person has the opportunity to change. Together, we can reform Article 41-bis." />
+</Layout>

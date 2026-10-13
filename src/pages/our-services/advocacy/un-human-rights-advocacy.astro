@@ -1,0 +1,49 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import MinHero from '../../../components/MinHero.astro';
+import CampBand from '../../../components/CampBand.astro';
+import MinBand from '../../../components/MinBand.astro';
+import IconCards from '../../../components/IconCards.astro';
+import CampCards from '../../../components/CampCards.astro';
+import ActionBox from '../../../components/ActionBox.astro';
+import CheckPanel from '../../../components/CheckPanel.astro';
+import StatsRow from '../../../components/StatsRow.astro';
+import LeadersBand from '../../../components/LeadersBand.astro';
+import QuoteBanner from '../../../components/QuoteBanner.astro';
+import JoinCta from '../../../components/JoinCta.astro';
+import MiddlePanel from '../../../components/MiddlePanel.astro';
+import ImStrip from '../../../components/ImStrip.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/advocacy/${n}.jpg`;
+---
+<Layout title="UN Human Rights Advocacy" description="Human dignity is universal. So is our mission.">
+  <MinHero boxed kicker="🌐 Global Advocacy" title="UN Human Rights<br/><span>Advocacy</span>" subtitle="Human dignity is universal.<br/><span style='color:#c9741f'>So is our mission.</span>"
+    intro={['We work with the United Nations and international human rights mechanisms to amplify the voices of prisoners, detainees and their families, and to promote reforms that uphold dignity, justice and the right to rehabilitation for all.']}
+    img={img('un-hero')} alt="The United Nations building in Geneva with flags" quote="Where human rights are denied, humanity is wounded." quoteRef="Pope Francis" />
+  <CampBand lead="Advocating at the UN for the rights of all people deprived of their liberty." items={[
+    { icon: 'people-group', title: 'Universal Dignity', text: 'Every person, everywhere, is entitled to human dignity and respect.' }, { icon: 'bullhorn', title: 'Raise Awareness', text: 'We bring attention to injustice in prisons and detention around the world.' },
+    { icon: 'gavel', title: 'Influence Policy', text: 'Engage with UN bodies to promote just laws and prison reforms.' }, { icon: 'shield-halved', title: 'Protect Rights', text: 'Defend civil, political, social and spiritual rights for all.' },
+    { icon: 'handshake', title: 'Build Partnerships', text: 'Collaborate with UN agencies, NGOs and faith-based partners.' }, { icon: 'globe', title: 'Create Change', text: 'Champion reforms that restore hope, justice and second chances.' },
+  ]} />
+  <IconCards title="We Advocate for Human Rights at the United Nations" items={[
+    { icon: 'building-columns', title: 'Right to Dignity', text: 'Everyone has the right to be treated with dignity and respect.' }, { icon: 'link-slash', title: 'Freedom from Torture', text: 'No one shall be subjected to torture or cruel, inhuman or degrading treatment.' },
+    { icon: 'people-group', title: 'Fair Treatment', text: 'All prisoners and detainees must be treated fairly and in accordance with the law.' }, { icon: 'book-open', title: 'Right to Health', text: 'Access to physical and mental health care is a fundamental right.' },
+    { icon: 'people-roof', title: 'Right to Family', text: 'Everyone has the right to maintain family connections.' }, { icon: 'scale-balanced', title: 'Right to Rehabilitation', text: 'Rehabilitation and social reintegration are essential for a just society.' },
+  ]} />
+  <section class="wrap camp-split">
+    <img src={img('un-assembly')} alt="The United Nations Human Rights Council chamber" />
+    <MiddlePanel title="Our Voice. Their Rights. Our Future." text="Through advocacy, dialogue and partnership at the UN, we defend the rights of prisoners, detainees and their families, and call for a world that leaves no one behind." trio={[{ icon: 'comment-dots', title: 'Speak Up', text: 'Raise your voice for justice' }, { icon: 'people-group', title: 'Engage', text: 'Support our UN advocacy efforts' }, { icon: 'hand-holding-heart', title: 'Inspire', text: 'Help build a world of dignity and hope' }]} />
+    <ActionBox title="Take Action Today" text="Join our mission to bring hope, justice and reform to prisons and detention centres through global advocacy." buttons={[{ label: 'Sign Our Petition', href: '/our-services/advocacy/petition-campaigns' }, { label: 'Share This Campaign', icon: 'envelope', kind: 'white', href: '/contact' }, { label: 'Support on GoFundMe', kind: 'green' }, { label: 'Donate Now', icon: 'heart' }]} />
+  </section>
+  <section class="wrap camp-3" style="grid-template-columns:1.2fr 0.8fr 1.2fr;">
+    <CheckPanel title="Our UN Advocacy Focus" items={['Engage with the UN Human Rights Council','Submit reports and statements on prison and detention issues','Support the UN Standard Minimum Rules for the Treatment of Prisoners (Nelson Mandela Rules)','Promote alternatives to detention','Advocate for mental health and rehabilitation programs','Oppose solitary confinement and indefinite detention','Highlight the rights of immigrant detainees and asylum seekers','Ensure access to justice and legal representation']} />
+    <div style="background:#3f7cc4; color:#fff; border-radius:4px; padding:1.5rem; display:flex; flex-direction:column; justify-content:flex-end; text-align:center; font-family:var(--font-heading); font-size:1rem; line-height:1.45;"><span style="margin-bottom:1rem;"><Icon name="globe" size={110} /></span>Our mission is aligned with the Universal Declaration of Human Rights and the Sustainable Development Goals.</div>
+    <CheckPanel title="We Work With:" items={['UN Human Rights Council (HRC)','UN Special Rapporteurs','UN Office of the High Commissioner for Human Rights (OHCHR)','UN Committee Against Torture (CAT)','UN Committee on the Rights of the Child (CRC)','UN Committee on Economic, Social and Cultural Rights (CESCR)','Faith-based and civil society organisations','International legal and human rights experts']} />
+  </section>
+  <StatsRow label="The Impact of<br/>International Advocacy" items={[
+    { icon: 'people-group', num: '60,000+', text: 'Voices of prisoners and families represented' }, { icon: 'globe', num: '30+', text: 'Countries where we advocate for justice' },
+    { icon: 'file-lines', num: '15+', text: 'UN statements and submissions delivered' }, { icon: 'handshake', num: '100+', text: 'Partners and organisations collaborating' }, { icon: 'chart-line', num: 'Real Change', text: 'Policies influenced. Lives transformed. Hope restored.' },
+  ]} />
+  <QuoteBanner dark left="un-ql" right="un-qr" quote="The dignity of every human being is the foundation of freedom, justice and peace in the world." by="UN Charter, Preamble" />
+  <JoinCta text="Together, we can make the UN a stronger voice for prisoners,<br/>detainees and their families around the world." />
+</Layout>

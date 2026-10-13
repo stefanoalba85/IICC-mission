@@ -1,0 +1,56 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import MinHero from '../../../components/MinHero.astro';
+import CampBand from '../../../components/CampBand.astro';
+import MinBand from '../../../components/MinBand.astro';
+import IconCards from '../../../components/IconCards.astro';
+import CampCards from '../../../components/CampCards.astro';
+import ActionBox from '../../../components/ActionBox.astro';
+import CheckPanel from '../../../components/CheckPanel.astro';
+import StatsRow from '../../../components/StatsRow.astro';
+import LeadersBand from '../../../components/LeadersBand.astro';
+import QuoteBanner from '../../../components/QuoteBanner.astro';
+import JoinCta from '../../../components/JoinCta.astro';
+import MiddlePanel from '../../../components/MiddlePanel.astro';
+import ImStrip from '../../../components/ImStrip.astro';
+import Icon from '../../../components/Icon.astro';
+const img = (n: string) => `/images/advocacy/${n}.jpg`;
+const areas = [
+  ['bars','Prison Conditions & Reform','Living conditions, access to education, healthcare, family contact and rehabilitation programs.'],
+  ['people-group','Immigration Detention','Rights, length of detention, vulnerability and alternatives to detention.'],
+  ['heart-pulse','Mental Health & Wellbeing','Access to mental health care, trauma-informed approaches and support in detention.'],
+  ['scale-balanced','Legal Rights & Fair Processes','Access to legal assistance, fair trials and due process.'],
+  ['people-roof','Family Impact','The emotional, social and financial impact on families and children.'],
+  ['chart-column','Reintegration & Second Chances','Programs and policies that support successful reintegration and reduce reoffending.'],
+  ['globe','International Standards','Alignment with the Universal Declaration of Human Rights and other international human rights instruments.'],
+];
+const reports = [['Mental Health in Detention','Challenges, Gaps and Solutions'],['Family Impact of Imprisonment','Voices, Data and Recommendations'],['Alternatives to Immigration Detention','Evidence and International Best Practice'],['Pathways to Reintegration','Education, Employment and Community Support']];
+---
+<Layout title="Advocacy, Research & Reports" description="Evidence. Awareness. Change. A Fairer, More Compassionate World.">
+  <MinHero boxed kicker="Advocacy" title="Advocacy<br/><span>Research &amp;</span><br/>Reports" subtitle="Evidence. Awareness. Change.<br/>A Fairer, More Compassionate World."
+    intro={['The IICC Mission undertakes research, produces reports and advocates for policy and practice reform to protect the rights, dignity and wellbeing of people in prison, immigration detention and their families.']} tagline="Accompanying. Empowering. Restoring Hope."
+    img={img('rr-hero')} alt="The scales of justice on a stack of books" quote="Let justice roll on like a river, righteousness like a never-failing stream." quoteRef="Amos 5:24" />
+  <MinBand items={[
+    { icon: 'magnifying-glass-chart', title: 'Evidence-Based Research', text: 'Gathering data and insights to inform fair and effective policy reform.' }, { icon: 'bullhorn', title: 'Raise Awareness', text: 'Shining a light on injustice, abuse and gaps in systems through factual reporting and advocacy.' },
+    { icon: 'people-group', title: 'Influence Policy', text: 'Working with governments, international bodies and civil society to promote meaningful change.' }, { icon: 'globe', title: 'Global Perspective', text: 'Highlighting issues and solutions from a local, national and international perspective.' },
+    { icon: 'handshake', title: 'Collaboration', text: 'Partnering with experts, universities, NGOs and faith-based organisations to drive reform.' },
+  ]} />
+  <section class="wrap camp-3" style="grid-template-columns:0.95fr 1.1fr 0.95fr; padding-top:1.25rem;">
+    <div style="display:flex; flex-direction:column; gap:0.75rem;">
+      <div><h2 class="camp-h" style="text-align:left;">Our Research Focus</h2><p class="im-p">We research and report on key issues affecting people in prison, immigration detention and their families, with a focus on human rights, dignity, rehabilitation and community reintegration.</p></div>
+      <img src={img('rr-mag')} alt="A magnifying glass on research papers" style="width:100%; border-radius:4px;" />
+      <div style="background:var(--color-navy-dark); color:#fff; border-radius:4px; padding:1.25rem;"><h3 style="font-family:var(--font-heading); text-transform:uppercase; font-weight:400;">Our Goal</h3><p style="font-family:var(--font-heading); line-height:1.45; margin-block:0.5rem;">To contribute to a fairer, more humane justice and immigration system through credible research, informed advocacy and constructive engagement with decision-makers.</p><p style="font-family:var(--font-heading); color:#d9a540; font-size:1.25rem; line-height:1.3;">INFORM.<br />EDUCATE.<br />ADVOCATE.</p></div>
+    </div>
+    <div style="background:#f7f6f3; border-radius:4px; padding:1.25rem;"><h2 class="camp-h">Key Areas</h2>{areas.map(([i,t,d],k) => <div class="im-row"><i style={k%2 ? 'background:#c9741f' : ''}><Icon name={i} size={20} /></i><div><h3 style="text-transform:none; font-size:0.9375rem;">{t}</h3><p style="font-size:0.8125rem;">{d}</p></div></div>)}</div>
+    <div><h2 class="camp-h" style="text-align:left;">Our Reports</h2><p class="im-p" style="margin-bottom:0.75rem;">We produce reports, briefings and position papers that highlight issues, share evidence and recommend practical solutions.</p>
+      <ul class="check" style="margin-bottom:1rem;"><li>Policy briefings</li><li>Research reports</li><li>Position papers</li><li>Case studies</li><li>Recommendations</li></ul>
+      <h3 class="camp-h" style="text-align:left; font-size:1rem;">Recent &amp; Upcoming Reports</h3>{reports.map(([t,d]) => <a href="/resources/articles" style="display:grid; grid-template-columns:1.75rem 1fr 1rem; gap:0.6rem; align-items:center; margin-top:0.6rem; color:var(--color-navy);"><Icon name="file-lines" size={22} /><span style="font-family:var(--font-heading); font-size:0.9375rem;">{t}<small style="display:block; font-size:0.75rem; color:var(--color-text);">{d}</small></span><span style="color:#c9741f;">→</span></a>)}</div>
+  </section>
+  <section class="wrap" style="padding-bottom:1rem;"><h2 class="camp-h">Who We Work With</h2><div class="camp-trio" style="background:#f7f6f3; padding:1rem; border-radius:4px;">{[['building-columns','Governments','Policy development and reform.'],['people-group','International Bodies','UN, human rights organisations and global networks.'],['graduation-cap','Academics & Experts','Research partnerships and knowledge sharing.'],['circle-nodes','NGOs & Faith-Based Organisations','Collaboration on advocacy initiatives.'],['people-roof','Communities','Amplifying lived experiences and real stories.']].map(([i,t,d]) => <div><span style="color:var(--color-navy);"><Icon name={i} size={30} /></span><strong>{t}</strong><span>{d}</span></div>)}</div></section>
+  <section class="wrap camp-3" style="padding-top:0;">
+    <div class="im-panel"><h2 class="im-h">Featured Report</h2><div style="display:grid; grid-template-columns:0.6fr 1fr; gap:0.9rem; margin-top:0.6rem;"><img src={img('rr-feat')} alt="A man sitting alone in a cell" style="width:100%; border-radius:2px;" /><div><h3 class="im-h" style="text-transform:none;">Mental Health in Detention</h3><p class="im-p" style="font-size:0.875rem;">Challenges, Gaps and Solutions. An evidence-based report examining the mental health impact of long-term detention and practical recommendations for reform.</p><a href="/resources/articles" class="btn btn--amber" style="margin-top:0.5rem; padding:0.4rem 0.9rem; font-size:0.7rem;">Read the Full Report →</a></div></div></div>
+    <div style="display:grid; grid-template-columns:4rem 1fr; gap:1rem; align-items:center;"><span style="color:#c9741f; opacity:0.7;"><Icon name="dove" size={60} /></span><p style="font-family:var(--font-heading); font-style:italic; color:var(--color-navy); font-size:1.375rem; line-height:1.35;">Real change begins when we listen, learn and act together.<br /><span style="color:#c9741f; font-size:1rem;">— IICC Mission</span></p></div>
+    <div class="im-panel"><h2 class="im-h">Get Involved</h2><div style="display:grid; grid-template-columns:3.5rem 1fr; gap:0.9rem; margin-top:0.6rem;"><span style="color:#c9741f;"><Icon name="hand-holding-heart" size={48} /></span><div><p class="im-p" style="font-size:0.875rem;">Support our research and advocacy work. Help us raise awareness and build a fairer, more compassionate world.</p><a href="/donate" class="btn btn--amber" style="margin-top:0.5rem; padding:0.4rem 0.9rem; font-size:0.7rem;">Support Our Advocacy →</a></div></div></div>
+  </section>
+  <JoinCta text="Together, we can promote justice and build a more compassionate world.<br/>Evidence. Awareness. Advocacy. Real Change." cta="Make a Difference" />
+</Layout>
