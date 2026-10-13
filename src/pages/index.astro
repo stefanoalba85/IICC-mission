@@ -2,18 +2,26 @@
 import Layout from '../layouts/Layout.astro';
 
 const pillars = [
-  { icon: 'cross', title: 'Faith', desc: 'Guided by the Gospel and Catholic values.' },
-  { icon: 'heart', title: 'Compassion', desc: 'Serving every person with love and respect.' },
-  { icon: 'people', title: 'Dignity', desc: 'Recognising the value of every human being.' },
-  { icon: 'scale', title: 'Justice', desc: 'Working for fairness, reconciliation and mercy.' },
-  { icon: 'dove', title: 'Hope', desc: 'Believing in new beginnings and brighter futures.' },
+  { title: 'Faith', desc: 'Guided by the Gospel and Catholic values.', icon: 'M11 2h2v7h7v2h-7v11h-2V11H4V9h7V2Z' },
+  { title: 'Compassion', desc: 'Serving every person with love and respect.', icon: 'M12 21s-7-4.3-9-8.3C1.3 9.2 3 6 6.2 5.4c1.8-.4 3.6.4 4.5 1.9a4.3 4.3 0 0 1 4.5-1.9C18.4 6 20 9.2 18.3 12.7 16 16.7 12 21 12 21Z' },
+  { title: 'Dignity', desc: 'Recognising the value of every human being.', icon: 'M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm8 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM2 20c0-3 2.7-5 6-5s6 2 6 5v1H2v-1Zm12.3-4.6c2.1.5 3.7 2.2 3.7 4.6v1h4v-1c0-2.8-2.3-4.9-5.1-4.9-.9 0-1.8.1-2.6.3Z' },
+  { title: 'Justice', desc: 'Working for fairness, reconciliation and mercy.', icon: 'M12 2v2M4 6l8-2 8 2M4 6l-2 6h6L6 6Zm16 0-2 6h6l-2-6ZM4 12a3 3 0 0 0 6 0M14 12a3 3 0 0 0 6 0M12 4v15m-5 0h10' },
+  { title: 'Hope', desc: 'Believing in new beginnings and brighter futures.', icon: 'M3 15c3-5 9-7 14-4-3 0-5 1-6 3 3 0 5-1 7-3-1 4-5 6-9 6-2 0-4-1-6-2Z' },
+];
+
+const founderStats = [
+  { label: '8+ Years', sub: 'Prison & Immigration Detention Experience', icon: 'M7 2v3M17 2v3M3 9h18M5 5h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z' },
+  { label: 'People & Purpose', sub: 'Skills, Hope & Reintegration', icon: 'M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm8 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM2 20c0-3 2.7-5 6-5s6 2 6 5v1H2v-1Zm12.3-4.6c2.1.5 3.7 2.2 3.7 4.6v1h4v-1c0-2.8-2.3-4.9-5.1-4.9-.9 0-1.8.1-2.6.3Z' },
+  { label: 'Faith & Hope', sub: "Christ's Love Never Gives Up", icon: 'M12 21s-7-4.3-9-8.3C1.3 9.2 3 6 6.2 5.4c1.8-.4 3.6.4 4.5 1.9a4.3 4.3 0 0 1 4.5-1.9C18.4 6 20 9.2 18.3 12.7 16 16.7 12 21 12 21Z' },
+  { label: 'Global Mission', sub: 'Bringing Hope Worldwide', icon: 'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 0c2.2 2.4 2.2 15.6 0 20M12 2c-2.2 2.4-2.2 15.6 0 20M2.5 9h19M2.5 15h19' },
 ];
 
 const services = [
-  { title: 'Prison Ministry', desc: 'Bringing hope, support and human connection behind the walls.', href: '/our-services/prison-ministry' },
-  { title: 'Immigration Detention Ministry', desc: 'Compassionate support for people in immigration detention.', href: '/our-services/immigration-detention' },
-  { title: 'Mental Health & Wellbeing', desc: 'Supporting the mind, heart and spirit through care and referrals.', href: '/our-services/mental-health' },
-  { title: 'Advocacy & Human Rights', desc: 'Giving a voice to the voiceless and raising awareness for change.', href: '/our-services/advocacy' },
+  { title: 'Prison Ministry', desc: 'Bringing hope, support and human connection behind the walls.', href: '/our-services/prison-ministry', color: '#1B2751', icon: 'M4 21V8l8-5 8 5v13M8 21v-6h2v6m4 0v-6h2v6M4 10h16' },
+  { title: 'Immigration Detention Ministry', desc: 'Compassionate support for people in immigration detention.', href: '/our-services/immigration-detention', color: '#1d6fa5', icon: 'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 0c2.2 2.4 2.2 15.6 0 20M12 2c-2.2 2.4-2.2 15.6 0 20M2.5 9h19M2.5 15h19' },
+  { title: 'Abuse & Domestic Violence Support', desc: 'Helping those who suffer in silence find safety, healing and hope.', href: '/our-services/who-we-serve', color: '#6b3fa0', icon: 'M12 21s-7-4.3-9-8.3C1.3 9.2 3 6 6.2 5.4c1.8-.4 3.6.4 4.5 1.9a4.3 4.3 0 0 1 4.5-1.9C18.4 6 20 9.2 18.3 12.7 16 16.7 12 21 12 21Z' },
+  { title: 'Mental Health & Wellbeing', desc: 'Supporting the mind, heart and spirit through care and referrals.', href: '/our-services/mental-health', color: '#2f8f5b', icon: 'M3 12h4l2-7 4 14 2-7h6' },
+  { title: 'Advocacy', desc: 'Giving a voice to the voiceless and raising awareness for change.', href: '/our-services/advocacy', color: '#d9790c', icon: 'M3 11v2a2 2 0 0 0 2 2h1l5 4v-5M3 11l8-4v10l-8-4v-2Zm13-5a6 6 0 0 1 0 10' },
 ];
 ---
 <Layout
@@ -23,15 +31,16 @@ const services = [
   <!-- HERO -->
   <section class="hero-full">
     <div class="hero-full__bg">
-      <img src="https://images.unsplash.com/photo-1529260830199-42c24126f198?w=1600&q=80" alt="Rome at sunset" />
+      <img src="/images/home/hero.jpg" alt="St Peter's Basilica, Rome, at sunset" style="object-position:right center;" />
     </div>
     <div class="hero-full__overlay"></div>
     <div class="hero-full__content">
-      <span class="eyebrow eyebrow--white">IICC Mission</span>
-      <h1 class="section-title section-title--white" style="font-size:clamp(2rem,5vw,3.25rem); max-width:720px; margin-block:0.75rem;">
-        Bringing Hope <span class="text-amber">to those in need.</span>
+      <h1 class="section-title section-title--white" style="font-size:clamp(2rem,5vw,3rem); max-width:620px; margin-block:0;">
+        IICC MISSION<br/>
+        <span class="text-amber">Bringing Hope</span><br/>
+        to those in need.
       </h1>
-      <p class="section-desc section-desc--white" style="max-width:640px; font-size:1.0625rem;">
+      <p class="section-desc section-desc--white" style="max-width:520px; margin-top:1rem;">
         A Catholic global mission sharing Christ's love, mercy and hope with incarcerated
         individuals, people in Immigration Detention, their families and all who are
         experiencing hardship.
@@ -41,7 +50,7 @@ const services = [
           <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-10-9.3C.3 8.4 2 4.8 5.6 4.1c2-.4 4 .5 5 2.1a4.8 4.8 0 0 1 5-2.1c3.6.7 5.3 4.3 3.6 7.6C19.5 16.4 12 21 12 21Z"/></svg>
           Support the Mission
         </a>
-        <a href="/get-involved/ambassador-program" class="btn btn--outline-white">Become an Ambassador</a>
+        <a href="/get-involved/ambassador-program" class="btn btn--outline-white">★ Become an Ambassador</a>
       </div>
     </div>
   </section>
@@ -51,6 +60,7 @@ const services = [
     <div class="wrap value-strip__inner">
       {pillars.map(p => (
         <div class="value-strip__item">
+          <svg class="value-strip__icon" width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d={p.icon}/></svg>
           <span class="value-strip__title">{p.title}</span>
           <span class="value-strip__desc">{p.desc}</span>
         </div>
@@ -61,9 +71,7 @@ const services = [
   <!-- FOUNDER -->
   <section class="section section--white">
     <div class="wrap cols-2">
-      <div class="hero-split__photo" style="border-radius:2px; min-height:360px;">
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80" alt="Antonio G. Dattilo, Ambassador & Founder" />
-      </div>
+      <img src="/images/home/founder.jpg" alt="Antonio G. Dattilo, Ambassador & Founder" style="border-radius:2px; width:100%; object-fit:cover;" />
       <div>
         <span class="eyebrow">Our Founder</span>
         <h2 class="section-title" style="margin-block:0.5rem;">Ambassador &amp; Founder — IICC Mission</h2>
@@ -74,14 +82,22 @@ const services = [
           During this time, I experienced hardship, isolation and uncertainty, but I also
           discovered faith, resilience and the power of hope.
         </p>
-        <p class="section-desc" style="max-width:none;">
+        <p class="section-desc" style="max-width:none; margin-bottom:1.5rem;">
           While incarcerated, I worked in the prison bakery, where I discovered purpose through
           discipline, learning new skills and supporting others around me. These experiences
-          inspired the creation of IICC Mission — a global Catholic mission dedicated to bringing
-          Christ's love, mercy and hope to incarcerated individuals, people in Immigration
-          Detention, their families and those experiencing hardship.
+          inspired the creation of IICC Mission.
         </p>
-        <a href="/about-us/ambassador-founder" class="btn btn--outline" style="margin-top:1.25rem;">Read Our Founder's Story &gt;</a>
+        <div class="grid-2" style="grid-template-columns:repeat(2,1fr); gap:1rem;">
+          {founderStats.map(s => (
+            <div style="display:flex; gap:0.625rem; align-items:flex-start;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-amber)" stroke-width="1.6" style="flex-shrink:0; margin-top:0.1rem;"><path d={s.icon}/></svg>
+              <div>
+                <p style="font-weight:700; font-size:0.8125rem; color:var(--color-navy);">{s.label}</p>
+                <p style="font-size:0.75rem; color:var(--color-muted);">{s.sub}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   </section>
@@ -89,13 +105,13 @@ const services = [
   <!-- OUR SERVICES -->
   <section class="section section--offwhite">
     <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">What We Do</span>
-        <h2 class="section-title">Our Services</h2>
-      </div>
+      <div class="section-head"><h2 class="section-title">Our Services</h2></div>
       <div class="grid-4">
         {services.map(s => (
           <div class="card">
+            <div style={`width:2.75rem;height:2.75rem;border-radius:50%;display:flex;align-items:center;justify-content:center;background:${s.color};color:#fff;`}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d={s.icon}/></svg>
+            </div>
             <span class="card__title">{s.title}</span>
             <p class="card__body">{s.desc}</p>
             <a href={s.href} class="photo-card__link">Learn More →</a>
@@ -108,20 +124,17 @@ const services = [
   <!-- GLOBAL MISSION -->
   <section class="section section--white">
     <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Worldwide</span>
-        <h2 class="section-title">Our Global Mission</h2>
-      </div>
-      <div class="cols-2">
+      <div class="cols-60-40" style="grid-template-columns:1fr 1.6fr 1fr;">
         <div class="checklist">
           <li><strong>Head Office</strong> — Via delle Milizie 34, Rome, Italy</li>
           <li><strong>National Missions</strong> — Italy, Australia, USA, Canada, San Marino, Monaco</li>
           <li><strong>State Missions</strong> — Serving states and provinces</li>
           <li><strong>Regional Missions</strong> — Bringing the mission closer to local communities</li>
         </div>
+        <img src="/images/home/map.jpg" alt="World map highlighting IICC Mission locations" style="width:100%; align-self:center;" />
         <div class="card--dark" style="background:var(--color-navy);">
           <span class="card__title" style="color:#fff;">Our Locations</span>
-          <p class="card__body" style="color:rgba(255,255,255,0.7);">
+          <p class="card__body" style="color:rgba(255,255,255,0.7); font-size:0.8125rem; line-height:1.9;">
             🇮🇹 Italy — Rome · Milan · Lamezia Terme<br />
             🇦🇺 Australia — Melbourne · Sydney · Perth · Adelaide · Brisbane · Hobart · Darwin<br />
             🇺🇸 United States — Dallas · Minneapolis<br />
@@ -136,29 +149,24 @@ const services = [
   <!-- HOPE MEDIA -->
   <section class="section section--offwhite section--sm">
     <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Stay Connected</span>
-        <h2 class="section-title">Hope Media Channel &amp; Mission Projects</h2>
-      </div>
+      <div class="section-head"><h2 class="section-title">Hope Media Channel &amp; Mission Projects</h2></div>
       <div class="grid-3">
-        <div class="photo-card">
-          <img class="photo-card__img" src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=600&q=80" alt="Hope Media Channel" />
-          <div class="photo-card__body">
-            <span class="photo-card__title">Hope Media Channel</span>
-            <p class="photo-card__desc">Daily messages of faith, encouragement and hope for inmates, detainees, families and our global community.</p>
-            <a href="/resources" class="photo-card__link">Watch Now →</a>
-          </div>
+        <div class="card--dark" style="background:var(--color-navy);">
+          <div class="card__icon card__icon--filled">▶</div>
+          <span class="card__title" style="color:#fff;">Hope Media Channel</span>
+          <p class="card__body" style="color:rgba(255,255,255,0.65);">Daily messages of faith, encouragement and hope for inmates, detainees, families and our global community.</p>
+          <a href="/resources" class="photo-card__link">Watch Now →</a>
         </div>
-        <div class="photo-card">
-          <img class="photo-card__img" src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80" alt="Stories of Hope" />
+        <div class="photo-card" style="flex-direction:row;">
+          <img src="/images/home/stories.jpg" alt="Hands in prayer" style="width:40%; height:auto; align-self:stretch; object-fit:cover;" />
           <div class="photo-card__body">
             <span class="photo-card__title">Stories of Hope</span>
             <p class="photo-card__desc">Real stories of faith, resilience and new beginnings from around the world.</p>
             <a href="/programs/hope-companion/stories" class="photo-card__link">Discover More →</a>
           </div>
         </div>
-        <div class="photo-card">
-          <img class="photo-card__img" src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=600&q=80" alt="Mission Ambassadors" />
+        <div class="photo-card" style="flex-direction:row;">
+          <img src="/images/home/ambassadors.jpg" alt="Family silhouette at sunset" style="width:40%; height:auto; align-self:stretch; object-fit:cover;" />
           <div class="photo-card__body">
             <span class="photo-card__title">Mission Ambassadors</span>
             <p class="photo-card__desc">People bringing awareness, support and hope to communities around the world.</p>
