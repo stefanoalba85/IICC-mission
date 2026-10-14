@@ -28,6 +28,7 @@ interface Props {
   supportTitle: string;
   supportText: string;
   supportCta?: string;
+  supportHref?: string;
   boxUnderCenter?: boolean;
   features?: { title: string; text: string }[];
   stripLight?: boolean;
@@ -189,7 +190,7 @@ const img = (n: string) => `/images/prison-ministry/${p.dir}/${n}.jpg`;
     <div class="wrap">
       <span style="color:#d9a540;"><Icon name={p.supportIcon ?? 'heart'} size={40} /></span>
       <div><h2>{p.supportTitle}</h2><p>{p.supportText}</p></div>
-      <a href="/donate">{p.supportCta ?? 'Become Part of This Mission'} ›</a>
+      <a href={p.supportHref ?? '/donate'}>{p.supportCta ?? 'Become Part of This Mission'} ›</a>
     </div>
   </section>
 </div>
