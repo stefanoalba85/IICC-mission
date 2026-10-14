@@ -1,8 +1,10 @@
 ---
 import * as fa from '@fortawesome/free-solid-svg-icons';
+import * as fab from '@fortawesome/free-brands-svg-icons';
 import type { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 // Project aliases; any other Font Awesome solid icon can be used by its kebab name (e.g. "brain", "gavel").
+// Brand icons (e.g. "cc-visa", "paypal") are used when no solid icon has that name.
 const alias: Record<string, string> = {
   pray: 'hands-praying', people: 'people-group', person: 'user', scales: 'scale-balanced', heartHand: 'hand-holding-heart',
   sunRoad: 'mountain-sun', home: 'house', bars: 'building-lock', megaphone: 'bullhorn', calendar: 'calendar-days',
@@ -13,7 +15,7 @@ const alias: Record<string, string> = {
 interface Props { name: string; size?: number; stroke?: number; class?: string; fill?: boolean; }
 const { name, size = 24, class: cls } = Astro.props;
 const key = 'fa' + (alias[name] ?? name).split('-').map(s => s[0].toUpperCase() + s.slice(1)).join('');
-const def = (fa as unknown as Record<string, IconDefinition>)[key];
+const def = (fa as unknown as Record<string, IconDefinition>)[key] ?? (fab as unknown as Record<string, IconDefinition>)[key];
 if (!def) throw new Error(`Unknown icon "${name}" (${key})`);
 const [w, h, , , path] = def.icon;
 const d = Array.isArray(path) ? path.join(' ') : path;

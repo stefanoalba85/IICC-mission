@@ -23,8 +23,8 @@ npm run preview -- --port 4400
 
 - Astro 6 (output statico), Tailwind CSS 4 via `@tailwindcss/vite`. I design token sono nel blocco `@theme` di `src/styles/global.css`.
 - Font: Cinzel (display), Playfair Display (titoli), Source Sans 3 (testo), Great Vibes (`--font-script`, firme).
-- Icone: `src/components/Icon.astro` mostra qualsiasi icona Font Awesome solid dal nome kebab-case (`<Icon name="hands-praying" />`), più alcuni alias. Un nome sconosciuto blocca la build, quindi una build pulita conferma che tutte le icone esistono.
-- Nessun JavaScript lato client: i dropdown usano `<details>` e il menu mobile un checkbox.
+- Icone: `src/components/Icon.astro` mostra qualsiasi icona Font Awesome solid dal nome kebab-case (`<Icon name="hands-praying" />`), più alcuni alias; se il nome non esiste tra le solid usa le icone dei marchi (`cc-visa`, `paypal`…). Un nome sconosciuto blocca la build, quindi una build pulita conferma che tutte le icone esistono.
+- JavaScript lato client minimo: i dropdown usano `<details>` e il menu mobile un checkbox. L'unico script è quello del modulo donazioni.
 
 ## Struttura
 
@@ -70,6 +70,7 @@ Note sulla corrispondenza con i mockup:
 | Hope Companion | `HcHero`, `HcOr`, `HcStart`, `HcIcons`, `HcJourneys` |
 | Resources / Get Involved / Partnerships | `ResHero`, `ResCards`, `NewsBar`, `GiHero`, `GmHero`, `GmCta` |
 | News | `NewsCard`, `SideBox`, `ColorCards` |
+| Donazioni | `DonationForm` (configurato in `src/lib/donations.ts`) |
 | Pagine legali e FAQ | `LegalTemplate` (hero, tab, Quick Links, slot `sidetop`/`side`), `LegalCard`, `QuoteBand` |
 
 ## Convenzioni
@@ -104,7 +105,10 @@ Oggi questi elementi sono segnaposto. I link relativi puntano provvisoriamente a
 **Necessari prima della pubblicazione**
 - **URL dei profili social** (Facebook, Instagram, X, YouTube; i mockup mostrano anche LinkedIn e TikTok). Nel footer ora ci sono le home generiche dei social.
 - **Ricezione dei moduli:** nessun modulo invia dati (`preventDefault`). Sono 6 moduli (Contact, Volunteer Application, Support Request, Prayer Request, Submit Your Story, Autism Support Request) più 12 iscrizioni newsletter/ricerca. Servono l'email di destinazione o un servizio (es. Formspree) e il fornitore newsletter (Mailchimp, Brevo…).
-- **Donazioni:** la piattaforma di pagamento (i bottoni importo €10/25/50/100 oggi vanno a `/contact`) e gli URL delle campagne GoFundMe (22 link a `gofundme.com` generico).
+- **Donazioni:** la pagina Donate ha il modulo `DonationForm` (una tantum/mensile, €10/25/50/100 o importo libero; carta, PayPal, bonifico, GoFundMe). Finché `src/lib/donations.ts` è vuoto, carta e PayPal mostrano "in attivazione". Servono:
+  - l'account PayPal Business (email o merchant ID in `paypal.business`), verificando che dall'Italia si possa pagare con carta senza conto PayPal, anche in modalità mensile; in alternativa i Payment Link Stripe (`stripe`);
+  - i dati del bonifico (intestatario, IBAN, BIC, banca, causale);
+  - gli URL delle campagne GoFundMe: vanno in `gofundme` per il modulo e nei 22 bottoni del sito che oggi puntano a `gofundme.com` generico.
 - **Contatti coerenti:**
   - la pagina Contact riporta North Sydney PO Box 341, +61 2 8732 4555, +61 411 209 066 e orari AEST, mentre il resto del sito usa Via delle Milizie 34, Roma, +39 349 303 6235;
   - le email dei responsabili in Staff & Volunteers vengono dai mockup.

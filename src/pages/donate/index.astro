@@ -6,17 +6,19 @@ import GiPhotoText from '../../components/GiPhotoText.astro';
 import GiFoot from '../../components/GiFoot.astro';
 import ResCards from '../../components/ResCards.astro';
 import Icon from '../../components/Icon.astro';
+import DonationForm from '../../components/DonationForm.astro';
 const img = (n: string) => `/images/get-involved/${n}.jpg`;
 const STATS = [['people-group','1000+','People supported every year'],['globe','50+','Programs and initiatives'],['heart','6','Continents reached'],['chart-column','Thousands','of lives touched with hope']];
 const BAR = (t1: string, t2: string, q: string, cta: string, href: string) => ({ t1, t2, q, cta, href });
 ---
 <Layout title="Donate" description="Donate today. Together we can bring hope, dignity and real change.">
-  <GiHero kicker="Make a Difference" title="Donate<br/><span style='color:#c9741f'>Today</span>" text="Together, we can bring hope, dignity and real change to the lives of people who are incarcerated, detained, and their families worldwide." cta="♥ Donate Now" href="#give" img={img('dn-hero')} alt="Antonio G. Dattilo in front of St Peter’s Basilica" quote="For I was hungry and you gave me something to eat, I was in prison and you came to visit me." quoteRef="Matthew 25:35-36" />
+  <GiHero kicker="Make a Difference" title="Donate<br/><span style='color:#c9741f'>Today</span>" text="Together, we can bring hope, dignity and real change to the lives of people who are incarcerated, detained, and their families worldwide." cta="♥ Donate Now" href="#donate" img={img('dn-hero')} alt="Antonio G. Dattilo in front of St Peter’s Basilica" quote="For I was hungry and you gave me something to eat, I was in prison and you came to visit me." quoteRef="Matthew 25:35-36" />
   <GiIcons items={[{ icon: 'hands-praying', title: 'Support', text: 'People who are incarcerated and detained' },{ icon: 'people-group', title: 'Strengthen', text: 'Families and communities' },{ icon: 'scale-balanced', title: 'Provide', text: 'Legal assistance and advocacy' },{ icon: 'book-open', title: 'Fund', text: 'Education, mental health and rehabilitation programs' },{ icon: 'heart', title: 'Bring Hope', text: 'To those who are often forgotten or marginalised' }]} />
+  <DonationForm />
   <section class="camp-grid" style="display:grid; grid-template-columns:0.9fr 2fr; background:#fff;" id="give">
     <div style="position:relative; background:var(--color-navy-dark); color:#fff; min-height:300px;"><img src={img('dn-gen')} alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.7;" /><div style="position:relative; padding:1.5rem; padding-top:9rem;"><h2 style="font-family:var(--font-heading); font-size:2rem; line-height:1.1;">Your generosity<br /><span style="color:#d9862a;">changes lives.</span></h2><p style="font-family:var(--font-heading); margin-top:0.6rem;">Every donation, big or small, helps us continue our work of accompanying, empowering and restoring hope to those who are incarcerated, detained and their families worldwide.</p></div></div>
     <ResCards center title="Choose How You Would Like to Give" dir="get-involved" items={[
-      { photo: 'dn-1', title: 'One-Time Donation', text: 'Make an immediate impact and help us continue our mission.', cta: 'Donate Now', button: true, href: '/contact' },
+      { photo: 'dn-1', title: 'One-Time Donation', text: 'Make an immediate impact and help us continue our mission.', cta: 'Donate Now', button: true, href: '#donate' },
       { photo: 'dn-2', title: 'Monthly Giving', text: 'Provide ongoing support and help us plan for a stronger future.', cta: 'Give Monthly', button: true, href: '/donate/monthly-giving' },
       { photo: 'dn-3', title: 'Sponsor a Program', text: 'Support a specific area of our work such as legal support, family assistance, education or mental health programs.', cta: 'View Programs', button: true, href: '/donate/impact' },
       { photo: 'dn-4', title: 'Other Ways to Give', text: 'Bequests, corporate giving, parish fundraising, fundraising events and more.', cta: 'Explore Options', button: true, href: '/donate/legacy' },
@@ -29,7 +31,7 @@ const BAR = (t1: string, t2: string, q: string, cta: string, href: string) => ({
   </section>
   <section class="camp-grid" style="display:grid; grid-template-columns:0.9fr 1fr 1.1fr; background:var(--color-navy-dark); color:#fff; align-items:center;">
     <img src={img('dn-bt')} alt="A man looking out from a prison window at Rome" style="width:100%; height:100%; object-fit:cover;" />
-    <div style="padding:1.25rem; background:#fbf6ec; color:var(--color-navy); align-self:stretch;"><h2 style="font-family:var(--font-heading); text-transform:uppercase; font-size:1.75rem; line-height:1.05;">A Brighter<br /><span style="color:#c9741f;">Tomorrow</span></h2><p style="font-family:var(--font-heading); margin-block:0.5rem 0.75rem;">Your support helps provide practical care, legal assistance, family support, education and pathways to a new beginning.</p><a href="/contact" class="btn btn--amber">Donate Now →</a></div>
+    <div style="padding:1.25rem; background:#fbf6ec; color:var(--color-navy); align-self:stretch;"><h2 style="font-family:var(--font-heading); text-transform:uppercase; font-size:1.75rem; line-height:1.05;">A Brighter<br /><span style="color:#c9741f;">Tomorrow</span></h2><p style="font-family:var(--font-heading); margin-block:0.5rem 0.75rem;">Your support helps provide practical care, legal assistance, family support, education and pathways to a new beginning.</p><a href="#donate" class="btn btn--amber">Donate Now →</a></div>
     <div style="padding:1.25rem;"><div class="camp-trio" style="color:#fff;">{[['seedling','Hope'],['people-group','Dignity'],['heart','Justice'],['dove','Restoration']].map(([i,t]) => <div style="color:#d9862a;"><Icon name={i} size={36} /><span style="color:#fff;">{t}</span></div>)}</div><p style="font-family:var(--font-heading); font-style:italic; text-align:center; margin-top:0.75rem;">Accompanying. Empowering. Restoring Hope.</p></div>
   </section>
 </Layout>
