@@ -4,8 +4,8 @@ Sito vetrina statico di **IICC Mission** (Inmate International Catholic Care): 1
 
 - **Repo:** `git@github.com:stefanoalba85/IICC-mission.git`, branch di lavoro `develop`
 - **Fonte dei contenuti** (fuori dal repo, nella cartella di progetto superiore):
-  - `../../Struttura.csv` — elenco delle 131 pagine (gruppo di menu, nome pagina, PNG di riferimento)
-  - `../../Materiali_definitivi/` — un mockup PNG per pagina + `IICC_Logo.png` (logo ufficiale)
+  - `../Struttura.csv` — elenco delle 131 pagine (gruppo di menu, nome pagina, PNG di riferimento)
+  - `../Materiali_definitivi/` — un mockup PNG per pagina + `IICC_Logo.png` (logo ufficiale)
 
 **Stato (ottobre 2026):** tutte le 131 pagine sono realizzate e ottimizzate per mobile, con link verificati. Si attende il feedback del cliente e i materiali elencati più sotto.
 
