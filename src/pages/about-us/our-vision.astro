@@ -32,6 +32,11 @@ const promises: { text: string; icon: IconName }[] = [
     .ov-action .photo-band__aside-item :global(svg) { margin-left: -2.9rem; margin-right: 1rem; }
     .ov-action .photo-band__aside { padding-left: 3.25rem; }
     @media (max-width: 860px) { .ov-detail__grid { grid-template-columns: 1fr; } }
+    @media (max-width: 760px) {
+      .ov-action .photo-band__bg { inset: 0; }
+      .ov-action .photo-band__text { width: 100%; background: rgba(27,39,81,0.82); padding-left: 1.5rem; }
+      .ov-action .photo-band__aside { margin-right: 0; border-radius: 0; }
+    }
   </style>
 
   <section class="hero-wave">

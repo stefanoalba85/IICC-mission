@@ -602,7 +602,7 @@
   .im-photos { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 0.4rem; }
   .im-photos img { width: 100%; aspect-ratio: 240 / 112; object-fit: cover; }
   @media (max-width: 900px) {
-    .im-split, .im-panels, .im-qcta .wrap { grid-template-columns: 1fr; }
+    .im-split, .im-panels, .im-qcta .wrap { grid-template-columns: minmax(0, 1fr) !important; }
     .im-strip .wrap, .im-steps, .im-photos { grid-auto-flow: row; grid-template-columns: 1fr 1fr; row-gap: 1rem; }
     .im-strip .wrap > div { border-right: none; }
   }
@@ -1124,6 +1124,7 @@
   }
   .mega-nav__col a:hover { color: var(--color-amber); }
 
+  .mega-nav__close, .nav-backdrop { display: none; }
   @media (max-width: 1179px) {
     .site-header__burger { display: inline-flex; }
     .mega-nav {
@@ -1138,6 +1139,10 @@
       box-shadow: -12px 0 32px rgba(18,26,56,0.2);
     }
     .nav-toggle:checked ~ .site-header__bar .mega-nav { transform: translateX(0); }
+    .mega-nav { z-index: 2; }
+    .nav-backdrop { display: none; position: fixed; inset: 0; background: rgba(18,26,56,0.5); z-index: 1; }
+    .nav-toggle:checked ~ .nav-backdrop { display: block; }
+    .mega-nav__close { display: flex; align-items: center; justify-content: center; margin: -0.5rem -0.5rem 0.5rem auto; width: 2.5rem; height: 2.5rem; font-size: 1.75rem; line-height: 1; color: var(--color-navy); cursor: pointer; border: 1px solid rgba(27,39,81,0.15); border-radius: 2px; }
     .mega-nav__list { flex-direction: column; align-items: stretch; }
     .mega-nav__item { flex-direction: column; }
     .mega-nav__panel {
@@ -1150,7 +1155,17 @@
       margin: 0.25rem 0 0.5rem 0.625rem;
       padding: 0.5rem 0 0.5rem 0.875rem;
     }
-    .site-header__donate { order: -1; margin-left: auto; }
+    .site-header__donate { order: 1; margin-left: auto; }
+    .site-header__burger { order: 2; }
+  }
+  @media (max-width: 600px) {
+    .site-header__bar { gap: 0.5rem; }
+    .site-header__brand { gap: 0.45rem; min-width: 0; }
+    .site-header__logo { height: 46px; }
+    .site-header__wordmark strong { font-size: 1.3rem; }
+    .site-header__wordmark em { font-size: 0.6rem; letter-spacing: 0.22em; }
+    .site-header__wordmark small { display: none; }
+    .site-header__donate { padding: 0.55rem 0.8rem; font-size: 0.75rem; }
   }
   @media (min-width: 1180px) {
     .mega-nav__item--dropdown[open] > .mega-nav__panel { display: grid; }
@@ -1242,5 +1257,70 @@
     overflow: hidden;
     clip: rect(0,0,0,0);
     border: 0;
+  }
+}
+
+@layer components {
+  /* ═══════════════════════════════════════════════
+     MOBILE OPTIMISATION — overrides for inline-styled grids
+     (!important is required to beat the inline grid definitions)
+  ═══════════════════════════════════════════════ */
+  .camp-grid > *, .camp-3 > *, .camp-split > *, .camp-stats > *, .m-band > *, .m-cta > * { min-width: 0; }
+  h1, h2, h3 { overflow-wrap: break-word; }
+
+  @media (max-width: 900px) {
+    /* icon band: lead text full width, items 3 per row */
+    .m-band { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; row-gap: 1.25rem; }
+    .m-band > :first-child { grid-column: 1 / -1; padding-right: 0 !important; }
+    .m-band > * { border-left: none !important; }
+  }
+  @media (max-width: 700px) {
+    /* CTA row: icon + text, button wraps below */
+    .m-cta { grid-template-columns: auto minmax(0, 1fr) !important; row-gap: 0.9rem; }
+    .m-cta > :nth-child(n + 3) { grid-column: 1 / -1; justify-self: start; white-space: normal !important; }
+    /* "trio" rows of small icon items wrap instead of overflowing */
+    .camp-trio { flex-wrap: wrap; row-gap: 0.9rem; }
+    .camp-trio > div { flex: 1 1 30%; min-width: 0; }
+  }
+  @media (max-width: 640px) {
+    /* any inline grid with 4+ equal columns becomes 2 columns */
+    [style*="grid-template-columns:repeat(4"], [style*="grid-template-columns:repeat(5"],
+    [style*="grid-template-columns:repeat(6"], [style*="grid-template-columns:repeat(7"],
+    [style*="grid-template-columns:repeat(8"] { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; row-gap: 1rem; }
+    .m-band { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+    .camp-trio > div { flex-basis: 45%; border-left: none; }
+  }
+  @media (max-width: 480px) {
+    /* small phones: let long words wrap instead of widening grid tracks */
+    main h1, main h2, main h3, main h4, main p, main li, main strong, main span, main a, main small { overflow-wrap: anywhere; }
+    .btn { white-space: normal; text-align: center; justify-content: center; letter-spacing: 0.05em; }
+    .icol { grid-template-columns: 1fr !important; }
+    [style*="display:grid"] > * { min-width: 0; }
+  }
+  @media (max-width: 900px) {
+    /* hero quote cards: flow below the photo instead of covering the text */
+    .hero-quote { position: static !important; transform: none !important; width: auto !important; margin: 0 !important; border-radius: 0 !important; }
+  }
+  @media (max-width: 900px) { .m-tab2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } .m-tab2 > * { min-width: 0; } }
+  @media (max-width: 480px) { .m-tab2 { grid-template-columns: 1fr !important; } }
+
+  @media (max-width: 600px) {
+    .people-hero__logo { padding: 1.25rem 1.5rem 0; }
+    .people-hero__logo img { max-width: 120px; margin-inline: 0; }
+    .people-hero__text { padding-top: 0.75rem; }
+    .people-hero__photo { min-height: 0; }
+    .people-hero__photo > img { position: static; height: 320px; }
+    .people-hero__quote { position: static; transform: none; width: auto; border-radius: 0; }
+  }
+  @media (max-width: 900px) {
+    .hero-logo { max-width: 120px !important; margin: 1.25rem 0 0 1.5rem !important; justify-self: start !important; }
+  }
+  @media (max-width: 900px) {
+    /* photos that sit beside text on desktop become a dimmed full background */
+    .side-bg { inset: 0 !important; width: 100% !important; opacity: 0.28; -webkit-mask-image: none !important; mask-image: none !important; }
+  }
+  @media (max-width: 640px) {
+    /* form fields laid out on a 6-column grid: one field per row on phones */
+    [style*="grid-column:span"] { grid-column: 1 / -1 !important; }
   }
 }

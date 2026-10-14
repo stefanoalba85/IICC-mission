@@ -103,6 +103,11 @@ const locations: { flag: string; country: string; cities: string }[] = [
       .hp-services { grid-template-columns: 1fr 1fr; }
       .hp-stats { grid-template-columns: 1fr 1fr; row-gap: 1rem; }
     }
+    @media (max-width: 520px) {
+      .hp-services { grid-template-columns: 1fr; }
+      .hp-svc h3 { font-size: 0.875rem; }
+      .hp-svc p { font-size: 0.875rem; }
+    }
   </style>
 
   <section class="hp-hero">

@@ -21,7 +21,8 @@ const p = Astro.props;
   .mh--boxed .mh__photo::after { display: none; }
   .mh--boxed .mh__quote { top: 50%; bottom: auto; transform: translateY(-50%); width: 190px; background: rgba(18,26,56,0.94); border: 1.5px solid #c9962a; border-radius: 6px; padding: 1.25rem 1rem; }
   .mh__tag { font-family: var(--font-heading); font-style: italic; color: var(--color-navy); font-size: 1.125rem; text-align: center; }
-  @media (max-width: 900px) { .mh { grid-template-columns: 1fr; } .mh__photo { min-height: 300px; } .mh__brand { grid-template-columns: 6rem 1fr; } }
+  @media (max-width: 900px) { .mh { grid-template-columns: 1fr; } .mh__photo { min-height: 300px; } .mh__photo::after { display: none; } .mh__brand { grid-template-columns: 6rem 1fr; } .mh__quote, .mh--boxed .mh__quote { position: static; transform: none; width: auto; margin: 0; border: none; border-radius: 0; background: var(--color-navy-dark); padding: 1.25rem 1.5rem; } }
+  @media (max-width: 600px) { .mh__brand { grid-template-columns: 1fr; gap: 0.75rem; } .mh__brand img { width: 84px; } }
 </style>
 <section class={`mh ${p.boxed || !p.quote ? 'mh--boxed' : ''}`}>
   <div class="mh__text">

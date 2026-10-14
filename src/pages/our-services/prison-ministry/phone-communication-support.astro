@@ -73,7 +73,12 @@ const strip = [
     .fq-strip strong { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: 0.8125rem; font-weight: 400; display: block; }
     .fq-strip span { font-family: var(--font-heading); color: var(--color-navy); font-size: 0.8125rem; }
     @media (max-width: 900px) { .fq-hero, .fq-body, .fq-strip .wrap > div { grid-template-columns: 1fr; } .fq-hero__photo { min-height: 280px; } .fq-hero__text { grid-template-columns: 6rem 1fr; } }
-  </style>
+      @media (max-width: 900px) {
+      .fq-hero__quote { position: static; transform: none; width: auto; background: var(--color-navy-dark); padding: 1.25rem 1.5rem; }
+      .fq-hero__photo::after { display: none; }
+    }
+    @media (max-width: 600px) { .fq-hero__text { grid-template-columns: 1fr; gap: 0.75rem; } .fq-hero__text img { width: 84px; } }
+</style>
 
   <section class="fq-hero">
     <div class="fq-hero__text">

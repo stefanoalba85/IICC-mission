@@ -71,10 +71,14 @@ const team = [
     .op-band h2 { font-family: var(--font-heading); color: var(--color-amber); text-transform: uppercase; font-size: 1.375rem; }
     .op-band p { font-family: var(--font-heading); }
     @media (max-width: 960px) {
-      .op-heart__grid { grid-template-columns: repeat(3, 1fr); row-gap: 1.5rem; }
+      .op-heart__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 1.5rem; }
+      .op-heart__item { padding-inline: 0.4rem; border-right: none; min-width: 0; }
       .op-family { grid-template-columns: 1fr 1fr; }
       .op-team { grid-template-columns: repeat(4, 1fr); }
       .op-three { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .op-team { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
   </style>
 

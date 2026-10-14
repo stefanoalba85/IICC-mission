@@ -4,7 +4,7 @@ interface Props { lead: string; items: { icon: string; title: string; text?: str
 const p = Astro.props;
 ---
 <section style="background:var(--color-navy-dark); color:#fff;">
-  <div class="wrap" style={`display:grid; grid-template-columns:1.9fr repeat(${p.items.length},1fr); align-items:center; padding-block:1.1rem;`}>
+  <div class="m-band wrap" style={`display:grid; grid-template-columns:1.9fr repeat(${p.items.length},1fr); align-items:center; padding-block:1.1rem;`}>
     <div style="display:grid; grid-template-columns:5.5rem 1fr; gap:1rem; align-items:center; padding-right:1rem;">
       <span style="color:#d9862a;"><Icon name="hand-holding-heart" size={80} /></span>
       <p style="font-family:var(--font-heading); font-size:1.0625rem; line-height:1.45;" set:html={p.lead} />

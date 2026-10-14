@@ -99,9 +99,11 @@ const stats: { num: string; label: string; icon: IconName }[] = [
   .at-bottom i { width: 5.5rem; height: 5.5rem; border-radius: 50%; background: var(--color-navy-dark); color: var(--color-amber); display: flex; align-items: center; justify-content: center; }
   .at-bottom h3 { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: 1.125rem; }
   .at-bottom p { font-family: var(--font-heading); font-size: 1rem; line-height: 1.4; color: var(--color-navy); margin-block: 0.25rem 0.6rem; }
+  @media (max-width: 560px) { .at-vals { grid-template-columns: 1fr; } }
   @media (max-width: 900px) {
     .at-hero__bg, .at-band__bg { inset: 0; opacity: 0.35; }
-    .at-story, .at-who, .at-why, .at-band .wrap, .at-bottom { grid-template-columns: 1fr; }
+    .at-story, .at-who, .at-why, .at-band .wrap, .at-bottom { grid-template-columns: minmax(0, 1fr); }
+    .at-who > *, .at-vals > * { min-width: 0; }
     .at-core__grid { grid-template-columns: repeat(3, 1fr); row-gap: 1rem; }
     .at-why__grid, .at-stats { grid-template-columns: 1fr 1fr; row-gap: 1rem; }
     .at-ctas { justify-self: stretch; width: 100%; }
