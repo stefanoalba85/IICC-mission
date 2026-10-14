@@ -1,0 +1,139 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ResHero from '../../components/ResHero.astro';
+import NewsCard from '../../components/NewsCard.astro';
+import Icon from '../../components/Icon.astro';
+
+const img = (n: string) => `/images/support/${n}.jpg`;
+const stats = [
+  { icon: 'people-group', num: '18,450+', text: 'Lives Reached' },
+  { icon: 'church', num: '92', text: 'Missions & Branches' },
+  { icon: 'hand-holding-heart', num: '5,200+', text: 'Volunteers & Supporters' },
+  { icon: 'box-open', num: '12,870+', text: 'Care Packages Delivered' },
+  { icon: 'book-open', num: '8,300+', text: 'Spiritual & Pastoral Care Sessions' },
+  { icon: 'scale-balanced', num: '3,150+', text: 'Legal Assistance & Referrals' },
+];
+const cards = [
+  { date: '17 May 2025', title: 'Easter Mass in Immigration Detention Centre', text: 'A beautiful Easter Mass was celebrated with detainees, bringing a message of resurrection, hope, and new beginnings.', href: '/our-services/immigration-detention/faith-pastoral-care' },
+  { date: '15 May 2025', title: 'Volunteer Visits Bring Hope Behind Walls', text: 'Our volunteers continue to visit prisons across Victoria, offering listening ears, encouragement, and prayer.', href: '/our-services/prison-ministry/prison-visits' },
+  { date: '12 May 2025', title: 'Mission Van Delivers Care Across Melbourne', text: 'Our mission van delivered essential care packages, Bibles, and hygiene items to several detention centres this week.', href: '/our-services/immigration-detention/humanitarian-assistance' },
+  { date: '9 May 2025', title: 'Bread of Hope Bakery Project Makes Progress', text: 'Our pilot bakery project in Italy is creating opportunities for former inmates through training and meaningful employment.', href: '/programs/bakery-of-hope' },
+  { date: '7 May 2025', title: 'Family Support Group Provides Strength', text: 'Families of inmates and detainees gathered for support, sharing experiences and finding strength in community.', href: '/our-services/prison-ministry/family-support' },
+  { date: '5 May 2025', title: 'Letters of Hope Reach Those in Need', text: 'Your letters and messages continue to brighten the days of those who feel forgotten and alone.', href: '/our-services/prison-ministry/letters-of-hope' },
+  { date: '9 May 2025', title: 'Founder’s Talk: From Prison to Purpose', text: 'Antonio G. Dattilo shared his journey and inspired detainees to never give up on hope and their future.', href: '/about-us/prison-didnt-break-me' },
+  { date: '30 April 2025', title: 'Prayer Chain Continues to Grow', text: 'Thank you to everyone joining our prayer chain. Your prayers are powerful and transform lives.', href: '/get-involved/prayer-request' },
+  { date: '28 April 2025', title: 'Youth Ambassadors Spreading Hope', text: 'Our youth ambassadors are leading the way in spreading hope through outreach, social media, and advocacy.', href: '/get-involved/ambassador-program' },
+];
+const highlights = [
+  { icon: 'church', title: 'Spiritual & Pastoral Care', text: 'Providing faith, hope and spiritual support to those who need it most.' },
+  { icon: 'people-group', title: 'Humanitarian Support', text: 'Delivering essential items, care packages and practical assistance.' },
+  { icon: 'scale-balanced', title: 'Legal Assistance', text: 'Helping protect rights and providing referral to trusted legal partners.' },
+  { icon: 'book-open', title: 'Education & Empowerment', text: 'Offering programs, resources and skills for a better future.' },
+  { icon: 'heart', title: 'Healing & Reintegration', text: 'Supporting mental health, healing and successful reintegration into society.' },
+];
+const ways = [
+  { icon: 'hands-praying', title: 'Pray', text: 'Pray for inmates, detainees and families.' },
+  { icon: 'person-chalkboard', title: 'Volunteer', text: 'Give your time and make a difference.' },
+  { icon: 'hand-holding-dollar', title: 'Donate', text: 'Your support helps change lives.' },
+  { icon: 'bullhorn', title: 'Spread the Word', text: 'Share our mission and inspire others.' },
+];
+---
+<Layout title="Mission Updates" description="Changing lives. Restoring hope. Building futures. See how the IICC Mission is making a real difference.">
+  <style>
+    .up-stats { background: var(--color-navy-dark); color: #fff; }
+    .up-stats .wrap { display: grid; grid-template-columns: repeat(6, 1fr); padding-block: 1.1rem; }
+    .up-stat { display: grid; grid-template-columns: 2.75rem 1fr; gap: 0.6rem; align-items: center; padding-inline: 0.6rem; border-left: 1px solid rgba(255,255,255,0.15); }
+    .up-stat:first-child { border-left: none; }
+    .up-stat span { color: #d9862a; }
+    .up-stat strong { display: block; font-family: var(--font-heading); font-weight: 400; font-size: 1.125rem; }
+    .up-stat small { font-size: 0.6875rem; line-height: 1.3; display: block; }
+    .up-body { display: grid; grid-template-columns: 1fr 280px; gap: 1.5rem; padding-block: 1.5rem; align-items: start; }
+    .up-h { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: 1.125rem; font-weight: 400; margin-bottom: 0.75rem; }
+    .up-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.9rem; }
+    .up-more { display: flex; justify-content: center; margin-top: 1.25rem; }
+    .up-side { display: flex; flex-direction: column; gap: 1rem; }
+    .up-box { background: #f8f6f1; border: 1px solid rgba(27,39,81,0.08); border-radius: 4px; padding: 1rem; }
+    .up-row { display: grid; grid-template-columns: 2.5rem 1fr; gap: 0.75rem; align-items: start; margin-bottom: 0.8rem; color: var(--color-navy); }
+    .up-row strong { display: block; font-family: var(--font-heading); font-weight: 400; font-size: 0.875rem; }
+    .up-row p { font-size: 0.75rem; line-height: 1.45; color: var(--color-text); }
+    .up-map { width: 100%; aspect-ratio: 261 / 104; object-fit: cover; }
+    .up-nums { display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; margin-block: 0.6rem 0.9rem; }
+    .up-nums strong { display: block; font-family: var(--font-heading); color: var(--color-navy); font-weight: 400; font-size: 1.5rem; }
+    .up-nums span { font-size: 0.625rem; text-transform: uppercase; color: var(--color-navy); }
+    .up-nums > div + div { border-left: 1px solid rgba(27,39,81,0.15); }
+    .up-foot { background: var(--color-navy-dark); color: #fff; }
+    .up-foot .wrap { display: grid; grid-template-columns: 1.1fr 1.1fr 0.9fr; gap: 2rem; padding-block: 1.25rem; align-items: center; }
+    .up-foot blockquote { margin: 0; font-family: var(--font-heading); font-size: 0.9375rem; line-height: 1.5; text-align: center; }
+    .up-foot blockquote::before { content: '\201C'; color: #d9862a; font-size: 2.5rem; line-height: 0.4; display: block; text-align: left; }
+    .up-foot cite { display: block; color: #d9862a; font-style: normal; margin-top: 0.4rem; }
+    .up-foot h2 { font-family: var(--font-heading); text-transform: uppercase; font-weight: 400; font-size: 0.9375rem; }
+    .up-foot p { font-size: 0.8125rem; line-height: 1.45; }
+    .up-social { display: flex; gap: 1rem; margin-top: 0.6rem; }
+    @media (max-width: 960px) { .up-stats .wrap { grid-template-columns: repeat(3, 1fr); row-gap: 1rem; } .up-body, .up-foot .wrap { grid-template-columns: 1fr; } .up-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .up-stats .wrap, .up-grid { grid-template-columns: 1fr 1fr; } .up-grid { grid-template-columns: 1fr; } }
+  </style>
+
+  <ResHero
+    title="Mission Updates"
+    sub="Changing Lives. Restoring Hope. Building Futures."
+    text={['See how the IICC Mission is making a real difference in the lives of inmates, detainees, and their families through your support, prayers, and generosity.']}
+    img={img('up-hero')}
+    alt="IICC Mission volunteer smiling, holding a mission mug"
+    cta="Read. Share. Be Inspired"
+    ctaHref="#updates"
+  />
+
+  <section class="up-stats">
+    <div class="wrap">
+      {stats.map(s => <div class="up-stat"><span><Icon name={s.icon} size={36} /></span><div><strong>{s.num}</strong><small>{s.text}</small></div></div>)}
+    </div>
+  </section>
+
+  <div class="wrap up-body" id="updates">
+    <div>
+      <h2 class="up-h">Latest Mission Updates</h2>
+      <div class="up-grid">
+        {cards.map((c, i) => <NewsCard img={img(`up-${i + 1}`)} {...c} />)}
+      </div>
+      <div class="up-more"><a href="/news" class="btn btn--amber">Load More Updates ↻</a></div>
+    </div>
+
+    <div class="up-side">
+      <div class="up-box">
+        <h2 class="up-h">Mission Highlights</h2>
+        {highlights.map(h => <div class="up-row"><Icon name={h.icon} size={30} /><div><strong>{h.title}</strong><p>{h.text}</p></div></div>)}
+      </div>
+      <div class="up-box">
+        <h2 class="up-h">Where We Work</h2>
+        <img src={img('up-map')} alt="World map of IICC Mission locations" class="up-map" loading="lazy" />
+        <div class="up-nums">
+          <div><strong>6</strong><span>Countries</span></div>
+          <div><strong>92</strong><span>Missions &amp; Branches</span></div>
+          <div><strong>120+</strong><span>Cities Worldwide</span></div>
+        </div>
+        <a href="/partnerships/international-branches" class="btn btn--outline" style="width:100%; justify-content:center;">View All Locations →</a>
+      </div>
+      <div class="up-box">
+        <h2 class="up-h">Ways to Support Our Mission</h2>
+        {ways.map(w => <div class="up-row"><Icon name={w.icon} size={28} /><div><strong>{w.title}</strong><p>{w.text}</p></div></div>)}
+        <a href="/get-involved" class="btn btn--outline" style="width:100%; justify-content:center;">Get Involved →</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="up-foot">
+    <div class="wrap">
+      <blockquote>Every act of kindness, every prayer, and every donation helps us bring hope where it is needed most.<cite>– IICC Mission</cite></blockquote>
+      <div>
+        <h2>Stay Connected</h2>
+        <p><strong>Subscribe to our Newsletter</strong><br />Get the latest mission updates and inspiring stories delivered to your inbox.</p>
+        <form style="display:flex; margin-top:0.6rem;" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Subscribed';"><input type="email" required placeholder="Enter your email address" aria-label="Email address" style="flex:1; padding:0.6rem 0.8rem; border:none; border-radius:3px 0 0 3px; font-size:0.8125rem;" /><button class="btn btn--amber" style="border-radius:0 3px 3px 0;">Subscribe</button></form>
+      </div>
+      <div>
+        <h2>Follow Us</h2>
+        <p>Join us on social media for daily updates, inspiration and ways to get involved.</p>
+        <div class="up-social"><Icon name="share-nodes" size={20} /><Icon name="camera" size={20} /><Icon name="play" size={20} /><Icon name="hashtag" size={20} /><Icon name="briefcase" size={20} /></div>
+      </div>
+    </div>
+  </section>
+</Layout>

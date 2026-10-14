@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+
+const popular = [
+  { icon: 'people-group', color: '#1f4f8f', t: 'Our Mission', href: '/about-us/our-mission' },
+  { icon: 'hand-holding-heart', color: '#c9741f', t: 'Our Services', href: '/our-services/who-we-serve' },
+  { icon: 'book-open', color: '#1d4d34', t: 'Programs', href: '/programs/hope-companion' },
+  { icon: 'calendar-days', color: '#5b2a86', t: 'News & Events', href: '/news' },
+  { icon: 'hand-holding-heart', color: '#14707a', t: 'Get Involved', href: '/get-involved' },
+  { icon: 'envelope', color: 'var(--color-navy)', t: 'Contact Us', href: '/contact' },
+];
+---
+<Layout title="Page Not Found" description="We're sorry, but the page you're looking for doesn't exist or may have been moved.">
+  <style>
+    .e4 { position: relative; overflow: hidden; background: linear-gradient(180deg, #fdf3e2 0%, #fbe8cc 55%, #f6dcb4 100%); min-height: 600px; }
+    .e4__l { position: absolute; left: 0; top: 0; height: 100%; width: 24%; object-fit: cover; object-position: left; -webkit-mask-image: linear-gradient(90deg, #000 50%, transparent); mask-image: linear-gradient(90deg, #000 50%, transparent); }
+    .e4__r { position: absolute; right: 0; top: 0; height: 100%; width: 26%; object-fit: cover; object-position: right; -webkit-mask-image: linear-gradient(90deg, transparent, #000 35%); mask-image: linear-gradient(90deg, transparent, #000 35%); }
+    .e4__in { position: relative; max-width: 760px; margin-inline: auto; padding: 3.5rem 1.5rem 3rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.9rem; }
+    .e4__num { font-family: var(--font-heading); color: #b97a14; font-size: 3.25rem; letter-spacing: 0.15em; display: flex; align-items: center; gap: 1.5rem; line-height: 1; }
+    .e4__num::before, .e4__num::after { content: ''; width: 5rem; height: 1.5px; background: #c9962a; }
+    .e4 h1 { font-family: var(--font-heading); color: var(--color-navy); font-variant: small-caps; font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1; }
+    .e4__lead { font-family: var(--font-heading); color: var(--color-navy); font-size: 1.3125rem; line-height: 1.4; max-width: 34rem; }
+    .e4__sub { font-family: var(--font-heading); color: var(--color-navy); font-size: 1.0625rem; line-height: 1.5; max-width: 34rem; }
+    .e4__btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 0.5rem; }
+    .e4__btns .btn { font-size: 1rem; padding: 0.85rem 1.75rem; }
+    .e4__search { display: flex; gap: 0.5rem; width: 100%; max-width: 30rem; }
+    .e4__search input { flex: 1; padding: 0.7rem 1rem; border: 1.5px solid var(--color-navy); border-radius: 4px; font-size: 0.9375rem; background: #fff; }
+    .e4__pop { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; letter-spacing: 0.2em; font-size: 1rem; display: flex; align-items: center; gap: 1.25rem; margin-top: 1rem; }
+    .e4__pop::before, .e4__pop::after { content: ''; width: 4rem; height: 1px; background: #c9962a; }
+    .e4__tiles { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0.6rem; width: 100%; }
+    .e4__tiles a { background: rgba(255,255,255,0.92); border: 1px solid rgba(201,150,42,0.25); border-radius: 4px; padding: 1.1rem 0.4rem; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.6rem; font-weight: 600; text-transform: uppercase; color: var(--color-navy); font-size: 0.8125rem; line-height: 1.2; min-height: 8rem; }
+    .e4__tiles a:hover { background: #fff; box-shadow: 0 4px 12px rgba(27,39,81,0.12); }
+    @media (max-width: 860px) { .e4__l, .e4__r { opacity: 0.35; width: 50%; } .e4__tiles { grid-template-columns: repeat(3, 1fr); } }
+  </style>
+
+  <section class="e4">
+    <img class="e4__l" src="/images/support/e404-l.jpg" alt="" />
+    <img class="e4__r" src="/images/support/e404-r.jpg" alt="" />
+    <div class="e4__in">
+      <p class="e4__num">404</p>
+      <h1>Page Not Found</h1>
+      <p class="e4__lead">We’re sorry, but the page you’re looking for doesn’t exist or may have been moved.</p>
+      <p class="e4__sub">Let’s get you back on track. You can return to our homepage, explore our main sections, or use the search bar below.</p>
+      <div class="e4__btns">
+        <a href="/" class="btn btn--amber"><Icon name="house" size={18} /> Go to Homepage</a>
+        <a href="#search" class="btn btn--outline"><Icon name="magnifying-glass" size={18} /> Search Our Site</a>
+      </div>
+      <form class="e4__search" id="search" action="https://www.google.com/search" method="get" target="_blank">
+        <input type="hidden" name="as_sitesearch" value="iiccmission.org" />
+        <input type="search" name="q" placeholder="What are you looking for?" aria-label="Search the IICC Mission website" required />
+        <button class="btn btn--navy" aria-label="Search"><Icon name="magnifying-glass" size={16} /></button>
+      </form>
+      <p class="e4__pop">Popular Pages</p>
+      <nav class="e4__tiles" aria-label="Popular pages">
+        {popular.map(p => <a href={p.href}><span style={`color:${p.color};`}><Icon name={p.icon} size={36} /></span>{p.t}</a>)}
+      </nav>
+    </div>
+  </section>
+</Layout>

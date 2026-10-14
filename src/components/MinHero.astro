@@ -1,5 +1,5 @@
 ---
-interface Props { kicker?: string; title: string; subtitle: string; intro: string[]; img: string; alt: string; quote: string; quoteRef: string; boxed?: boolean; tagline?: string; }
+interface Props { kicker?: string; title: string; subtitle: string; intro: string[]; img: string; alt: string; quote?: string; quoteRef?: string; boxed?: boolean; tagline?: string; }
 const p = Astro.props;
 ---
 <style>
@@ -23,7 +23,7 @@ const p = Astro.props;
   .mh__tag { font-family: var(--font-heading); font-style: italic; color: var(--color-navy); font-size: 1.125rem; text-align: center; }
   @media (max-width: 900px) { .mh { grid-template-columns: 1fr; } .mh__photo { min-height: 300px; } .mh__brand { grid-template-columns: 6rem 1fr; } }
 </style>
-<section class={`mh ${p.boxed ? 'mh--boxed' : ''}`}>
+<section class={`mh ${p.boxed || !p.quote ? 'mh--boxed' : ''}`}>
   <div class="mh__text">
     <div class="mh__brand">
       <img src="/IICC_Logo_main.png" alt="IICC Mission" />
@@ -38,5 +38,5 @@ const p = Astro.props;
     {p.tagline && <><span class="heart-rule" style="max-width:none;">♡</span><p class="mh__tag">{p.tagline}</p></>}
   </div>
   <div class="mh__photo"><img src={p.img} alt={p.alt} /></div>
-  <p class="mh__quote">{p.quote}<cite>– {p.quoteRef}</cite></p>
+  {p.quote && <p class="mh__quote">{p.quote}<cite>– {p.quoteRef}</cite></p>}
 </section>

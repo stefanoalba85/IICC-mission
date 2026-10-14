@@ -1,0 +1,23 @@
+---
+interface Props { img: string; tag?: string; color?: string; date: string; title: string; text: string; href?: string; }
+const p = Astro.props;
+---
+<article class="nc">
+  <img src={p.img} alt="" loading="lazy" />
+  <div class="nc__body">
+    <p class="nc__meta">{p.tag && <span style={`background:${p.color ?? 'var(--color-navy)'};`}>{p.tag}</span>}{p.date}</p>
+    <h3>{p.title}</h3>
+    <p class="nc__text">{p.text}</p>
+    <a href={p.href ?? '/news/mission-updates'}>Read More →</a>
+  </div>
+</article>
+<style>
+  .nc { background: #fff; border: 1px solid rgba(27,39,81,0.1); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 2px 6px rgba(27,39,81,0.05); }
+  .nc img { width: 100%; aspect-ratio: 216 / 123; object-fit: cover; }
+  .nc__body { padding: 0.8rem 0.9rem 1rem; display: flex; flex-direction: column; gap: 0.45rem; flex: 1; }
+  .nc__meta { display: flex; align-items: center; gap: 0.6rem; font-size: 0.6875rem; color: #6b6f80; text-transform: uppercase; flex-wrap: wrap; }
+  .nc__meta span { color: #fff; font-weight: 700; padding: 0.15rem 0.45rem; border-radius: 2px; letter-spacing: 0.02em; }
+  .nc h3 { font-family: var(--font-heading); color: var(--color-navy); font-size: 1.0625rem; font-weight: 400; line-height: 1.25; }
+  .nc__text { font-size: 0.78rem; line-height: 1.5; color: var(--color-text); flex: 1; }
+  .nc a { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--color-navy); margin-top: 0.3rem; }
+</style>

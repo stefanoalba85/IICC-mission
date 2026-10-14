@@ -1,0 +1,119 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ResHero from '../../components/ResHero.astro';
+import NewsCard from '../../components/NewsCard.astro';
+import SideBox from '../../components/SideBox.astro';
+import HcOr from '../../components/HcOr.astro';
+import ColorCards from '../../components/ColorCards.astro';
+
+const img = (n: string) => `/images/support/${n}.jpg`;
+const top = [
+  { tag: 'Prison Ministry', color: 'var(--color-navy)', date: 'May 14, 2025', title: 'Hope Through a Letter: One Connection at a Time', text: 'Our Hope Companions continue to bridge the gap between prisons and communities through the power of letters, prayers and encouragement.', href: '/our-services/prison-ministry/letters-of-hope' },
+  { tag: 'Detention Ministry', color: '#1d4d34', date: 'May 12, 2025', title: 'Companionship Behind Detention Walls', text: 'Volunteers visit immigration detention centres, offering listening ears, spiritual support and a reminder that no one is forgotten.', href: '/our-services/immigration-detention' },
+  { tag: 'Bakery of Hope', color: '#b97a14', date: 'May 10, 2025', title: 'Bread of Hope: Changing Lives, One Loaf at a Time', text: 'Our bakery initiative in Rome provides training and employment for former inmates, while supplying bread to those in need.', href: '/programs/bakery-of-hope' },
+];
+const more = [
+  { tag: 'Hope Companion Program', color: 'var(--color-navy)', date: 'May 8, 2025', title: 'Training New Hope Companions', text: 'Our latest training session equipped volunteers with the skills and heart needed to accompany with compassion and dignity.', href: '/programs/hope-companion/training-safeguarding' },
+  { tag: 'Humanitarian Support', color: '#b97a14', date: 'May 6, 2025', title: 'Supporting Families in Need', text: 'Thanks to our supporters, we delivered essential items to families of prisoners and detainees who are facing hardship.', href: '/our-services/immigration-detention/humanitarian-assistance' },
+  { tag: 'Faith & Spiritual Care', color: '#3a2470', date: 'May 4, 2025', title: 'A Day of Prayer for Healing and Restoration', text: 'Communities around the world united in prayer for those affected by incarceration, detention and separation.', href: '/resources/prayer-resources' },
+  { tag: 'Restoration & Reintegration', color: '#8a1f2b', date: 'May 3, 2025', title: 'From Prison to Purpose', text: 'A story of transformation and second chances. Meet Daniel, now mentoring others on their journey to rebuild.', href: '/our-services/who-we-serve/restoration-reintegration' },
+  { tag: 'Message of Hope', color: 'var(--color-navy)', date: 'Apr 30, 2025', title: 'Message of Hope from Pope Leo XIV', text: 'The Holy Father reminds us to be instruments of mercy, justice and hope in the lives of the forgotten.', href: '/about-us/pope-leo-xiv' },
+  { tag: 'Community Engagement', color: '#1d4d34', date: 'Apr 28, 2025', title: 'Bringing Hope to Our Communities', text: 'From awareness events to fundraising campaigns, we are raising our voice and making a difference together.', href: '/get-involved' },
+];
+const updates = [
+  { title: 'New Hope Companions Join the Mission', date: 'May 15, 2025' },
+  { title: 'Expansion of Bakery Project in Italy', date: 'May 13, 2025' },
+  { title: 'Visit to Youth Detention Centre', date: 'May 11, 2025' },
+  { title: 'Thank You to Our Generous Donors', date: 'May 9, 2025' },
+  { title: 'Advocacy for Justice and Dignity', date: 'May 7, 2025' },
+];
+const events = [
+  { m: 'May', d: '24', title: 'Global Day of Prayer For Prisoners & Detainees', where: 'Online Event' },
+  { m: 'Jun', d: '07', title: 'Hope Companion Training Session', where: 'Rome, Italy' },
+  { m: 'Jun', d: '20', title: 'Fundraising Gala Dinner For the Mission', where: 'Melbourne, Australia' },
+];
+---
+<Layout title="Mission News" description="Real stories. Real impact. Real hope. The latest news, stories and milestones from the IICC Mission.">
+  <style>
+    .nw-body { display: grid; grid-template-columns: 1fr 240px; gap: 1.25rem; padding-block: 1.25rem; align-items: start; }
+    .nw-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.75rem; }
+    .nw-head h2 { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: 1.125rem; font-weight: 400; }
+    .nw-head a { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--color-navy); }
+    .nw-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.9rem; }
+    .nw-side { display: flex; flex-direction: column; gap: 0.75rem; }
+    .nw-up { display: grid; grid-template-columns: 80px 1fr; gap: 0.6rem; align-items: center; margin-bottom: 0.55rem; }
+    .nw-up img { width: 80px; height: 58px; object-fit: cover; border-radius: 2px; }
+    .nw-up strong { display: block; font-family: var(--font-heading); color: var(--color-navy); font-weight: 400; font-size: 0.8125rem; line-height: 1.3; }
+    .nw-up span, .nw-ev span { font-size: 0.6875rem; color: #6b6f80; text-transform: uppercase; }
+    .nw-ev { display: grid; grid-template-columns: 2.6rem 1fr; gap: 0.7rem; align-items: center; margin-bottom: 0.7rem; }
+    .nw-ev i { font-style: normal; border: 1px solid rgba(27,39,81,0.25); border-radius: 3px; text-align: center; overflow: hidden; background: #fff; }
+    .nw-ev i b { display: block; background: var(--color-navy); color: #fff; font-size: 0.625rem; text-transform: uppercase; padding: 0.1rem 0; }
+    .nw-ev i em { display: block; font-style: normal; font-family: var(--font-heading); color: var(--color-navy); font-size: 1.25rem; line-height: 1.4; }
+    .nw-ev strong { display: block; font-family: var(--font-heading); color: var(--color-navy); font-weight: 400; font-size: 0.8125rem; line-height: 1.3; }
+    .nw-sidelink { display: block; text-align: center; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--color-navy); }
+    .nw-feat img { width: 100%; aspect-ratio: 226 / 79; object-fit: cover; border-radius: 2px; }
+    .nw-feat p { text-align: center; font-size: 0.75rem; line-height: 1.45; margin-block: 0.5rem; }
+    .nw-feat p strong { display: block; font-family: var(--font-heading); color: var(--color-navy); font-size: 0.875rem; }
+    @media (max-width: 960px) { .nw-body { grid-template-columns: 1fr; } .nw-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .nw-grid { grid-template-columns: 1fr; } }
+  </style>
+
+  <ResHero
+    logo={false}
+    kicker="Mission News"
+    title="Mission<br/><span style='color:#c9741f'>News</span>"
+    sub="<span style='color:var(--color-navy)'>Real stories. Real impact.<br/>Real hope.</span>"
+    text={['Stay up to date with the latest news, stories and milestones from the IICC Mission and our global community of Hope Companions.']}
+    img={img('nw-hero')}
+    alt="IICC Mission chaplain and volunteers greeting a man beside the mission van"
+    quote="I was in prison and you visited me. I was in detention and you came to me. Thank you for bringing hope."
+    quoteRef="Matthew 25:36"
+    cta="Hope is growing. Join the movement"
+    ctaHref="/get-involved"
+  />
+
+  <div class="wrap nw-body">
+    <div>
+      <div class="nw-head"><h2>Top Stories</h2><a href="/news/mission-updates">View All News →</a></div>
+      <div class="nw-grid">
+        {top.map((s, i) => <NewsCard img={img(`nw-t${i + 1}`)} {...s} />)}
+      </div>
+      <div class="nw-head" style="margin-top:1.5rem;"><h2>More News &amp; Stories</h2></div>
+      <div class="nw-grid">
+        {more.map((s, i) => <NewsCard img={img(`nw-m${i + 1}`)} {...s} />)}
+      </div>
+    </div>
+
+    <div class="nw-side">
+      <SideBox title="Latest Updates">
+        {updates.map((u, i) => (
+          <a href="/news/mission-updates" class="nw-up"><img src={img(`nw-u${i + 1}`)} alt="" loading="lazy" /><div><strong>{u.title}</strong><span>{u.date}</span></div></a>
+        ))}
+        <a href="/news/mission-updates" class="nw-sidelink">View All Updates →</a>
+      </SideBox>
+      <SideBox title="Upcoming Events">
+        {events.map(e => (
+          <div class="nw-ev"><i><b>{e.m}</b><em>{e.d}</em></i><div><strong>{e.title}</strong><span>{e.where}</span></div></div>
+        ))}
+        <a href="/news/mission-updates" class="nw-sidelink">View All Events →</a>
+      </SideBox>
+      <SideBox title="Feature Story">
+        <div class="nw-feat">
+          <img src={img('nw-feat')} alt="A man looking out at a sunrise over the water" loading="lazy" />
+          <p><strong>Prison didn’t break me.<br />It built my purpose.</strong>Antonio’s journey from prison to becoming an Ambassador of Hope.</p>
+          <a href="/about-us/prison-didnt-break-me" class="nw-sidelink">Read the Full Story →</a>
+        </div>
+      </SideBox>
+    </div>
+  </div>
+
+  <HcOr
+    leftTitle="Stay Connected"
+    leftText="Get the latest news, stories and updates delivered to your inbox."
+    leftCta="Subscribe Now"
+    leftHref="/news/newsletter"
+    rightTitle="Support the Mission"
+    rightText="Your support helps us share hope, restore dignity and change lives."
+  />
+  <ColorCards />
+</Layout>

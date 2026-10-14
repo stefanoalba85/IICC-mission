@@ -1,0 +1,33 @@
+---
+import Icon from './Icon.astro';
+interface Card { title: string; text: string; cta: string; href: string; icon: string; bg: string; }
+interface Props { cards?: Card[]; }
+const cards: Card[] = Astro.props.cards ?? [
+  { title: 'Become a Hope Companion', text: 'Walk alongside someone and be the reason they find hope.', cta: 'Apply Now', href: '/programs/hope-companion/become-a-companion', icon: 'people-group', bg: 'var(--color-navy-dark)' },
+  { title: 'Donate Online', text: 'Your generosity helps bring hope and change lives.', cta: 'Donate Now', href: '/donate', icon: 'hand-holding-heart', bg: '#b97a14' },
+  { title: 'Support on GoFundMe', text: 'Support our mission through our active GoFundMe campaigns.', cta: 'View Campaigns', href: '/donate', icon: 'people-roof', bg: '#1d4d34' },
+  { title: 'Pray for Our Mission', text: 'Join us in prayer for prisoners, detainees and their families.', cta: 'Pray With Us', href: '/get-involved/prayer-request', icon: 'hands-praying', bg: '#3a2470' },
+  { title: 'Volunteer', text: 'Share your time and skills in other meaningful ways.', cta: 'Volunteer Now', href: '/get-involved/volunteer-program', icon: 'hand-holding-heart', bg: '#14505a' },
+];
+---
+<section class="wrap ccards">
+  {cards.map(c => (
+    <div class="ccard" style={`background:${c.bg};`}>
+      <div class="ccard__top"><Icon name={c.icon} size={34} /><h3>{c.title}</h3></div>
+      <p>{c.text}</p>
+      <div class="ccard__bot"><span class="ccard__qr"><Icon name="qrcode" size={34} /></span><a href={c.href}>{c.cta} →</a></div>
+    </div>
+  ))}
+</section>
+<style>
+  .ccards { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.75rem; padding-block: 0.5rem 1.5rem; }
+  .ccard { color: #fff; border-radius: 4px; padding: 0.9rem; display: flex; flex-direction: column; gap: 0.6rem; }
+  .ccard__top { display: grid; grid-template-columns: 2.5rem 1fr; gap: 0.6rem; align-items: center; }
+  .ccard h3 { font-family: var(--font-heading); text-transform: uppercase; font-size: 0.875rem; font-weight: 400; line-height: 1.25; }
+  .ccard p { font-size: 0.8125rem; line-height: 1.45; flex: 1; }
+  .ccard__bot { display: flex; align-items: center; gap: 0.6rem; }
+  .ccard__qr { background: #fff; color: #111; border-radius: 3px; padding: 0.15rem; display: inline-flex; }
+  .ccard a { background: #fff; color: var(--color-navy); border-radius: 3px; font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; padding: 0.4rem 0.6rem; white-space: nowrap; }
+  @media (max-width: 960px) { .ccards { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .ccards { grid-template-columns: 1fr; } }
+</style>

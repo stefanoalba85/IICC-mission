@@ -1,0 +1,72 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LegalTemplate from '../components/LegalTemplate.astro';
+import LegalCard from '../components/LegalCard.astro';
+import Icon from '../components/Icon.astro';
+
+const tabs = [
+  { icon: 'file-lines', label: 'Overview', href: '#overview' },
+  { icon: 'desktop', label: 'Use of Website', href: '#use' },
+  { icon: 'copyright', label: 'Intellectual Property', href: '#ip' },
+  { icon: 'heart', label: 'Donations', href: '#donations' },
+  { icon: 'link', label: 'Third-Party Links', href: '#links' },
+  { icon: 'people-group', label: 'User Conduct', href: '#conduct' },
+  { icon: 'shield-halved', label: 'Disclaimer', href: '#disclaimer' },
+  { icon: 'rotate', label: 'Changes', href: '#changes' },
+  { icon: 'circle-info', label: 'Contact Us', href: '#contact' },
+];
+---
+<Layout title="Terms & Conditions" description="The terms and conditions governing your use of the IICC Mission website and related services.">
+  <LegalTemplate
+    kicker="Terms & Conditions"
+    title="Terms &"
+    titleGold="Conditions"
+    text={[
+      'These Terms & Conditions govern your use of the IICC Mission website (www.iiccmission.org) and any related services, content and communications provided by IICC Mission.',
+      'By accessing or using our website, you agree to these Terms & Conditions. Please read them carefully.',
+    ]}
+    img="/images/support/tc-hero.jpg"
+    alt="St Peter's Basilica and Ponte Sant'Angelo at sunset"
+    quote="With respect, transparency and integrity, we build trust and walk together to bring hope to those in need."
+    tabs={tabs}
+    links={['Our Mission', 'Our Services', 'Our Programs', 'Get Involved', 'Donate', 'Volunteer', 'Partnerships', 'Legal & Governance', 'Privacy Policy', 'Terms & Conditions', 'Contact Us']}
+    activeLink="Terms & Conditions"
+  >
+    <h2 id="overview">1. Overview</h2>
+    <p>This website is operated by IICC Mission, a Catholic-Christian inspired humanitarian organisation dedicated to bringing hope, dignity and support to people affected by imprisonment, immigration detention, family hardship and social vulnerability.</p>
+    <p>By using this website, you agree to comply with these Terms &amp; Conditions, our Privacy Policy, and all applicable laws and regulations.</p>
+
+    <h2 id="use">2. Use of Website</h2>
+    <p>You may use our website for lawful purposes only. You agree not to use this website in any way that could damage, disable, overburden or impair our website or interfere with any other person’s use. You must not attempt to gain unauthorised access to any part of the website, its systems or data.</p>
+
+    <h2 id="ip">3. Intellectual Property</h2>
+    <p>All content on this website, including text, images, logos, graphics, videos, documents and design, are the property of IICC Mission or used with permission. They are protected by copyright, trademark and other intellectual property laws. You may not reproduce, distribute, modify or use any content without our prior written consent, except for personal, non-commercial use.</p>
+
+    <h2 id="donations">4. Donations</h2>
+    <p>Donations made through this website are voluntary and non-refundable, except where required by law. All donations are used to support the mission, programs and operations of IICC Mission. We use secure third-party payment providers and do not store your full payment details on our servers.</p>
+
+    <h2 id="links">5. Third-Party Links</h2>
+    <p>Our website may contain links to third-party websites for your convenience. We are not responsible for the content, policies or practices of these external websites and do not necessarily endorse them.</p>
+
+    <h2 id="conduct">6. User Conduct</h2>
+    <p>You agree not to post or transmit any content that is unlawful, abusive, defamatory, misleading, hateful or otherwise inappropriate. We reserve the right to remove any content and terminate access for users who violate these Terms &amp; Conditions.</p>
+
+    <h2 id="disclaimer">7. Disclaimer</h2>
+    <p>The information on this website is provided in good faith for general information purposes only. While we strive to keep the information accurate and up to date, we make no warranties or representations of any kind, express or implied, about the completeness, accuracy or reliability of the content.</p>
+
+    <h2 id="changes">8. Changes to These Terms</h2>
+    <p>We may update these Terms &amp; Conditions from time to time. Any changes will be posted on this page with the updated effective date. Your continued use of the website after changes are posted constitutes your acceptance of the revised Terms &amp; Conditions.</p>
+
+    <h2 id="contact">9. Contact Us</h2>
+    <p>If you have any questions about these Terms &amp; Conditions, please contact us:<br />IICC Mission, Via delle Milizie 34, Rome, Italy 00192 &nbsp;|&nbsp; info@iiccmission.org &nbsp;|&nbsp; www.iiccmission.org</p>
+
+    <Fragment slot="side">
+      <div class="lg-box">
+        <h3><Icon name="comment" size={20} /> Need Help?</h3>
+        <p style="font-family:var(--font-heading); color:var(--color-navy); font-size:0.875rem; line-height:1.45; margin-bottom:0.75rem;">If you have any questions about these Terms &amp; Conditions or the use of our website, please contact us:</p>
+        <p style="display:grid; grid-template-columns:1.5rem 1fr; gap:0.5rem; font-family:var(--font-heading); color:var(--color-navy); font-size:0.875rem; line-height:1.6;"><Icon name="location-dot" size={18} /><span>Via delle Milizie 34<br />Rome, Italy 00192</span><Icon name="envelope" size={18} /><span>info@iiccmission.org</span><Icon name="globe" size={18} /><span>www.iiccmission.org</span></p>
+      </div>
+      <LegalCard img="/images/support/tc-side.jpg" text="Together for a More Just, Compassionate and Hopeful World." />
+    </Fragment>
+  </LegalTemplate>
+</Layout>

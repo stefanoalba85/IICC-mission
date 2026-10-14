@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LegalTemplate from '../components/LegalTemplate.astro';
+import LegalCard from '../components/LegalCard.astro';
+import Icon from '../components/Icon.astro';
+
+const tabs = [
+  { icon: 'universal-access', label: 'Our Commitment', href: '#commitment' },
+  { icon: 'desktop', label: 'Accessibility Features', href: '#features' },
+  { icon: 'gear', label: 'Ongoing Improvements', href: '#improvements' },
+  { icon: 'file-lines', label: 'Standards We Follow', href: '#standards' },
+  { icon: 'people-group', label: 'Assistive Technologies', href: '#assistive' },
+  { icon: 'comment', label: 'Feedback', href: '#feedback' },
+  { icon: 'circle-question', label: 'Additional Information', href: '#format' },
+  { icon: 'envelope', label: 'Contact Us', href: '#contact' },
+];
+const features = [
+  { icon: 'text-height', t: 'Clear and readable fonts' }, { icon: 'circle-half-stroke', t: 'High colour contrast' }, { icon: 'keyboard', t: 'Keyboard navigation' },
+  { icon: 'image', t: 'Descriptive alternative text for images' }, { icon: 'file-lines', t: 'Well-structured and semantic content' }, { icon: 'circle-play', t: 'Accessible multimedia where possible' },
+];
+---
+<Layout title="Accessibility Statement" description="A more inclusive world of hope — IICC Mission's commitment to an accessible website for everyone.">
+  <style>
+    .ac-icons i { width: 3rem; height: 3rem; border-radius: 50%; background: var(--color-navy-dark); color: #fff; display: flex; align-items: center; justify-content: center; }
+    .ac-contact { display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 0.75rem 0 0 1.6rem; font-family: var(--font-heading); color: var(--color-navy); font-size: 0.9375rem; }
+    .ac-contact span { display: flex; align-items: center; gap: 0.6rem; }
+    .ac-contact span + span { border-left: 1px solid rgba(27,39,81,0.15); padding-left: 1.5rem; }
+  </style>
+  <LegalTemplate
+    kicker="Accessibility Statement"
+    title="A More Inclusive"
+    titleGold="World of Hope"
+    text={['At IICC Mission, we believe everyone should have equal access to information, resources and opportunities to be part of our mission. We are committed to making our website accessible to all people, including those with disabilities.']}
+    img="/images/support/ac-hero.jpg"
+    alt="St Peter's Basilica at sunset seen across Rome"
+    quote="Inclusion reflects the dignity of every person and builds a more compassionate world."
+    tabs={tabs}
+    activeLink="Accessibility Statement"
+  >
+    <h2 id="commitment">1. Our Commitment</h2>
+    <p>IICC Mission is committed to ensuring that our website (www.iiccmission.org) is accessible to as many people as possible, regardless of ability or technology used. We strive to provide an inclusive and user-friendly experience for all visitors, including people with visual, hearing, motor and cognitive disabilities.</p>
+    <p>We are guided by our values of dignity, compassion and justice, and we believe digital accessibility is an important part of our mission to bring hope to those in need.</p>
+
+    <h2 id="features">2. Accessibility Features</h2>
+    <p>Our website includes a range of features to support accessibility, including:</p>
+    <div class="lg-icons ac-icons">{features.map(f => <span><i><Icon name={f.icon} size={22} /></i>{f.t}</span>)}</div>
+
+    <h2 id="standards">3. Standards We Follow</h2>
+    <p>We aim to comply with the Web Content Accessibility Guidelines (WCAG) 2.1, Level AA, developed by the World Wide Web Consortium (W3C). These guidelines help make web content more accessible for people with disabilities and improve the overall user experience for everyone.</p>
+
+    <h2 id="improvements">4. Ongoing Improvements</h2>
+    <p>We are continually reviewing and improving the accessibility of our website and digital content. As technology and standards evolve, we will take appropriate steps to maintain and enhance accessibility across our platform.</p>
+
+    <h2 id="assistive">5. Assistive Technologies</h2>
+    <p>Our website is designed to be compatible with commonly used assistive technologies, including screen readers, screen magnifiers and voice recognition software.</p>
+
+    <h2 id="feedback">6. Feedback and Support</h2>
+    <p>If you experience any difficulties accessing our website, or if you have suggestions on how we can improve accessibility, please let us know. We value your feedback and will do our best to provide the information you need in an accessible format.</p>
+
+    <h2 id="contact">7. Contact Us</h2>
+    <p>For accessibility-related enquiries, please contact us:</p>
+    <div class="ac-contact">
+      <span><Icon name="envelope" size={20} />info@iiccmission.org</span>
+      <span><Icon name="phone" size={20} />+39 349 303 6235</span>
+      <span><Icon name="location-dot" size={20} />Via delle Milizie 34, Rome, Italy 00192</span>
+    </div>
+
+    <Fragment slot="side">
+      <div class="lg-box" id="format">
+        <h3><Icon name="file-lines" size={22} /> Need This Information in a Different Format?</h3>
+        <p style="font-family:var(--font-heading); color:var(--color-navy); font-size:0.875rem; line-height:1.45; margin-bottom:0.9rem;">If you need this information in a different format, such as large print, audio or a plain language version, please contact us. We will be happy to assist you.</p>
+        <a href="/contact" class="btn btn--navy" style="width:100%; justify-content:space-between;"><Icon name="envelope" size={18} /> Contact Us <span>›</span></a>
+      </div>
+      <LegalCard img="/images/support/ac-side.jpg" text="Building a more just and inclusive world for all." />
+    </Fragment>
+  </LegalTemplate>
+</Layout>
