@@ -82,6 +82,8 @@ Note sulla corrispondenza con i mockup:
   - Molte griglie hanno colonne inline (`style="grid-template-columns:…"`). Su mobile si ricompongono grazie alle regole in fondo a `global.css`: classi `camp-grid`, `m-cta`, `m-band`, `m-tab2`, `hero-quote`, `hero-logo`, `side-bg`, più selettori sugli attributi `style`. Una nuova griglia inline deve usare una di queste classi.
   - Le regole condivise vanno dentro `@layer components`: una regola fuori dai layer sovrascrive tutto il layer, compresi i `max-width` dei loghi.
   - Gli stili scoped di Astro non raggiungono gli svg di `Icon` né il contenuto passato via slot: usare `:global(...)`.
+- **Schermi larghi (1440–2560px):** per allineare un testo al contenitore da 1200px si usa `padding-left: calc((100vw - 1200px) / 2 …)`. Se l'elemento ha una larghezza fissa o in percentuale, quel padding gli toglie spazio e oltre i 1440px il testo si schiaccia o il logo sconfina. Va sommata la variabile `--gutter` alla larghezza (`width: calc(min(560px, 46%) + var(--gutter))`), oppure logo e testo vanno messi in un unico blocco (vedi `GiHero`). Controllare sempre anche a 1920px.
+- **Griglie fitte di schede:** `ResCards` usa una container query (classe `.rc`) e passa a 3 per riga quando ogni scheda scenderebbe sotto i 170px circa. Altre griglie fitte usano `m-mid3` tra 901 e 1100px.
 
 ## Controlli qualità (`scripts/qa/`)
 
@@ -91,12 +93,13 @@ Da eseguire dopo `npm run build`. I risultati finiscono in `.qa/`, che è ignora
 python3 scripts/qa/audit.py dist .qa/audit.json   # link interni, ancore, pagine orfane, form, contatti
 npm run preview -- --port 4400                     # in un altro terminale, per i due script seguenti
 node scripts/qa/mobile.mjs dist 390                # overflow orizzontale su tutte le pagine (anche 360/768/1280)
+node scripts/qa/overlap.mjs dist 1920              # testi o logo sovrapposti e parole spezzate a metà (provare 390/1024/1280/1440/1920)
 MAXH=1300 node scripts/qa/mshot.mjs nome /faq/ /news/   # screenshot mobile affiancati -> .qa/shots/nome.jpg
 ```
 
 `mshot.mjs` richiede Python con Pillow (variabile `PYTHON`). Per gli screenshot mobile usare questi script basati su CDP: `--window-size` di Chrome headless non scende sotto circa 500px.
 
-Ultimo esito: 0 link rotti, 0 ancore mancanti, 0 pagine orfane, 0 overflow a 360/390/430/768/1024/1280px.
+Ultimo esito: 0 link rotti, 0 ancore mancanti, 0 pagine orfane, 0 overflow da 360 a 1920px; nessuna sovrapposizione né parola spezzata da 768 a 1920px. `overlap.mjs` segnala anche alcuni falsi positivi noti: l'occhiello sopra i titoli degli hero ("Prison Ministry", "Support & Funding"), che è solo molto vicino al titolo. A 390px restano 43 parole lunghe spezzate per stare nello schermo, una situazione già presente prima e accettata dal cliente.
 
 ## In attesa dal cliente
 

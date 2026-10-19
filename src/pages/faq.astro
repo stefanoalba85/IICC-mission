@@ -20,7 +20,7 @@ const faqs = [
   { q: 'What is the mission and vision of IICC Mission?', a: 'Our mission is to accompany, support and restore people affected by imprisonment and detention. Our vision is a world where every person is treated with dignity and given the opportunity for a brighter tomorrow.' },
   { q: 'Is IICC Mission a Catholic-Christian inspired organisation?', a: 'Yes. Our work is inspired by the Gospel and the social teaching of the Catholic Church, and we serve every person regardless of faith, background or circumstance.' },
   { q: 'Who does IICC Mission help?', a: 'We serve incarcerated individuals, immigration detainees, their families, former inmates and detainees, victims of abuse and domestic violence, and vulnerable communities.' },
-  { q: 'Where is IICC Mission based?', a: 'Our global headquarters is in Rome, Italy (Via delle Milizie 34, 00192), with branches and missions in Italy, Australia and other countries.' },
+  { q: 'Where is IICC Mission based?', a: 'Our global headquarters is at Via delle Milizie 34, 00192 Rome, Italy, with branches and missions in Italy, Australia and other countries.' },
   { q: 'How is IICC Mission different from other organisations?', a: 'Our mission was founded on lived experience. We combine pastoral care, practical support, advocacy and the Hope Companion Program to walk alongside people for the long term.' },
   { q: 'Is IICC Mission a registered charity?', a: 'IICC Mission operates with transparency and accountability. For details about our registration and governance, please contact us at info@iiccmission.org.' },
 ];
@@ -37,14 +37,16 @@ const cats = [
 ---
 <Layout title="FAQ" description="Frequently asked questions about IICC Mission, our faith, our work, our programs, partnerships and how you can get involved.">
   <style>
-    .fq details { display: grid; grid-template-columns: 3.5rem 1fr; margin-top: 0.45rem; margin-left: 0; }
-    .fq summary { list-style: none; display: grid; grid-template-columns: 3.5rem 1fr 1.5rem; gap: 0.5rem; align-items: center; cursor: pointer; grid-column: 1 / -1; }
+    .fq details { margin-top: 0.45rem; }
+    .fq summary { list-style: none; display: grid; grid-template-columns: 3.5rem 1fr 1.5rem; gap: 0.5rem; align-items: center; cursor: pointer; }
     .fq summary::-webkit-details-marker { display: none; }
     .fq summary b { background: #fbefdc; color: #c9741f; font-family: var(--font-heading); font-weight: 400; text-align: center; padding-block: 0.7rem; border-radius: 3px; }
     .fq summary span { background: #f7f6f3; font-family: var(--font-heading); color: var(--color-navy); padding: 0.7rem 1rem; border-radius: 3px; }
     .fq summary i { font-style: normal; font-size: 1.4rem; color: var(--color-navy); }
     .fq details[open] summary i { transform: rotate(45deg); }
-    .fq details > p { grid-column: 2 / -1; padding: 0.6rem 1rem 0.2rem 0.5rem; }
+    /* answer aligned with the question text (number column 3.5rem + gap 0.5rem) */
+    .fq details > p { margin: 0 2rem 0 4rem; padding: 0.7rem 1rem 0.4rem; max-width: 65ch; }
+    @media (max-width: 560px) { .fq details > p { margin: 0; padding-inline: 0.5rem; } }
     .fq-cats { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-top: 1rem; }
     .fq-cats a { display: grid; grid-template-columns: 3rem 1fr 1rem; gap: 0.9rem; align-items: center; border: 1px solid rgba(27,39,81,0.1); border-radius: 4px; padding: 0.9rem 1rem; color: var(--color-navy); background: #fff; }
     .fq-cats a:hover { background: #fbf6ec; }

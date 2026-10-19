@@ -4,11 +4,8 @@ import Icon from '../components/Icon.astro';
 import type { IconName } from '../lib/icons';
 
 const info: { title: string; lines: string[]; icon: IconName }[] = [
-  { title: 'Mailing Address', lines: ['PO Box 341', 'North Sydney NSW 2059', 'Australia'], icon: 'pin' },
-  { title: 'Phone', lines: ['+61 2 8732 4555'], icon: 'phone' },
+  { title: 'IICC Mission – Head Office', lines: ['Via delle Milizie 34', '00192 Rome, Italy'], icon: 'pin' },
   { title: 'Email', lines: ['info@iiccmission.org'], icon: 'mail' },
-  { title: 'Website', lines: ['www.iiccmission.org'], icon: 'globe' },
-  { title: 'Support Line', lines: ['Need to talk?', 'We’re here to listen.', '+61 411 209 066'], icon: 'heartHand' },
 ];
 ---
 <Layout title="Contact Us" description="We would love to hear from you.">
@@ -70,7 +67,7 @@ const info: { title: string; lines: string[]; icon: IconName }[] = [
         <input class="form-input full" name="subject" placeholder="Subject *" aria-label="Subject" required />
         <textarea class="form-input form-input--textarea full" name="message" placeholder="Your Message *" aria-label="Your message" required></textarea>
         <button type="submit" class="btn btn--amber ct-send full">Send Message <Icon name="share" size={20} /></button>
-        <p class="ct-done full" hidden style="text-align:center; color:var(--color-navy); font-weight:700;">Message received. We will reply within two working days.</p>
+        <p class="ct-done full" hidden style="text-align:center; color:var(--color-navy); font-weight:700;">Thank you. Your message has been received and we will reply as soon as possible.</p>
         <p class="ct-privacy full"><Icon name="shield" size={20} /> We respect your privacy. Your information will never be shared.</p>
       </form>
     </div>
@@ -81,8 +78,8 @@ const info: { title: string; lines: string[]; icon: IconName }[] = [
       <span style="color:var(--color-amber);"><Icon name="calendar" size={96} stroke={1.4} /></span>
       <div>
         <h2>Office Hours</h2>
-        <p>Monday – Friday<br />9:00am – 5:00pm (AEST)</p>
-        <p style="font-size:1rem; margin-top:0.6rem;">We are closed on weekends and public holidays.</p>
+        <p>Rome, Italy<br />Central European Time (CET/CEST)</p>
+        <p style="font-size:1rem; margin-top:0.6rem;">Our office hours will be published here shortly.</p>
       </div>
     </div>
     <div class="ct-quote">

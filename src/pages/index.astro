@@ -4,7 +4,7 @@ import Icon from '../components/Icon.astro';
 import type { IconName } from '../lib/icons';
 
 const values: { title: string; text: string; icon: IconName }[] = [
-  { title: 'Faith', text: 'Guided by the Gospel and Catholic values.', icon: 'cross' },
+  { title: 'Faith', text: 'Guided by the Gospel and Catholic Christian values.', icon: 'cross' },
   { title: 'Compassion', text: 'Serving every person with love and respect.', icon: 'heart' },
   { title: 'Dignity', text: 'Recognising the value of every human being.', icon: 'people' },
   { title: 'Justice', text: 'Working for fairness, reconciliation and mercy.', icon: 'scales' },
@@ -24,7 +24,7 @@ const services: { title: string; text: string; href: string; icon: IconName; bg:
   { title: 'Advocacy', text: 'Giving a voice to the voiceless and raising awareness for change.', href: '/our-services/advocacy', icon: 'megaphone', bg: '#e2621b' },
 ];
 const mission: { title: string; text: string }[] = [
-  { title: 'Head Office', text: 'Via delle Milizie 34<br/>Rome, Italy' },
+  { title: 'Head Office', text: 'Via delle Milizie 34<br />00192 Rome, Italy' },
   { title: 'National Missions', text: 'Italy - Australia - USA - Canada<br/>San Marino - Monaco' },
   { title: 'State Missions', text: 'Serving states and provinces' },
   { title: 'Regional Missions', text: 'Bringing the mission closer<br/>to local communities' },
@@ -38,7 +38,7 @@ const locations: { flag: string; country: string; cities: string }[] = [
   { flag: '🇲🇨', country: 'Monaco', cities: 'National Mission' },
 ];
 ---
-<Layout title="Bringing Hope Worldwide" description="A Catholic global mission sharing Christ's love, mercy and hope with incarcerated individuals, people in Immigration Detention, their families and all who are experiencing hardship.">
+<Layout title="Bringing Hope Worldwide" description="A Catholic Christian global mission sharing Christ's love, mercy and hope with incarcerated individuals, people in Immigration Detention, their families and all who are experiencing hardship.">
   <style>
     .hp-hero { position: relative; background: var(--color-navy-dark); color: #fff; overflow: hidden; }
     .hp-hero__bg { position: absolute; inset: 0 0 0 36%; }
@@ -114,7 +114,7 @@ const locations: { flag: string; country: string; cities: string }[] = [
     <div class="hp-hero__bg"><img src="/images/home/hero.jpg" alt="St Peter's Basilica and the Tiber at dusk" /></div>
     <div class="wrap hp-hero__inner">
       <h1>IICC MISSION<br /><span class="text-amber">Bringing Hope</span><br />to those in need.</h1>
-      <p>A Catholic global mission sharing Christ’s love, mercy and hope with incarcerated individuals, people in Immigration Detention, their families and all who are experiencing hardship.</p>
+      <p>A Catholic Christian global mission sharing Christ’s love, mercy and hope with incarcerated individuals, people in Immigration Detention, their families and all who are experiencing hardship.</p>
       <div class="hp-hero__btns">
         <a href="/donate" class="btn btn--amber"><Icon name="heart" size={16} /> Support the Mission</a>
         <a href="/get-involved/ambassador-program" class="btn btn--outline-white"><Icon name="star" size={16} /> Become an Ambassador</a>
@@ -122,7 +122,7 @@ const locations: { flag: string; country: string; cities: string }[] = [
       <div class="hp-office">
         <Icon name="pin" size={26} />
         <strong>Head Office</strong>
-        <b>Via delle Milizie 34<br />Rome, Italy</b>
+        <b>Via delle Milizie 34<br />00192 Rome, Italy</b>
         <span>The global mission centre coordinating our work worldwide.</span>
       </div>
     </div>
@@ -143,7 +143,7 @@ const locations: { flag: string; country: string; cities: string }[] = [
       <p>My name is Antonio G. Dattilo, Ambassador and Founder of IICC Mission.</p>
       <p>My journey has taken me through more than eight years between prison and Immigration Detention Centre. During this time, I experienced hardship, isolation and uncertainty, but I also discovered faith, resilience and the power of hope.</p>
       <p>While incarcerated, I worked in the prison bakery, where I discovered purpose through discipline, learning new skills and supporting others around me.</p>
-      <p>These experiences inspired the creation of IICC Mission – a global Catholic mission dedicated to bringing Christ’s love, mercy and hope to incarcerated individuals, people in Immigration Detention, their families and those experiencing hardship.</p>
+      <p>These experiences inspired the creation of IICC Mission – a global Catholic and Christian mission dedicated to bringing Christ’s love, mercy and hope to incarcerated individuals, people in Immigration Detention, their families and those experiencing hardship.</p>
       <div class="hp-stats">
         {stats.map(s => <div><span style={`color:${s.color ?? 'var(--color-amber)'}`}><Icon name={s.icon} size={34} /></span><strong>{s.title}</strong><span>{s.text}</span></div>)}
       </div>

@@ -12,7 +12,7 @@ const cards = [
 ---
 <section class="wrap" style="padding-bottom:1.25rem;">
   {p.title && <h2 class="camp-h">{p.title}</h2>}
-  <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:0.6rem; margin-top:0.6rem;" class="camp-grid">
+  <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:0.6rem; margin-top:0.6rem;" class="camp-grid hc-cards">
     {cards.map(c => <a href={c.h} style={`background:${c.bg}; color:#fff; border-radius:6px; padding:1rem; display:flex; flex-direction:column; gap:0.5rem;`}><div style="display:grid; grid-template-columns:2.75rem 1fr; gap:0.6rem; align-items:center;"><Icon name={c.icon} size={36} /><strong style="font-family:var(--font-heading); text-transform:uppercase; font-weight:400; font-size:0.9375rem; line-height:1.2;">{c.t}</strong></div><span style="font-size:0.8125rem; line-height:1.45; flex:1;">{c.d}</span><span style="align-self:flex-start; background:#fff; color:var(--color-navy); border-radius:4px; padding:0.35rem 0.75rem; font-size:0.7rem; font-weight:700; text-transform:uppercase;">{c.c} ›</span></a>)}
   </div>
 </section>

@@ -63,6 +63,10 @@
    LAYOUT & SECTIONS
 ═══════════════════════════════════════════════ */
 @layer components {
+  /* side gutter outside the 1200px container on wide screens: added to the width of panels that
+     align their text with the container via padding-left, so the text keeps its intended width */
+  :root { --gutter: max(0px, calc((100vw - 1200px) / 2)); }
+
 
   /* Container */
   .wrap {
@@ -505,7 +509,7 @@
   .photo-band--fade { background: var(--color-navy); min-height: 320px; }
   .photo-band--fade .photo-band__bg { inset: 0 0 0 28%; }
   .photo-band--fade .photo-band__text {
-    width: min(560px, 46%);
+    width: calc(min(560px, 46%) + var(--gutter));
     background: linear-gradient(90deg, var(--color-navy) 72%, rgba(27,39,81,0));
     padding: 3.25rem 3rem 2.5rem max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem));
   }
@@ -1328,5 +1332,31 @@
   @media (max-width: 640px) {
     /* form fields laid out on a 6-column grid: one field per row on phones */
     [style*="grid-column:span"] { grid-column: 1 / -1 !important; }
+  }
+  @media (max-width: 900px) {
+    /* "OR" badge between two stacked panels: sits on the seam instead of over the second panel's title */
+    .hc-or { row-gap: 0 !important; }
+    .hc-or__badge { position: relative !important; left: auto !important; top: auto !important; transform: none !important; order: 1; justify-self: center; margin: -1.6rem 0; z-index: 1; }
+    .hc-or > :nth-child(2) { order: 2; padding-left: 1.5rem !important; }
+  }
+  @media (max-width: 640px) {
+    .hc-cards { grid-template-columns: 1fr !important; }
+  }
+  @media (min-width: 901px) and (max-width: 1280px) {
+    /* long words in narrow card titles wrap with a hyphen instead of splitting silently */
+    main h3, main h4 { hyphens: auto; -webkit-hyphens: auto; }
+  }
+  /* Card grids with 5+ cards adapt to the width of their own column, not the screen:
+     below ~170px per card they reflow to 3 per row (2 on very narrow columns). */
+  .rc { container-type: inline-size; width: 100%; } /* explicit width: size containment would otherwise shrink it inside grids */
+  @container (max-width: 1020px) { .rc-dense[data-n="6"], .rc-dense[data-n="7"], .rc-dense[data-n="8"] { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; } }
+  @container (max-width: 860px) { .rc-dense[data-n="5"] { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; } }
+  @container (max-width: 520px) { .rc-dense[data-n] { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } }
+  @media (max-width: 1200px) {
+    .au-progs { grid-template-columns: 1fr !important; }
+  }
+  @media (min-width: 901px) and (max-width: 1100px) {
+    /* dense inline grids on small laptops / landscape tablets */
+    .m-mid3 { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
   }
 }

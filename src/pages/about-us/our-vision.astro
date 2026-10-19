@@ -26,7 +26,7 @@ const promises: { text: string; icon: IconName }[] = [
     .ov-action { background: var(--color-navy); }
     .ov-action .photo-band__bg { inset: 0 18% 0 28%; }
     .ov-action .photo-band__bg img { object-position: center 70%; -webkit-mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent); mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent); }
-    .ov-action .photo-band__text { width: min(460px, 40%); background: linear-gradient(90deg, var(--color-navy) 70%, rgba(27,39,81,0)); padding-left: max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem)); }
+    .ov-action .photo-band__text { width: calc(min(460px, 40%) + var(--gutter)); background: linear-gradient(90deg, var(--color-navy) 70%, rgba(27,39,81,0)); padding-left: max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem)); }
     .ov-action .photo-band__aside { margin-right: max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem)); align-self: center; border: none; border-radius: 6px; }
     .ov-action .photo-band__aside-item { border-left: 1px solid rgba(201,160,23,0.5); padding-left: 0.875rem; }
     .ov-action .photo-band__aside-item :global(svg) { margin-left: -2.9rem; margin-right: 1rem; }

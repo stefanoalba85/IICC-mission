@@ -4,9 +4,9 @@ interface Props { title: string; dir?: string; cols?: number; items: { photo: st
 const p = Astro.props;
 const img = (n: string) => `/images/${p.dir ?? 'resources'}/${n}.jpg`;
 ---
-<section class="wrap" style="padding-block:1.25rem 1rem;" id="cats">
+<section class="wrap rc" style="padding-block:1.25rem 1rem;" id="cats">
   {p.title && <h2 class="camp-h">{p.title}</h2>}
-  <div style={`display:grid; grid-template-columns:repeat(${p.cols ?? p.items.length},1fr); gap:0.9rem; margin-top:0.9rem;`} class="camp-grid">
+  <div style={`display:grid; grid-template-columns:repeat(${p.cols ?? p.items.length},1fr); gap:0.9rem; margin-top:0.9rem;`} class:list={['camp-grid', { 'rc-dense': (p.cols ?? p.items.length) >= 5 }]} data-n={p.cols ?? p.items.length}>
     {p.items.map(i => <article style={`background:#fff; border-radius:4px; box-shadow:0 3px 10px rgba(18,26,56,0.08); overflow:hidden; display:flex; flex-direction:column; ${p.center ? 'text-align:center;' : ''}`}>
       <div style="position:relative;"><img src={img(i.photo)} alt="" style="width:100%; aspect-ratio:16/8; object-fit:cover; display:block;" />{i.icon && <span style={`position:absolute; ${p.center ? 'left:50%; transform:translateX(-50%);' : 'left:1rem;'} bottom:-1.5rem; width:3.1rem; height:3.1rem; border-radius:50%; background:var(--color-navy-dark); color:#fff; border:2px solid #fff; display:flex; align-items:center; justify-content:center;`}><Icon name={i.icon} size={22} /></span>}</div>
       <div style={`padding:${i.icon ? '1.9rem' : '0.9rem'} 1rem 1rem; display:flex; flex-direction:column; gap:0.4rem; flex:1;`}>
