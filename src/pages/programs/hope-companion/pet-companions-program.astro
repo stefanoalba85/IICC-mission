@@ -1,0 +1,201 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Icon from '../../../components/Icon.astro';
+
+// Naming rule from the client: never use "Pet Rescue"; always "Pet Companions Program".
+const img = (n: string) => `/images/hope-companion/pet/${n}.jpg`;
+const pillars = [
+  { icon: 'paw', tone: 'gold', title: 'Animal Rescue & Welfare', text: 'Supporting rescued animals through care and partnership.' },
+  { icon: 'heart', tone: 'navy', title: 'Rehabilitation & Responsibility', text: 'Building confidence and life skills through animal care.' },
+  { icon: 'people-group', tone: 'gold', title: 'Community Partnerships', text: 'Working with shelters and animal welfare organisations across Italy.' },
+  { icon: 'hand-holding-heart', tone: 'navy', title: 'People and Animals Rebuilding Together', text: 'Compassion and second chances for a brighter future.' },
+  { icon: 'leaf', tone: 'gold', title: 'Kinder Communities, Brighter Futures', text: 'Creating a more compassionate and inclusive society.' },
+];
+const partnerPoints = [
+  { icon: 'people-group', text: 'Collaborate with us' },
+  { icon: 'heart', text: 'Support rescued animals' },
+  { icon: 'gear', text: 'Develop meaningful programs' },
+  { icon: 'seedling', text: 'Create brighter futures' },
+];
+---
+<Layout title="Pet Companions Program" description="Pet Companions Program — second chances together. Helping rescued animals find care, companionship and new beginnings. Coming soon.">
+  <style>
+    .pc { --pc-gold: #c99236; --pc-gold-light: #e4b65c; }
+    .pc-h-gold { color: var(--pc-gold); }
+
+    /* Hero */
+    .pc-hero { display: grid; grid-template-columns: 0.75fr 1.05fr 1.2fr; align-items: center; background: linear-gradient(180deg, #fbf4e7, #f4e6cf); padding-inline: var(--gutter); min-height: 420px; overflow: hidden; }
+    .pc-hero__logo { width: 100%; max-width: 230px; justify-self: center; padding: 1.5rem 0 1.5rem 1.5rem; }
+    .pc-hero__photo { align-self: stretch; position: relative; min-height: 340px; }
+    .pc-hero__photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 45% 70%; -webkit-mask-image: linear-gradient(90deg, transparent, #000 14%, #000 82%, transparent); mask-image: linear-gradient(90deg, transparent, #000 14%, #000 82%, transparent); }
+    .pc-hero__text { text-align: center; padding: 2rem 1.5rem; display: flex; flex-direction: column; align-items: center; gap: 0.6rem; }
+    .pc-hero h1 { font-family: var(--font-heading); color: var(--color-navy); font-size: clamp(2.3rem, 4.4vw, 3.5rem); line-height: 1.05; }
+    .pc-hero__sub { font-family: var(--font-heading); font-style: italic; color: var(--pc-gold); font-size: clamp(1.35rem, 2.4vw, 1.9rem); }
+    .pc-hero__rule { width: 7rem; height: 1.5px; background: var(--pc-gold); }
+    .pc-soon { font-family: var(--font-heading); color: var(--color-navy); letter-spacing: 0.3em; font-size: clamp(1.3rem, 2.2vw, 1.75rem); text-transform: uppercase; margin-top: 0.2rem; }
+    .pc-hero__text p:last-child { color: var(--color-navy); font-size: 1.0625rem; line-height: 1.55; max-width: 25rem; }
+
+    /* Pillars */
+    .pc-pillars { background: #fbf8f2; border-block: 1px solid rgba(201,146,54,0.25); }
+    .pc-pillars .wrap { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); padding-block: 1.75rem; }
+    .pc-pillar { text-align: center; padding-inline: 1rem; display: flex; flex-direction: column; align-items: center; gap: 0.45rem; border-left: 1px solid rgba(201,146,54,0.4); }
+    .pc-pillar:first-child { border-left: none; }
+    .pc-pillar--gold :global(svg) { color: var(--pc-gold); }
+    .pc-pillar--navy :global(svg) { color: var(--color-navy); }
+    .pc-pillar h2 { font-family: var(--font-body); color: var(--color-navy); text-transform: uppercase; font-size: 0.875rem; letter-spacing: 0.03em; line-height: 1.3; margin-top: 0.3rem; }
+    .pc-pillar p { color: var(--color-navy); font-size: 0.875rem; line-height: 1.45; }
+
+    /* Partner organisations */
+    .pc-partner { display: grid; grid-template-columns: 1fr 1fr; background: var(--color-navy-dark); color: #fff; }
+    .pc-partner__photo { position: relative; min-height: 320px; }
+    .pc-partner__photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 40% 50%; }
+    .pc-script { position: absolute; top: 1.25rem; right: 1.5rem; width: 55%; text-align: center; font-family: var(--font-script); color: var(--color-navy); font-size: clamp(1.5rem, 2.4vw, 2.1rem); line-height: 1.25; }
+    .pc-script :global(svg) { display: block; margin: 0.5rem auto 0; color: var(--color-navy); }
+    .pc-partner__body { display: grid; grid-template-columns: 1.55fr 1fr; gap: 1.5rem; align-items: center; padding: 2rem calc(var(--gutter) + 1.5rem) 2rem 2rem; }
+    .pc-partner__main h2 { display: grid; grid-template-columns: auto 1fr; gap: 0.9rem; align-items: center; font-family: var(--font-heading); font-size: clamp(1.5rem, 2.2vw, 1.9rem); line-height: 1.15; font-weight: 400; }
+    .pc-partner__main h2 :global(svg) { color: var(--pc-gold); }
+    .pc-partner__main p { font-size: 0.9375rem; line-height: 1.6; color: rgba(255,255,255,0.92); margin-block: 1rem 1.25rem; }
+    .pc-pill { display: inline-flex; align-items: center; gap: 0.6rem; background: linear-gradient(180deg, #e9c06a, #c99236); color: var(--color-navy-dark); font-family: var(--font-heading); font-weight: 700; font-size: 1rem; padding: 0.75rem 1.5rem; border-radius: 999px; box-shadow: 0 4px 12px rgba(0,0,0,0.25); line-height: 1.25; }
+    a.pc-pill:hover { filter: brightness(1.06); }
+    a.pc-pill:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+    .pc-partner__points { list-style: none; margin: 0; padding: 0 0 0 1.5rem; border-left: 1px solid rgba(201,146,54,0.5); display: grid; gap: 1.1rem; }
+    .pc-partner__points li { display: grid; grid-template-columns: 2.25rem 1fr; gap: 0.6rem; align-items: center; font-size: 0.875rem; line-height: 1.35; }
+    .pc-partner__points :global(svg) { color: var(--pc-gold); }
+
+    /* Future vehicle */
+    .pc-vehicle { background: linear-gradient(180deg, #eef3f7, #f8f6f1); padding-block: 2rem 1.5rem; }
+    .pc-vehicle__head { display: grid; grid-template-columns: 1fr auto; gap: 1.5rem; align-items: start; }
+    .pc-vehicle h2 { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: clamp(1.4rem, 2.5vw, 1.9rem); letter-spacing: 0.02em; }
+    .pc-vehicle__sub { font-family: var(--font-heading); font-style: italic; color: var(--pc-gold); font-size: clamp(1.05rem, 1.7vw, 1.3rem); margin-top: 0.2rem; }
+    .pc-vehicle__head p:last-child { color: var(--color-navy); font-size: 1rem; line-height: 1.55; margin-top: 0.6rem; max-width: 40rem; }
+    .pc-concept { font-family: var(--font-script); color: var(--color-navy); font-size: clamp(1.5rem, 2.3vw, 2rem); background: linear-gradient(100deg, transparent 2%, #e4b65c 8%, #d9a443 92%, transparent 98%); padding: 0.4rem 2.25rem; transform: rotate(-4deg); white-space: nowrap; margin-top: 0.5rem; }
+    .pc-vans { display: grid; grid-template-columns: 2.4fr 1fr 1fr; gap: 0.4rem; margin-top: 1.25rem; }
+    .pc-vans img { width: 100%; height: 100%; aspect-ratio: auto; object-fit: cover; border-radius: 3px; }
+    .pc-vans figure { margin: 0; }
+    .pc-vehicle__note { text-align: center; font-style: italic; color: var(--color-navy); font-size: 0.8125rem; margin-top: 0.6rem; }
+
+    /* Support band */
+    .pc-support { background: var(--color-navy-dark); color: #fff; }
+    .pc-support .wrap { display: grid; grid-template-columns: 0.75fr 1.15fr 1px 1.35fr; gap: 1.75rem; align-items: center; padding-block: 0; }
+    .pc-support__puppy { align-self: stretch; }
+    .pc-support__puppy img { width: 100%; height: 100%; min-height: 200px; object-fit: cover; }
+    .pc-support h2 { font-family: var(--font-heading); font-size: clamp(1.9rem, 3.2vw, 2.6rem); line-height: 1.08; }
+    .pc-support__lead { font-family: var(--font-heading); font-style: italic; color: var(--pc-gold-light); font-size: 1.125rem; line-height: 1.4; margin-top: 0.6rem; }
+    .pc-support__rule { align-self: stretch; background: rgba(201,146,54,0.5); margin-block: 1.75rem; }
+    .pc-support__cta { display: grid; grid-template-columns: 4rem 1fr; gap: 1.25rem; align-items: center; padding-block: 1.75rem; }
+    .pc-support__cta > :global(svg) { color: var(--pc-gold-light); }
+    .pc-support__cta p { font-size: 0.9375rem; line-height: 1.55; margin-bottom: 0.9rem; }
+    .pc-pill--soon { cursor: default; }
+
+    @media (max-width: 1100px) {
+      .pc-pillars .wrap { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 1.5rem; }
+      .pc-pillar:nth-child(4) { border-left: none; }
+      .pc-partner { grid-template-columns: 1fr; }
+      .pc-partner__body { padding: 2rem 1.5rem; }
+      .pc-support .wrap { grid-template-columns: 0.8fr 1.2fr; }
+      .pc-support__rule { display: none; }
+      .pc-support__cta { grid-column: 1 / -1; padding-top: 0; }
+    }
+    @media (max-width: 900px) {
+      .pc-hero { grid-template-columns: 1fr; padding-inline: 0; }
+      .pc-hero__logo { max-width: 120px; padding: 1.25rem 0 0; }
+      .pc-hero__photo { order: 3; min-height: 0; width: min(100%, 520px); aspect-ratio: 1; justify-self: center; }
+      .pc-hero__photo img { object-position: 45% 40%; -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
+    }
+    @media (max-width: 520px) {
+      .pc-hero__photo img { -webkit-mask-image: none; mask-image: none; }
+      .pc-vehicle__head { grid-template-columns: 1fr; }
+      .pc-concept { justify-self: start; }
+      .pc-vans { grid-template-columns: 1fr 1fr; }
+      .pc-vans figure:first-child { grid-column: 1 / -1; }
+    }
+    @media (max-width: 640px) {
+      .pc-pillars .wrap { grid-template-columns: 1fr 1fr; }
+      .pc-pillar { border-left: none; }
+      .pc-pillar:last-child { grid-column: 1 / -1; }
+      .pc-partner__body { grid-template-columns: 1fr; }
+      .pc-partner__points { padding-left: 0; border-left: none; border-top: 1px solid rgba(201,146,54,0.5); padding-top: 1.25rem; grid-template-columns: 1fr 1fr; }
+      .pc-script { width: 62%; right: 0.75rem; top: 0.75rem; }
+      .pc-support .wrap { grid-template-columns: 1fr; gap: 1.25rem; }
+      .pc-support__puppy { margin-inline: -1.5rem; }
+      .pc-support__puppy img { max-height: 260px; }
+      .pc-support__cta { grid-template-columns: 3rem 1fr; padding-bottom: 2rem; }
+    }
+  </style>
+
+  <div class="pc">
+    <section class="pc-hero">
+      <img class="pc-hero__logo" src="/IICC_Logo_transparent.png" alt="IICC Mission — Faith. Hope. Justice. Restoration." />
+      <div class="pc-hero__photo"><img src={img('hero')} alt="Two happy rescued dogs with St Peter’s Basilica in the background" /></div>
+      <div class="pc-hero__text">
+        <h1>Pet Companions</h1>
+        <p class="pc-hero__sub">Second Chances Together</p>
+        <span class="pc-hero__rule" aria-hidden="true"></span>
+        <p class="pc-soon">Coming Soon</p>
+        <p>Helping rescued animals find care, companionship and new beginnings while creating opportunities for rehabilitation, responsibility and hope.</p>
+      </div>
+    </section>
+
+    <section class="pc-pillars">
+      <div class="wrap">
+        {pillars.map(p => (
+          <div class={`pc-pillar pc-pillar--${p.tone}`}><Icon name={p.icon} size={48} /><h2>{p.title}</h2><p>{p.text}</p></div>
+        ))}
+      </div>
+    </section>
+
+    <section class="pc-partner">
+      <div class="pc-partner__photo">
+        <img src={img('people')} alt="An IICC Mission volunteer hugging a golden retriever, looking towards St Peter’s Basilica" loading="lazy" />
+        <p class="pc-script" aria-hidden="true">People and Animals<br />Rebuilding Together<Icon name="heart" size={28} /></p>
+      </div>
+      <div class="pc-partner__body">
+        <div class="pc-partner__main">
+          <h2><Icon name="paw" size={44} /> Are You an Animal Rescue Organisation?</h2>
+          <p>We invite animal shelters, rescue associations, kennels and animal welfare organisations across Italy to express their interest in partnering with IICC Mission in the Pet Companions Program.</p>
+          <a class="pc-pill" href="/contact">Become a Pet Companions Program Partner <span aria-hidden="true">›</span></a>
+        </div>
+        <ul class="pc-partner__points">
+          {partnerPoints.map(p => <li><Icon name={p.icon} size={28} /><span>{p.text}</span></li>)}
+        </ul>
+      </div>
+    </section>
+
+    <section class="pc-vehicle">
+      <div class="wrap">
+        <div class="pc-vehicle__head">
+          <div>
+            <h2>Our Future Pet Companions Vehicle</h2>
+            <p class="pc-vehicle__sub">A Mobile Support for Rescued Animals and New Beginnings</p>
+            <p>We plan to acquire a dedicated vehicle to support animal rescue partners with transport, veterinary appointments, adoption events and program activities.</p>
+          </div>
+          <p class="pc-concept">Future Project Concept</p>
+        </div>
+        <div class="pc-vans">
+          <figure><img src={img('van-side')} alt="Concept design of the IICC Mission Pet Companions van, side view" loading="lazy" /></figure>
+          <figure><img src={img('van-rear')} alt="Concept design of the van, rear view" loading="lazy" /></figure>
+          <figure><img src={img('van-front')} alt="Concept design of the van, front view" loading="lazy" /></figure>
+        </div>
+        <p class="pc-vehicle__note">Vehicle designs shown are illustrative concepts for the future and not yet in operation.</p>
+      </div>
+    </section>
+
+    <section class="pc-support">
+      <div class="wrap">
+        <div class="pc-support__puppy"><img src={img('puppy')} alt="A puppy resting its paws on a stone wall" loading="lazy" /></div>
+        <div>
+          <h2>Support<br />Pet Companions</h2>
+          <p class="pc-support__lead">A dedicated GoFundMe campaign will be launched soon.</p>
+        </div>
+        <span class="pc-support__rule" aria-hidden="true"></span>
+        <div class="pc-support__cta">
+          <Icon name="hand-holding-heart" size={60} />
+          <div>
+            <p>Your support will help us develop partnerships, provide essential resources and create opportunities for rescued animals and people rebuilding their lives.</p>
+            <span class="pc-pill pc-pill--soon">Coming Soon on GoFundMe</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>

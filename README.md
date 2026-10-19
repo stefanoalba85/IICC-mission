@@ -1,6 +1,6 @@
 # IICC Mission — sito web
 
-Sito vetrina statico di **IICC Mission** (Inmate International Catholic Care): 131 pagine in inglese, costruite dai mockup definitivi del cliente.
+Sito vetrina statico di **IICC Mission** (Inmate International Catholic Care): 132 pagine in inglese, costruite dai mockup definitivi del cliente (le 131 di `Struttura.csv` più Pet Companions Program, aggiunta su richiesta del cliente).
 
 - **Repo:** `git@github.com:stefanoalba85/IICC-mission.git`, branch di lavoro `develop`
 - **Fonte dei contenuti** (fuori dal repo, nella cartella di progetto superiore):
@@ -15,7 +15,7 @@ Sito vetrina statico di **IICC Mission** (Inmate International Catholic Care): 1
 nvm use 22            # Node >= 22 obbligatorio
 npm install
 npm run dev           # http://localhost:4321
-npm run build         # genera dist/ (atteso: 131 pagine, zero errori)
+npm run build         # genera dist/ (atteso: 132 pagine, zero errori)
 npm run preview -- --port 4400
 ```
 
@@ -56,6 +56,7 @@ scripts/qa/                 script di controllo (vedi sotto)
 | Solo nel footer | `faq`, `privacy-policy`, `terms-conditions`, `accessibility-statement`, `404` |
 
 Note sulla corrispondenza con i mockup:
+- "Pet Companions Program" (`programs/hope-companion/pet-companions-program`) è fuori da `Struttura.csv`. Il cliente chiede di non usare mai la dicitura "Pet Rescue" presente nel suo mockup.
 - "Phone & Communication Support" usa il PNG *Prison Ministry – FAQ*.
 - "Prison Education & Skills" è una pagina "Coming Soon".
 - Il PNG di "Our Mission" è un duplicato di quello di About Us.

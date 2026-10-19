@@ -106,6 +106,7 @@ export const menus: NavMenu[] = [
         l('Become a Hope Companion', '/programs/hope-companion/become-a-companion'),
         l('Hope Companion Stories', '/programs/hope-companion/stories'),
         l('10,000 Hope Companions', '/programs/hope-companion/10000-companions'),
+        l('Pet Companions Program', '/programs/hope-companion/pet-companions-program'),
       ] },
       { title: 'Social Enterprise', href: '/programs/bakery-of-hope', links: [
         l('Francis Bakery of Hope', '/programs/bakery-of-hope'),
