@@ -35,7 +35,7 @@ const isActive = (href: string) =>
         </li>
         {menus.map(m => (
           <li class="mega-nav__item">
-            <details class="mega-nav__item--dropdown">
+            <details class="mega-nav__item--dropdown" name="mega-nav">
               <summary class="mega-nav__link">
                 {m.label}
                 <svg class="mega-nav__caret" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6"/></svg>
@@ -65,3 +65,12 @@ const isActive = (href: string) =>
     </a>
   </div>
 </header>
+
+<script>
+  // Only one submenu open at a time. Modern browsers already do this through the shared
+  // `name` on <details>; this covers browsers without support for exclusive <details>.
+  const menus = document.querySelectorAll<HTMLDetailsElement>('.mega-nav__item--dropdown');
+  menus.forEach(d => d.addEventListener('toggle', () => {
+    if (d.open) menus.forEach(o => { if (o !== d) o.open = false; });
+  }));
+</script>
