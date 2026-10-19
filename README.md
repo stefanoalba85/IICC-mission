@@ -6,8 +6,16 @@ Sito vetrina statico di **IICC Mission** (Inmate International Catholic Care): 1
 - **Fonte dei contenuti** (fuori dal repo, nella cartella di progetto superiore):
   - `../Struttura.csv` — elenco delle 131 pagine (gruppo di menu, nome pagina, PNG di riferimento)
   - `../Materiali_definitivi/` — un mockup PNG per pagina + `IICC_Logo.png` (logo ufficiale)
+  - `../Aggiornamenti/` — materiali inviati dal cliente dopo la consegna (nuovi mockup, foto approvate)
 
-**Stato (ottobre 2026):** tutte le 131 pagine sono realizzate e ottimizzate per mobile, con link verificati. Si attende il feedback del cliente e i materiali elencati più sotto.
+**Stato (19 ottobre 2026):**
+- Sito completo: 132 pagine, ottimizzate per mobile, link verificati.
+- Prima fase delle correzioni del cliente completata; seconda fase in corso.
+- In attesa di decisione: sito bilingue IT/EN e passaggio a hosting italiano.
+
+**Documentazione**
+- [docs/correzioni-cliente.md](docs/correzioni-cliente.md) — registro delle richieste del cliente e del loro stato.
+- [docs/proposte-tecniche.md](docs/proposte-tecniche.md) — proposte su bilingue, hosting/domini/email in Italia, manutenzione e sicurezza.
 
 ## Avvio
 
@@ -37,6 +45,7 @@ src/
   styles/global.css         token, classi componente, regole mobile (in fondo)
 public/
   IICC_Logo_main.png        logo ufficiale completo (hero)
+  IICC_Logo_transparent.png lo stesso logo con sfondo trasparente, da usare sopra le foto
   IICC_Badge.png            stemma (header e footer); favicon e og-default.jpg derivano da qui
   images/<sezione>/         foto ritagliate dai PNG dei mockup
 scripts/qa/                 script di controllo (vedi sotto)
@@ -77,7 +86,13 @@ Note sulla corrispondenza con i mockup:
 ## Convenzioni
 
 - **Fedeltà ai mockup:** il corpo di ogni pagina replica il proprio PNG (sezioni, layout, immagini); header e footer sono unici per tutto il sito. Le foto vengono ritagliate dal PNG e non devono mai mostrare testo del mockup.
-- **Logo:** solo quello ufficiale (`IICC_Logo_main.png` / `IICC_Badge.png`), mai i loghi diversi presenti in alcuni mockup.
+- **Logo:** solo quello ufficiale (`IICC_Logo_main.png`, `IICC_Logo_transparent.png`, `IICC_Badge.png`), mai i loghi diversi presenti in alcuni mockup o nelle foto.
+- **Foto delle persone:** usare solo le foto individuali fornite dal cliente, mai i volti generati nei mockup. Si possono ritagliare e ridimensionare, senza alterare i lineamenti.
+- **Diciture imposte dal cliente:**
+  - "Pet Companions Program", mai "Pet Rescue";
+  - "A Catholic Christian global mission";
+  - indirizzo "Via delle Milizie 34, 00192 Rome, Italy";
+  - copyright fisso "© 2026 IICC Mission. All Rights Reserved.".
 - **Menu:** per aggiungere una pagina, inserirla in `src/lib/nav.ts`, altrimenti resta irraggiungibile.
 - **CSS mobile:**
   - Molte griglie hanno colonne inline (`style="grid-template-columns:…"`). Su mobile si ricompongono grazie alle regole in fondo a `global.css`: classi `camp-grid`, `m-cta`, `m-band`, `m-tab2`, `hero-quote`, `hero-logo`, `side-bg`, più selettori sugli attributi `style`. Una nuova griglia inline deve usare una di queste classi.
@@ -98,9 +113,9 @@ node scripts/qa/overlap.mjs dist 1920              # testi o logo sovrapposti e 
 MAXH=1300 node scripts/qa/mshot.mjs nome /faq/ /news/   # screenshot mobile affiancati -> .qa/shots/nome.jpg
 ```
 
-`mshot.mjs` richiede Python con Pillow (variabile `PYTHON`). Per gli screenshot mobile usare questi script basati su CDP: `--window-size` di Chrome headless non scende sotto circa 500px.
+`mshot.mjs` richiede Python con Pillow, indicato con la variabile `PYTHON`. Per esempio: `python3 -m venv /tmp/qa-venv && /tmp/qa-venv/bin/pip install pillow`, poi `PYTHON=/tmp/qa-venv/bin/python`. Per caricare tutte le foto prima dello screenshot: `JS="document.querySelectorAll('img').forEach(i=>i.loading='eager')"`. Per gli screenshot mobile usare questi script basati su CDP: `--window-size` di Chrome headless non scende sotto circa 500px.
 
-Ultimo esito: 0 link rotti, 0 ancore mancanti, 0 pagine orfane, 0 overflow da 360 a 1920px; nessuna sovrapposizione né parola spezzata da 768 a 1920px. `overlap.mjs` segnala anche alcuni falsi positivi noti: l'occhiello sopra i titoli degli hero ("Prison Ministry", "Support & Funding"), che è solo molto vicino al titolo. A 390px restano 43 parole lunghe spezzate per stare nello schermo, una situazione già presente prima e accettata dal cliente.
+Ultimo esito (19/10/2026, 132 pagine): 0 link rotti, 0 ancore mancanti, 0 pagine orfane, 0 overflow da 360 a 1920px; nessuna sovrapposizione né parola spezzata da 768 a 1920px. `overlap.mjs` segnala anche alcuni falsi positivi noti: l'occhiello sopra i titoli degli hero ("Prison Ministry", "Support & Funding"), che è solo molto vicino al titolo. A 390px restano 43 parole lunghe spezzate per stare nello schermo, una situazione già presente prima e accettata dal cliente.
 
 ## In attesa dal cliente
 
@@ -109,17 +124,18 @@ Oggi questi elementi sono segnaposto. I link relativi puntano provvisoriamente a
 **Necessari prima della pubblicazione**
 - **URL dei profili social** (Facebook, Instagram, X, YouTube; i mockup mostrano anche LinkedIn e TikTok). Nel footer ora ci sono le home generiche dei social.
 - **Ricezione dei moduli:** nessun modulo invia dati (`preventDefault`). Sono 6 moduli (Contact, Volunteer Application, Support Request, Prayer Request, Submit Your Story, Autism Support Request) più 12 iscrizioni newsletter/ricerca. Servono l'email di destinazione o un servizio (es. Formspree) e il fornitore newsletter (Mailchimp, Brevo…).
-- **Donazioni:** la pagina Donate ha il modulo `DonationForm` (una tantum/mensile, €10/25/50/100 o importo libero; carta, PayPal, bonifico, GoFundMe). Finché `src/lib/donations.ts` è vuoto, carta e PayPal mostrano "in attivazione". Servono:
+- **Donazioni:** il cliente conferma PayPal Business (conto `PayPal@iiccmission.org`, da aprire), carte Visa/Mastercard, bonifico sul conto della Fondazione e GoFundMe per campagne specifiche. La pagina Donate ha il modulo `DonationForm` (una tantum/mensile, €10/25/50/100 o importo libero; carta, PayPal, bonifico, GoFundMe). Finché `src/lib/donations.ts` è vuoto, carta e PayPal mostrano "in attivazione". Servono:
   - l'account PayPal Business (email o merchant ID in `paypal.business`), verificando che dall'Italia si possa pagare con carta senza conto PayPal, anche in modalità mensile; in alternativa i Payment Link Stripe (`stripe`);
   - i dati del bonifico (intestatario, IBAN, BIC, banca, causale);
   - gli URL delle campagne GoFundMe: vanno in `gofundme` per il modulo e nei 22 bottoni del sito che oggi puntano a `gofundme.com` generico.
-- **Contatti coerenti:**
-  - la pagina Contact riporta North Sydney PO Box 341, +61 2 8732 4555, +61 411 209 066 e orari AEST, mentre il resto del sito usa Via delle Milizie 34, Roma, +39 349 303 6235;
-  - le email dei responsabili in Staff & Volunteers vengono dai mockup.
+- **Contatti:** la sede è solo Roma (fatto). Restano da confermare il **telefono ufficiale**, oggi +39 349 303 6235 nel footer e in 5 pagine, e gli **orari** (fuso Europe/Rome). Le email dei responsabili in Staff & Volunteers vengono dai mockup.
 - **Dominio definitivo:** canonical e meta OG presumono `https://www.iiccmission.org`. Impostare `site` in `astro.config.mjs`.
 
 **Contenuti da confermare o sostituire**
-- **Persone:** nomi, ruoli e foto di leadership e staff vengono dai mockup (Father John Vespa, Francesco e Ilenia Dattilo, Fr. Anthony David, Maria Grazia, James Porter, Sr. Lucia Maria, Fr. Michael Tran, Elena Rossi, Daniel McCarthy). Va verificato che siano reali e che abbiano dato il consenso.
+- **Persone:**
+  - Our Leadership è definitiva, salvo gli incarichi di Giorgio Di Martino e Irene Strangis, da confermare.
+  - Staff & Volunteers e Our People usano ancora nomi e foto dei mockup (Fr. Anthony David, Maria Grazia, James Porter, Sr. Lucia Maria, Fr. Michael Tran, Elena Rossi, Daniel McCarthy). Staff & Volunteers sarà rifatta con i dati del cliente (vedi `docs/correzioni-cliente.md`).
+- **Foto ancora da sostituire:** Mission News, Fondatore con Cardinal Pell (Inspired by Faith), Pope Francis.
 - **Foto in alta risoluzione:** le 827 immagini sono ritagliate dai mockup (mediana 192px di larghezza).
 - **News ed eventi** (date di maggio–giugno 2025), **statistiche** (18.450+ persone, 92 missioni, 5.200+ volontari…), **testimonianze e storie** (Maria, John, Angela, Michael, Daniel, Ana, James, Sofia), **elenco delle sedi e mappe**.
 
@@ -145,5 +161,10 @@ Oggi questi elementi sono segnaposto. I link relativi puntano provvisoriamente a
 - Ragione sociale e numero di registrazione dell'ente (la risposta FAQ "Is IICC Mission a registered charity?" è generica).
 - Revisione legale di Privacy Policy e Terms (GDPR); banner cookie se si usano strumenti di analisi.
 - Logo vettoriale (SVG/AI).
-- Decidere se serve una versione italiana del sito.
-- Approvare lo stesso footer su tutte le pagine (alcuni mockup indicano "Vatican City / Rome" e altri recapiti).
+- Sito bilingue e hosting in Italia: proposte in `docs/proposte-tecniche.md`, in attesa di decisione.
+
+## Sicurezza e manutenzione
+
+- `npm audit` (19/10/2026): 11 vulnerabilità negli strumenti di build (1 critica in Astro). Non girano sul server perché il sito pubblicato è statico, ma vanno aggiornate con una verifica completa dei controlli qualità.
+- I font sono caricati da Google Fonts: conviene ospitarli sul server, per la privacy.
+- Calendario dei controlli periodici: `docs/proposte-tecniche.md`, sezione 3.
