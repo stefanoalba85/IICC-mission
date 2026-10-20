@@ -1,8 +1,8 @@
 ---
-interface Props { kicker: string; title: string; sub?: string; text: string; img: string; alt: string; quote: string; quoteRef?: string; cta?: string; href?: string; dark?: boolean; }
+interface Props { kicker: string; title: string; sub?: string; text: string; img: string; alt: string; quote: string; quoteRef?: string; cta?: string; href?: string; dark?: boolean; imgPos?: string; portrait?: boolean; }
 const p = Astro.props;
 ---
-<section class="gih">
+<section class:list={['gih', { 'gih--portrait': p.portrait }]}>
   <div class="gih__main">
   <img class="gih__logo" src="/IICC_Logo_main.png" alt="IICC Mission" />
   <div class="gih__text">
@@ -13,7 +13,7 @@ const p = Astro.props;
     {p.cta && <a href={p.href ?? '/donate'} class="btn btn--amber" style="align-self:flex-start; font-size:1rem; padding:0.8rem 1.6rem;">{p.cta} →</a>}
   </div>
   </div>
-  <div style="position:relative; min-height:300px;"><img src={p.img} alt={p.alt} style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; -webkit-mask-image:linear-gradient(90deg,transparent,#000 22%); mask-image:linear-gradient(90deg,transparent,#000 22%);" /></div>
+  <div class="gih__photo" style="position:relative; min-height:300px;"><img src={p.img} alt={p.alt} style={`position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:${p.imgPos ?? '50% 50%'}; -webkit-mask-image:linear-gradient(90deg,transparent,#000 22%); mask-image:linear-gradient(90deg,transparent,#000 22%);`} /></div>
   <p class="hero-quote" style="position:absolute; right:max(1rem, calc((100vw - 1200px) / 2)); top:50%; transform:translateY(-50%); width:190px; background:rgba(18,26,56,0.95); border:1.5px solid #c9962a; padding:1.25rem 1rem; color:#fff; font-family:var(--font-heading); font-style:italic; font-size:1.0625rem; line-height:1.45;"><span style="display:block; color:#d9862a; font-size:3rem; line-height:0.6; font-style:normal;">&ldquo;</span>{p.quote}{p.quoteRef && <span style="display:block; color:#d9862a; font-style:normal; margin-top:0.5rem;">— {p.quoteRef}</span>}<span style="display:block; text-align:center; color:#d9862a; margin-top:0.5rem; font-style:normal;">♡</span></p>
 </section>
 
@@ -28,5 +28,14 @@ const p = Astro.props;
     .gih__main { grid-template-columns: 1fr; gap: 0; padding: 0; }
     .gih__logo { max-width: 120px; margin: 1.25rem 0 0 1.5rem; }
     .gih__text { padding: 1.75rem 1rem; }
+  }
+  /* Portrait photos (e.g. Donate): on wide screens the photo column stays inside the container and fades on both
+     sides, so the face is not reduced to a horizontal strip; when stacked, the photo gets a proportional height. */
+  @media (min-width: 901px) {
+    .gih--portrait { grid-template-columns: 1.9fr 1.1fr; padding-right: var(--gutter); }
+    .gih--portrait .gih__photo img { -webkit-mask-image: linear-gradient(90deg, transparent, #000 22%, #000 88%, transparent) !important; mask-image: linear-gradient(90deg, transparent, #000 22%, #000 88%, transparent) !important; }
+  }
+  @media (max-width: 900px) {
+    .gih--portrait .gih__photo { min-height: 0 !important; aspect-ratio: 4 / 3; }
   }
 </style>
