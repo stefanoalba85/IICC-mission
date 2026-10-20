@@ -35,8 +35,8 @@ Corretti nello stesso giro, senza segnalazione del cliente:
 | 8 | Foto di Mission News pertinenti, in alta risoluzione e con proporzioni uniformi | Da fare |
 | 10 | Foto di Cardinal Pell e Archbishop Comensoli (Ambassador & Founder) | ✅ `6a61e06` |
 | 11 | Foto del Fondatore con Cardinal Pell (Inspired by Faith) | Da fare |
-| 12 | Pope Francis: foto della Porta Santa | ✅ `b253a17`. Foto mostrata intera; l'iscrizione è sulle lastre in basso, non sopra la porta. **Da verificare con il cliente** se intendeva la scritta "PORTA SANCTA" della vecchia foto |
-| 12 | Pope Francis: foto del Papa | Da fare (le immagini sono in `../Aggiornamenti/`, da confermare quale usare) |
+| 12 | Pope Francis: foto della Porta Santa | ✅ Sostituita il 20/10 con `Porta_Santa_def.jpeg`, che mostra l'iscrizione sopra la porta; immagine intera, senza ritagli |
+| 12 | Pope Francis: foto del Papa (paragrafo "Pope Francis and Prison Ministry") | ✅ Sostituita il 20/10 con `Pope_Francis.jpeg` |
 | F | Attivazione dei pagamenti | In attesa: Merchant ID PayPal (conto `PayPal@iiccmission.org` da aprire), coordinate bancarie della Fondazione, URL GoFundMe |
 
 ## Richieste aggiuntive

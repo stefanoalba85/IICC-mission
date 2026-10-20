@@ -15,7 +15,7 @@ import FaithLeader from '../../components/FaithLeader.astro';
     .pf-feat ul { list-style: none; padding: 0; margin: 0.75rem 0 0; display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.8125rem; }
     .pf-feat li::before { content: '✓'; display: inline-flex; width: 1rem; height: 1rem; border-radius: 50%; background: #d8c497; color: #fff; font-size: 0.6rem; align-items: center; justify-content: center; margin-right: 0.5rem; }
     .pf-feat img { width: 100%; height: 100%; object-fit: cover; }
-    /* Holy Door: shown whole at its natural proportions so the inscription is never cropped */
+    /* Holy Door: shown whole at its natural proportions so the inscription above the door is never cropped */
     .pf-feat img.pf-door { height: auto; object-fit: contain; align-self: start; }
     @media (max-width: 900px) { .pf-feat, .pf-feat > div { grid-template-columns: 1fr; } }
   </style>
@@ -62,7 +62,7 @@ import FaithLeader from '../../components/FaithLeader.astro';
           <p>Pope Francis had a special closeness to people in prison. He reminded us that no one is defined by their past and that everyone has the capacity for change.</p>
           <ul><li>He visited prisons around the world.</li><li>He called prisoners “people, not numbers”.</li><li>He encouraged rehabilitation, not revenge.</li><li>He urged communities to open doors of hope.</li></ul>
         </div>
-        <img src="/images/pope-francis/prison.jpg" alt="Pope Francis greeting a prisoner through the bars" />
+        <img src="/images/pope-francis/prison.jpg" alt="Pope Francis passing through the Holy Door" style="object-position:55% 50%;" />
       </div>
       <div>
         <div>
@@ -71,7 +71,7 @@ import FaithLeader from '../../components/FaithLeader.astro';
           <p style="margin-top:0.5rem;">This historic moment reminded the world that:</p>
           <ul><li>God’s mercy reaches every heart.</li><li>No place is beyond the love of God.</li><li>Every person can find forgiveness.</li><li>Hope can rise in the darkest places.</li></ul>
         </div>
-        <img class="pf-door" src="/images/pope-francis/door.jpg" alt="The bronze Holy Door with its Latin inscription" width="900" height="1350" />
+        <img class="pf-door" src="/images/pope-francis/door.jpg" alt="The Holy Door of St Peter’s Basilica with the inscription above it" width="600" height="859" />
       </div>
     </section>
   </FaithLeader>
