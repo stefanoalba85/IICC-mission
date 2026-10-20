@@ -87,6 +87,7 @@ Note sulla corrispondenza con i mockup:
 
 - **Fedeltà ai mockup:** il corpo di ogni pagina replica il proprio PNG (sezioni, layout, immagini); header e footer sono unici per tutto il sito. Le foto vengono ritagliate dal PNG e non devono mai mostrare testo del mockup.
 - **Logo:** solo quello ufficiale (`IICC_Logo_main.png`, `IICC_Logo_transparent.png`, `IICC_Badge.png`), mai i loghi diversi presenti in alcuni mockup o nelle foto.
+- **Sostituzione di un'immagine:** salvarla con un **nome di file nuovo** e aggiornare il riferimento nella pagina. L'anteprima su Render passa da una cache (Cloudflare) che, a parità di nome, può continuare a servire la vecchia versione anche dopo il deploy.
 - **Foto delle persone:** usare solo le foto individuali fornite dal cliente, mai i volti generati nei mockup. Si possono ritagliare e ridimensionare, senza alterare i lineamenti.
 - **Diciture imposte dal cliente:**
   - "Pet Companions Program", mai "Pet Rescue";
