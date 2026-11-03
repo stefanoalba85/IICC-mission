@@ -78,6 +78,11 @@ const links = [
       .pr-band .wrap { grid-template-columns: repeat(2, 1fr); row-gap: 1rem; }
       .pr-cats { grid-template-columns: 1fr 1fr; }
     }
+    @media (max-width: 600px) {
+      /* logo above the title on phones, so the title keeps the full width */
+      .pr-hero__text { grid-template-columns: 1fr; gap: 1rem; }
+      .pr-hero__text > img { width: 7.5rem; }
+    }
   </style>
 
   <section class="pr-hero">

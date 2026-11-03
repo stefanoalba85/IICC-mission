@@ -1362,6 +1362,9 @@
     /* long words in narrow card titles wrap with a hyphen instead of splitting silently */
     main h3, main h4 { hyphens: auto; -webkit-hyphens: auto; }
   }
+  /* Italian card titles: words are longer, so long words (10+ letters) break with a hyphen at every width,
+     and short ones ("DELLA", "LEGALI") are never split */
+  :lang(it) main :is(h3, h4) { hyphens: auto; -webkit-hyphens: auto; hyphenate-limit-chars: 10 4 4; }
   /* Card grids with 5+ cards adapt to the width of their own column, not the screen:
      below ~170px per card they reflow to 3 per row (2 on very narrow columns). */
   .rc { container-type: inline-size; width: 100%; } /* explicit width: size containment would otherwise shrink it inside grids */
