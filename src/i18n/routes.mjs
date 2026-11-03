@@ -192,9 +192,9 @@ export const IT_READY = new Set([
   '/terms-conditions',
 ]);
 
-// Translated (texts in the catalog) but not yet published in Italian: the longer Italian texts still break
-// words or overlap in some layouts (scripts/qa/overlap.mjs). Move a page to IT_READY once it passes.
-export const IT_PENDING = new Set([
+// Published in Italian, but the layout check is still open: the longer Italian texts break words or overlap in
+// some layouts (scripts/qa/overlap.mjs). Remove a page from this list once it passes at every width.
+export const LAYOUT_CHECK = new Set([
   '/about-us/ambassador-founder',
   '/about-us/our-mission',
   '/about-us/our-people',
@@ -284,6 +284,7 @@ export const IT_PENDING = new Set([
   '/resources/recommended-books',
   '/resources/resource-centre',
 ]);
+for (const p of LAYOUT_CHECK) IT_READY.add(p);
 
 // Pages whose Italian text must be checked by a legal professional before final publication.
 export const LEGAL_REVIEW = new Set([

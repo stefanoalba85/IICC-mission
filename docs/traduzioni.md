@@ -49,7 +49,7 @@ Scenari verificati nel browser (3/11/2026):
 2. Se l'indirizzo usa parole nuove, aggiungere i segmenti a `SEGMENTS` in `src/i18n/routes.mjs`.
 3. `npm run build`, poi `npm run i18n:extract -- /percorso-della-pagina`: aggiunge al catalogo i testi nuovi con valore vuoto.
 4. Tradurre i valori vuoti in `src/i18n/it.json`.
-5. Aggiungere il percorso inglese a `IT_READY` (le pagine tradotte ma non ancora verificate stanno in `IT_PENDING`).
+5. Aggiungere il percorso inglese a `IT_READY` (se l'impaginazione non è ancora verificata, anche in `LAYOUT_CHECK`).
 6. `npm run build`. La build segnala i testi ancora da tradurre: questi restano in inglese, ma la build non si blocca.
 7. Controlli: `scripts/qa/overlap.mjs` e `mobile.mjs` anche sulle pagine `/it/` (i testi italiani sono più lunghi).
 
@@ -90,9 +90,10 @@ Le correzioni ricevute si riportano in `src/i18n/it.json`.
   - struttura bilingue, selettore IT / EN, lingua al primo ingresso, SEO (hreflang, canonical, sitemap);
   - menu, footer e testi comuni tradotti;
   - pagine pilota Home, Chi siamo, Contatti, Dona.
-- **Fase 2 (3/11/2026): tutte le 131 pagine tradotte; 43 pubblicate in italiano.**
+- **Fase 2 (3/11/2026): tutte le 131 pagine tradotte e pubblicate in italiano.**
   - Catalogo di circa 6.360 testi (traduzione automatica di partenza, da rivedere).
-  - Le altre 88 pagine sono in `IT_PENDING` (`src/i18n/routes.mjs`). I testi italiani, più lunghi, spezzano ancora parole o si sovrappongono in alcune impaginazioni. Ognuna passa in `IT_READY` quando `scripts/qa/overlap.mjs` e `mobile.mjs` non segnalano più nulla a 360, 390, 768, 1024, 1440 e 1920 px.
+  - 43 pagine sono verificate a 360, 390, 768, 1024, 1440 e 1920 px.
+  - Le altre 88 sono online ma elencate in `LAYOUT_CHECK` (`src/i18n/routes.mjs`): i testi italiani, più lunghi, spezzano ancora parole o si sovrappongono in alcune impaginazioni. Si sistemano a piccoli gruppi; ogni pagina esce dall'elenco quando `scripts/qa/overlap.mjs` e `mobile.mjs` non segnalano più nulla a tutte le larghezze.
   - Foglio di revisione completo: `npm run i18n:export -- .qa/traduzioni-it-completo.csv`.
   - Sono contrassegnate per la revisione legale (`LEGAL_REVIEW`) Privacy Policy, Termini e condizioni, Dichiarazione di accessibilità, Dona e Lasciti.
   - Pubblicate sull'anteprima in attesa della verifica legale prima della pubblicazione definitiva.
