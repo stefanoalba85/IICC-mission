@@ -66,7 +66,9 @@ const probe = `(() => {
     while ((m = re.exec(w.textContent)) && broken < 4) {
       const r = document.createRange(); r.setStart(w, m.index); r.setEnd(w, m.index + m[0].length);
       const lines = new Set([...r.getClientRects()].filter(b => b.width > 1).map(b => Math.round(b.top)));
-      if (lines.size > 1) { out.add('BROKEN WORD: ' + m[0] + ' @' + Math.round(r.getBoundingClientRect().top + scrollY)); broken++; }
+      // a long word in an element with automatic hyphenation (Italian pages) breaks at a syllable with a hyphen
+      const hy = getComputedStyle(el).hyphens === 'auto' && m[0].length >= 10;
+      if (lines.size > 1 && !hy) { out.add('BROKEN WORD: ' + m[0] + ' @' + Math.round(r.getBoundingClientRect().top + scrollY)); broken++; }
     }
   }
   return JSON.stringify([...out].slice(0, 8));
