@@ -49,7 +49,7 @@ Scenari verificati nel browser (3/11/2026):
 2. Se l'indirizzo usa parole nuove, aggiungere i segmenti a `SEGMENTS` in `src/i18n/routes.mjs`.
 3. `npm run build`, poi `npm run i18n:extract -- /percorso-della-pagina`: aggiunge al catalogo i testi nuovi con valore vuoto.
 4. Tradurre i valori vuoti in `src/i18n/it.json`.
-5. Aggiungere il percorso inglese a `IT_READY`.
+5. Aggiungere il percorso inglese a `IT_READY` (le pagine tradotte ma non ancora verificate stanno in `IT_PENDING`).
 6. `npm run build`. La build segnala i testi ancora da tradurre: questi restano in inglese, ma la build non si blocca.
 7. Controlli: `scripts/qa/overlap.mjs` e `mobile.mjs` anche sulle pagine `/it/` (i testi italiani sono più lunghi).
 
@@ -90,10 +90,25 @@ Le correzioni ricevute si riportano in `src/i18n/it.json`.
   - struttura bilingue, selettore IT / EN, lingua al primo ingresso, SEO (hreflang, canonical, sitemap);
   - menu, footer e testi comuni tradotti;
   - pagine pilota Home, Chi siamo, Contatti, Dona.
-  - Foglio di revisione: `npm run i18n:export`.
+- **Fase 2 (3/11/2026): tutte le 131 pagine tradotte; 43 pubblicate in italiano.**
+  - Catalogo di circa 6.360 testi (traduzione automatica di partenza, da rivedere).
+  - Le altre 88 pagine sono in `IT_PENDING` (`src/i18n/routes.mjs`). I testi italiani, più lunghi, spezzano ancora parole o si sovrappongono in alcune impaginazioni. Ognuna passa in `IT_READY` quando `scripts/qa/overlap.mjs` e `mobile.mjs` non segnalano più nulla a 360, 390, 768, 1024, 1440 e 1920 px.
+  - Foglio di revisione completo: `npm run i18n:export -- .qa/traduzioni-it-completo.csv`.
+  - Sono contrassegnate per la revisione legale (`LEGAL_REVIEW`) Privacy Policy, Termini e condizioni, Dichiarazione di accessibilità, Dona e Lasciti.
+  - Pubblicate sull'anteprima in attesa della verifica legale prima della pubblicazione definitiva.
+- **Scelte di traduzione da confermare:**
+  - Le citazioni bibliche seguono il testo CEI 2008, con la numerazione italiana dei Salmi (es. Salmo 34,19 dove l'inglese ha 34:18).
+  - Dove l'inglese parafrasa il versetto, è tradotta la parafrasi.
+  - Ruoli delle persone in forma neutra: Referente nazionale, Referente legale, Responsabile delle finanze e della tesoreria, Presidente.
+  - Titoli dei libri: edizione italiana quando esiste (L'imitazione di Cristo, Le lettere di Berlicche, Le Confessioni, Catechismo della Chiesa Cattolica); gli altri restano in inglese.
+  - Le linee di ascolto australiane (Lifeline, Beyond Blue…) restano invariate, con la nota «Australia».
+- **Possibili errori nel testo inglese (tradotti fedelmente, da verificare con il cliente):**
+  - Pope Francis: la Porta Santa di Rebibbia è stata aperta nel Giubileo della Speranza (26/12/2024), non in quello «straordinario della Misericordia».
+  - UN Human Rights Advocacy: la frase sulla dignità come «fondamento della libertà, della giustizia e della pace» viene dal Preambolo della Dichiarazione universale dei diritti umani, non della Carta delle Nazioni Unite.
+  - Domande frequenti della pagina Phone & Communication Support: citano le pagine «Prison Visit» e «Adopt a Prisoner»; la seconda non esiste nel sito.
 - **Prossime fasi:**
-  1. traduzione delle altre pagine a gruppi (About Us, Our Services, Programs, Get Involved, Partnerships, Resources, News);
-  2. pagine legali e Cookie Policy, con revisione legale;
+  1. revisione dei testi da parte del cliente con Ilenia e revisione legale;
+  2. Cookie Policy;
   3. lingua per paese sull'hosting definitivo.
 - **Restano in inglese:**
   - le scritte dentro alcune immagini (es. il furgone di Pet Companions, la copertina della newsletter);
