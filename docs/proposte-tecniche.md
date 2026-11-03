@@ -105,6 +105,7 @@ Il sito ha poca superficie d'attacco: pagine statiche, nessun CMS né database, 
 
 **Situazione al 19/10/2026**
 - `npm audit`: **11 vulnerabilità** negli strumenti di build (1 critica in Astro, 9 alte). Non girano sul server, ma vanno aggiornate.
+- **Aggiornamento del 3/11/2026:** Astro 7.4.5, Tailwind 4.3.4, Node 22.23.4 → `npm audit` a **0 vulnerabilità**. Verifica con confronto pixel di tutte le 132 pagine a 1280 e 390px: 131 identiche; l'unica differenza è la fascia finale di Crisis Support Resources, che prima mancava per errore.
 - I font vengono caricati da Google Fonts: per la privacy conviene ospitarli sul server.
 
 **Calendario**
@@ -112,7 +113,7 @@ Il sito ha poca superficie d'attacco: pagine statiche, nessun CMS né database, 
 | Frequenza | Attività | Tempo |
 |---|---|---|
 | Mensile | Sito e HTTPS attivi; link di donazione corretti (PayPal, Stripe, GoFundMe, IBAN); prova dei moduli; avvisi del provider | 30–45 min |
-| Trimestrale | Aggiornamento di Astro e dipendenze con build e controlli `scripts/qa`; revisione accessi e 2FA; verifica backup (soprattutto email); SPF/DKIM/DMARC | 2–3 h |
+| Trimestrale | Aggiornamento di Astro e dipendenze con build, controlli `scripts/qa` e confronto prima/dopo (`snap.mjs` + `imgdiff.py`); revisione accessi e 2FA; verifica backup (soprattutto email); SPF/DKIM/DMARC | 2–3 h |
 | Annuale | Rinnovi di domini e hosting; prova di ripristino da GitHub; revisione delle informative privacy; aggiornamenti importanti di Astro | ½ giornata |
 | A evento | Avvisi di sicurezza gravi; ogni modifica a pagamenti o moduli va testata; sospetti accessi non autorizzati | — |
 

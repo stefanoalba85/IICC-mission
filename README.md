@@ -20,16 +20,16 @@ Sito vetrina statico di **IICC Mission** (Inmate International Catholic Care): 1
 ## Avvio
 
 ```sh
-nvm use 22            # Node >= 22 obbligatorio
+nvm install 22 && nvm use 22   # Node >= 22.23.4 (fissato in .node-version, letto anche da Render)
 npm install
 npm run dev           # http://localhost:4321
 npm run build         # genera dist/ (atteso: 132 pagine, zero errori)
-npm run preview -- --port 4400
+npm run preview -- --port 4400  # con Astro 7 parte in background: fermarlo con `npx astro preview stop`
 ```
 
 ## Stack
 
-- Astro 6 (output statico), Tailwind CSS 4 via `@tailwindcss/vite`. I design token sono nel blocco `@theme` di `src/styles/global.css`.
+- Astro 7 (output statico), Tailwind CSS 4 via `@tailwindcss/vite`. I design token sono nel blocco `@theme` di `src/styles/global.css`.
 - Font: Cinzel (display), Playfair Display (titoli), Source Sans 3 (testo), Great Vibes (`--font-script`, firme).
 - Icone: `src/components/Icon.astro` mostra qualsiasi icona Font Awesome solid dal nome kebab-case (`<Icon name="hands-praying" />`), più alcuni alias; se il nome non esiste tra le solid usa le icone dei marchi (`cc-visa`, `paypal`…). Un nome sconosciuto blocca la build, quindi una build pulita conferma che tutte le icone esistono.
 - JavaScript lato client minimo: i dropdown usano `<details>` e il menu mobile un checkbox. L'unico script è quello del modulo donazioni.
@@ -114,6 +114,14 @@ node scripts/qa/overlap.mjs dist 1920              # testi o logo sovrapposti e 
 MAXH=1300 node scripts/qa/mshot.mjs nome /faq/ /news/   # screenshot mobile affiancati -> .qa/shots/nome.jpg
 ```
 
+**Confronto prima/dopo** (aggiornamenti di Astro o modifiche al CSS condiviso): si fotografano tutte le pagine prima e dopo la modifica e si confrontano pixel per pixel. Due catture dello stesso sito risultano identiche, quindi ogni differenza segnalata è reale.
+
+```sh
+node scripts/qa/snap.mjs dist 1280 .qa/snap-before-1280     # anche 390; poi la modifica, build e:
+node scripts/qa/snap.mjs dist 1280 .qa/snap-after-1280
+$PYTHON scripts/qa/imgdiff.py .qa/snap-before-1280 .qa/snap-after-1280 .qa/diff-1280   # pagine diverse + immagini con le differenze in rosso
+```
+
 `mshot.mjs` richiede Python con Pillow, indicato con la variabile `PYTHON`. Per esempio: `python3 -m venv /tmp/qa-venv && /tmp/qa-venv/bin/pip install pillow`, poi `PYTHON=/tmp/qa-venv/bin/python`. Per caricare tutte le foto prima dello screenshot: `JS="document.querySelectorAll('img').forEach(i=>i.loading='eager')"`. Per gli screenshot mobile usare questi script basati su CDP: `--window-size` di Chrome headless non scende sotto circa 500px.
 
 Ultimo esito (19/10/2026, 132 pagine): 0 link rotti, 0 ancore mancanti, 0 pagine orfane, 0 overflow da 360 a 1920px; nessuna sovrapposizione né parola spezzata da 768 a 1920px. `overlap.mjs` segnala anche alcuni falsi positivi noti: l'occhiello sopra i titoli degli hero ("Prison Ministry", "Support & Funding"), che è solo molto vicino al titolo. A 390px restano 43 parole lunghe spezzate per stare nello schermo, una situazione già presente prima e accettata dal cliente.
@@ -166,6 +174,10 @@ Oggi questi elementi sono segnaposto. I link relativi puntano provvisoriamente a
 
 ## Sicurezza e manutenzione
 
-- `npm audit` (19/10/2026): 11 vulnerabilità negli strumenti di build (1 critica in Astro). Non girano sul server perché il sito pubblicato è statico, ma vanno aggiornate con una verifica completa dei controlli qualità.
+- `npm audit` (3/11/2026): **0 vulnerabilità**. Aggiornati Astro 6.4.7 → 7.4.5, Tailwind 4.3.1 → 4.3.4 e Node 22.22.1 → 22.23.4; risolte 12 vulnerabilità (1 critica in Astro). Font Awesome resta alla 6.7.2: la 7 non ha correzioni di sicurezza e cambierebbe il disegno delle icone.
+- **Astro 7, cose da sapere:**
+  - il compilatore è più severo e rifiuta l'HTML malformato (tag non chiusi), che la versione 6 correggeva in silenzio;
+  - `compressHTML: true` in `astro.config.mjs` mantiene il trattamento degli spazi di Astro 6: il nuovo valore predefinito `'jsx'` può unire parole separate da elementi in linea;
+  - con questo aggiornamento la fascia blu finale di Crisis Support Resources, prevista dal mockup, ora compare: con Astro 6 spariva per un errore di HTML.
 - I font sono caricati da Google Fonts: conviene ospitarli sul server, per la privacy.
 - Calendario dei controlli periodici: `docs/proposte-tecniche.md`, sezione 3.
