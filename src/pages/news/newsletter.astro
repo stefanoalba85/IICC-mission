@@ -156,7 +156,7 @@ const quotes = [
     </div>
 
     <div class="nl-side">
-      <form class="nl-join" id="join" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Subscribed — thank you';">
+      <form data-t-done="Subscribed — thank you" class="nl-join" id="join" onsubmit="event.preventDefault(); this.querySelector('button').textContent=this.dataset.tDone;">
         <h2>Join Our Newsletter</h2><span style="color:#d9862a; font-size:0.75rem;">♥</span>
         <p style="font-family:var(--font-heading); font-size:0.9375rem;">Subscribe today and receive our latest updates.</p>
         <input name="first-name" placeholder="First Name" aria-label="First name" required />

@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
+import { SITE, normalize, hasIt, toIt } from '../i18n/routes.mjs';
 
 interface Props {
   title: string;
@@ -15,7 +16,23 @@ const {
   image = '/og-default.jpg',
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://www.iiccmission.org');
+const enPath = normalize(Astro.url.pathname);
+const site = Astro.site?.origin ?? SITE;
+const canonicalURL = new URL(enPath, site);
+// Italian version (generated after the build, see src/i18n/build.mjs)
+const itPath = hasIt(enPath) ? toIt(enPath) : null;
+
+// First visit to the homepage: Italian for visitors in Italy (time zone Europe/Rome, Vatican, San Marino)
+// or, as a secondary criterion, with an Italian browser — unless the visitor already chose a language with
+// the IT / EN switcher (localStorage / cookie). The build step removes this script from Italian pages.
+// When the site moves behind a CDN that knows the visitor's country (e.g. Cloudflare), the same rule can
+// run at the edge with the iicc_lang cookie taking precedence.
+const LANG_REDIRECT = `(function(){try{
+var m=document.cookie.match(/(?:^|; )iicc_lang=(it|en)/),s=localStorage.getItem('iicc-lang')||(m&&m[1]);
+if(s==='en')return;
+var tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'',bl=((navigator.languages&&navigator.languages[0])||navigator.language||'').toLowerCase();
+if(s==='it'||['Europe/Rome','Europe/Vatican','Europe/San_Marino'].indexOf(tz)>=0||bl.indexOf('it')===0)location.replace('/it'+location.search+location.hash);
+}catch(e){}})();`;
 ---
 
 <!doctype html>
@@ -30,6 +47,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://www.iicc
     <meta property="og:description" content={description} />
     <meta property="og:image" content={image} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:locale" content="en_GB" />
+    {itPath && <meta property="og:locale:alternate" content="it_IT" />}
+    {itPath && <link rel="alternate" hreflang="en" href={new URL(enPath, site)} />}
+    {itPath && <link rel="alternate" hreflang="it" href={new URL(itPath, site)} />}
+    {itPath && <link rel="alternate" hreflang="x-default" href={new URL(enPath, site)} />}
+    {enPath === '/' && <script is:inline id="lang-redirect" set:html={LANG_REDIRECT} />}
     <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -41,7 +65,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://www.iicc
     />
   </head>
   <body>
-    <Header currentPath={Astro.url.pathname} />
+    <Header currentPath={Astro.url.pathname} enPath={enPath === '/404' ? '/' : enPath} itPath={itPath ?? '/it'} />
     <main>
       <slot />
     </main>

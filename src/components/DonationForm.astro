@@ -7,7 +7,10 @@ const hasBank = Boolean(d.bank.iban);
 ---
 <section class="dn" id="donate">
   <div class="wrap dn__grid">
-    <form class="dn-form" data-config={cfg} novalidate>
+    <form class="dn-form" data-config={cfg} novalidate
+      data-t-now="Donate €{a} now" data-t-monthly="Donate €{a} monthly" data-t-donate="Donate"
+      data-t-copied="Copied" data-t-copy-fail="Select and copy"
+      data-t-item-once="Donation – IICC Mission" data-t-item-monthly="Monthly donation – IICC Mission">
       <h2 class="dn-form__title">Make Your Donation</h2>
       <span class="dn-form__heart" aria-hidden="true">♥</span>
 
@@ -164,6 +167,7 @@ const hasBank = Boolean(d.bank.iban);
   const form = document.querySelector<HTMLFormElement>('.dn-form');
   if (form) {
     const cfg = JSON.parse(form.dataset.config || '{}');
+    const t = form.dataset; // UI texts (data-t-*), translated in the Italian pages
     const label = form.querySelector<HTMLElement>('.dn-submit__label')!;
     const soon = form.querySelector<HTMLElement>('.dn-soon')!;
     const error = form.querySelector<HTMLElement>('.dn-error')!;
@@ -178,7 +182,7 @@ const hasBank = Boolean(d.bank.iban);
     const update = () => {
       const a = amount();
       const monthly = val('freq') === 'monthly';
-      label.textContent = a ? `Donate €${a} ${monthly ? 'monthly' : 'now'}` : 'Donate';
+      label.textContent = a ? (monthly ? t.tMonthly : t.tNow)!.replace('{a}', String(a)) : t.tDonate!;
       soon.hidden = true;
       error.hidden = true;
     };
@@ -201,7 +205,7 @@ const hasBank = Boolean(d.bank.iban);
     form.querySelectorAll<HTMLInputElement>('input[name="freq"], input[name="method"]').forEach(r => r.addEventListener('change', update));
 
     form.querySelectorAll<HTMLButtonElement>('.dn-copy').forEach(b => b.addEventListener('click', async () => {
-      try { await navigator.clipboard.writeText(b.dataset.copy || ''); b.textContent = 'Copied'; } catch { b.textContent = 'Select and copy'; }
+      try { await navigator.clipboard.writeText(b.dataset.copy || ''); b.textContent = t.tCopied!; } catch { b.textContent = t.tCopyFail!; }
     }));
 
     form.addEventListener('submit', e => {
@@ -217,7 +221,7 @@ const hasBank = Boolean(d.bank.iban);
       if (!url && cfg.paypal) {
         // PayPal donate page: donors without an account can pay by card as guests; for monthly gifts
         // PayPal shows the "make this a monthly donation" option (no_recurring=0).
-        const p = new URLSearchParams({ business: cfg.paypal, amount: String(a), currency_code: cfg.currency, item_name: monthly ? 'Monthly donation – IICC Mission' : 'Donation – IICC Mission', no_recurring: monthly ? '0' : '1' });
+        const p = new URLSearchParams({ business: cfg.paypal, amount: String(a), currency_code: cfg.currency, item_name: (monthly ? t.tItemMonthly : t.tItemOnce)!, lc: document.documentElement.lang === 'it' ? 'IT' : 'GB', no_recurring: monthly ? '0' : '1' });
         url = `https://www.paypal.com/donate/?${p}`;
       }
       if (url) window.location.href = url;

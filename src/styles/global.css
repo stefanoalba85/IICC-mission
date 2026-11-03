@@ -1046,6 +1046,12 @@
   .site-header__wordmark small { font-family: var(--font-body); font-size: 0.5rem; font-weight: 700; letter-spacing: 0.08em; color: var(--color-navy); text-transform: uppercase; margin-top: 0.25rem; }
   .site-header__spacer { flex: 1; }
   .site-header__donate { flex-shrink: 0; }
+  /* IT / EN language switcher */
+  .lang-switch { display: inline-flex; flex-shrink: 0; border: 1px solid rgba(27,39,81,0.25); border-radius: 999px; overflow: hidden; }
+  .lang-switch a { font-family: var(--font-body); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; color: var(--color-navy); padding: 0.35rem 0.6rem; line-height: 1; }
+  .lang-switch a:hover { background: rgba(27,39,81,0.07); }
+  .lang-switch a[aria-current="true"] { background: var(--color-navy); color: #fff; }
+  .lang-switch a:focus-visible { outline: 2px solid var(--color-amber); outline-offset: -2px; }
 
   .nav-toggle { position: absolute; opacity: 0; pointer-events: none; }
   .site-header__burger {
@@ -1159,7 +1165,8 @@
       margin: 0.25rem 0 0.5rem 0.625rem;
       padding: 0.5rem 0 0.5rem 0.875rem;
     }
-    .site-header__donate { order: 1; margin-left: auto; }
+    .lang-switch { order: 1; margin-left: auto; }
+    .site-header__donate { order: 1; }
     .site-header__burger { order: 2; }
   }
   @media (max-width: 600px) {
@@ -1171,6 +1178,15 @@
     .site-header__wordmark small { display: none; }
     .site-header__donate { padding: 0.55rem 0.8rem; font-size: 0.75rem; }
   }
+  @media (max-width: 400px) {
+    /* very narrow phones: header with logo, IT/EN switcher, Donate and menu must fit in 360px */
+    .site-header__bar { gap: 0.4rem; }
+    .site-header__wordmark em { display: none; }
+    .site-header__wordmark strong { font-size: 1.15rem; }
+    .lang-switch a { padding: 0.35rem 0.45rem; }
+    .site-header__donate { padding: 0.5rem 0.6rem; }
+  }
+  @media (max-width: 340px) { .site-header__wordmark { display: none; } }
   @media (min-width: 1180px) {
     .mega-nav__item--dropdown[open] > .mega-nav__panel { display: grid; }
     .mega-nav__panel--right { left: auto; right: 0; }

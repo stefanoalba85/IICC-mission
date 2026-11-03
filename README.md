@@ -1,6 +1,6 @@
 # IICC Mission — sito web
 
-Sito vetrina statico di **IICC Mission** (Inmate International Catholic Care): 132 pagine in inglese, costruite dai mockup definitivi del cliente (le 131 di `Struttura.csv` più Pet Companions Program, aggiunta su richiesta del cliente).
+Sito vetrina statico di **IICC Mission** (Inmate International Catholic Care), **bilingue inglese / italiano**: 132 pagine in inglese, costruite dai mockup definitivi del cliente (le 131 di `Struttura.csv` più Pet Companions Program, aggiunta su richiesta del cliente).
 
 - **Repo:** `git@github.com:stefanoalba85/IICC-mission.git`, branch di lavoro `develop`
 - **Fonte dei contenuti** (fuori dal repo, nella cartella di progetto superiore):
@@ -16,6 +16,7 @@ Sito vetrina statico di **IICC Mission** (Inmate International Catholic Care): 1
 **Documentazione**
 - [docs/correzioni-cliente.md](docs/correzioni-cliente.md) — registro delle richieste del cliente e del loro stato.
 - [docs/proposte-tecniche.md](docs/proposte-tecniche.md) — proposte su bilingue, hosting/domini/email in Italia, manutenzione e sicurezza.
+- [docs/traduzioni.md](docs/traduzioni.md) — **sito bilingue**: come funziona, lingua al primo ingresso, come pubblicare una pagina in entrambe le lingue, revisione e glossario.
 
 ## Avvio
 
@@ -41,6 +42,7 @@ src/
   layouts/Layout.astro      head, meta OG, favicon, Header + Footer
   components/               Header, Footer e i template condivisi delle pagine
   lib/nav.ts                mega-menu: elenca TUTTE le pagine del CSV
+  i18n/                     versione italiana: indirizzi (routes.mjs), catalogo (it.json), generazione (build.mjs)
   pages/                    una pagina .astro per voce del CSV
   styles/global.css         token, classi componente, regole mobile (in fondo)
 public/
@@ -95,6 +97,7 @@ Note sulla corrispondenza con i mockup:
   - indirizzo "Via delle Milizie 34, 00192 Rome, Italy";
   - copyright fisso "© 2026 IICC Mission. All Rights Reserved.".
 - **Menu:** per aggiungere una pagina, inserirla in `src/lib/nav.ts`, altrimenti resta irraggiungibile.
+- **Italiano:** le pagine si scrivono solo in inglese; la versione italiana si genera dal catalogo `src/i18n/it.json` (procedura in `docs/traduzioni.md`). I testi negli script vanno messi in attributi `data-t-*`, altrimenti non vengono tradotti.
 - **CSS mobile:**
   - Molte griglie hanno colonne inline (`style="grid-template-columns:…"`). Su mobile si ricompongono grazie alle regole in fondo a `global.css`: classi `camp-grid`, `m-cta`, `m-band`, `m-tab2`, `hero-quote`, `hero-logo`, `side-bg`, più selettori sugli attributi `style`. Una nuova griglia inline deve usare una di queste classi.
   - Le regole condivise vanno dentro `@layer components`: una regola fuori dai layer sovrascrive tutto il layer, compresi i `max-width` dei loghi.
@@ -170,7 +173,7 @@ Oggi questi elementi sono segnaposto. I link relativi puntano provvisoriamente a
 - Ragione sociale e numero di registrazione dell'ente (la risposta FAQ "Is IICC Mission a registered charity?" è generica).
 - Revisione legale di Privacy Policy e Terms (GDPR); banner cookie se si usano strumenti di analisi.
 - Logo vettoriale (SVG/AI).
-- Sito bilingue e hosting in Italia: proposte in `docs/proposte-tecniche.md`, in attesa di decisione.
+- Sito bilingue: avviato il 3/11/2026 (fase 1), vedi `docs/traduzioni.md`. Hosting in Italia: proposta in `docs/proposte-tecniche.md`, in attesa di decisione.
 
 ## Sicurezza e manutenzione
 
