@@ -105,7 +105,7 @@ Il sito ha poca superficie d'attacco: pagine statiche, nessun CMS né database, 
 
 **Situazione al 19/10/2026**
 - `npm audit`: **11 vulnerabilità** negli strumenti di build (1 critica in Astro, 9 alte). Non girano sul server, ma vanno aggiornate.
-- **Aggiornamento del 3/11/2026:** Astro 7.4.5, Tailwind 4.3.4, Node 22.23.4 → `npm audit` a **0 vulnerabilità**. Verifica con confronto pixel di tutte le 132 pagine a 1280 e 390px: 131 identiche; l'unica differenza è la fascia finale di Crisis Support Resources, che prima mancava per errore.
+- **Aggiornamento del 3/11/2026:** Astro 7.3.8, Tailwind 4.3.4 → `npm audit` a **0 vulnerabilità**. Astro 7.4.x richiede Node ≥ 22.23.4 e la build su Render non è riuscita. Verifica con confronto pixel di tutte le 132 pagine a 1280 e 390px: 131 identiche; l'unica differenza è la fascia finale di Crisis Support Resources, che prima mancava per errore.
 - I font vengono caricati da Google Fonts: per la privacy conviene ospitarli sul server.
 
 **Calendario**

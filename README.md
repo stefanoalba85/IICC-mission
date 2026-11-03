@@ -20,7 +20,7 @@ Sito vetrina statico di **IICC Mission** (Inmate International Catholic Care): 1
 ## Avvio
 
 ```sh
-nvm install 22 && nvm use 22   # Node >= 22.23.4 (fissato in .node-version, letto anche da Render)
+nvm use 22            # Node >= 22.12 (Astro 7.3)
 npm install
 npm run dev           # http://localhost:4321
 npm run build         # genera dist/ (atteso: 132 pagine, zero errori)
@@ -174,7 +174,8 @@ Oggi questi elementi sono segnaposto. I link relativi puntano provvisoriamente a
 
 ## Sicurezza e manutenzione
 
-- `npm audit` (3/11/2026): **0 vulnerabilità**. Aggiornati Astro 6.4.7 → 7.4.5, Tailwind 4.3.1 → 4.3.4 e Node 22.22.1 → 22.23.4; risolte 12 vulnerabilità (1 critica in Astro). Font Awesome resta alla 6.7.2: la 7 non ha correzioni di sicurezza e cambierebbe il disegno delle icone.
+- `npm audit` (3/11/2026): **0 vulnerabilità**. Aggiornati Astro 6.4.7 → 7.3.8 e Tailwind 4.3.1 → 4.3.4; risolte 12 vulnerabilità (1 critica in Astro).
+  - Astro 7.3.8 e non 7.4.x: dalla 7.4.2 serve Node ≥ 22.23.4, e con quel requisito la build su Render non è andata a buon fine. La 7.3.8 corregge le stesse vulnerabilità e funziona da Node 22.12. Passare alla 7.4.x solo dopo aver verificato quale Node usa l'hosting (variabile `NODE_VERSION` o file `.node-version`). Font Awesome resta alla 6.7.2: la 7 non ha correzioni di sicurezza e cambierebbe il disegno delle icone.
 - **Astro 7, cose da sapere:**
   - il compilatore è più severo e rifiuta l'HTML malformato (tag non chiusi), che la versione 6 correggeva in silenzio;
   - `compressHTML: true` in `astro.config.mjs` mantiene il trattamento degli spazi di Astro 6: il nuovo valore predefinito `'jsx'` può unire parole separate da elementi in linea;
