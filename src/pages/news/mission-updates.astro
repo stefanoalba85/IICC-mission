@@ -127,7 +127,7 @@ const ways = [
       <div>
         <h2>Stay Connected</h2>
         <p><strong>Subscribe to our Newsletter</strong><br />Get the latest mission updates and inspiring stories delivered to your inbox.</p>
-        <form style="display:flex; margin-top:0.6rem;" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Subscribed';"><input type="email" required placeholder="Enter your email address" aria-label="Email address" style="flex:1; padding:0.6rem 0.8rem; border:none; border-radius:3px 0 0 3px; font-size:0.8125rem;" /><button class="btn btn--amber" style="border-radius:0 3px 3px 0;">Subscribe</button></form>
+        <form data-t-done="Subscribed" style="display:flex; margin-top:0.6rem;" onsubmit="event.preventDefault(); this.querySelector('button').textContent=this.dataset.tDone;"><input type="email" required placeholder="Enter your email address" aria-label="Email address" style="flex:1; padding:0.6rem 0.8rem; border:none; border-radius:3px 0 0 3px; font-size:0.8125rem;" /><button class="btn btn--amber" style="border-radius:0 3px 3px 0;">Subscribe</button></form>
       </div>
       <div>
         <h2>Follow Us</h2>

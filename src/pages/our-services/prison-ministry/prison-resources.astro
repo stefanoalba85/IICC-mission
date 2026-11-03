@@ -140,7 +140,7 @@ const links = [
     <div class="wrap">
       <span style="width:4.5rem; height:4.5rem; border-radius:50%; border:2px solid var(--color-amber); color:var(--color-amber); display:flex; align-items:center; justify-content:center;"><Icon name="envelope-open-text" size={30} /></span>
       <div><h2 style="font-family:var(--font-body); text-transform:uppercase; font-size:1.0625rem;">Stay Connected. Stay Inspired.</h2><p style="font-size:0.9375rem;">Receive encouraging resources, updates and prayers delivered to you.</p></div>
-      <form onsubmit="event.preventDefault(); this.querySelector('button').textContent='Subscribed';">
+      <form data-t-done="Subscribed" onsubmit="event.preventDefault(); this.querySelector('button').textContent=this.dataset.tDone;">
         <input type="email" required placeholder="Enter your email address" aria-label="Email address" />
         <button class="btn btn--amber" type="submit">Subscribe</button>
       </form>
