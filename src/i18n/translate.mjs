@@ -142,7 +142,10 @@ export function translatePage(html, catalog, rewrite) {
   for (const u of units(doc)) {
     const isTitle = u.parent.tagName === 'title' && u.key.endsWith(TITLE_SUFFIX);
     const key = isTitle ? u.key.slice(0, -TITLE_SUFFIX.length) : u.key;
-    const text = tr(key) + (isTitle ? TITLE_SUFFIX : '');
+    let text = tr(key) + (isTitle ? TITLE_SUFFIX : '');
+    // Italian elisions ("dell’accompagnamento") make long unbreakable words: allow a line
+    // break after the apostrophe in headings and bold labels (zero-width space), used only when the line is too narrow
+    if (/^(h[1-6]|strong|b)$/.test(u.parent.tagName)) text = text.replace(/’(?=\p{L})/gu, '’\u200B');
     const frag = parseFragment(u.parent, (u.lead ? ' ' : '') + htmlOf(text, u.slots) + (u.trail ? ' ' : ''));
     const kids = u.parent.childNodes;
     const at = kids.indexOf(u.nodes[0]);

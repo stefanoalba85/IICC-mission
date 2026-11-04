@@ -60,6 +60,7 @@ const quotes = [
     .nl-latest li { display: flex; gap: 0.5rem; align-items: center; font-family: var(--font-heading); color: var(--color-navy); font-size: 0.875rem; padding-block: 0.1rem; }
     .nl-latest li :global(svg) { color: #c9741f; flex-shrink: 0; }
     .nl-past { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; }
+    @media (max-width: 480px) { .nl-pillars { display: none; } .nl-past { grid-template-columns: minmax(0, 1fr) !important; } }
     .nl-past > div { display: grid; grid-template-columns: 58px 1fr; gap: 0.6rem; align-items: center; border: 1px solid rgba(27,39,81,0.1); padding: 0.4rem; border-radius: 3px; }
     .nl-mini { border: 1px solid rgba(27,39,81,0.2); padding: 0.2rem; text-align: center; background: #fff; }
     .nl-mini img:first-child { width: 22px; margin-inline: auto; }

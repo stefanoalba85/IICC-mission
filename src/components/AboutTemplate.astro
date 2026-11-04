@@ -108,6 +108,9 @@ const stats: { num: string; label: string; icon: IconName }[] = [
     .at-why__grid, .at-stats { grid-template-columns: 1fr 1fr; row-gap: 1rem; }
     .at-ctas { justify-self: stretch; width: 100%; }
   }
+  @media (max-width: 480px) {
+    .at-core__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
 </style>
 
 <section class="at-hero">

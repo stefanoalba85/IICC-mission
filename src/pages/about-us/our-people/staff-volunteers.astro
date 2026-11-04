@@ -75,6 +75,11 @@ const values: { title: string; text: string; icon: IconName }[] = [
       .sv-vols, .sv-values { grid-template-columns: 1fr 1fr; row-gap: 1.5rem; }
       .sv-band__grid { grid-template-columns: 1fr; }
     }
+    @media (max-width: 480px) {
+      .sv-leaders { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .sv-leader .contact span { overflow-wrap: anywhere; }
+      .sv-values { grid-template-columns: 1fr; }
+    }
   </style>
 
   <PeopleHero

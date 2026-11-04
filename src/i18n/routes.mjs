@@ -283,36 +283,7 @@ export const IT_READY = new Set([
 // Published in Italian (they are in IT_READY too), but the layout check is still open: the longer Italian texts break words or overlap in
 // some layouts (scripts/qa/overlap.mjs). Remove a page from this list once it passes at every width.
 export const LAYOUT_CHECK = new Set([
-  '/about-us/our-mission',
-  '/about-us/our-people/staff-volunteers',
-  '/about-us/our-story',
-  '/donate/corporate-giving',
-  '/donate/impact',
-  '/donate/legacy',
-  '/donate/monthly-giving',
-  '/get-involved/prayer-request',
-  '/get-involved/support-request',
-  '/get-involved/volunteer-application',
-  '/news/newsletter',
-  '/our-services/advocacy/support-justice-campaign',
-  '/our-services/immigration-detention/preparing-for-detention',
-  '/our-services/mental-health/mental-health-resources',
-  '/our-services/who-we-serve',
-  '/partnerships',
-  '/partnerships/australian-branches',
-  '/partnerships/canada-expansion',
-  '/partnerships/national-missions',
-  '/partnerships/regional-missions',
-  '/programs/bakery-of-hope',
-  '/programs/hope-companion/how-it-works',
-  '/programs/hope-companion/training-safeguarding',
-  '/resources/articles',
-  '/resources/autism/advocacy',
-  '/resources/autism/awareness',
-  '/resources/autism/family-support',
-  '/resources/autism/support',
-  '/resources/bible-daily-gospel',
-  '/resources/resource-centre',
+  // empty: every Italian page passes the layout checks (4/11/2026)
 ]);
 
 // Pages whose Italian text must be checked by a legal professional before final publication.
