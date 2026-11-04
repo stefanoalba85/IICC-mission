@@ -44,5 +44,5 @@ Corretti nello stesso giro, senza segnalazione del cliente:
 | Data | Richiesta | Esito |
 |---|---|---|
 | 19/10/2026 | Nuova pagina **Pet Companions Program** sotto Hope Companion Program, dal mockup *Pet Companions_Second Chances Together.png* | ✅ `0cb33b4`. Regola del cliente: **mai "Pet Rescue"**, sempre "Pet Companions Program". Il bottone GoFundMe resta "Coming soon" non cliccabile finché manca la campagna |
-| 19/10/2026 | Sito bilingue IT/EN | Approvato il 3/11 (lingua per paese con il browser come criterio secondario, indirizzi tradotti, revisione legale delle pagine legali). Fatto: struttura, selettore, lingua al primo ingresso; tutte le 131 pagine pubblicate in italiano, 51 con impaginazione da rifinire (traduzione da rivedere con il foglio di revisione). Vedi [traduzioni.md](traduzioni.md) |
+| 19/10/2026 | Sito bilingue IT/EN | Approvato il 3/11 (lingua per paese con il browser come criterio secondario, indirizzi tradotti, revisione legale delle pagine legali). Fatto: struttura, selettore, lingua al primo ingresso; tutte le 131 pagine pubblicate in italiano, 30 con impaginazione da rifinire (traduzione da rivedere con il foglio di revisione). Vedi [traduzioni.md](traduzioni.md) |
 | 19/10/2026 | Hosting, domini e assistenza in Italia | Proposta in [proposte-tecniche.md](proposte-tecniche.md); in attesa di risposte |

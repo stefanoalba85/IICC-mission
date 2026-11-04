@@ -92,8 +92,8 @@ Le correzioni ricevute si riportano in `src/i18n/it.json`.
   - pagine pilota Home, Chi siamo, Contatti, Dona.
 - **Fase 2 (3/11/2026): tutte le 131 pagine tradotte e pubblicate in italiano.**
   - Catalogo di circa 6.360 testi (traduzione automatica di partenza, da rivedere).
-  - 80 pagine sono verificate a 360, 390, 768, 1024, 1440 e 1920 px (aggiornato il 3/11/2026, dopo il gruppo Pastorale carceraria).
-  - Le altre 51 sono online ma elencate in `LAYOUT_CHECK` (`src/i18n/routes.mjs`): i testi italiani, più lunghi, spezzano ancora parole o si sovrappongono in alcune impaginazioni. Si sistemano a piccoli gruppi; ogni pagina esce dall'elenco quando `scripts/qa/overlap.mjs` e `mobile.mjs` non segnalano più nulla a tutte le larghezze.
+  - 101 pagine sono verificate a 360, 390, 768, 1024, 1440 e 1920 px (aggiornato il 4/11/2026).
+  - Le altre 30 sono online ma elencate in `LAYOUT_CHECK` (`src/i18n/routes.mjs`): i testi italiani, più lunghi, spezzano ancora parole o si sovrappongono in alcune impaginazioni. Si sistemano a piccoli gruppi; ogni pagina esce dall'elenco quando `scripts/qa/overlap.mjs` e `mobile.mjs` non segnalano più nulla a tutte le larghezze.
   - Foglio di revisione completo: `npm run i18n:export -- .qa/traduzioni-it-completo.csv`.
   - Sono contrassegnate per la revisione legale (`LEGAL_REVIEW`) Privacy Policy, Termini e condizioni, Dichiarazione di accessibilità, Dona e Lasciti.
   - Pubblicate sull'anteprima in attesa della verifica legale prima della pubblicazione definitiva.

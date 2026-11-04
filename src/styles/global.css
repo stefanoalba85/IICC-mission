@@ -499,6 +499,7 @@
   .assurance__item strong { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.25rem; }
   .assurance__item span { font-size: 0.75rem; color: var(--color-text); line-height: 1.45; }
   @media (max-width: 900px) { .assurance__grid { grid-template-columns: 1fr 1fr; gap: 1.25rem; } .assurance__item { border: none; } }
+  @media (max-width: 480px) { .assurance__grid { grid-template-columns: 1fr; gap: 1rem; } }
 
   /* ─── PANEL (light rounded box) ─── */
   .panel { background: #f7f6f3; border-radius: 6px; padding: 1.75rem 1.5rem; }
@@ -609,6 +610,10 @@
     .im-split, .im-panels, .im-qcta .wrap { grid-template-columns: minmax(0, 1fr) !important; }
     .im-strip .wrap, .im-steps, .im-photos { grid-auto-flow: row; grid-template-columns: 1fr 1fr; row-gap: 1rem; }
     .im-strip .wrap > div { border-right: none; }
+  }
+  @media (max-width: 480px) {
+    /* phones: one item per row, so titles are not squeezed next to the icon */
+    .im-strip .wrap { grid-template-columns: 1fr; }
   }
 
   .im-cols { display: grid; grid-template-columns: repeat(3, 1fr); background: #f6f4ef; }
@@ -1349,6 +1354,9 @@
     /* form fields laid out on a 6-column grid: one field per row on phones */
     [style*="grid-column:span"] { grid-column: 1 / -1 !important; }
   }
+  /* "OR" badge grows into a pill for longer words ("OPPURE"); "OR" stays a circle */
+  .hc-or__badge { width: auto !important; min-width: 3.25rem; padding-inline: 0.75rem; border-radius: 999px !important; }
+  :lang(it) .hc-or__badge { font-size: 0.85rem; }
   @media (max-width: 900px) {
     /* "OR" badge between two stacked panels: sits on the seam instead of over the second panel's title */
     .hc-or { row-gap: 0 !important; }
