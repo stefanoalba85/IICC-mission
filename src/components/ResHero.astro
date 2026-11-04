@@ -10,6 +10,7 @@ const logo = p.logo !== false;
   .rh__body { display: flex; flex-direction: column; gap: 0.7rem; }
   .rh__kick { font-family: var(--font-body); font-weight: 700; color: #c9741f; text-transform: uppercase; font-size: 0.9375rem; letter-spacing: 0.03em; }
   .rh h1 { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.02; }
+  @media (max-width: 400px) { .rh h1 { font-size: 1.7rem; } }
   .rh__sub { font-family: var(--font-heading); color: #c9741f; font-size: 1.3125rem; line-height: 1.3; }
   .rh__body p.t { font-size: 0.9375rem; line-height: 1.6; color: var(--color-navy); }
   .rh__photo { position: relative; }

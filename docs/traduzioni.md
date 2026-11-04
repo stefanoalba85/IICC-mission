@@ -90,10 +90,15 @@ Le correzioni ricevute si riportano in `src/i18n/it.json`.
   - struttura bilingue, selettore IT / EN, lingua al primo ingresso, SEO (hreflang, canonical, sitemap);
   - menu, footer e testi comuni tradotti;
   - pagine pilota Home, Chi siamo, Contatti, Dona.
-- **Fase 2 (3/11/2026): tutte le 131 pagine tradotte e pubblicate in italiano.**
+- **Fase 2 (3–4/11/2026): tutte le 131 pagine tradotte e pubblicate in italiano, impaginazione verificata.**
   - Catalogo di circa 6.360 testi (traduzione automatica di partenza, da rivedere).
-  - 101 pagine sono verificate a 360, 390, 768, 1024, 1440 e 1920 px (aggiornato il 4/11/2026).
-  - Le altre 30 sono online ma elencate in `LAYOUT_CHECK` (`src/i18n/routes.mjs`): i testi italiani, più lunghi, spezzano ancora parole o si sovrappongono in alcune impaginazioni. Si sistemano a piccoli gruppi; ogni pagina esce dall'elenco quando `scripts/qa/overlap.mjs` e `mobile.mjs` non segnalano più nulla a tutte le larghezze.
+  - Tutte le 131 pagine sono verificate a 360, 390, 768, 1024, 1440 e 1920 px: nessuna parola spezzata, sovrapposizione o sbordamento (4/11/2026). `LAYOUT_CHECK` è vuoto.
+  - Accorgimenti per i testi italiani, più lunghi:
+    - i titoli delle card (h2–h4) vanno a capo con il trattino solo nelle parole di 10+ lettere;
+    - nei titoli e nelle etichette in grassetto la build inserisce un punto di a capo invisibile dopo l'apostrofo («dell’accompagnamento»), usato solo se la riga è troppo stretta;
+    - sui telefoni (≤480 px) le griglie che lascerebbero meno di ~100 px di testo per colonna passano a una colonna, le strisce dense restano a due con etichette più piccole;
+    - i bottoni con etichette lunghe vanno a capo.
+  - La sillabazione automatica estesa ai paragrafi è stata provata e scartata: restringe le colonne delle griglie e spezza parole corte.
   - Foglio di revisione completo: `npm run i18n:export -- .qa/traduzioni-it-completo.csv`.
   - Sono contrassegnate per la revisione legale (`LEGAL_REVIEW`) Privacy Policy, Termini e condizioni, Dichiarazione di accessibilità, Dona e Lasciti.
   - Pubblicate sull'anteprima in attesa della verifica legale prima della pubblicazione definitiva.

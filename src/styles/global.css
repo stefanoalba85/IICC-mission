@@ -1296,7 +1296,9 @@
      MOBILE OPTIMISATION — overrides for inline-styled grids
      (!important is required to beat the inline grid definitions)
   ═══════════════════════════════════════════════ */
-  .camp-grid > *, .camp-3 > *, .camp-split > *, .camp-stats > *, .m-band > *, .m-cta > * { min-width: 0; }
+  .camp-grid > *, .camp-3 > *, .camp-split > *, .camp-stats > *, .m-band > *, .m-cta > *, .camp-trio > * { min-width: 0; }
+  /* big figures in trio rows ("Innumerevoli") scale down on tablets instead of overflowing */
+  .camp-trio strong[style*="font-size:1.75rem"] { font-size: clamp(1.25rem, 3vw, 1.75rem) !important; }
   h1, h2, h3 { overflow-wrap: break-word; }
 
   @media (max-width: 900px) {
@@ -1372,7 +1374,24 @@
   }
   /* Italian card titles: words are longer, so long words (10+ letters) break with a hyphen at every width,
      and short ones ("DELLA", "LEGALI") are never split */
-  :lang(it) main :is(h3, h4) { hyphens: auto; -webkit-hyphens: auto; hyphenate-limit-chars: 10 4 4; }
+  :lang(it) main :is(h2, h3, h4) { hyphens: auto; -webkit-hyphens: auto; hyphenate-limit-chars: 10 4 4; }
+  /* long Italian button labels wrap instead of overflowing their row */
+  :lang(it) main .btn { white-space: normal; }
+  @media (max-width: 480px) {
+    /* phones: grids that would leave under ~100px of text per column (cards with an icon or photo beside
+       the text, 2-3 column inline grids) become one column; dense strips keep 2 columns with smaller labels */
+    [style*="grid-template-columns:1fr 1fr"], [style*="grid-template-columns:repeat(3"],
+    .camp-grid[style*="grid-template-columns:repeat(4"], [style*="grid-template-columns:7rem"],
+    [style*="grid-template-columns:1.1fr 1fr"], [style*="grid-template-columns:1.6fr 1fr"] { grid-template-columns: minmax(0, 1fr) !important; }
+    /* items pinned to a second column would recreate it inside a one-column grid */
+    [style*="grid-column:2"] { grid-column: auto !important; }
+    .camp-h { overflow-wrap: break-word; }
+    .camp-trio > div { flex-basis: 100%; }
+    :is([style*="grid-template-columns:repeat(5"], [style*="grid-template-columns:repeat(6"], [style*="grid-template-columns:repeat(7"], [style*="grid-template-columns:repeat(8"]) strong { font-size: 0.78rem !important; }
+    :is([style*="grid-template-columns:repeat(5"], [style*="grid-template-columns:repeat(6"], [style*="grid-template-columns:repeat(7"], [style*="grid-template-columns:repeat(8"]) h3 { font-size: 0.875rem !important; }
+    .rc-dense h3 { font-size: 0.875rem !important; }
+    .sec-h { font-size: 1.3rem; }
+  }
   /* Card grids with 5+ cards adapt to the width of their own column, not the screen:
      below ~170px per card they reflow to 3 per row (2 on very narrow columns). */
   .rc { container-type: inline-size; width: 100%; } /* explicit width: size containment would otherwise shrink it inside grids */

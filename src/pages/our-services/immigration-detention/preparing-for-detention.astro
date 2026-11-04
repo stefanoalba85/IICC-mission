@@ -97,12 +97,13 @@ const beliefs = [
     .pd-beliefs strong { display: block; font-size: 0.6875rem; text-transform: uppercase; }
     .pd-beliefs span { font-size: 0.6875rem; line-height: 1.35; }
     @media (max-width: 960px) {
-      .pd-band .wrap { grid-template-columns: 4rem 1fr; } .pd-val { grid-column: span 1; border-left: none; }
+      .pd-band .wrap { grid-template-columns: repeat(2, minmax(0, 1fr)); } .pd-band .wrap > img { width: 4rem; justify-self: center; } .pd-val { grid-column: span 1; border-left: none; }
       .pd-topics { grid-template-columns: repeat(2, 1fr); } .pd-topic { border-left: none; }
       .pd-three, .pd-cta .wrap { grid-template-columns: 1fr; }
       .pd-extra, .pd-beliefs { grid-template-columns: repeat(3, 1fr); }
     }
     @media (max-width: 560px) { .pd-topics, .pd-extra, .pd-beliefs { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .pd-topics { grid-template-columns: 1fr; } }
   </style>
 
   <MinHero

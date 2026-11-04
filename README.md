@@ -173,7 +173,7 @@ Oggi questi elementi sono segnaposto. I link relativi puntano provvisoriamente a
 - Ragione sociale e numero di registrazione dell'ente (la risposta FAQ "Is IICC Mission a registered charity?" è generica).
 - Revisione legale di Privacy Policy e Terms (GDPR); banner cookie se si usano strumenti di analisi.
 - Logo vettoriale (SVG/AI).
-- Sito bilingue (3/11/2026): tutte le 131 pagine pubblicate anche in italiano; 30 hanno ancora dettagli di impaginazione da sistemare (`LAYOUT_CHECK`); testi da rivedere dal cliente e revisione legale delle pagine legali; vedi `docs/traduzioni.md`. Hosting in Italia: proposta in `docs/proposte-tecniche.md`, in attesa di decisione.
+- Sito bilingue (3/11/2026): tutte le 131 pagine pubblicate anche in italiano, impaginazione verificata a tutte le larghezze; testi da rivedere dal cliente e revisione legale delle pagine legali; vedi `docs/traduzioni.md`. Hosting in Italia: proposta in `docs/proposte-tecniche.md`, in attesa di decisione.
 
 ## Sicurezza e manutenzione
 
