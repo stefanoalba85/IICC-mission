@@ -94,6 +94,7 @@ Note sulla corrispondenza con i mockup:
 - **Diciture imposte dal cliente:**
   - "Pet Companions Program", mai "Pet Rescue";
   - "A Catholic Christian global mission";
+  - sempre e solo "IICC Mission": niente estensioni dell'acronimo, in attesa della denominazione definitiva;
   - nessun indirizzo né «Head Office»: "Via delle Milizie 34" è dismesso e non va più usato (il controllo `audit.py` lo segnala);
   - copyright fisso "© 2026 IICC Mission. All Rights Reserved.".
 - **Menu:** per aggiungere una pagina, inserirla in `src/lib/nav.ts`, altrimenti resta irraggiungibile.
