@@ -5,6 +5,7 @@ import MinBand from '../../../components/MinBand.astro';
 import ImQuoteCta from '../../../components/ImQuoteCta.astro';
 import ImStrip from '../../../components/ImStrip.astro';
 import Icon from '../../../components/Icon.astro';
+import { phones } from '../../../lib/contact';
 const img = (n: string) => `/images/immigration/family/${n}.jpg`;
 const programs = [
   { icon: 'people-group', title: 'Support Groups', text: 'Connect with other families who understand what you are going through.' },
@@ -55,6 +56,7 @@ const care = [
       <p class="im-p">We are here to listen and help. Contact us for support or more information.</p>
       <p class="im-p" style="display:flex; gap:0.6rem; align-items:center;"><Icon name="envelope" size={16} /> info@iiccmission.org</p>
       <p class="im-p" style="display:flex; gap:0.6rem; align-items:center;"><Icon name="globe" size={16} /> www.iiccmission.org</p>
+      {phones.map(p => <p class="im-p" style="display:flex; gap:0.6rem; align-items:center;"><Icon name="phone" size={16} /><span>{p.label}: <a href={`tel:${p.tel}`}>{p.number}</a></span></p>)}
       <img src={img('reach')} alt="An IICC Mission volunteer meeting a family member" style="width:min(100%, 14rem); border-radius:4px; margin-top:0.5rem;" />
     </div>
   </section>

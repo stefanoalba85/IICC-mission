@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import Icon from '../../../components/Icon.astro';
+import { phones } from '../../../lib/contact';
 const img = (n: string) => `/images/prison-ministry/faq/${n}.jpg`;
 const faqs = [
   { icon: 'cross', q: 'What is IICC Mission?', a: 'IICC Mission is a Catholic organization that brings Christ’s love, hope, and support to inmates, people in immigration detention, and their families. We provide spiritual care, practical assistance, advocacy, education, and pathways to healing and reintegration.' },
@@ -110,6 +111,7 @@ const strip = [
         <ul class="fq-contact">
           <li><i><Icon name="envelope" size={14} /></i>info@iiccmission.org</li>
           <li><i><Icon name="globe" size={14} /></i>www.iiccmission.org</li>
+          {phones.map(p => <li><i><Icon name="phone" size={14} /></i><span>{p.label}: <a href={`tel:${p.tel}`}>{p.number}</a></span></li>)}
         </ul>
       </div>
       <div class="fq-alone">

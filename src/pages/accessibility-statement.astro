@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import LegalTemplate from '../components/LegalTemplate.astro';
 import LegalCard from '../components/LegalCard.astro';
 import Icon from '../components/Icon.astro';
+import { phones } from '../lib/contact';
 
 const tabs = [
   { icon: 'universal-access', label: 'Our Commitment', href: '#commitment' },
@@ -61,6 +62,7 @@ const features = [
     <p>For accessibility-related enquiries, please contact us:</p>
     <div class="ac-contact">
       <span><Icon name="envelope" size={20} />info@iiccmission.org</span>
+      {phones.map(p => <span><Icon name="phone" size={20} /><span>{p.label}: <a href={`tel:${p.tel}`}>{p.number}</a></span></span>)}
     </div>
 
     <Fragment slot="side">

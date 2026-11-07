@@ -7,6 +7,7 @@ import NewsBar from '../../../components/NewsBar.astro';
 import AutismHero from '../../../components/AutismHero.astro';
 import AutismCta from '../../../components/AutismCta.astro';
 import Icon from '../../../components/Icon.astro';
+import { phones } from '../../../lib/contact';
 const img = (n: string) => `/images/resources/${n}.jpg`;
 const stat = (items: string[][]) => items;
 ---
@@ -35,6 +36,7 @@ const stat = (items: string[][]) => items;
       {[['envelope','Receive Confirmation','You will receive a confirmation email or message.'],['people-group','Review & Assessment','Our team will review your request and assess your needs.'],['hand-holding-heart','Connect & Support','We will connect you with the right resources and support services.']].map(([i,t,d]) => <div class="im-row"><i><Icon name={i} size={20} /></i><div><h3>{t}</h3><p>{d}</p></div></div>)}
       <h3 style="font-family:var(--font-heading); color:var(--color-navy); text-transform:uppercase; font-weight:400; margin-top:1.25rem;">Need Immediate Help?</h3>
       <p style="font-size:0.875rem;">Contact our Support Team</p>
+      {phones.map(p => <p style="display:flex; gap:0.6rem; align-items:center; font-size:0.875rem; margin-top:0.4rem; color:var(--color-navy);"><Icon name="phone" size={14} /><span>{p.label}: <a href={`tel:${p.tel}`}>{p.number}</a></span></p>)}
       {[['envelope','info@iiccmission.org'],['globe','www.iiccmission.org']].map(([i,t]) => <p style="display:flex; gap:0.6rem; align-items:center; font-size:0.875rem; margin-top:0.4rem; color:var(--color-navy);"><Icon name={i} size={14} />{t}</p>)}
     </aside>
   </section>

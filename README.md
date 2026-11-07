@@ -141,7 +141,7 @@ Oggi questi elementi sono segnaposto. I link relativi puntano provvisoriamente a
   - l'account PayPal Business (email o merchant ID in `paypal.business`), verificando che dall'Italia si possa pagare con carta senza conto PayPal, anche in modalità mensile; in alternativa i Payment Link Stripe (`stripe`);
   - i dati del bonifico (intestatario, IBAN, BIC, banca, causale);
   - gli URL delle campagne GoFundMe: vanno in `gofundme` per il modulo e nei 22 bottoni del sito che oggi puntano a `gofundme.com` generico.
-- **Contatti:** il sito mostra solo email e sito web. Sede, indirizzo, telefono e orari sono stati tolti su richiesta del cliente (7/11/2026) e tornano solo quando confermati.
+- **Contatti:** email, sito web e i telefoni ufficiali Italia e Australia, confermati dal cliente il 7/11/2026 (`src/lib/contact.ts`). Sede e indirizzo sono stati tolti su richiesta del cliente; orari di contatto ancora da ricevere.
 - **Dominio definitivo:** canonical e meta OG presumono `https://www.iiccmission.org`. Impostare `site` in `astro.config.mjs`.
 
 **Contenuti da confermare o sostituire**

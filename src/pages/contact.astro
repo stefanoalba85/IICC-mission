@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Icon from '../components/Icon.astro';
 import type { IconName } from '../lib/icons';
+import { phones } from '../lib/contact';
 
 const info: { title: string; lines: string[]; icon: IconName }[] = [
   { title: 'Email', lines: ['info@iiccmission.org'], icon: 'mail' },
@@ -55,6 +56,7 @@ const info: { title: string; lines: string[]; icon: IconName }[] = [
         {info.map(i => (
           <div class="ct-item"><i><Icon name={i.icon} size={28} /></i><div><strong>{i.title}</strong>{i.lines.map(l => <span>{l}</span>)}</div></div>
         ))}
+        <div class="ct-item"><i><Icon name="phone" size={28} /></i><div><strong>Phone</strong>{phones.map(p => <span>{p.label}: <a href={`tel:${p.tel}`}>{p.number}</a></span>)}</div></div>
       </div>
     </div>
     <div>
