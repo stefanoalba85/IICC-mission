@@ -94,7 +94,7 @@ Note sulla corrispondenza con i mockup:
 - **Diciture imposte dal cliente:**
   - "Pet Companions Program", mai "Pet Rescue";
   - "A Catholic Christian global mission";
-  - indirizzo "Via delle Milizie 34, 00192 Rome, Italy";
+  - indirizzo solo "Rome, Italy": "Via delle Milizie 34" è dismesso e non va più usato (il controllo `audit.py` lo segnala);
   - copyright fisso "© 2026 IICC Mission. All Rights Reserved.".
 - **Menu:** per aggiungere una pagina, inserirla in `src/lib/nav.ts`, altrimenti resta irraggiungibile.
 - **Italiano:** le pagine si scrivono solo in inglese; la versione italiana si genera dal catalogo `src/i18n/it.json` (procedura in `docs/traduzioni.md`). I testi negli script vanno messi in attributi `data-t-*`, altrimenti non vengono tradotti.

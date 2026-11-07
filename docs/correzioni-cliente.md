@@ -11,7 +11,7 @@ Il cliente ha chiesto di procedere in due fasi.
 | # | Richiesta | Esito |
 |---|---|---|
 | 1, 2, 4, G | "Catholic Christian" nella frase della Missione, nel valore Faith e nel testo del Fondatore | Fatto in homepage, footer, About Us, Our Story |
-| 3, G | Indirizzo uniforme "Via delle Milizie 34, 00192 Rome, Italy" | Fatto ovunque, compresi footer, pagine legali, FAQ e le vecchie menzioni "Vatican City / Rome" |
+| 3, G | Indirizzo uniforme (allora "Via delle Milizie 34"; dismesso il 7/11/2026, vedi Richieste aggiuntive) | Fatto ovunque, compresi footer, pagine legali, FAQ e le vecchie menzioni "Vatican City / Rome" |
 | 5 | Canada colorato sulla mappa della homepage | Fatto (`public/images/home/map.jpg`) |
 | 9 | Contatti solo Roma | Tolti PO Box, numeri +61 e orari AEST. **In attesa:** telefono ufficiale e orari (fuso Europe/Rome) |
 | 13 | Foto di Pope Leo XIV coperta dal testo | Fatto (componente `FaithLeader`, vale anche per Pope Francis) |
@@ -46,4 +46,5 @@ Corretti nello stesso giro, senza segnalazione del cliente:
 | 19/10/2026 | Nuova pagina **Pet Companions Program** sotto Hope Companion Program, dal mockup *Pet Companions_Second Chances Together.png* | ✅ `0cb33b4`. Regola del cliente: **mai "Pet Rescue"**, sempre "Pet Companions Program". Il bottone GoFundMe resta "Coming soon" non cliccabile finché manca la campagna |
 | 19/10/2026 | Sito bilingue IT/EN | Approvato il 3/11 (lingua per paese con il browser come criterio secondario, indirizzi tradotti, revisione legale delle pagine legali). Fatto: struttura, selettore, lingua al primo ingresso; tutte le 131 pagine pubblicate in italiano, impaginazione verificata a tutte le larghezze (traduzione da rivedere con il foglio di revisione). Vedi [traduzioni.md](traduzioni.md) |
 | 7/11/2026 | Rimozione di due profili (foto, biografia, incarico) da Our Leadership, Staff & Volunteers e dal resto del sito | ✅ Erano presenti solo in Our Leadership, inglese e italiana: tolti da pagina e catalogo, foto cancellate; le tre schede restanti sono state ricentrate e allargate. Verificato sul sito generato: nessun nome, incarico o foto residui |
+| 7/11/2026 | Eliminare "Via delle Milizie 34", indirizzo dismesso, da tutte le pagine IT e EN | ✅ Via e CAP tolti da footer (tutte le pagine), Home, Contatti, FAQ, Privacy, Termini, Accessibilità, Rome Headquarters, Phone & Communication Support, Family Support. Al loro posto "Rome, Italy" / "Roma, Italia". Il cliente non ha indicato un nuovo indirizzo: **da chiedere**. Verificato anche il testo dentro le immagini |
 | 19/10/2026 | Hosting, domini e assistenza in Italia | Proposta in [proposte-tecniche.md](proposte-tecniche.md); in attesa di risposte |
