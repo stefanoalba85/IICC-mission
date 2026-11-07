@@ -145,7 +145,7 @@ Oggi questi elementi sono segnaposto. I link relativi puntano provvisoriamente a
 
 **Contenuti da confermare o sostituire**
 - **Persone:**
-  - Our Leadership è definitiva, salvo gli incarichi di Giorgio Di Martino e Irene Strangis, da confermare.
+  - Our Leadership è definitiva, salvo l'incarico di Irene Strangis, da confermare.
   - Staff & Volunteers e Our People usano ancora nomi e foto dei mockup (Fr. Anthony David, Maria Grazia, James Porter, Sr. Lucia Maria, Fr. Michael Tran, Elena Rossi, Daniel McCarthy). Staff & Volunteers sarà rifatta con i dati del cliente (vedi `docs/correzioni-cliente.md`).
 - **Foto ancora da sostituire:** Mission News, Fondatore con Cardinal Pell (Inspired by Faith).
 - **Foto in alta risoluzione:** le 827 immagini sono ritagliate dai mockup (mediana 192px di larghezza).

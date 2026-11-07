@@ -4,17 +4,13 @@ import Icon from '../../components/Icon.astro';
 
 const img = (n: string) => `/images/our-leadership/${n}.jpg`;
 
-// Order requested by the client. Titles of Giorgio Di Martino and Irene Strangis are proposed and
-// will be confirmed before final publication.
+// Order requested by the client. The title of Irene Strangis is proposed and will be confirmed
+// before final publication.
 const team = [
   { name: 'Antonio G. Dattilo', role: 'Ambassador & Founder', photo: 'antonio-dattilo', pos: '54% 30%',
     text: 'Leading the IICC Mission with a vision of faith, hope, justice and restoration for individuals, families and communities across Italy and internationally.' },
   { name: 'Chaplain Denis Fitzgerald', role: 'Australian National Director & Pastoral Adviser', photo: 'denis-fitzgerald', pos: '55% 30%',
     text: 'Providing spiritual guidance and pastoral care, supporting the mission’s work across Australia and internationally.' },
-  { name: 'Giorgio Di Martino', role: 'National Coordinator – Italy', photo: 'giorgio-di-martino', pos: '53% 30%',
-    text: 'Coordinating IICC Mission activities across Italy and supporting the development of programs and partnerships at a national level.' },
-  { name: 'Ilenia Dattilo', role: 'Chief Financial Officer & Treasurer', photo: 'ilenia-dattilo', pos: '40% 25%',
-    text: 'Overseeing financial management, transparency and governance to ensure the mission’s long-term sustainability and responsible growth.' },
   { name: 'Francesco Dattilo', role: 'President', photo: 'francesco-dattilo', pos: '56% 30%',
     text: 'Providing strategic leadership and supporting the mission’s development, partnerships and long-term vision.' },
 ];
@@ -56,7 +52,7 @@ const values = [
     .lt-meet { background: #f8f5ef; padding-block: 2.25rem 2rem; }
     .lt-meet__intro { text-align: center; color: var(--color-navy); font-size: 1rem; line-height: 1.55; max-width: 44rem; margin: 0.4rem auto 1.75rem; }
     .lt-team { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.75rem 1rem; }
-    .lt-member { flex: 0 1 calc((100% - 4rem) / 5); display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .lt-member { flex: 0 1 calc((100% - 2rem) / 3); max-width: 19rem; display: flex; flex-direction: column; align-items: center; text-align: center; }
     .lt-member img { width: 100%; aspect-ratio: 4 / 5.6; object-fit: cover; border-radius: 3px; box-shadow: 0 6px 18px rgba(18,26,56,0.16); }
     .lt-member h3 { font-family: var(--font-heading); color: var(--lt-gold); font-size: 1.2rem; line-height: 1.2; margin-top: 0.9rem; min-height: 2.4em; display: flex; align-items: flex-end; justify-content: center; }
     .lt-role { color: var(--color-navy); font-size: 0.9375rem; line-height: 1.35; margin-top: 0.3rem; min-height: 2.6em; }

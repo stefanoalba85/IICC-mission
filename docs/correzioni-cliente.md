@@ -30,7 +30,7 @@ Corretti nello stesso giro, senza segnalazione del cliente:
 
 | # | Richiesta | Stato |
 |---|---|---|
-| 6 | Our Leadership rifatta | ✅ `69f056d`. 6 membri: Antonio G. Dattilo, Chaplain Denis Fitzgerald, Giorgio Di Martino, Ilenia Dattilo, Francesco Dattilo, Irene Strangis. Father John Vespa rimosso. **Da confermare:** gli incarichi di Giorgio Di Martino e Irene Strangis |
+| 6 | Our Leadership rifatta | ✅ `69f056d`. Oggi 4 membri: Antonio G. Dattilo, Chaplain Denis Fitzgerald, Francesco Dattilo, Irene Strangis (due profili rimossi il 7/11/2026, vedi Richieste aggiuntive). Father John Vespa rimosso. **Da confermare:** l'incarico di Irene Strangis |
 | 7 | Staff & Volunteers rifatta (con Chaplain Denis Fitzgerald; distinzione organi direttivi / personale / volontari) | Da fare: servono foto, biografie e incarichi |
 | 8 | Foto di Mission News pertinenti, in alta risoluzione e con proporzioni uniformi | Da fare |
 | 10 | Foto di Cardinal Pell e Archbishop Comensoli (Ambassador & Founder) | ✅ `6a61e06` |
@@ -45,4 +45,5 @@ Corretti nello stesso giro, senza segnalazione del cliente:
 |---|---|---|
 | 19/10/2026 | Nuova pagina **Pet Companions Program** sotto Hope Companion Program, dal mockup *Pet Companions_Second Chances Together.png* | ✅ `0cb33b4`. Regola del cliente: **mai "Pet Rescue"**, sempre "Pet Companions Program". Il bottone GoFundMe resta "Coming soon" non cliccabile finché manca la campagna |
 | 19/10/2026 | Sito bilingue IT/EN | Approvato il 3/11 (lingua per paese con il browser come criterio secondario, indirizzi tradotti, revisione legale delle pagine legali). Fatto: struttura, selettore, lingua al primo ingresso; tutte le 131 pagine pubblicate in italiano, impaginazione verificata a tutte le larghezze (traduzione da rivedere con il foglio di revisione). Vedi [traduzioni.md](traduzioni.md) |
+| 7/11/2026 | Rimozione di due profili (foto, biografia, incarico) da Our Leadership, Staff & Volunteers e dal resto del sito | ✅ Erano presenti solo in Our Leadership, inglese e italiana: tolti da pagina e catalogo, foto cancellate; le tre schede restanti sono state ricentrate e allargate. Verificato sul sito generato: nessun nome, incarico o foto residui |
 | 19/10/2026 | Hosting, domini e assistenza in Italia | Proposta in [proposte-tecniche.md](proposte-tecniche.md); in attesa di risposte |

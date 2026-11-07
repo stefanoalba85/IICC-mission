@@ -63,7 +63,7 @@ Scenari verificati nel browser (3/11/2026):
 
 Le correzioni ricevute si riportano in `src/i18n/it.json`.
 
-- Testi istituzionali, missione, programmi: revisione coordinata dal cliente con Ilenia.
+- Testi istituzionali, missione, programmi: revisione coordinata dal cliente.
 - **Privacy Policy, Terms & Conditions, Cookie Policy e informazioni legali delle donazioni:** verifica di Irene Strangis o di un altro legale prima della pubblicazione definitiva.
 - La **Cookie Policy** oggi non esiste come pagina separata: va creata.
 
@@ -105,7 +105,7 @@ Le correzioni ricevute si riportano in `src/i18n/it.json`.
 - **Scelte di traduzione da confermare:**
   - Le citazioni bibliche seguono il testo CEI 2008, con la numerazione italiana dei Salmi (es. Salmo 34,19 dove l'inglese ha 34:18).
   - Dove l'inglese parafrasa il versetto, è tradotta la parafrasi.
-  - Ruoli delle persone in forma neutra: Referente nazionale, Referente legale, Responsabile delle finanze e della tesoreria, Presidente.
+  - Ruoli delle persone in forma neutra: Referente legale, Presidente.
   - Titoli dei libri: edizione italiana quando esiste (L'imitazione di Cristo, Le lettere di Berlicche, Le Confessioni, Catechismo della Chiesa Cattolica); gli altri restano in inglese.
   - Le linee di ascolto australiane (Lifeline, Beyond Blue…) restano invariate, con la nota «Australia».
 - **Possibili errori nel testo inglese (tradotti fedelmente, da verificare con il cliente):**
@@ -113,7 +113,7 @@ Le correzioni ricevute si riportano in `src/i18n/it.json`.
   - UN Human Rights Advocacy: la frase sulla dignità come «fondamento della libertà, della giustizia e della pace» viene dal Preambolo della Dichiarazione universale dei diritti umani, non della Carta delle Nazioni Unite.
   - Domande frequenti della pagina Phone & Communication Support: citano le pagine «Prison Visit» e «Adopt a Prisoner»; la seconda non esiste nel sito.
 - **Prossime fasi:**
-  1. revisione dei testi da parte del cliente con Ilenia e revisione legale;
+  1. revisione dei testi da parte del cliente e revisione legale;
   2. Cookie Policy;
   3. lingua per paese sull'hosting definitivo.
 - **Restano in inglese:**
