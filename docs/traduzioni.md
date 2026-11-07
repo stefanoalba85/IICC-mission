@@ -64,7 +64,7 @@ Scenari verificati nel browser (3/11/2026):
 Le correzioni ricevute si riportano in `src/i18n/it.json`.
 
 - Testi istituzionali, missione, programmi: revisione coordinata dal cliente.
-- **Privacy Policy, Terms & Conditions, Cookie Policy e informazioni legali delle donazioni:** verifica di Irene Strangis o di un altro legale prima della pubblicazione definitiva.
+- **Privacy Policy, Terms & Conditions, Cookie Policy e informazioni legali delle donazioni:** verifica di un legale prima della pubblicazione definitiva.
 - La **Cookie Policy** oggi non esiste come pagina separata: va creata.
 
 ## Glossario (proposto, da confermare con il cliente)
@@ -105,7 +105,7 @@ Le correzioni ricevute si riportano in `src/i18n/it.json`.
 - **Scelte di traduzione da confermare:**
   - Le citazioni bibliche seguono il testo CEI 2008, con la numerazione italiana dei Salmi (es. Salmo 34,19 dove l'inglese ha 34:18).
   - Dove l'inglese parafrasa il versetto, è tradotta la parafrasi.
-  - Ruoli delle persone in forma neutra: Referente legale, Presidente.
+  - Ruoli delle persone in forma neutra (es. Presidente).
   - Titoli dei libri: edizione italiana quando esiste (L'imitazione di Cristo, Le lettere di Berlicche, Le Confessioni, Catechismo della Chiesa Cattolica); gli altri restano in inglese.
   - Le linee di ascolto australiane (Lifeline, Beyond Blue…) restano invariate, con la nota «Australia».
 - **Possibili errori nel testo inglese (tradotti fedelmente, da verificare con il cliente):**

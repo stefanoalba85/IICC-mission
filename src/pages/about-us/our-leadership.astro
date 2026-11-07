@@ -4,8 +4,7 @@ import Icon from '../../components/Icon.astro';
 
 const img = (n: string) => `/images/our-leadership/${n}.jpg`;
 
-// Order requested by the client. The title of Irene Strangis is proposed and will be confirmed
-// before final publication.
+// Order requested by the client.
 const team = [
   { name: 'Antonio G. Dattilo', role: 'Ambassador & Founder', photo: 'antonio-dattilo', pos: '54% 30%',
     text: 'Leading the IICC Mission with a vision of faith, hope, justice and restoration for individuals, families and communities across Italy and internationally.' },
@@ -14,10 +13,6 @@ const team = [
   { name: 'Francesco Dattilo', role: 'President', photo: 'francesco-dattilo', pos: '56% 30%',
     text: 'Providing strategic leadership and supporting the mission’s development, partnerships and long-term vision.' },
 ];
-const featured = {
-  name: 'Irene Strangis', role: 'Legal Coordinator', photo: 'irene-strangis',
-  text: 'Providing legal coordination and support across IICC Mission activities, including advice on Italian law, partnerships, program development and compliance, helping to ensure that our work is carried out with integrity, professionalism and respect for human dignity.',
-};
 const values = [
   { icon: 'hands-praying', title: 'Faith', text: 'Rooted in Christian values and compassion.' },
   { icon: 'people-group', title: 'Service', text: 'Working together for individuals, families and communities.' },
@@ -60,12 +55,6 @@ const values = [
     .lt-member p:last-child { color: var(--color-navy); font-size: 0.875rem; line-height: 1.5; }
 
     /* Featured member */
-    .lt-feature { display: grid; grid-template-columns: 1.1fr 1fr; max-height: 400px; background: var(--color-navy-dark); color: #fff; border-radius: 4px; overflow: hidden; margin-top: 2.25rem; box-shadow: 0 10px 28px rgba(18,26,56,0.22); }
-    .lt-feature img { width: 100%; height: 100%; min-height: 280px; max-height: 400px; object-fit: cover; object-position: 45% 30%; }
-    .lt-feature__text { padding: 2rem 2.25rem; display: flex; flex-direction: column; justify-content: center; gap: 0.5rem; }
-    .lt-feature h3 { font-family: var(--font-heading); color: var(--lt-gold-light); font-size: clamp(1.6rem, 2.6vw, 2.1rem); line-height: 1.1; }
-    .lt-feature .lt-role { color: #fff; font-size: 1.125rem; min-height: 0; margin: 0; }
-    .lt-feature p:last-child { font-size: 1rem; line-height: 1.65; margin-top: 0.75rem; color: rgba(255,255,255,0.92); }
 
     /* Values */
     .lt-values { padding-block: 2rem 2.25rem; }
@@ -106,10 +95,6 @@ const values = [
       .lt-hero__photo > img:first-child { -webkit-mask-image: none; mask-image: none; }
       .lt-hero__photo::after { background: radial-gradient(ellipse 45% 75% at 78% 50%, rgba(255,250,240,0.9), rgba(255,250,240,0.5) 55%, transparent 78%); }
       .lt-hero__logo { top: 50%; transform: translateY(-50%); right: 1.25rem; width: 150px; }
-      .lt-feature { grid-template-columns: 1fr; max-height: none; }
-      .lt-feature img { max-height: none; }
-      .lt-feature img { aspect-ratio: 4 / 3; min-height: 0; height: auto; }
-      .lt-feature__text { padding: 1.5rem; }
     }
     @media (max-width: 640px) {
       .lt-member { flex-basis: calc((100% - 1rem) / 2); }
@@ -151,15 +136,6 @@ const values = [
             </article>
           ))}
         </div>
-
-        <article class="lt-feature">
-          <img src={img(featured.photo)} alt={`${featured.name}, ${featured.role}`} loading="lazy" />
-          <div class="lt-feature__text">
-            <h3>{featured.name}</h3>
-            <p class="lt-role">{featured.role}</p>
-            <p>{featured.text}</p>
-          </div>
-        </article>
       </div>
     </section>
 
