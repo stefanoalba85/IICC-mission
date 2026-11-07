@@ -24,7 +24,8 @@ Sito vetrina statico di **IICC Mission**, **bilingue inglese / italiano**: 131 p
 nvm use 22            # Node >= 22.12 (Astro 7.3)
 npm install
 npm run dev           # http://localhost:4321
-npm run build         # genera dist/ (atteso: 131 pagine, zero errori)
+npm run build         # genera dist/ (atteso: 131 pagine, zero errori), non indicizzabile dai motori di ricerca
+SITE_ENV=production npm run build  # build del sito definitivo, l'unica indicizzabile
 npm run preview -- --port 4400  # con Astro 7 parte in background: fermarlo con `npx astro preview stop`
 ```
 
