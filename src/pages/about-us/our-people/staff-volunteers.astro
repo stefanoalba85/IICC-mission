@@ -8,12 +8,9 @@ import type { IconName } from '../../../lib/icons';
 const img = (n: string) => `/images/staff-volunteers/${n}.jpg`;
 
 const leaders = [
-  { name: 'Antonio G. Dattilo', role: 'Ambassador & Founder', text: 'Leads our mission with lived experience, faith and a passion for justice and restoration.', email: 'antonio@iiccmission.org' },
-  { name: 'Fr. Anthony David', role: 'Spiritual Director', text: 'Provides spiritual guidance and ensures our mission remains rooted in prayer, faith and the Gospel.', email: 'fr.anthony@iiccmission.org' },
-  { name: 'Maria Grazia', role: 'Operations Director', text: 'Oversees programs, operations and the day-to-day running of our mission.', email: 'maria@iiccmission.org' },
-  { name: 'James Porter', role: 'Outreach Director', text: 'Leads outreach initiatives and builds partnerships in communities worldwide.', email: 'james@iiccmission.org' },
-  { name: 'Sr. Lucia Maria', role: 'Pastoral Care Director', text: 'Coordinates pastoral care and support for individuals and their families.', email: 'sr.lucia@iiccmission.org' },
-  { name: 'Fr. Michael Tran', role: 'Chaplaincy Director', text: 'Supports chaplains and pastoral teams in prisons and detention centres.', email: 'michael@iiccmission.org' },
+  { name: 'Antonio G. Dattilo', role: 'Ambassador & Founder', photo: 'antonio-dattilo', pos: '54% 20%', text: 'Leading the IICC Mission with a vision of faith, hope, justice and restoration for individuals, families and communities across Italy and internationally.' },
+  { name: 'Chaplain Denis Fitzgerald', role: 'Australian National Director & Pastoral Adviser', photo: 'denis-fitzgerald', pos: '55% 20%', text: 'Providing spiritual guidance and pastoral care, supporting the mission’s work across Australia and internationally.' },
+  { name: 'Francesco Dattilo', role: 'President-designate', photo: 'francesco-dattilo', pos: '56% 20%', text: 'Providing strategic leadership and supporting the mission’s development, partnerships and long-term vision.' },
 ];
 const volunteers: { title: string; text: string; icon: IconName }[] = [
   { title: 'Visit & Support', text: 'Our volunteers visit, listen and offer companionship to inmates and detainees.', icon: 'heartHand' },
@@ -39,16 +36,13 @@ const values: { title: string; text: string; icon: IconName }[] = [
 <Layout title="Staff & Volunteers" description="United in Faith. Driven by Compassion.">
   <style>
     .sv-h { font-family: var(--font-heading); color: var(--color-navy); text-transform: uppercase; text-align: center; font-size: 1.25rem; }
-    .sv-leaders { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0.75rem; margin-top: 1rem; }
+    .sv-leaders { display: grid; grid-template-columns: repeat(3, minmax(0, 18rem)); justify-content: center; gap: 1rem; margin-top: 1rem; }
     .sv-leader { background: #faf8f4; border: 1px solid rgba(27,39,81,0.08); border-radius: 6px; overflow: hidden; text-align: center; display: flex; flex-direction: column; }
     .sv-leader img { width: 100%; aspect-ratio: 150 / 140; object-fit: cover; }
     .sv-leader > div { padding: 0.75rem 0.6rem 1rem; display: flex; flex-direction: column; gap: 0.35rem; flex: 1; }
     .sv-leader h3 { font-family: var(--font-heading); color: var(--color-navy); font-size: 1.0625rem; font-weight: 400; }
     .sv-leader .role { font-family: var(--font-heading); color: var(--color-amber); font-size: 0.8125rem; }
     .sv-leader p { font-family: var(--font-heading); font-size: 0.75rem; line-height: 1.5; flex: 1; }
-    .sv-leader .contact { font-size: 0.6875rem; color: var(--color-navy); text-align: left; display: flex; flex-direction: column; gap: 0.25rem; margin-top: 0.5rem; }
-    .sv-leader .contact span { display: flex; gap: 0.4rem; align-items: center; }
-    .sv-leader .contact :global(svg) { color: var(--color-amber); flex-shrink: 0; }
     .sv-vols { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.75rem; margin-top: 1rem; }
     .sv-vol { background: #faf8f4; border-radius: 6px; overflow: hidden; text-align: center; }
     .sv-vol__photo { position: relative; }
@@ -71,13 +65,11 @@ const values: { title: string; text: string; icon: IconName }[] = [
     .sv-value h3 { font-family: var(--font-heading); text-transform: uppercase; font-size: 0.875rem; }
     .sv-value p { font-family: var(--font-heading); font-size: 0.78rem; line-height: 1.5; color: var(--color-text); }
     @media (max-width: 960px) {
-      .sv-leaders { grid-template-columns: repeat(3, 1fr); }
       .sv-vols, .sv-values { grid-template-columns: 1fr 1fr; row-gap: 1.5rem; }
       .sv-band__grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 480px) {
-      .sv-leaders { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .sv-leader .contact span { overflow-wrap: anywhere; }
+      .sv-leaders { grid-template-columns: minmax(0, 1fr); }
       .sv-values { grid-template-columns: 1fr; }
     }
   </style>
@@ -105,17 +97,13 @@ const values: { title: string; text: string; icon: IconName }[] = [
       <h2 class="sv-h">Our Leadership Team</h2>
       <span class="heart-rule heart-rule--center" style="max-width:120px;">♥</span>
       <div class="sv-leaders">
-        {leaders.map((l, i) => (
+        {leaders.map(l => (
           <article class="sv-leader">
-            <img src={img(`l${i + 1}`)} alt={l.name} />
+            <img src={`/images/our-leadership/${l.photo}.jpg`} alt={l.name} style={`object-position:${l.pos};`} loading="lazy" />
             <div>
               <h3>{l.name}</h3>
               <span class="role">{l.role}</span>
               <p>{l.text}</p>
-              <div class="contact">
-                <span><Icon name="mail" size={12} />{l.email}</span>
-                <span><Icon name="phone" size={12} />+39 349 303 6235</span>
-              </div>
             </div>
           </article>
         ))}

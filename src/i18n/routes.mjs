@@ -117,7 +117,6 @@ export const SEGMENTS = {
   'regional-missions': 'missioni-regionali',
   'usa-expansion': 'espansione-usa',
   'canada-expansion': 'espansione-canada',
-  'rome-headquarters': 'sede-di-roma',
   'churches-parish-partners': 'chiese-e-parrocchie',
   // Resources
   'resources': 'risorse',
@@ -248,7 +247,6 @@ export const IT_READY = new Set([
   '/partnerships/italian-branches',
   '/partnerships/national-missions',
   '/partnerships/regional-missions',
-  '/partnerships/rome-headquarters',
   '/partnerships/state-missions',
   '/partnerships/usa-expansion',
   '/privacy-policy',

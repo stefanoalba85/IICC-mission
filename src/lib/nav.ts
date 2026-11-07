@@ -135,7 +135,7 @@ export const menus: NavMenu[] = [
     alignRight: true,
     columns: [
       { title: 'Global Mission Network', href: '/partnerships', links: [
-        l('Global Mission Network', '/partnerships'), l('Rome Headquarters', '/partnerships/rome-headquarters'),
+        l('Global Mission Network', '/partnerships'),
         l('International Branches', '/partnerships/international-branches'), l('Italian Branches', '/partnerships/italian-branches'),
         l('Australian Branches', '/partnerships/australian-branches'),
       ] },

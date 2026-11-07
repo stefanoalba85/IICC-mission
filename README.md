@@ -1,6 +1,6 @@
 # IICC Mission — sito web
 
-Sito vetrina statico di **IICC Mission** (Inmate International Catholic Care), **bilingue inglese / italiano**: 132 pagine in inglese, costruite dai mockup definitivi del cliente (le 131 di `Struttura.csv` più Pet Companions Program, aggiunta su richiesta del cliente).
+Sito vetrina statico di **IICC Mission**, **bilingue inglese / italiano**: 131 pagine in inglese, costruite dai mockup definitivi del cliente (le 131 di `Struttura.csv` più Pet Companions Program, aggiunta su richiesta del cliente).
 
 - **Repo:** `git@github.com:stefanoalba85/IICC-mission.git`, branch di lavoro `develop`
 - **Fonte dei contenuti** (fuori dal repo, nella cartella di progetto superiore):
@@ -9,7 +9,7 @@ Sito vetrina statico di **IICC Mission** (Inmate International Catholic Care), *
   - `../Aggiornamenti/` — materiali inviati dal cliente dopo la consegna (nuovi mockup, foto approvate)
 
 **Stato (19 ottobre 2026):**
-- Sito completo: 132 pagine, ottimizzate per mobile, link verificati.
+- Sito completo: 131 pagine, ottimizzate per mobile, link verificati.
 - Prima fase delle correzioni del cliente completata; seconda fase in corso.
 - In attesa di decisione: sito bilingue IT/EN e passaggio a hosting italiano.
 
@@ -24,7 +24,7 @@ Sito vetrina statico di **IICC Mission** (Inmate International Catholic Care), *
 nvm use 22            # Node >= 22.12 (Astro 7.3)
 npm install
 npm run dev           # http://localhost:4321
-npm run build         # genera dist/ (atteso: 132 pagine, zero errori)
+npm run build         # genera dist/ (atteso: 131 pagine, zero errori)
 npm run preview -- --port 4400  # con Astro 7 parte in background: fermarlo con `npx astro preview stop`
 ```
 
@@ -94,7 +94,7 @@ Note sulla corrispondenza con i mockup:
 - **Diciture imposte dal cliente:**
   - "Pet Companions Program", mai "Pet Rescue";
   - "A Catholic Christian global mission";
-  - indirizzo solo "Rome, Italy": "Via delle Milizie 34" è dismesso e non va più usato (il controllo `audit.py` lo segnala);
+  - nessun indirizzo né «Head Office»: "Via delle Milizie 34" è dismesso e non va più usato (il controllo `audit.py` lo segnala);
   - copyright fisso "© 2026 IICC Mission. All Rights Reserved.".
 - **Menu:** per aggiungere una pagina, inserirla in `src/lib/nav.ts`, altrimenti resta irraggiungibile.
 - **Italiano:** le pagine si scrivono solo in inglese; la versione italiana si genera dal catalogo `src/i18n/it.json` (procedura in `docs/traduzioni.md`). I testi negli script vanno messi in attributi `data-t-*`, altrimenti non vengono tradotti.
@@ -140,13 +140,13 @@ Oggi questi elementi sono segnaposto. I link relativi puntano provvisoriamente a
   - l'account PayPal Business (email o merchant ID in `paypal.business`), verificando che dall'Italia si possa pagare con carta senza conto PayPal, anche in modalità mensile; in alternativa i Payment Link Stripe (`stripe`);
   - i dati del bonifico (intestatario, IBAN, BIC, banca, causale);
   - gli URL delle campagne GoFundMe: vanno in `gofundme` per il modulo e nei 22 bottoni del sito che oggi puntano a `gofundme.com` generico.
-- **Contatti:** la sede è solo Roma (fatto). Restano da confermare il **telefono ufficiale**, oggi +39 349 303 6235 nel footer e in 5 pagine, e gli **orari** (fuso Europe/Rome). Le email dei responsabili in Staff & Volunteers vengono dai mockup.
+- **Contatti:** il sito mostra solo email e sito web. Sede, indirizzo, telefono e orari sono stati tolti su richiesta del cliente (7/11/2026) e tornano solo quando confermati.
 - **Dominio definitivo:** canonical e meta OG presumono `https://www.iiccmission.org`. Impostare `site` in `astro.config.mjs`.
 
 **Contenuti da confermare o sostituire**
 - **Persone:**
   - Our Leadership è definitiva.
-  - Staff & Volunteers e Our People usano ancora nomi e foto dei mockup (Fr. Anthony David, Maria Grazia, James Porter, Sr. Lucia Maria, Fr. Michael Tran, Elena Rossi, Daniel McCarthy). Staff & Volunteers sarà rifatta con i dati del cliente (vedi `docs/correzioni-cliente.md`).
+  - Staff & Volunteers e Our People mostrano le stesse tre persone di Our Leadership, senza email personali: i nomi e le foto dei mockup sono stati tolti. Staff & Volunteers sarà rifatta con i dati del cliente (vedi `docs/correzioni-cliente.md`).
 - **Foto ancora da sostituire:** Mission News, Fondatore con Cardinal Pell (Inspired by Faith).
 - **Foto in alta risoluzione:** le 827 immagini sono ritagliate dai mockup (mediana 192px di larghezza).
 - **News ed eventi** (date di maggio–giugno 2025), **statistiche** (18.450+ persone, 92 missioni, 5.200+ volontari…), **testimonianze e storie** (Maria, John, Angela, Michael, Daniel, Ana, James, Sofia), **elenco delle sedi e mappe**.

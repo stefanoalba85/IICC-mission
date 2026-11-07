@@ -83,7 +83,7 @@ const hasBank = Boolean(d.bank.iban);
               {d.gofundme.map(c => <li><a href={c.url} target="_blank" rel="noopener"><strong>{c.title}</strong>{c.text && <span>{c.text}</span>}<span class="dn-campaigns__go">Open campaign ↗</span></a></li>)}
             </ul>
           ) : (
-            <p class="dn-note"><em>Our active campaigns will be listed here soon.</em></p>
+            <p class="dn-note"><em>Our campaigns will be listed here as soon as they open.</em></p>
           )}
         </div>
       </fieldset>

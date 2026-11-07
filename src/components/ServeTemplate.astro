@@ -12,7 +12,7 @@ interface Props {
   reality: string;
   realityTitle?: string;
   quote: string;
-  quoteRef: string;
+  quoteRef?: string;
   realityImg: string;
   supportIntro: string;
   support: { title: string; icon: string; items: string[] }[];
@@ -39,7 +39,7 @@ const p = Astro.props;
     <h2 class="sec-h">{p.realityTitle ?? 'Their Reality'}</h2>
     <p>{p.reality}</p>
   </div>
-  <blockquote>“{p.quote}”<cite>{p.quoteRef}</cite></blockquote>
+  <blockquote>“{p.quote}”{p.quoteRef && <cite>{p.quoteRef}</cite>}</blockquote>
   <img src={p.realityImg} alt="" />
 </section>
 

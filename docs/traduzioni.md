@@ -61,7 +61,7 @@ Scenari verificati nel browser (3/11/2026):
 - **Testo inglese** e **Traduzione italiana**;
 - **Correzione** e **Note**, da compilare a cura del revisore.
 
-Le correzioni ricevute si riportano in `src/i18n/it.json`.
+Le correzioni ricevute si riportano in `src/i18n/it.json` con `npm run i18n:import -- <foglio.xlsx|.csv>` (richiede `openpyxl`; `--dry-run` per provare): controlla i segnaposto ed elenca le righe da gestire a mano. Le note del revisore restano da leggere una per una.
 
 - Testi istituzionali, missione, programmi: revisione coordinata dal cliente.
 - **Privacy Policy, Terms & Conditions, Cookie Policy e informazioni legali delle donazioni:** verifica di un legale prima della pubblicazione definitiva.
@@ -90,7 +90,7 @@ Le correzioni ricevute si riportano in `src/i18n/it.json`.
   - struttura bilingue, selettore IT / EN, lingua al primo ingresso, SEO (hreflang, canonical, sitemap);
   - menu, footer e testi comuni tradotti;
   - pagine pilota Home, Chi siamo, Contatti, Dona.
-- **Fase 2 (3–4/11/2026): tutte le 131 pagine tradotte e pubblicate in italiano, impaginazione verificata.**
+- **Fase 2 (3–4/11/2026): tutte le pagine tradotte e pubblicate in italiano, impaginazione verificata.**
   - Catalogo di circa 6.360 testi (traduzione automatica di partenza, da rivedere).
   - Tutte le 131 pagine sono verificate a 360, 390, 768, 1024, 1440 e 1920 px: nessuna parola spezzata, sovrapposizione o sbordamento (4/11/2026). `LAYOUT_CHECK` è vuoto.
   - Accorgimenti per i testi italiani, più lunghi:
@@ -108,6 +108,7 @@ Le correzioni ricevute si riportano in `src/i18n/it.json`.
   - Ruoli delle persone in forma neutra (es. Presidente).
   - Titoli dei libri: edizione italiana quando esiste (L'imitazione di Cristo, Le lettere di Berlicche, Le Confessioni, Catechismo della Chiesa Cattolica); gli altri restano in inglese.
   - Le linee di ascolto australiane (Lifeline, Beyond Blue…) restano invariate, con la nota «Australia».
+- **Scelte del cliente nella revisione del 7/11/2026:** «Personale e volontari» invece di «Staff e volontari»; «laboratorio di panificazione del carcere» invece di «forno del carcere». Solo in alcune righe compare «persone trattenute nei centri per migranti» invece di «migranti trattenuti» (108 testi): uniformare solo su conferma.
 - **Possibili errori nel testo inglese (tradotti fedelmente, da verificare con il cliente):**
   - Pope Francis: la Porta Santa di Rebibbia è stata aperta nel Giubileo della Speranza (26/12/2024), non in quello «straordinario della Misericordia».
   - UN Human Rights Advocacy: la frase sulla dignità come «fondamento della libertà, della giustizia e della pace» viene dal Preambolo della Dichiarazione universale dei diritti umani, non della Carta delle Nazioni Unite.

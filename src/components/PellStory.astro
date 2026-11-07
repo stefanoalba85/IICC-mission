@@ -5,6 +5,7 @@ import type { IconName } from '../lib/icons';
 interface Props {
   imgDir: string;
   heroQuote: string;
+  heroQuoteRef?: string;
   heroAlt: string;
   pillars: { title: string; icon: IconName; color?: string }[];
   pillarsCaption: string;
@@ -87,7 +88,7 @@ const img = (n: string) => `/images/${imgDir}/${n}.jpg`;
     <span class="eyebrow">Our Story</span>
     <h1 class="ps-hero__title">Inspired by<br /><span class="text-amber">Cardinal<br />George Pell</span></h1>
     <p class="ps-hero__lead">A message of faith, courage and hope that helped bring IICC Mission to life.</p>
-    <p class="ps-hero__quote">{heroQuote}<cite>— Cardinal George Pell</cite></p>
+    <p class="ps-hero__quote">{heroQuote}<cite>— {Astro.props.heroQuoteRef ?? 'Cardinal George Pell'}</cite></p>
   </div>
   {heroAside && (
     <div class="ps-aside">

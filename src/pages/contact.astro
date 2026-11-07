@@ -4,7 +4,6 @@ import Icon from '../components/Icon.astro';
 import type { IconName } from '../lib/icons';
 
 const info: { title: string; lines: string[]; icon: IconName }[] = [
-  { title: 'IICC Mission – Head Office', lines: ['Rome, Italy'], icon: 'pin' },
   { title: 'Email', lines: ['info@iiccmission.org'], icon: 'mail' },
 ];
 ---
@@ -68,7 +67,7 @@ const info: { title: string; lines: string[]; icon: IconName }[] = [
         <textarea class="form-input form-input--textarea full" name="message" placeholder="Your Message *" aria-label="Your message" required></textarea>
         <button type="submit" class="btn btn--amber ct-send full">Send Message <Icon name="share" size={20} /></button>
         <p class="ct-done full" hidden style="text-align:center; color:var(--color-navy); font-weight:700;">Thank you. Your message has been received and we will reply as soon as possible.</p>
-        <p class="ct-privacy full"><Icon name="shield" size={20} /> We respect your privacy. Your information will never be shared.</p>
+        <p class="ct-privacy full"><Icon name="shield" size={20} /> We respect your privacy. Your information is handled in line with our Privacy Policy.</p>
       </form>
     </div>
   </section>
@@ -77,9 +76,8 @@ const info: { title: string; lines: string[]; icon: IconName }[] = [
     <div class="ct-hours">
       <span style="color:var(--color-amber);"><Icon name="calendar" size={96} stroke={1.4} /></span>
       <div>
-        <h2>Office Hours</h2>
-        <p>Rome, Italy<br />Central European Time (CET/CEST)</p>
-        <p style="font-size:1rem; margin-top:0.6rem;">Our office hours will be published here shortly.</p>
+        <h2>Contact Hours</h2>
+        <p style="font-size:1rem; margin-top:0.6rem;">Our contact hours will be published here shortly.</p>
       </div>
     </div>
     <div class="ct-quote">

@@ -22,14 +22,9 @@ const family = [
   { title: 'Our Partners', text: 'Organizations, parishes and supporters who walk with us to expand our mission and impact.', photo: 'partners', href: '/about-us/our-people/professional-partners' },
 ];
 const team = [
-  { name: 'Antonio G. Dattilo', role: 'Ambassador & Founder', text: 'Leads our mission with lived experience, passion and a heart for restoration.' },
-  { name: 'Fr. Anthony David', role: 'Spiritual Director', text: 'Provides spiritual guidance and ensures our mission remains rooted in prayer, faith and the Gospel.' },
-  { name: 'Maria Grazia', role: 'Operations Director', text: 'Oversees programs, operations and the day-to-day running of our mission.' },
-  { name: 'James Porter', role: 'Outreach Director', text: 'Leads outreach initiatives and builds partnerships in communities worldwide.' },
-  { name: 'Sr. Lucia Maria', role: 'Pastoral Care Director', text: 'Coordinates pastoral care and support for individuals and their families.' },
-  { name: 'Fr. Michael Tran', role: 'Chaplaincy Director', text: 'Supports chaplains and pastoral teams in prisons and detention centres.' },
-  { name: 'Elena Rossi', role: 'Legal & Advocacy Director', text: 'Leads legal referral services and advocates for human rights and protection.' },
-  { name: 'Daniel McCarthy', role: 'Finance & Stewardship Director', text: 'Manages resources responsibly and ensures financial sustainability.' },
+  { name: 'Antonio G. Dattilo', role: 'Ambassador & Founder', photo: 'antonio-dattilo', pos: '54% 12%', text: 'Leading the IICC Mission with a vision of faith, hope, justice and restoration for individuals, families and communities across Italy and internationally.' },
+  { name: 'Chaplain Denis Fitzgerald', role: 'Australian National Director & Pastoral Adviser', photo: 'denis-fitzgerald', pos: '55% 12%', text: 'Providing spiritual guidance and pastoral care, supporting the mission’s work across Australia and internationally.' },
+  { name: 'Francesco Dattilo', role: 'President-designate', photo: 'francesco-dattilo', pos: '56% 12%', text: 'Providing strategic leadership and supporting the mission’s development, partnerships and long-term vision.' },
 ];
 ---
 <Layout title="Our People" description="One Mission. Many Hearts. United in Christ.">
@@ -50,12 +45,12 @@ const team = [
     .op-fcard div { padding: 1rem 1rem 0.75rem; display: flex; flex-direction: column; gap: 0.5rem; flex: 1; }
     .op-fcard h3 { font-family: var(--font-heading); color: var(--color-navy); font-size: 1.0625rem; text-transform: uppercase; font-weight: 400; }
     .op-fcard p { font-family: var(--font-heading); font-size: 0.875rem; line-height: 1.55; flex: 1; }
-    .op-team { display: grid; grid-template-columns: repeat(8, 1fr); gap: 0.5rem; margin-top: 1.25rem; }
+    .op-team { display: grid; grid-template-columns: repeat(3, minmax(0, 18rem)); justify-content: center; gap: 0.75rem; margin-top: 1.25rem; }
     .op-member { background: #faf8f4; border-radius: 6px; padding: 0.75rem 0.5rem 1rem; text-align: center; display: flex; flex-direction: column; gap: 0.35rem; }
-    .op-member img { width: 86%; aspect-ratio: 1; border-radius: 50%; object-fit: cover; margin-inline: auto; }
+    .op-member img { width: min(86%, 9rem); aspect-ratio: 1; border-radius: 50%; object-fit: cover; margin-inline: auto; }
     .op-member h3 { font-family: var(--font-heading); color: var(--color-navy); font-size: 0.9375rem; font-weight: 400; margin-top: 0.4rem; }
-    .op-member span { font-family: var(--font-heading); color: var(--color-amber); font-size: 0.75rem; }
-    .op-member p { font-family: var(--font-heading); font-size: 0.72rem; line-height: 1.5; }
+    .op-member span { font-family: var(--font-heading); color: var(--color-amber); font-size: 0.8125rem; }
+    .op-member p { font-family: var(--font-heading); font-size: 0.8125rem; line-height: 1.5; }
     .op-three { display: grid; grid-template-columns: 1.3fr 0.75fr 1.2fr; gap: 0.75rem; }
     .op-card-dark { background: var(--color-navy-dark); color: #fff; border-radius: 6px; overflow: hidden; display: grid; }
     .op-card-dark h2 { font-family: var(--font-heading); color: var(--color-amber); text-transform: uppercase; font-size: 1.125rem; }
@@ -74,11 +69,10 @@ const team = [
       .op-heart__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 1.5rem; }
       .op-heart__item { padding-inline: 0.4rem; border-right: none; min-width: 0; }
       .op-family { grid-template-columns: 1fr 1fr; }
-      .op-team { grid-template-columns: repeat(4, 1fr); }
       .op-three { grid-template-columns: 1fr; }
     }
     @media (max-width: 480px) {
-      .op-team { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .op-team { grid-template-columns: minmax(0, 1fr); }
     }
   </style>
 
@@ -121,8 +115,8 @@ const team = [
       <h2 class="op-h" style="margin-top:2rem;">Our Dedicated Team</h2>
       <span class="heart-rule heart-rule--center" style="max-width:120px;">♥</span>
       <div class="op-team">
-        {team.map((t, i) => (
-          <div class="op-member"><img src={img(`t${i + 1}`)} alt={t.name} /><h3>{t.name}</h3><span>{t.role}</span><p>{t.text}</p></div>
+        {team.map(t => (
+          <div class="op-member"><img src={`/images/our-leadership/${t.photo}.jpg`} alt={t.name} style={`object-position:${t.pos};`} loading="lazy" /><h3>{t.name}</h3><span>{t.role}</span><p>{t.text}</p></div>
         ))}
       </div>
     </div>

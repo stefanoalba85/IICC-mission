@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import NetworkNote from '../components/NetworkNote.astro';
 import Icon from '../components/Icon.astro';
 import type { IconName } from '../lib/icons';
 
@@ -24,7 +25,6 @@ const services: { title: string; text: string; href: string; icon: IconName; bg:
   { title: 'Advocacy', text: 'Giving a voice to the voiceless and raising awareness for change.', href: '/our-services/advocacy', icon: 'megaphone', bg: '#e2621b' },
 ];
 const mission: { title: string; text: string }[] = [
-  { title: 'Head Office', text: 'Rome, Italy' },
   { title: 'National Missions', text: 'Italy - Australia - USA - Canada<br/>San Marino - Monaco' },
   { title: 'State Missions', text: 'Serving states and provinces' },
   { title: 'Regional Missions', text: 'Bringing the mission closer<br/>to local communities' },
@@ -47,10 +47,6 @@ const locations: { flag: string; country: string; cities: string }[] = [
     .hp-hero h1 { font-family: var(--font-heading); font-size: clamp(2.25rem, 4.6vw, 3.4rem); line-height: 1.12; max-width: 560px; }
     .hp-hero p { font-size: 1.0625rem; line-height: 1.5; max-width: 520px; }
     .hp-hero__btns { display: flex; flex-wrap: wrap; gap: 1rem; }
-    .hp-office { position: absolute; right: 1.5rem; bottom: 6rem; width: 230px; background: rgba(18,26,56,0.92); border-radius: 6px; padding: 1rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.25rem; font-size: 0.875rem; }
-    .hp-office :global(svg) { color: var(--color-amber); }
-    .hp-office strong { font-size: 0.875rem; text-transform: uppercase; }
-    .hp-office b { font-size: 1rem; }
     .hp-values { position: relative; margin-top: -4.5rem; z-index: 2; }
     .hp-values__box { background: var(--color-navy-dark); border-radius: 6px; display: grid; grid-template-columns: repeat(5, 1fr); padding-block: 1.1rem; color: #fff; text-align: center; box-shadow: 0 10px 24px rgba(18,26,56,0.25); }
     .hp-values__box > div { padding-inline: 0.75rem; border-right: 1px solid rgba(255,255,255,0.12); display: flex; flex-direction: column; align-items: center; gap: 0.35rem; }
@@ -97,7 +93,7 @@ const locations: { flag: string; country: string; cities: string }[] = [
     .hp-cta h2 { font-family: var(--font-body); text-transform: uppercase; font-size: 1.375rem; }
     .hp-cta p { font-size: 0.9375rem; font-weight: 600; }
     @media (max-width: 960px) {
-      .hp-hero__bg { inset: 0; opacity: 0.35; } .hp-office { display: none; }
+      .hp-hero__bg { inset: 0; opacity: 0.35; }
       .hp-values__box { grid-template-columns: repeat(3, 1fr); row-gap: 1rem; }
       .hp-founder, .hp-global, .hp-media { grid-template-columns: 1fr; }
       .hp-services { grid-template-columns: 1fr 1fr; }
@@ -120,12 +116,6 @@ const locations: { flag: string; country: string; cities: string }[] = [
       <div class="hp-hero__btns">
         <a href="/donate" class="btn btn--amber"><Icon name="heart" size={16} /> Support the Mission</a>
         <a href="/get-involved/ambassador-program" class="btn btn--outline-white"><Icon name="star" size={16} /> Become an Ambassador</a>
-      </div>
-      <div class="hp-office">
-        <Icon name="pin" size={26} />
-        <strong>Head Office</strong>
-        <b>Rome, Italy</b>
-        <span>The global mission centre coordinating our work worldwide.</span>
       </div>
     </div>
   </section>
@@ -163,14 +153,15 @@ const locations: { flag: string; country: string; cities: string }[] = [
       ))}
     </div>
 
+    <div style="margin-block:1rem;"><NetworkNote /></div>
     <div class="hp-global">
       <div class="hp-panel">
         <h3>Our Global Mission</h3>
-        {mission.map((m, i) => <div class="hp-panel__row"><Icon name={i === 0 ? 'pin' : 'people'} size={24} /><div><strong>{m.title}</strong><span set:html={m.text} /></div></div>)}
+        {mission.map((m, i) => <div class="hp-panel__row"><Icon name={'people'} size={24} /><div><strong>{m.title}</strong><span set:html={m.text} /></div></div>)}
       </div>
-      <div class="hp-map"><img src="/images/home/map.jpg" alt="World map of IICC Mission locations: Italy, Australia, USA and Canada" /></div>
+      <div class="hp-map"><img src="/images/home/map.jpg" alt="World map of the areas where IICC Mission plans to develop: Italy, Australia, USA and Canada" /></div>
       <div class="hp-panel">
-        <h3>Our Locations</h3>
+        <h3>Planned Locations</h3>
         {locations.map(l => <div class="hp-panel__row"><span class="hp-flag">{l.flag}</span><div><strong>{l.country}</strong><span set:html={l.cities} /></div></div>)}
       </div>
     </div>

@@ -11,7 +11,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "i18n:extract": "node scripts/i18n/extract.mjs",
-    "i18n:export": "node scripts/i18n/export-csv.mjs"
+    "i18n:export": "node scripts/i18n/export-csv.mjs",
+    "i18n:import": "python3 scripts/i18n/import-review.py"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.4",

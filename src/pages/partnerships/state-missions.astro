@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import NetworkNote from '../../components/NetworkNote.astro';
 import GmHero from '../../components/GmHero.astro';
 import GiIcons from '../../components/GiIcons.astro';
 import GmCta from '../../components/GmCta.astro';
@@ -10,6 +11,7 @@ const img = (n: string) => `/images/partnerships/${n}.jpg`;
 ---
 <Layout title="State Missions Structure" description="Stronger states. Brighter futures.">
   <GmHero kicker="State Missions Structure" title="Stronger<br/>states.<br/><span style='color:#c9741f'>Brighter<br/>futures.</span>" text="Our State Missions bring the IICC Mission closer to communities, ensuring local leadership, practical support and lasting impact for people who are incarcerated, detained and their families." cta1="Our National Missions" cta1Href="/partnerships/national-missions" img={img('st-hero')} alt="The US Capitol at sunset" quote="Real change happens when we are present in local communities — state by state, person by person." />
+  <NetworkNote />
   <GiIcons dark items={[{ icon: 'location-dot', title: 'Local Presence', text: 'State Missions ensure our work is accessible and responsive to local needs.' },{ icon: 'people-group', title: 'Coordinated Support', text: 'Working with churches, chaplains and community organisations.' },{ icon: 'handshake', title: 'Tailored Programs', text: 'Addressing state-specific needs and priorities.' },{ icon: 'chart-column', title: 'Greater Impact', text: 'Building stronger communities and supporting more people state by state.' },{ icon: 'globe', title: 'Part of a Global Mission', text: 'Each State Mission contributes to our worldwide mission of faith, hope, justice and restoration.' }]} />
   <section class="wrap camp-grid" style="display:grid; grid-template-columns:1.4fr 1fr; gap:1.25rem; padding-block:1.25rem;">
     <div><h2 style="font-family:var(--font-heading); color:var(--color-navy); text-transform:uppercase; font-size:1.5rem;"><span style="color:#c9741f;">Example:</span> United States State Missions</h2><p style="font-family:var(--font-heading); color:var(--color-navy); font-size:1.125rem;">4 Area/Zone Missions supervising State Missions</p><img src={img('st-map')} alt="US map coloured by the four zones" style="width:100%; margin-top:0.5rem;" /></div>

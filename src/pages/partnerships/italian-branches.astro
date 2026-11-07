@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import NetworkNote from '../../components/NetworkNote.astro';
 import GmHero from '../../components/GmHero.astro';
 import GiIcons from '../../components/GiIcons.astro';
 import GmCta from '../../components/GmCta.astro';
@@ -10,6 +11,7 @@ const img = (n: string) => `/images/partnerships/${n}.jpg`;
 ---
 <Layout title="Italian Branches" description="Restoring hope. Building futures.">
   <GmHero kicker="Italian Branches" title="Restoring hope.<br/>Building futures." text="The IICC Mission Italian Branches bring faith, compassion and practical support to individuals and communities across Italy. Through local partnerships and life-changing initiatives, we are creating pathways to restoration, dignity and a new beginning." cta1="Our Programs" cta1Href="#focus" img={img('it-hero')} alt="Florence with the Italian flag at sunset" />
+  <NetworkNote />
   <GiIcons dark items={[{ icon: 'hand-holding-heart', title: 'Faith Driven', text: 'Our work is grounded in faith and a love for every person.' },{ icon: 'people-group', title: 'Local Connections', text: 'Working with churches, organisations and communities across Italy.' },{ icon: 'hand-holding-heart', title: 'Practical Support', text: 'Programs that meet real needs and help rebuild lives.' },{ icon: 'cross', title: 'Restoration', text: 'Creating opportunities for healing, growth and second chances.' },{ icon: 'globe', title: 'Part of a Global Mission', text: 'United with IICC Mission branches around the world to create lasting change.' }]} />
   <section class="wrap camp-grid" style="display:grid; grid-template-columns:1fr 1.6fr; gap:1.25rem; padding-block:1.5rem; align-items:center;">
     <div><h2 style="font-family:var(--font-heading); color:var(--color-navy); text-transform:uppercase; font-size:1.375rem;"> About Our Italian Branches</h2><p class="im-p" style="margin-block:0.75rem;">IICC Mission is committed to walking alongside individuals and families facing hardship, incarceration, marginalisation and disadvantage across Italy.</p><p class="im-p">We collaborate with local churches, organisations, volunteers and community leaders to deliver compassionate support, practical assistance and life-changing programs that restore hope and build stronger communities.</p></div>
