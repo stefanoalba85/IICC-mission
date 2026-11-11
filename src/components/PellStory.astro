@@ -6,6 +6,8 @@ interface Props {
   imgDir: string;
   heroQuote: string;
   heroQuoteRef?: string;
+  /** Desk image of the letters section, when it differs from `${imgDir}/letters.jpg` */
+  letters?: { src: string; alt: string; pos?: string };
   heroAlt: string;
   pillars: { title: string; icon: IconName; color?: string }[];
   pillarsCaption: string;
@@ -36,6 +38,9 @@ const img = (n: string) => `/images/${imgDir}/${n}.jpg`;
   .ps-two p { font-size: 0.9375rem; line-height: 1.5; color: var(--color-navy); }
   .ps-badge { width: 3.5rem; height: 3.5rem; border-radius: 50%; background: var(--color-navy); color: #fff; border: 3px solid var(--color-amber); display: flex; align-items: center; justify-content: center; }
   .ps-two__photo { padding: 0 !important; display: block !important; }
+  /* a replacement image larger than the old one must not stretch the section: it fills the row the text sets */
+  .ps-two__photo--fill { position: relative; }
+  .ps-two__photo--fill img { position: absolute; inset: 0; }
   .ps-two__photo img { width: 100%; height: 100%; object-fit: cover; -webkit-mask-image: linear-gradient(90deg, transparent, #000 25%); mask-image: linear-gradient(90deg, transparent, #000 25%); }
   .ps-words { background: #f8f1e4; }
   .ps-words .wrap { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; padding-block: 1.5rem; }
@@ -77,6 +82,7 @@ const img = (n: string) => `/images/${imgDir}/${n}.jpg`;
   @media (max-width: 900px) {
     .ps-hero__bg { inset: 0; opacity: 0.4; } .ps-hero__text { width: 100%; } .ps-aside { display: none; }
     .ps-two, .ps-words .wrap, .ps-birth, .ps-legacy, .ps-cta .wrap { grid-template-columns: 1fr; }
+    .ps-two__photo--fill { aspect-ratio: 2 / 1; }
     .ps-words .wrap > div { border: none; padding: 0.75rem 0; }
     .ps-pillars { grid-auto-flow: row; grid-template-columns: repeat(3, 1fr); row-gap: 1rem; }
   }
@@ -108,7 +114,7 @@ const img = (n: string) => `/images/${imgDir}/${n}.jpg`;
     <span class="ps-badge"><Icon name="mail" size={24} /></span>
     <div><h2>Letters That<br />Crossed Prison Walls</h2><p>During my time in prison, I reconnected with Cardinal Pell. We exchanged letters and shared ideas about the needs of prisoners, their families, and the responsibility of the Church to accompany them.</p><p style="font-weight:700; margin-top:0.4rem;">He listened. He cared. And he encouraged me to keep going.</p></div>
   </div>
-  <div class="ps-two__photo"><img src={img('letters')} alt="Letters and a photograph of Antonio G. Dattilo with Cardinal Pell" /></div>
+  <div class:list={['ps-two__photo', { 'ps-two__photo--fill': Astro.props.letters }]}><img src={Astro.props.letters?.src ?? img('letters')} alt={Astro.props.letters?.alt ?? 'Letters and a photograph of Antonio G. Dattilo with Cardinal Pell'} style={Astro.props.letters?.pos ? `object-position:${Astro.props.letters.pos};` : undefined} /></div>
 </section>
 
 <section class="ps-words">
